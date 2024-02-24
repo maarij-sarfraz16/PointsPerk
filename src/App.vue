@@ -1,17 +1,19 @@
 <template>
-  <HelloWorld />
+  <HomePage />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 
-export default {
-  name: "App",
+  import HomePage from "./components/HomePage.vue";
 
-  components: {
-    HelloWorld,
-  },
-};
+  export default {
+    name: "App",
+
+    components: {
+      HomePage,
+    },
+  };
+
 </script>
 
 <style scoped></style>
