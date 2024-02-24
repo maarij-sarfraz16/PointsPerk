@@ -1,19 +1,22 @@
 <template>
-  <HomePage />
+  <v-app>
+    <v-main>
+      <HomePage />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
+import HomePage from "./components/HomePage.vue";
+export default {
+  name: "App",
 
-  import HomePage from "./components/HomePage.vue";
+  components: {
+    HomePage,
+  },
 
-  export default {
-    name: "App",
-
-    components: {
-      HomePage,
-    },
-  };
-
+  data: () => ({
+    //
+  }),
+};
 </script>
-
-<style scoped></style>
