@@ -5,7 +5,7 @@
         <v-card
           width="400"
           title="Points Perk"
-          text="Money Money ho jayegi dkhna"
+          text="Money Money nahi ho jayegi dkhna!"
           variant="elevated"
           color="indigo"
         ></v-card>
