@@ -1,13 +1,7 @@
 <template>
-  <v-card
-
-    color="grey-lighten-4"
-    flat
-    height="200px"
-    rounded="0"
-  >
+  <v-card color="grey-lighten-4" flat height="200px" rounded="0">
     <v-toolbar density="compact">
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon> </v-app-bar-nav-icon>
 
       <v-toolbar-title>Title</v-toolbar-title>
 
@@ -25,7 +19,6 @@
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
     </v-toolbar>
-
   </v-card>
 </template>
 

@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import HomePage from "./components/HomePage.vue";
-import NavBar from "./components/NavBar.vue";
+import HomePage from "./components/Pages/HomePage.vue";
+import NavBar from "./components/Global/NavBar.vue";
 
 export default {
   name: "App",
