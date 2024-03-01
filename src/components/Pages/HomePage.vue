@@ -4,10 +4,10 @@
       <VCol cols="12" sm="6" md="4" lg="3">
         <v-card
           width="400"
-          title="Points Perk"
-          text="Money Money nahi ho jayegi dkhna!"
+          title="Redemption Points"
+          text=""
           variant="elevated"
-          color="indigo"
+          color="#F37973"
         ></v-card>
       </VCol>
     </VRow>
