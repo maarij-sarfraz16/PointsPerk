@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <!-- parent listens to toggleDrawer and executes a func "toggleDrawer" -->
   <v-app-bar> <NavBar @toggleDrawer="toggleDrawer" /> </v-app-bar>
 
@@ -19,6 +20,21 @@
       </v-row>
     </v-container>
   </v-main>
+=======
+  <vContainer>
+    <VRow justify="start">
+      <VCol cols="12" sm="6" md="4" lg="3">
+        <v-card
+          width="400"
+          title="Redemption Points"
+          text=""
+          variant="elevated"
+          color="indig"
+        ></v-card>
+      </VCol>
+    </VRow>
+  </vContainer>
+>>>>>>> 9ec66fa19d3f66a39b73dd7ccf94b07bc17d5afb
 </template>
 
 <script>
