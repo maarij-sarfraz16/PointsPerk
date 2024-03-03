@@ -7,7 +7,7 @@
           title="Redemption Points"
           text=""
           variant="elevated"
-          color="#F37973"
+          color="indig"
         ></v-card>
       </VCol>
     </VRow>

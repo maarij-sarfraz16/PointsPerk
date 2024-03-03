@@ -1,0 +1,29 @@
+[33mcommit acff62eab7ef3399395646660e9af7f944a97ee1[m[33m ([m[1;31mupstream/MainCode[m[33m)[m
+Author: Hassan Iftikhar <144235442+hassan-iftikhar00@users.noreply.github.com>
+Date:   Sat Mar 2 16:17:49 2024 +0500
+
+    removed extra folders and files :)
+
+[33mcommit af8af5c1c7becd4e256bc3488df1552a56355678[m
+Merge: e1e4e8f d254255
+Author: Hassan Iftikhar <144235442+hassan-iftikhar00@users.noreply.github.com>
+Date:   Sat Mar 2 15:47:51 2024 +0500
+
+    Merge pull request #6 from ZainabSalman612/MainCode
+    
+    Added Sidebar
+
+[33mcommit d254255e30994f6c856feb72eea9ff0672a7e802[m
+Author: Zainab <zainabsalman.work@gmail.com>
+Date:   Sat Mar 2 02:34:52 2024 +0500
+
+    Added Sidebar
+
+[33mcommit e1e4e8fa6ca0df81693f741e0fb9424a494912ea[m
+Merge: fd239b1 7971aac
+Author: Hassan Iftikhar <144235442+hassan-iftikhar00@users.noreply.github.com>
+Date:   Fri Mar 1 20:52:16 2024 +0500
+
+    Merge pull request #5 from maarij-sarfraz16/MainCode
+    
+    working on navbar
