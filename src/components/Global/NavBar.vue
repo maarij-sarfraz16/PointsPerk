@@ -1,25 +1,32 @@
 <template>
- <div>
-    <v-toolbar
-      color="coral"
-      dark
-      prominent
-    >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+  <div>
+     <v-toolbar
+       color="#7DA0FA"
+       dark
+       prominent
+     >
+       <v-img src="../assets/Emblem.png" alt="Logo"  class="mr-0 pr-0"/>
 
-      <v-img src="../assets/Emblem.png" alt="Logo"/>
+       <v-app-bar-nav-icon  class="ml-0 pl-0"></v-app-bar-nav-icon>
+ <v-spacer></v-spacer>
+ <v-spacer></v-spacer>
+ 
 
-      <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-export</v-icon>
-      </v-btn>
-    </v-toolbar>
-  </div>
-</template>
-
-<script>
-export default {
-  name: "NavBar",
-};
-</script>
+       <v-btn icon>
+         <v-icon> <v-img src="../assets/pfp.png" alt="pfp" /></v-icon>
+         
+       </v-btn>
+     </v-toolbar>
+   </div>
+ </template>
+ 
+ <script>
+ export default {
+   name: "NavBar",
+ };
+ </script>
+ 
+ <style>
+ 
+ </style>
