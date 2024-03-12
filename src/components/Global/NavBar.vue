@@ -15,7 +15,13 @@
     <v-spacer></v-spacer>
 
     <v-btn icon>
-      <v-icon @click="NavigateToLogin">mdi-export</v-icon>
+      <v-icon @click="NavigateToLogin">
+      <v-img
+      src="../../../assets/pfp.png"
+      alt="pfp"
+      
+      />
+      </v-icon>
     </v-btn>
 
   </v-toolbar>
