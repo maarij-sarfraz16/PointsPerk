@@ -6,6 +6,10 @@ import { createRouter, createWebHistory } from "vue-router"; // Import createRou
 
 import HomePage from "./components/Pages/HomePage.vue";
 import LoginPage from "./components/Pages/LoginPage.vue";
+import RedemptionHistory from "@/components/Pages/RedemptionHistory.vue";
+import ProfileSettings from  "@/components/Pages/ProfileSettings.vue"
+
+
 
 loadFonts();
 
@@ -14,6 +18,8 @@ const router = createRouter({
   routes: [
     { path: "/", component: HomePage },
     { path: "/login", component: LoginPage },
+    {path:  '/history', component: RedemptionHistory},
+    {path: '/settings', component: ProfileSettings},
   ],
 });
 
