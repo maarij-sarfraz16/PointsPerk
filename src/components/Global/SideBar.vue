@@ -12,7 +12,7 @@
           <v-list>
             
             <router-link to="/" exact  class="router-link">
-              <v-list-item class="option-item" :class="{ 'active': $route.path === '/' }">
+              <v-list-item :to="{ path: '/' }" exact active-class="active" class="option-item">
                 <v-list-item-icon class="option-icon"><v-icon>mdi-view-dashboard</v-icon></v-list-item-icon>
                 <v-list-item-content class="option-text">Dashboard</v-list-item-content>
               </v-list-item>
@@ -21,7 +21,7 @@
             <v-row class="option-space"></v-row>
 
             <router-link to="/history" exact class="router-link">
-              <v-list-item class="option-item" :class="{ 'active': $route.path === '/history' }">
+              <v-list-item :to="{ path: '/history' }" exact active-class="active" class="option-item">
                 <v-list-item-icon class="option-icon"><v-icon>mdi-history</v-icon></v-list-item-icon>
                 <v-list-item-content class="option-text">Redemption History</v-list-item-content>
               </v-list-item>
@@ -30,7 +30,7 @@
             <v-row class="option-space"></v-row>
 
             <router-link to="/settings" exact class="router-link">
-              <v-list-item class="option-item" :class="{ 'active': $route.path === '/settings' }">
+              <v-list-item :to="{ path: '/settings' }" exact active-class="active" class="option-item">
                 <v-list-item-icon class="option-icon"><v-icon>mdi-cog</v-icon></v-list-item-icon>
                 <v-list-item-content class="option-text">Profile Settings</v-list-item-content>
               </v-list-item>
