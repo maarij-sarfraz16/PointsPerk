@@ -85,6 +85,9 @@
 .option-item.active .option-icon {
   color: white;
 }
+.option-item.active:hover {
+  background-color: #4b49ac;
+}
 .option-icon {
   color: #4b49ac;
   margin-right: 8px; 
