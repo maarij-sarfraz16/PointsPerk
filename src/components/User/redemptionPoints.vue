@@ -5,7 +5,7 @@
       <v-col cols="4">
         <v-card class="d-flex align-center justify-center">
           <v-card-title>Redemption Points</v-card-title>
-          <v-img src="../../../../assets/coin.svg" width="5"></v-img>
+          <v-img src="../../../assets/coin.svg" width="5"></v-img>
         </v-card>
       </v-col>
 
