@@ -16,6 +16,8 @@
   import SideBar from "../global_components/SideBar.vue";
   import redemptionPoints from "./redemptionPoints.vue";
 
+  import { useRoute, useRouter } from 'vue-router';
+
   export default {
     
     name: "HomePage",
@@ -24,6 +26,32 @@
       SideBar,
       redemptionPoints,
      
+    },
+
+    setup() {
+      const router = useRouter();
+      const route = useRoute();
+
+      const checkAuthentication = () => {
+        if (!localStorage.getItem('token')) {
+          router.push('/login');
+        }
+      };
+
+      checkAuthentication();
+
+      return {
+        route
+      };
+    },
+
+    beforeRouteEnter(to, from, next) {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        next('/login');
+      } else {
+        next();
+      }
     },
 
     data() {
