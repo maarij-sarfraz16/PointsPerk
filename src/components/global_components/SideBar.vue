@@ -1,12 +1,8 @@
 <template>
-  <v-navigation-drawer v-model="localDrawer" app class="rounded-sidebar">
+  <v-navigation-drawer v-model="localDrawer" app class="rounded-sidebar custom-drawer">
     <v-container>
 
-      <v-row>
-        <v-col cols="12">
-          <v-img src="assets/logo-with-text.png" alt="Logo" />
-        </v-col>
-      </v-row>
+      
 
       <v-row>
         <v-col cols="12">
@@ -45,7 +41,9 @@
 
       <v-row rows="16">
         <v-col cols="12" class="text-center">
-          <v-btn color="#4B49AC">Log Out</v-btn>
+          <router-link to="/login">
+            <v-btn color="#4B49AC">Log Out</v-btn>
+          </router-link>
         </v-col>
       </v-row>
 
@@ -68,7 +66,7 @@
   }
   .option-text {
     color: #46464f;
-    font-size: 16px; 
+    font-size: 11px; 
     font-weight: light;
   }
   .option-item {
@@ -93,11 +91,16 @@
   }
   .option-icon {
     color: #4b49ac;
-    margin-right: 8px; 
+    margin-right: 5px; 
   }
   .rounded-sidebar {
     border-radius: 16px;
+    width:60px;
   }
+  .custom-drawer {
+  width: 250px;
+  max-width: 200px;
+}
   .active {
     background-color: #4b49ac;
     color: white;
