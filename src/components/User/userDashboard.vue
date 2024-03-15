@@ -5,16 +5,16 @@
   <v-main>
     <SideBar :drawer="drawer" />
     <v-container>
-       <redemptionPoints/> 
-      </v-container>
+      <redemptionPoints/> 
+    </v-container>
   </v-main>
 </template>
 
 <script>
 
-  import NavBar from "../Global/NavBar.vue";
-  import SideBar from "../Global/SideBar.vue";
-  import redemptionPoints from "./userDashBoard/redemptionPoints.vue";
+  import NavBar from "../global_components/NavBar.vue";
+  import SideBar from "../global_components/SideBar.vue";
+  import redemptionPoints from "./redemptionPoints.vue";
 
   export default {
     

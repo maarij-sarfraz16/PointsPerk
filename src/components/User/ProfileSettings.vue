@@ -7,7 +7,7 @@
         <v-container>
           <v-row>
             <v-col cols="12">
-              <h1 class="text-style">Redemption History</h1>
+              <h1 class="text-style">Profile settings</h1>
             </v-col>
           </v-row>
         </v-container>
@@ -16,8 +16,8 @@
   </template>
   
   <script>
-  import SideBar from '@/components/Global/SideBar.vue';
-  import NavBar from '@/components/Global/NavBar.vue';
+  import SideBar from '@/components/global_components/SideBar.vue';
+  import NavBar from '@/components/global_components/NavBar.vue';
   
   export default {
     components: {

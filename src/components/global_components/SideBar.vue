@@ -1,6 +1,7 @@
 <template>
   <v-navigation-drawer v-model="localDrawer" app class="rounded-sidebar">
     <v-container>
+
       <v-row>
         <v-col cols="12">
           <v-img src="assets/logo-with-text.png" alt="Logo" />
@@ -35,6 +36,7 @@
                 <v-list-item-content class="option-text">Profile Settings</v-list-item-content>
               </v-list-item>
             </router-link>
+
           </v-list>
         </v-col>
       </v-row>
@@ -46,62 +48,63 @@
           <v-btn color="#4B49AC">Log Out</v-btn>
         </v-col>
       </v-row>
+
     </v-container>
   </v-navigation-drawer>
 </template>
 
 <style scoped>
-.spacer-row {
-  height: 160px;
-  flex-grow: 1;
-}
-.text-center{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.option-space{
-  height: 20px
-}
-.option-text {
-  color: #46464f;
-  font-size: 16px; 
-  font-weight: light;
-}
-.option-item {
-  border-radius: 8px;
-  margin-bottom: 10px;
-  color: transparent;
-  cursor: pointer;
-}
-.option-item:hover {
-  background-color: #f0f0f0;
-}
-.router-link-active .option-item {
-  color: #4b49ac;
-  
-}
-.option-item.active .option-text,
-.option-item.active .option-icon {
-  color: white;
-}
-.option-item.active:hover {
-  background-color: #4b49ac;
-}
-.option-icon {
-  color: #4b49ac;
-  margin-right: 8px; 
-}
-.rounded-sidebar {
-  border-radius: 16px;
-}
-.active {
-  background-color: #4b49ac;
-  color: white;
-}
-.router-link {
-  text-decoration: none;
-}
+  .spacer-row {
+    height: 160px;
+    flex-grow: 1;
+  }
+  .text-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .option-space{
+    height: 20px
+  }
+  .option-text {
+    color: #46464f;
+    font-size: 16px; 
+    font-weight: light;
+  }
+  .option-item {
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: transparent;
+    cursor: pointer;
+  }
+  .option-item:hover {
+    background-color: #f0f0f0;
+  }
+  .router-link-active .option-item {
+    color: #4b49ac;
+    
+  }
+  .option-item.active .option-text,
+  .option-item.active .option-icon {
+    color: white;
+  }
+  .option-item.active:hover {
+    background-color: #4b49ac;
+  }
+  .option-icon {
+    color: #4b49ac;
+    margin-right: 8px; 
+  }
+  .rounded-sidebar {
+    border-radius: 16px;
+  }
+  .active {
+    background-color: #4b49ac;
+    color: white;
+  }
+  .router-link {
+    text-decoration: none;
+  }
 </style>
 
 <script>
