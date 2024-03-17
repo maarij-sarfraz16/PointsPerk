@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "both": "concurrently \"npm run serve\" \"nodemon backend/index.js\""
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
@@ -22,6 +23,7 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "concurrently": "^8.2.2",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "vue-cli-plugin-vuetify": "~2.5.8",
