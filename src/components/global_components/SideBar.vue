@@ -137,6 +137,9 @@
   .rounded-sidebar {
     border-radius: 16px;
     width:60px;
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left: 10px;
   }
   .custom-drawer {
     width: 250px;
