@@ -14,7 +14,7 @@
     <v-spacer></v-spacer>
 
     <v-btn icon>
-      <v-icon @click="NavigateToLogin">
+      <v-icon>
         <v-img src="../../../assets/pfp.png" alt="pfp" />
       </v-icon>
     </v-btn>
@@ -27,7 +27,7 @@ export default {
 
   methods: {
     toggleDrawer() {
-      this.$emit("toggleDrawer"); //event names toggleDrawer is emmited to parent
+      this.$emit("toggleDrawer");
     },
 
     NavigateToLogin() {

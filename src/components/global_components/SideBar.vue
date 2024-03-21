@@ -2,8 +2,6 @@
   <v-navigation-drawer v-model="localDrawer" app class="rounded-sidebar custom-drawer">
     <v-container>
 
-      
-
       <v-row>
         <v-col cols="12">
           <v-list>
@@ -42,7 +40,7 @@
       <v-row rows="16">
         <v-col cols="12" class="text-center">
           <router-link to="/login">
-            <v-btn color="#4B49AC">Log Out</v-btn>
+            <v-btn color="#4B49AC" @click="handleLogout">Log Out</v-btn>
           </router-link>
         </v-col>
       </v-row>
@@ -50,6 +48,49 @@
     </v-container>
   </v-navigation-drawer>
 </template>
+
+<script>
+
+  import { useRouter } from 'vue-router';
+
+  export default {
+
+    setup() {
+      const router = useRouter();
+
+      const handleLogout = () => {
+        localStorage.removeItem('token');
+        router.push('/login');
+      };
+
+      return {
+        handleLogout
+      };
+    },
+    
+    name: "SideBar",
+
+    props: {
+      drawer: {
+        type: Boolean,
+        default: false,
+      },
+    },
+
+    data() {
+      return {
+        localDrawer: this.drawer,
+      };
+    },
+
+    watch: {
+      drawer(newValue) {
+        this.localDrawer = newValue;
+      },
+    },
+
+  };
+</script>
 
 <style scoped>
   .spacer-row {
@@ -101,9 +142,9 @@
     margin-left: 10px;
   }
   .custom-drawer {
-  width: 250px;
-  max-width: 200px;
-}
+    width: 250px;
+    max-width: 200px;
+  }
   .active {
     background-color: #4b49ac;
     color: white;
@@ -112,31 +153,3 @@
     text-decoration: none;
   }
 </style>
-
-<script>
-
-  export default {
-    
-    name: "SideBar",
-
-    props: {
-      drawer: {
-        type: Boolean,
-        default: false,
-      },
-    },
-
-    data() {
-      return {
-        localDrawer: this.drawer,
-      };
-    },
-
-    watch: {
-      drawer(newValue) {
-        this.localDrawer = newValue;
-      },
-    },
-
-  };
-</script>
