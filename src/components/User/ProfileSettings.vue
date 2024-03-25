@@ -50,9 +50,9 @@ export default {
   margin-bottom: 20px;
   margin-left: 10px;
   height: 100%;
-  max: width 100%; ;
+  max-width: 100%;
   }
   .main{
     background-color: lightgray;
   }
-  </style>
+</style>
