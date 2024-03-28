@@ -7,7 +7,7 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 
 
-const JWT_SECRET = 'pointsperk';
+const JWT_SECRET = 'points-perk';
 
 
 // ROUTE 1: Creating a User using POST "/api/auth/createuser"
