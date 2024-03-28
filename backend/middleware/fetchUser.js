@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'pointsperk';
+const JWT_SECRET = 'points-perk';
 
 const fetchUser = (req, res, next) => {
 
