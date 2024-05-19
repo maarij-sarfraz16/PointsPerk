@@ -9,6 +9,14 @@
     @click="onClick"
   >
     <NavTitle class="ninjadash-sidebar-nav-title">Pages</NavTitle>
+    <a-menu-item @click="toggleCollapsed" key="dashboard">
+      <template #icon>
+        <unicon name="dashboard"></unicon>
+      </template>
+      <router-link to="/dashboard">
+        {{ t("Dashboard") }}
+      </router-link>
+    </a-menu-item>
     <a-sub-menu key="settings">
       <template #icon>
         <unicon name="setting"></unicon>
@@ -34,29 +42,8 @@
           Notification
         </router-link>
       </a-menu-item>
-
-    </a-sub-menu> -->
-        <a-menu-item @click="toggleCollapsed" key="dashboard">
-            <template #icon>
-                <unicon name="circle"></unicon>
-            </template>
-            <router-link to="/dashboard">
-                {{ t('blank') }} {{ t('page') }}
-            </router-link>
-        </a-menu-item>
-    </a-menu>
-
     </a-sub-menu>
-    <a-menu-item @click="toggleCollapsed" key="starter">
-      <template #icon>
-        <unicon name="circle"></unicon>
-      </template>
-      <router-link to="/starter">
-        {{ t("blank") }} {{ t("page") }}
-      </router-link>
-    </a-menu-item>
   </a-menu>
-
 </template>
 <script>
 import {
@@ -71,8 +58,10 @@ import {
 import VueTypes from "vue-types";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-//import { NavTitle } from "./style";
 import { useI18n } from "vue-i18n";
+
+// Uncomment or import NavTitle if it's a custom component
+// import NavTitle from './path/to/NavTitle';
 
 export default defineComponent({
   name: "AsideItems",
@@ -81,7 +70,8 @@ export default defineComponent({
     events: VueTypes.object,
   },
   components: {
-    //NavTitle,
+    // Uncomment if NavTitle is a custom component
+    // NavTitle,
   },
   setup(props) {
     const { t } = useI18n();
@@ -98,7 +88,7 @@ export default defineComponent({
       modeChangeSideNav,
     } = events.value;
 
-    const router = computed(() => useRoute());
+    const router = useRoute();
     const state = reactive({
       rootSubmenuKeys: ["sub1", "sub2", "sub4"],
       selectedKeys: ["home"],
@@ -118,19 +108,19 @@ export default defineComponent({
     };
 
     watchEffect(() => {
-      if (router.value.matched.length) {
-        if (router.value.matched.length > 2) {
-          state.selectedKeys = [router.value.matched[2].name];
-          state.openKeys = [router.value.matched[1].name];
-          state.preOpenKeys = [router.value.matched[1].name];
-        } else if (router.value.matched.length > 3) {
-          state.selectedKeys = [router.value.matched[3].name];
-          state.openKeys = [router.value.matched[1].name];
-          state.preOpenKeys = [router.value.matched[1].name];
+      if (router.matched.length) {
+        if (router.matched.length > 2) {
+          state.selectedKeys = [router.matched[2].name];
+          state.openKeys = [router.matched[1].name];
+          state.preOpenKeys = [router.matched[1].name];
+        } else if (router.matched.length > 3) {
+          state.selectedKeys = [router.matched[3].name];
+          state.openKeys = [router.matched[1].name];
+          state.preOpenKeys = [router.matched[1].name];
         } else {
-          state.selectedKeys = [router.value.matched[1].name];
-          state.openKeys = [router.value.matched[1].name];
-          state.preOpenKeys = [router.value.matched[1].name];
+          state.selectedKeys = [router.matched[1].name];
+          state.openKeys = [router.matched[1].name];
+          state.preOpenKeys = [router.matched[1].name];
         }
       }
     });

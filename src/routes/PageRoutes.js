@@ -1,10 +1,9 @@
-
 export default [
   {
-
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import(/* webpackChunkName: "Blank" */ '@/view/dashboard/Dashboard.vue'),
+    path: "/dashboard",
+    name: "Dashboard",
+    component: () =>
+      import(/* webpackChunkName: "Blank" */ "@/view/dashboard/Dashboard.vue"),
   },
   // {
   //   path: '/page',
@@ -44,12 +43,12 @@ export default [
   //     },
   //   ],
   // },
-
-    path: "/starter",
-    name: "starter",
-    component: () =>
-      import(/* webpackChunkName: "Blank" */ "@/view/pages/BlankPage.vue"),
-  },
+  // {
+  //   path: "/starter",
+  //   name: "starter",
+  //   component: () =>
+  //     import(/* webpackChunkName: "Blank" */ "@/view/pages/BlankPage.vue"),
+  // },
   {
     path: "/page",
     name: "settings",
@@ -100,5 +99,4 @@ export default [
       },
     ],
   },
-
 ];

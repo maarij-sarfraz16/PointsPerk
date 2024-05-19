@@ -1,10 +1,13 @@
-import PageRoutes from './PageRoutes';
+import PageRoutes from "./PageRoutes";
 
 const routes = [
   {
-    path: '',
-    name: 'dashboard',
-    component: () => import(/* webpackChunkName: "Dashboard" */ '@/view/dashboard/DemoNine.vue'),
+    path: "/dashboard",
+    name: "dashboard",
+    component: () =>
+      import(
+        /* webpackChunkName: "Dashboard" */ "@/view/dashboard/DemoNine.vue"
+      ),
   },
   ...PageRoutes,
 ];
