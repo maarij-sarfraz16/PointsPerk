@@ -37,6 +37,18 @@
           Notification
         </router-link>
       </a-menu-item>
+
+    </a-sub-menu> -->
+        <a-menu-item @click="toggleCollapsed" key="dashboard">
+            <template #icon>
+                <unicon name="circle"></unicon>
+            </template>
+            <router-link to="/dashboard">
+                {{ t('blank') }} {{ t('page') }}
+            </router-link>
+        </a-menu-item>
+    </a-menu>
+
     </a-sub-menu>
     <a-menu-item @click="toggleCollapsed" key="starter">
       <template #icon>
@@ -47,6 +59,7 @@
       </router-link>
     </a-menu-item>
   </a-menu>
+
 </template>
 <script>
 import {
