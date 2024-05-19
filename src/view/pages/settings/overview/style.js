@@ -1,5 +1,23 @@
 import Styled from "vue3-styled-components";
 
+const AlertList = Styled.div`
+    margin-top: -15px;
+    .alert-empty-message{
+        .ant-alert{
+            padding: 14.5px 20px 14.5px!important;
+            &.ant-alert-no-icon{
+                padding: 14.5px 20px 14.5px!important;
+            }
+        }
+        .ant-alert-icon{
+            top: 15px !important;
+        }
+        .ant-alert-message{
+            display: none !important;
+        }
+    }
+`;
+
 const ProfileAuthorBox = Styled.div`
     .ant-card-body{
         padding: 25px 0 25px !important;
@@ -439,6 +457,7 @@ const NotificationWrapper = Styled.div`
 `;
 
 export {
+  AlertList,
   ProfileAuthorBox,
   SettingWrapper,
   AccountWrapper,

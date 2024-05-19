@@ -5,7 +5,15 @@
         <div class="setting-card-title">
           <sdHeading as="h4">Account Settings</sdHeading>
 
-          <Alerts> </Alerts>
+          <Alerts
+            :outlined="false"
+            :closable="false"
+            :showIcon="true"
+            message="Warning"
+            description="Username and email address can not be changed"
+            type="warning"
+          >
+          </Alerts>
         </div>
       </template>
 
@@ -26,6 +34,7 @@
                         <a-input
                           v-model:value="formState.username"
                           @change="handleChange"
+                          disabled="true"
                         />
                       </a-form-item>
                       <p>
@@ -34,7 +43,10 @@
                         }}</span>
                       </p>
                       <a-form-item label="Email">
-                        <a-input v-model:value="formState.email" />
+                        <a-input
+                          v-model:value="formState.email"
+                          disabled="true"
+                        />
                       </a-form-item>
                     </div>
                   </a-col>
@@ -97,32 +109,6 @@ import { reactive, defineComponent } from "vue";
 const Account = defineComponent({
   name: "Account",
   components: { AccountWrapper, BasicFormWrapper, Alerts },
-
-  props: {
-    message: {
-      type: String,
-      default: "Your aoes here",
-    },
-    type: {
-      type: String,
-      default: "success", // Default value for the type prop
-      validator: function (value) {
-        // Custom validator function to ensure the value is one of the allowed types
-        return ["success", "info", "warning", "error"].includes(value);
-      },
-    },
-    showIcon: {
-      type: Boolean,
-      default: false, // Default value for the showIcon prop
-    },
-    closable: {
-      type: Boolean,
-      default: false, // Default value for the closable prop
-    },
-    closeText: {
-      type: String, // Type for the closeText prop, no default value specified
-    },
-  },
 
   data() {
     const name = "clayton";

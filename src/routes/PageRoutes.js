@@ -14,14 +14,6 @@ export default [
       ),
     children: [
       {
-        path: "profile-settings",
-        name: "profile-settings",
-        component: () =>
-          import(
-            /* webpackChunkName: "Profile" */ "@/view/pages/settings/overview/Profile.vue"
-          ),
-      },
-      {
         path: "profile-settings/profile",
         name: "set-profile",
         component: () =>

@@ -14,9 +14,6 @@
         <unicon name="setting"></unicon>
       </template>
       <template #title>Settings</template>
-      <a-menu-item @click="toggleCollapsed" key="profile-settings">
-        <router-link to="/page/profile-settings"> Settings </router-link>
-      </a-menu-item>
 
       <a-menu-item @click="toggleCollapsed" key="set-profile">
         <router-link to="/page/profile-settings/profile"> Profile </router-link>
