@@ -1,8 +1,9 @@
+
 export default [
   {
-    path: '/starter',
-    name: 'starter',
-    component: () => import(/* webpackChunkName: "Blank" */ '@/view/pages/BlankPage.vue'),
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: () => import(/* webpackChunkName: "Blank" */ '@/view/dashboard/Dashboard.vue'),
   },
   // {
   //   path: '/page',
@@ -42,5 +43,4 @@ export default [
   //     },
   //   ],
   // },
-
 ];

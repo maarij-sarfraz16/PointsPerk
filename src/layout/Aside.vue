@@ -38,11 +38,11 @@
         </router-link>
       </a-menu-item>
     </a-sub-menu> -->
-        <a-menu-item @click="toggleCollapsed" key="starter">
+        <a-menu-item @click="toggleCollapsed" key="dashboard">
             <template #icon>
                 <unicon name="circle"></unicon>
             </template>
-            <router-link to="/starter">
+            <router-link to="/dashboard">
                 {{ t('blank') }} {{ t('page') }}
             </router-link>
         </a-menu-item>
