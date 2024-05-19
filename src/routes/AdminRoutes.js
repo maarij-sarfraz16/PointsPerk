@@ -3,8 +3,8 @@ import PageRoutes from './PageRoutes';
 const routes = [
   {
     path: '',
-    name: 'blank-page',
-    component: () => import(/* webpackChunkName: "Dashboard" */ '@/view/pages/BlankPage.vue'),
+    name: 'dashboard',
+    component: () => import(/* webpackChunkName: "Dashboard" */ '@/view/dashboard/DemoNine.vue'),
   },
   ...PageRoutes,
 ];
