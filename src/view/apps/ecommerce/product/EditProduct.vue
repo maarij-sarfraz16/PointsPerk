@@ -158,7 +158,7 @@
     </a-row>
   </Main>
 </template>
-<script>
+<script lang="jsx">
 import { Main, BasicFormWrapper } from "../../../styled";
 import { AddProductForm } from "../Style";
 import { ref, reactive, defineComponent } from "vue";

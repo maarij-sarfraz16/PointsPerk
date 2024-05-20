@@ -31,7 +31,7 @@
     </a-form>
   </CouponForm>
 </template>
-<script>
+<script lang="jsx">
 import { computed, onMounted, reactive, ref } from "vue";
 import { useStore } from "vuex";
 import { FigureCart, ProductTable, CouponForm } from "../Style";

@@ -53,7 +53,7 @@
     </sdCards>
   </BorderLessHeading>
 </template>
-<script>
+<script lang="jsx">
 import { computed, defineComponent, ref } from "vue";
 import { RecentSellerStyle } from "./Style";
 import { BorderLessHeading, TableDefaultStyle } from "../../../styled";

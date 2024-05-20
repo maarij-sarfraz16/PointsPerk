@@ -108,19 +108,12 @@ export default defineComponent({
     };
 
     watchEffect(() => {
-      if (router.matched.length) {
-        if (router.matched.length > 2) {
-          state.selectedKeys = [router.matched[2].name];
-          state.openKeys = [router.matched[1].name];
-          state.preOpenKeys = [router.matched[1].name];
-        } else if (router.matched.length > 3) {
-          state.selectedKeys = [router.matched[3].name];
-          state.openKeys = [router.matched[1].name];
-          state.preOpenKeys = [router.matched[1].name];
-        } else {
-          state.selectedKeys = [router.matched[1].name];
-          state.openKeys = [router.matched[1].name];
-          state.preOpenKeys = [router.matched[1].name];
+      if (router.matched && router.matched.length) {
+        const matchedRoute = router.matched[1];
+        if (matchedRoute) {
+          state.selectedKeys = [matchedRoute.name];
+          state.openKeys = [matchedRoute.name];
+          state.preOpenKeys = [matchedRoute.name];
         }
       }
     });

@@ -133,7 +133,7 @@
     </a-row>
   </Main>
 </template>
-<script>
+<script lang="jsx">
 import {
   InvoiceHeader,
   InvoiceLetterBox,

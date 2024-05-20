@@ -55,7 +55,7 @@
     </sdCards>
   </Sidebar>
 </template>
-<script>
+<script lang="jsx">
 import { defineComponent, ref } from "vue";
 import Slider from "@/components/slider/Slider.vue";
 import { Sidebar, SidebarSingle } from "../Style";

@@ -163,7 +163,7 @@
     </sdCards>
   </AllPosts>
 </template>
-<script>
+<script lang="jsx">
 import dayjs from "dayjs";
 import PropTypes from "vue-types";
 import { AllPosts, BackShadowEmoji, Title } from "./style";
@@ -172,7 +172,7 @@ import { useStore } from "vuex";
 import EmojiPicker from "@/components/utilities/Emoji.vue";
 import GlightBox from "@/components/utilities/GlightBox.vue";
 
-const relativeTime = require('dayjs/plugin/relativeTime');
+const relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 
 const ExampleComment = defineComponent({

@@ -1,4 +1,4 @@
-<script>
+<script lang="jsx">
 import {
   BannerNormal,
   BannerWrapper,
@@ -389,8 +389,9 @@ export const PageHeaderBanner = () => {
               Hey Danial! Welcome to the Dashboard
             </h2>
             <p class="ninjadash-top-banner__text">
-              There are many variations of passages of Lorem Ipsum available,
-              ut the majority have suffered passages of Lorem Ipsum available alteration in some form
+              There are many variations of passages of Lorem Ipsum available, ut
+              the majority have suffered passages of Lorem Ipsum available
+              alteration in some form
             </p>
             <sdButton
               class="ninjadash-top-banner__action"

@@ -228,7 +228,7 @@
     </TicketDetailsBox>
   </Main>
 </template>
-<script>
+<script lang="jsx">
 import { Main } from "../../styled";
 import { BackShadowEmoji, TicketDetailsBox, ClientConversation } from "./Style";
 import { useStore } from "vuex";

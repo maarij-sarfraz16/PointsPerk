@@ -74,7 +74,7 @@
     :visible="visible"
   />
 </template>
-<script>
+<script lang="jsx">
 import { Main, TableWrapper } from "../../styled";
 import { TicketBox } from "./Style";
 import { useStore } from "vuex";
