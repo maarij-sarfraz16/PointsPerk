@@ -2,7 +2,7 @@ import PageRoutes from "./PageRoutes";
 
 const routes = [
   {
-    path: "/dashboard",
+    path: "/",
     name: "dashboard",
     component: () =>
       import(

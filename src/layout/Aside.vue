@@ -13,7 +13,7 @@
       <template #icon>
         <unicon name="dashboard"></unicon>
       </template>
-      <router-link to="/dashboard">
+      <router-link to="/">
         {{ t("Dashboard") }}
       </router-link>
     </a-menu-item>
