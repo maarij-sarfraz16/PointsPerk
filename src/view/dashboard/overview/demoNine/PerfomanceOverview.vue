@@ -64,14 +64,14 @@ import { BorderLessHeading, ChartPointHorizontal } from "../../../styled";
 import { themeColor } from "@/config/theme/themeVariables";
 import { useStore } from "vuex";
 
-const labels = ["Todo", "Completed", "In Progress"];
+const labels = ["Total", "Avaialble ", "Redemed "];
 
 const datasets = [
   {
     data: [40, 15, 5],
     backgroundColor: ["#8231D3", "#5840FF", "#00E4EC"],
-    centerText: "15%",
-    centerTextLabel: "Completed",
+    centerText: "15",
+    centerTextLabel: "Coupons",
   },
 ];
 
