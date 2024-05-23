@@ -1,7 +1,7 @@
 <template>
   <div>
     <sdPageHeader
-      title="Demo Nine"
+      title=" User Dashboard"
       class="ninjadash-page-header-main"
       :routes="pageRoutes"
     ></sdPageHeader>
@@ -33,14 +33,17 @@
               <template #default>
                 <a-row :gutter="15">
                   <a-col :xs="12">
-                    <InfoCard icon="briefcase-alt" />
+                    <InfoCard icon="star"
+                    text="Redemption Points"
+                    counter="15k"
+                     />
                   </a-col>
                   <a-col :xs="12">
                     <InfoCard
-                      text="Total Awards"
-                      icon="award"
+                      text="Coupons Redemed"
+                      icon="ticket"
                       type="secondary"
-                      counter="15k"
+                      counter="22"
                     />
                   </a-col>
                   <a-col :xs="24">
@@ -214,10 +217,7 @@ const pageRoutes = [
     path: "/",
     breadcrumbName: "Dashboard",
   },
-  {
-    path: "demo-nine",
-    breadcrumbName: "Demo Nine",
-  },
+ 
 ];
 
 export default defineComponent({
