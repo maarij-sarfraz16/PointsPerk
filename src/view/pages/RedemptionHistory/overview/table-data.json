@@ -1,0 +1,39 @@
+[
+    {
+      "id": "01",
+      "points": "700",
+      "Coupon id": "989",
+      "Coupon": "BUY50",
+      "date": "05-24-2024",
+      "status": "Pending"
+    },
+    {
+        "id": "02",
+        "points": "1050",
+        "Coupon id": "462",
+        "Coupon": "ADIDAS45",
+        "date": "12-4-2024",
+        "status": "Completed"
+      },
+      {
+        "id": "03",
+        "points": "2000",
+        "Coupon id": "389",
+        "Coupon": "TheBodyShopNEW",
+        "date": "02-30-2024",
+        "status": "Active"
+      },
+      {
+        "id": "04",
+        "points": "3500",
+        "Coupon id": "102",
+        "Coupon": "SALEMINISO",
+        "date": "01-18-2024",
+        "status": "Completed"
+      }
+      
+      
+      
+    
+]
+  

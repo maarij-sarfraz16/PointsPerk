@@ -43,6 +43,13 @@
         </router-link>
       </a-menu-item>
     </a-sub-menu>
+
+    <a-menu-item @click="toggleCollapsed" key="redemptionHistory">
+      <template #icon>
+        <unicon name="circle"></unicon>
+      </template>
+      <router-link to="/redemptionHistory"> Redemption History </router-link>
+    </a-menu-item>
   </a-menu>
 </template>
 <script>
