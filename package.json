@@ -8,7 +8,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "set \"GENERATE_SOURCEMAP=false\" && vue-cli-service --max-old-space-size=4096 build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "both": "concurrently \"yarn run serve\" \"nodemon backend/index.js\""
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
@@ -27,6 +28,7 @@
     "auth0-lock": "^11.32.2",
     "axios": "0.21.1",
     "chart.js": "^3.7.1",
+    "concurrently": "^8.2.2",
     "core-js": "^3.27.1",
     "countdown-js": "^1.0.2",
     "country-flag-icons": "^1.5.11",
