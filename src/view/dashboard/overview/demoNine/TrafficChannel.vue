@@ -38,7 +38,7 @@
     </BorderLessHeading>
   </div>
 </template>
-<script lang="jsx">
+<script>
 import { computed, defineComponent } from "vue";
 import { TrafficTableWrapper } from "./Style";
 import { BorderLessHeading } from "../../../styled";

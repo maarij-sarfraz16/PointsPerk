@@ -1399,7 +1399,6 @@ const PerfomanceOverviewStyle = Styled.div`
 				font-weight: 400;
 				display: flex;
 				align-items: center;
-                margin-bottom:20px;
 				&:not(:last-child) {
 					margin-bottom: 12px;
 				}

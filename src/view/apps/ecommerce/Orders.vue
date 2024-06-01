@@ -74,7 +74,7 @@
     </sdCards>
   </Main>
 </template>
-<script lang="jsx">
+<script>
 import { TopToolBox } from "./Style";
 import { Main, TableWrapper } from "../../styled";
 import { computed, ref, defineComponent } from "vue";

@@ -1,4 +1,4 @@
-# my-app
+# HexaDash-vue
 
 ## Project setup
 ```

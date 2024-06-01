@@ -8,7 +8,7 @@
     @change="handleChange"
   ></Style>
 </template>
-<script lang="jsx">
+<script>
 import dayjs from "dayjs";
 import { Style, EmailAuthor, EmailHeader } from "./style";
 import Topbar from "./Topbar";
@@ -152,10 +152,7 @@ const Content = {
               >
                 <unicon name="star" width="18"></unicon>
               </router-link>
-              <img
-                src={require(`../../../../static/img/chat-author/${img}`)}
-                alt=""
-              />
+              <img src={require(`../../../../static/img/chat-author/${img}`)} alt="" />
               <sdHeading as="h5">
                 <a>{userName}</a>
               </sdHeading>
@@ -191,9 +188,7 @@ const Content = {
           ),
           time: (
             <span class="email-time">
-              {same
-                ? dayjs(id).format("hh:mm A")
-                : dayjs(id).format("MMM D, YYYY")}
+              {same ? dayjs(id).format("hh:mm A") : dayjs(id).format("MMM D, YYYY")}
             </span>
           ),
         };

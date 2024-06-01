@@ -15,7 +15,7 @@
     </TableWrapper>
   </UserTableStyleWrapper>
 </template>
-<script lang="jsx">
+<script>
 import { UserTableStyleWrapper } from "../style";
 import { TableWrapper } from "../../../styled";
 import users from "@/demoData/usersData.json";

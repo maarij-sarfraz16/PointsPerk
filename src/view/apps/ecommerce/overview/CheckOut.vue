@@ -435,7 +435,7 @@
     </Steps>
   </CheckoutWrapper>
 </template>
-<script lang="jsx">
+<script>
 import { computed, onMounted, reactive, ref } from "vue";
 import { useStore } from "vuex";
 import Steps from "@/components/steps/steps";

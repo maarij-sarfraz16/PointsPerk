@@ -311,13 +311,7 @@ const SingleChat = defineComponent({
     const { state, dispatch } = useStore();
     const { params } = useRoute();
     const rtl = computed(() => state.ChangeLayoutMode.rtlData);
-    const chatData = computed(() => {
-  if (state.chat && state.chat.privetData) {
-    return state.chat.privetData.data;
-  } else {
-    return [];
-  }
-});
+    const chatData = computed(() => state.chat.privetData.data);
     const left = computed(() => (!rtl.value ? "left" : "right"));
 
     const me = ref("woadud@gmail.com");

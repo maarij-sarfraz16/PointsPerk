@@ -53,7 +53,7 @@
     </sdCards>
   </BorderLessHeading>
 </template>
-<script lang="jsx">
+<script>
 import { computed, defineComponent, ref } from "vue";
 import { RecentSellerStyle } from "./Style";
 import { BorderLessHeading, TableDefaultStyle } from "../../../styled";
@@ -120,7 +120,7 @@ export default defineComponent({
                   <div class="ninjadash-info-element align-center-v">
                     <img
                       style={{ width: "40px" }}
-                      src={require(`../../../../static/img/${userImg}`)}
+                      src={require(`../../../../static/img/sellers/${userImg}`)}
                       alt=""
                     />
                     <span class="ninjadash-info-element__text">{title}</span>

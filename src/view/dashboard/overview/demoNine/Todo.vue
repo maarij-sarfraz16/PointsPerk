@@ -39,7 +39,6 @@
     </template>
   </ToDos>
 </template>
-
 <script>
 import { defineComponent, ref, computed } from "vue";
 import ToDos from "@/components/todo/Todo";
@@ -50,19 +49,16 @@ export default defineComponent({
   setup() {
     const { state } = useStore();
     const taskTab = ref("new");
-
-    // Ensure todoData is defined and not null
-    const todoData = computed(() => state.todo?.data || []);
-
+    const todoData = computed(() => state.todo.data);
+    const todoData2 = computed(() => state.todo.data);
     const todoState = computed(() =>
-      todoData.value.filter(
+      state.todo.data.filter(
         (todo) =>
           (taskTab.value === "new" && !todo.trash) ||
           (taskTab.value === "deleted" && todo.trash) ||
           (taskTab.value === "completed" && todo.isFinish)
       )
     );
-
     const handleTabActivation = (value, e) => {
       e.preventDefault();
       taskTab.value = value;
@@ -71,6 +67,8 @@ export default defineComponent({
     return {
       handleTabActivation,
       todoState,
+      todoData2,
+      todoData,
       taskTab,
     };
   },
