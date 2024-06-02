@@ -25,7 +25,7 @@
     </a-col>
   </a-row>
 </template>
-<script lang="jsx">
+<script>
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
 import {

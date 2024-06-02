@@ -1,4 +1,4 @@
-<script lang="jsx">
+<script>
 import { GChart } from 'vue3-googl-chart';
 import VueTypes from 'vue-types';
 import { defineComponent } from 'vue';

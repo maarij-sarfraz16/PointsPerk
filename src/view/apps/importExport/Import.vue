@@ -29,7 +29,7 @@
     </a-row>
   </Main>
 </template>
-<script lang="jsx">
+<script>
 import { Main, ImportStyleWrap } from "../../styled";
 import { message } from "ant-design-vue";
 import { ref, defineComponent } from "vue";

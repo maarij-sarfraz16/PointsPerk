@@ -29,14 +29,16 @@
   </CardFrame>
 
   <CardFrame
-    v-else
     :bodypadding="bodypadding && bodypadding"
     :bodyStyle="bodyStyle && bodyStyle"
     :size="size"
     :style="{ width: '100%' }"
     :bordered="border"
     :headless="true"
+    v-else
   >
+    <sdHeading v-if="title" as="h4">{{ title }}</sdHeading>
+    <p v-if="caption">{{ caption }}</p>
     <slot></slot>
   </CardFrame>
 </template>
@@ -45,9 +47,8 @@
 import { CardFrame } from "./style";
 import VueTypes from "vue-types";
 import { defineComponent } from "vue";
-
 export default defineComponent({
-  name: "CardsFrame",
+  name: "Cards",
   components: {
     CardFrame,
   },

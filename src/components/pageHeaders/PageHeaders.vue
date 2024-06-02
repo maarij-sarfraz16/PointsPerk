@@ -1,4 +1,4 @@
-<script lang="jsx">
+<script>
 import { PageHeaderStyle } from "./style";
 import VueTypes from "vue-types";
 import { defineComponent } from "vue";

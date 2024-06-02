@@ -13,7 +13,7 @@
     </div>
   </div>
 </template>
-<script lang="jsx">
+<script>
 import { TasklistAction } from "../style";
 import { ref } from "vue";
 

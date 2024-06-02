@@ -308,8 +308,7 @@ export default defineComponent({
   components: { TaskListStyle, BasicFormWrapper },
   setup() {
     const { state, dispatch } = useStore();
-
-    const task = computed(() => state.task?.data || []);
+    const task = computed(() => state.task.data);
 
     const visible = ref(false);
     const confirmVisible = ref(false);

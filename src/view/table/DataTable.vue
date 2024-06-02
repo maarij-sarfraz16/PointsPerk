@@ -1,4 +1,6 @@
 <template>
+
+
   <DataTableStyleWrap>
     <div v-if="filterOption" class="ninjadash-datatable-filter">
       <div v-if="!filterOnchange" class="ninjadash-datatable-filter__left">
@@ -138,6 +140,7 @@ export default defineComponent({
       handleDataUser,
       handleSearch,
       rowSelections,
+
     };
   },
 });

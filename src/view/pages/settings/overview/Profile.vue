@@ -19,39 +19,12 @@
               <a-input v-model:value="formState.name" />
             </a-form-Item>
             <a-form-item label="Phone Number">
-              <!-- <a-input v-model:value="formState.phone" /> -->
-              <MazPhoneNumberInput :exclude-selectors="['#input-flag-element']">
-                <template #selector-flag="{ countryCode }">
-                  <span
-                    id="input-flag-element"
-                    style="
-                      font-size: 0.8rem;
-                      background-color: var(--maz-color-secondary);
-                      color: var(--maz-color-secondary-contrast);
-                      border-radius: 100px;
-                      padding: 2px;
-                    "
-                  >
-                    {{ countryCode }}
-                  </span>
-                </template>
-                <template #country-list-flag="{ countryCode }">
-                  <MazBadge
-                    size="0.8rem"
-                    style="margin-right: 10px; width: 26px"
-                  >
-                    {{ countryCode }}
-                  </MazBadge>
-                </template>
-              </MazPhoneNumberInput>
+              <a-input v-model:value="formState.phone" />
             </a-form-item>
             <a-form-item label="Country">
               <a-select v-model:value="formState.country" style="width: 100%">
                 <a-select-option value="">Please Select</a-select-option>
-
-                <a-select-option value="bangladesh"
-                  >Bangladesh
-                </a-select-option>
+                <a-select-option value="bangladesh">Bangladesh</a-select-option>
                 <a-select-option value="india">India</a-select-option>
                 <a-select-option value="pakistan">Pakistan</a-select-option>
               </a-select>
@@ -110,7 +83,7 @@
                     />
                     <a-tag
                       v-else
-                      style="background: #fff; border-style: dashed"
+                      style="background: #fff; borderstyle: dashed"
                       @click="showInput"
                     >
                       <unicon name="plus" width="14"></unicon> New Tag
@@ -146,7 +119,7 @@ const Profile = defineComponent({
   setup() {
     const formState = reactive({
       name: "Duran Clayton",
-      // phone: "01742920502",
+      phone: "01742920502",
       country: "",
       city: "",
       company: "Example",

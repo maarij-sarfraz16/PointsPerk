@@ -182,7 +182,7 @@
     </a-row>
   </Main>
 </template>
-<script lang="jsx">
+<script>
 import { ContactPageheaderStyle, Action, UserTableStyleWrapper } from "./style";
 import ContactCard from "./overview/ContactCard";
 import {

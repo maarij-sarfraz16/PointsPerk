@@ -36,9 +36,7 @@
               >
                 <img
                   :src="
-                    require(`../static/img/icon/${
-                      collapsed ? 'right.svg' : 'left.svg'
-                    }`)
+                    require(`../static/img/icon/align-center-alt.svg`)
                   "
                   alt="menu"
                 />
@@ -96,6 +94,7 @@
           <a-col :md="0" :sm="24" :xs="24">
             <div class="small-screen-headerRight">
               <SmallScreenSearch :hide="searchHide" :darkMode="darkMode">
+                <HeaderSearch />
               </SmallScreenSearch>
               <SmallScreenAuthInfo :hide="hide" :darkMode="darkMode">
                 <AuthInfo :rtl="rtl" />
@@ -170,9 +169,13 @@
                 </a-col>
                 <a-col :md="12" :xs="24">
                   <div class="admin-footer__links">
-                    <router-link to="#">Profile</router-link>
-                    <router-link to="#">Team</router-link>
-                    <router-link to="#">Contacts</router-link>
+                    <router-link to="/app/social/profile/overview"
+                      >Profile</router-link
+                    >
+                    <router-link to="/app/users/team">Team</router-link>
+                    <router-link to="/app/contact/contact-grid"
+                      >Contacts</router-link
+                    >
                   </div>
                 </a-col>
               </a-row>
@@ -191,6 +194,7 @@ import {
   SmallScreenAuthInfo,
   TopMenuSearch,
 } from "./style";
+import HeaderSearch from "../components/header-search/HeaderSearch.vue";
 
 import AuthInfo from "../components/utilities/auth-info/info.vue";
 import AsideItems from "./Aside";
@@ -210,6 +214,7 @@ export default defineComponent({
     Footer,
     Sider,
     Content,
+    HeaderSearch,
     SmallScreenSearch,
     SmallScreenAuthInfo,
     TopMenuSearch,
@@ -222,6 +227,7 @@ export default defineComponent({
     const collapsed = ref(false);
     const hide = ref(true);
     const searchHide = ref(true);
+    const customizerAction = ref(false);
     const activeSearch = ref(false);
 
     // const store = useStore();
@@ -314,6 +320,7 @@ export default defineComponent({
       hide,
       searchHide,
       toggleSearch,
+      customizerAction,
       activeSearch,
       innerWidth: window.innerWidth,
       rtl,

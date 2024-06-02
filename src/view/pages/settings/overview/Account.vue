@@ -4,19 +4,9 @@
       <template v-slot:title>
         <div class="setting-card-title">
           <sdHeading as="h4">Account Settings</sdHeading>
-
-          <Alerts
-            :outlined="false"
-            :closable="false"
-            :showIcon="true"
-            message="Warning"
-            description="Username and email address can not be changed"
-            type="warning"
-          >
-          </Alerts>
+          <span>Update your username and manage your account</span>
         </div>
       </template>
-
       <a-row>
         <a-col :xs="24">
           <BasicFormWrapper>
@@ -34,7 +24,6 @@
                         <a-input
                           v-model:value="formState.username"
                           @change="handleChange"
-                          disabled="true"
                         />
                       </a-form-item>
                       <p>
@@ -43,15 +32,13 @@
                         }}</span>
                       </p>
                       <a-form-item label="Email">
-                        <a-input
-                          v-model:value="formState.email"
-                          disabled="true"
-                        />
+                        <a-input v-model:value="formState.email" />
                       </a-form-item>
                     </div>
                   </a-col>
                 </a-row>
               </div>
+
               <div class="account-form-bottom">
                 <a-row type="flex" justify="center">
                   <a-col :xxl="10" :lg="16" :md="18" :xs="24">
@@ -102,14 +89,12 @@
 
 <script>
 import { AccountWrapper } from "./style";
-import Alerts from "@/components/alerts/Alerts.vue";
 import { BasicFormWrapper } from "../../../styled";
 import { reactive, defineComponent } from "vue";
 
 const Account = defineComponent({
   name: "Account",
-  components: { AccountWrapper, BasicFormWrapper, Alerts },
-
+  components: { AccountWrapper, BasicFormWrapper },
   data() {
     const name = "clayton";
     const formState = reactive({
