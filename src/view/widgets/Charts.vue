@@ -126,36 +126,36 @@ const chartOptions = {
 };
 
 const TotalLineChart = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoSix/TotalLineChart.vue")
+  import("@/view/dashboard/overview/dashboard/TotalLineChart.vue")
 );
 
-const SaleRevenue = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoSeven/SaleRevenue.vue")
-);
+// const SaleRevenue = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoSeven/SaleRevenue.vue")
+// );
 
-const MonthlyEarning = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoEight/MonthlyEarning.vue")
-);
+// const MonthlyEarning = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoEight/MonthlyEarning.vue")
+// );
 
-const ProfitGrowth = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoEight/ProfitGrowth.vue")
-);
+// const ProfitGrowth = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoEight/ProfitGrowth.vue")
+// );
 
-const TotalEarning = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoEight/TotalEarning.vue")
-);
+// const TotalEarning = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoEight/TotalEarning.vue")
+// );
 
-const SalesOverview = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoEight/SalesOverview.vue")
-);
+// const SalesOverview = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoEight/SalesOverview.vue")
+// );
 
-const PerformanceOverview = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoNine/PerfomanceOverview.vue")
-);
+// const PerformanceOverview = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoNine/PerfomanceOverview.vue")
+// );
 
-const UserOverview = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoFive/UserOverview.vue")
-);
+// const UserOverview = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoFive/UserOverview.vue")
+// );
 
 export default defineComponent({
   name: "WidgetChart",
@@ -163,13 +163,13 @@ export default defineComponent({
     Main,
     CardChartStyle,
     TotalLineChart,
-    SaleRevenue,
-    MonthlyEarning,
-    ProfitGrowth,
-    TotalEarning,
-    SalesOverview,
-    PerformanceOverview,
-    UserOverview,
+    // SaleRevenue,
+    // MonthlyEarning,
+    // ProfitGrowth,
+    // TotalEarning,
+    // SalesOverview,
+    // PerformanceOverview,
+    // UserOverview,
   },
   setup() {
     return {

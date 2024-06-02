@@ -144,44 +144,44 @@ const DragAndDropTable = defineAsyncComponent(() =>
 const BasicTable = defineAsyncComponent(() => import("./overview/BasicTable"));
 
 const TopSellingProduct = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoSix/TopSellingProduct.vue")
+  import("@/view/dashboard/overview/dashboard/TopSellingProduct.vue")
 );
 
 const BrowserState = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoSix/BrowserState.vue")
+  import("@/view/dashboard/overview/dashboard/BrowserState.vue")
 );
 
-const RevenueGenerated = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoSeven/RevenueGenerated.vue")
-);
+// const RevenueGenerated = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoSeven/RevenueGenerated.vue")
+// );
 
-const NewProduct = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoSeven/NewProduct.vue")
-);
+// const NewProduct = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoSeven/NewProduct.vue")
+// );
 
-const BestSeller = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoSeven/BestSeller.vue")
-);
+// const BestSeller = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoSeven/BestSeller.vue")
+// );
 
-const ActiveUser = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoEight/ActiveUser.vue")
-);
+// const ActiveUser = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoEight/ActiveUser.vue")
+// );
 
-const TopProduct = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoEight/TopProduct.vue")
-);
+// const TopProduct = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoEight/TopProduct.vue")
+// // );
 
-const RecentDeals = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoEight/RecentDeals.vue")
-);
+// const RecentDeals = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoEight/RecentDeals.vue")
+// );
 
-const RecentSeller = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoNine/RecentSeller.vue")
-);
+// const RecentSeller = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoNine/RecentSeller.vue")
+// );
 
-const MemberProgress = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/demoFive/MemberProgress.vue")
-);
+// const MemberProgress = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/demoFive/MemberProgress.vue")
+// );
 
 export default defineComponent({
   name: "Tables",
@@ -191,14 +191,14 @@ export default defineComponent({
     DragAndDropTable,
     TopSellingProduct,
     BrowserState,
-    RevenueGenerated,
-    NewProduct,
-    BestSeller,
-    ActiveUser,
-    TopProduct,
-    RecentDeals,
-    RecentSeller,
-    MemberProgress,
+    // RevenueGenerated,
+    // NewProduct,
+    // BestSeller,
+    // ActiveUser,
+    // TopProduct,
+    // RecentDeals,
+    // RecentSeller,
+    // MemberProgress,
   },
 });
 </script>
