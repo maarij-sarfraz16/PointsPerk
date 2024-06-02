@@ -53,6 +53,12 @@ const routes = [
       },
     ],
   },
+
+  {
+    path: '/redemptionHistory',
+    name: 'Redemption History',
+    component: () => import(/* webpackChunkName: "redemptionHistory" */ '@/view/pages/RedemptionHistory/redemptionHistory.vue'),
+  },
   ...PageRoutes,
   ...FeaturesRoutes,
   ...Components,
