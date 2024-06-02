@@ -8,57 +8,13 @@
         @openChange="onOpenChange"
         @click="onClick"
     >
-        <a-sub-menu key="dashboard">
+
+        <a-menu-item @click="toggleCollapsed" key="dashboard">
             <template #icon>
                 <unicon name="create-dashboard"></unicon>
             </template>
-            <template #title>{{ t('dashboard') }}</template>
-            <a-menu-item @click="toggleCollapsed" key="home-one">
-                <router-link to="/demo-one">
-                    {{ t('demo') }} {{ t('1') }}
-                </router-link>
-            </a-menu-item>
-            <a-menu-item @click="toggleCollapsed" key="home-two">
-                <router-link to="/demo-two">
-                    {{ t('demo') }} {{ t('2') }}
-                </router-link>
-            </a-menu-item>
-            <a-menu-item @click="toggleCollapsed" key="home-three">
-                <router-link to="/demo-three">
-                    {{ t('demo') }} {{ t('3') }}
-                </router-link>
-            </a-menu-item>
-            <a-menu-item @click="toggleCollapsed" key="home-four">
-                <router-link to="/demo-four">
-                    {{ t('demo') }} {{ t('4') }}
-                </router-link>
-            </a-menu-item>
-            <a-menu-item @click="toggleCollapsed" key="home-five">
-                <router-link to="/demo-five">
-                    {{ t('demo') }} {{ t('5') }}
-                </router-link>
-            </a-menu-item>
-            <a-menu-item @click="toggleCollapsed" key="demo-six">
-                <router-link to="/demo-six">
-                    {{ t('demo') }} {{ t('6') }}
-                </router-link>
-            </a-menu-item>
-            <a-menu-item @click="toggleCollapsed" key="demo-seven">
-                <router-link to="/demo-seven"
-                    >{{ t('demo') }} {{ t('7') }}</router-link
-                >
-            </a-menu-item>
-            <a-menu-item @click="toggleCollapsed" key="demo-eight">
-                <router-link to="/demo-eight"
-                    >{{ t('demo') }} {{ t('8') }}</router-link
-                >
-            </a-menu-item>
-            <a-menu-item @click="toggleCollapsed" key="demo-nine">
-                <router-link to="/demo-nine"
-                    >{{ t('demo') }} {{ t('9') }}</router-link
-                >
-            </a-menu-item>
-        </a-sub-menu>
+            <router-link to="/">{{ t('dashboard') }}</router-link>
+        </a-menu-item>
 
         <a-sub-menu key="layout">
             <template #icon>
