@@ -220,13 +220,6 @@ const OverviewCard = Styled.div `
                             fill: ${({ theme }) => theme['secondary-color']};
                         }
                     }
-                    &.ninjadash-success{
-                        background-color: ${({ theme }) => theme['success-color']}15;
-                        svg path,
-                        i{
-                            fill: ${({ theme }) => theme['success-color']};
-                        }
-                    }
                     &.ninjadash-warning{
                         background-color: ${({ theme }) => theme['warning-color']}15;
                         svg path,
@@ -335,13 +328,33 @@ const OverviewCard = Styled.div `
                     }
                 }
             }
+
+            &.ninjadash-overview-card-secondary {
+                .ninjadash-overview-card__bottom {
+                    display: none;
+                }
+            }
+    
+            &.ninjadash-overview-card-warning {
+                .ninjadash-overview-card__bottom {
+                    display: none;
+                }
+            }
+    
+            &.ninjadash-overview-card-info {
+                .ninjadash-overview-card__bottom {
+                    display: none;
+                }
+            }
         }
+
     }
     &.ninjadash-overview-card-support{
         .ant-card-body{
             padding: 40.5px 25px !important;
         }
     }
+
 `;
 const BlogCardStyleWrap = Styled.figure `
     .ninjadash-blog{

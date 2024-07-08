@@ -91,7 +91,7 @@
 </template>
 
 <script>
-import { defineComponent, defineAsyncComponent } from "vue";
+import { defineComponent } from "vue";
 import { Main } from "../styled";
 import { CardChartStyle } from "./Style";
 
@@ -125,9 +125,9 @@ const chartOptions = {
   },
 };
 
-const TotalLineChart = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/dashboard/TotalLineChart.vue")
-);
+// const TotalLineChart = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/dashboard/TotalLineChart.vue")
+// );
 
 // const SaleRevenue = defineAsyncComponent(() =>
 //   import("@/view/dashboard/overview/demoSeven/SaleRevenue.vue")
@@ -162,7 +162,7 @@ export default defineComponent({
   components: {
     Main,
     CardChartStyle,
-    TotalLineChart,
+    // TotalLineChart,
     // SaleRevenue,
     // MonthlyEarning,
     // ProfitGrowth,

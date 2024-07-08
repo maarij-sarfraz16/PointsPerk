@@ -87,16 +87,10 @@ const SalesByLocation = defineAsyncComponent(() =>
 const TopSellingProduct = defineAsyncComponent(() =>
   import("./overview/dashboard/TopSellingProduct.vue")
 );
-const BrowsersState = defineAsyncComponent(() =>
-  import("./overview/dashboard/BrowserState.vue")
-);
 const OverviewDataList = defineAsyncComponent(() =>
   import("./overview/dashboard/OverviewDataList.vue")
 );
 
-const TotalLineChart = defineAsyncComponent(() =>
-  import("./overview/dashboard/TotalLineChart.vue")
-);
 
 const pageRoutes = [
   {
@@ -110,11 +104,9 @@ export default defineComponent({
   components: {
     Main,
     OverviewDataList,
-    TotalLineChart,
     SalesOverview,
     SalesByLocation,
     TopSellingProduct,
-    BrowsersState,
   },
   setup() {
     return { cardData, pageRoutes };

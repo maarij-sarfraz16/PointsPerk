@@ -163,19 +163,13 @@
               <a-row>
                 <a-col :md="12" :xs="24">
                   <span class="admin-footer__copyright"
-                    >2022 ©
-                    <a href="http://www.sovware.com" style="">SovWare</a>
+                    >{{ currentYear }} ©
+                    <a href="#" style="">Points Perk</a>
                   </span>
                 </a-col>
                 <a-col :md="12" :xs="24">
                   <div class="admin-footer__links">
-                    <router-link to="/app/social/profile/overview"
-                      >Profile</router-link
-                    >
-                    <router-link to="/app/users/team">Team</router-link>
-                    <router-link to="/app/contact/contact-grid"
-                      >Contacts</router-link
-                    >
+                    <router-link to="/app/contact/contact-grid">Contact Support</router-link>
                   </div>
                 </a-col>
               </a-row>
@@ -229,6 +223,7 @@ export default defineComponent({
     const searchHide = ref(true);
     const customizerAction = ref(false);
     const activeSearch = ref(false);
+    const currentYear = ref(new Date().getFullYear());
 
     // const store = useStore();
     const { dispatch, state } = useStore();
@@ -327,6 +322,7 @@ export default defineComponent({
       darkMode,
       topMenu,
       onEventChange,
+      currentYear,
     };
   },
 });
