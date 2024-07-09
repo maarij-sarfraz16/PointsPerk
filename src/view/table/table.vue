@@ -147,9 +147,9 @@ const TopSellingProduct = defineAsyncComponent(() =>
   import("@/view/dashboard/overview/dashboard/TopSellingProduct.vue")
 );
 
-const BrowserState = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/dashboard/BrowserState.vue")
-);
+// const BrowserState = defineAsyncComponent(() =>
+//   import("@/view/dashboard/overview/dashboard/BrowserState.vue")
+// );
 
 // const RevenueGenerated = defineAsyncComponent(() =>
 //   import("@/view/dashboard/overview/demoSeven/RevenueGenerated.vue")
@@ -190,7 +190,7 @@ export default defineComponent({
     BasicTable,
     DragAndDropTable,
     TopSellingProduct,
-    BrowserState,
+    // BrowserState,
     // RevenueGenerated,
     // NewProduct,
     // BestSeller,
