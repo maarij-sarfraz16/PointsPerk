@@ -95,7 +95,7 @@ const pageRoutes = [
   },
   {
     path: "demo-one",
-    breadcrumbName: "Products",
+    breadcrumbName: "Coupons",
   },
 ];
 const Product = {
