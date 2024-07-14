@@ -2,24 +2,54 @@
   <a-row justify="center">
     <a-col :xxl="6" :xl="12" :md="12" :sm="18">
 
-      <AuthWrapper>
+      <AuthWrapper class="basic-form-inner theme-light">
         <div class="ninjadash-authentication-top">
           <h2 class="ninjadash-authentication-top__title">Sign Up Points Perk</h2>
         </div>
 
         <div class="ninjadash-authentication-content">
+
+          <!-- Display Errors -->
+          <div v-if="errors" class="error-message">
+            {{ errors }}
+          </div>
+
           <a-form @submit.prevent="handleSubmit" layout="vertical">
             
-            <a-form-item label="Name" name="name">
-              <a-input v-model:value="credentials.name" placeholder="Full name" required/>
+            <a-form-item label="Name of the Agency" name="nameOfAgency">
+              <a-input v-model:value="credentials.nameOfAgency" placeholder="ABC Travels" required/>
+            </a-form-item>
+
+            <a-form-item label="Agency Address" name="agencyAddress">
+              <a-input v-model:value="credentials.agencyAddress" placeholder="123 Main Street" required/>
+            </a-form-item>
+
+            <a-form-item label="First Name" name="firstName">
+              <a-input v-model:value="credentials.firstName" placeholder="John" required/>
+            </a-form-item>
+
+            <a-form-item label="Last Name" name="lastName">
+              <a-input v-model:value="credentials.lastName" placeholder="Doe" required/>
             </a-form-item>
           
-            <a-form-item name="email" label="Email Address">
+            <a-form-item label="Email Address" name="email">
               <a-input type="email" v-model:value="credentials.email" placeholder="name@example.com" required/>
             </a-form-item>
 
+            <a-form-item label="Contact Number" name="contactNumber">
+              <a-input v-model:value="credentials.contactNumber" placeholder="+1" required minlength="10" maxlength="15"/>
+            </a-form-item>
+
             <a-form-item label="Password" name="password">
-              <a-input type="password" v-model:value="credentials.password" placeholder="Password" required/>
+              <a-input-password type="password" v-model:value="credentials.password" placeholder="Password" required minlength="8"/>
+            </a-form-item>
+
+            <a-form-item label="Country/Region" name="country">
+              <a-select v-model:value="credentials.country" :style="{ width: '100%' }">
+                <a-select-option value="">Please Select</a-select-option>
+                <a-select-option value="USA">USA</a-select-option>
+                <a-select-option value="UK">UK</a-select-option>
+              </a-select>
             </a-form-item>
 
             <div class="ninjadash-auth-extra-links">
@@ -75,7 +105,8 @@
     components: { AuthWrapper, InlineSvg },
     setup() {
       const host = 'http://localhost:5000';
-      const credentials = ref({ name: '', email: '', password: '' });
+      const credentials = ref({ nameOfAgency: '', agencyAddress: '', firstName: '', lastName: '', email: '', contactNumber: '', password: '', country: '' });
+      const errors = ref('');
       const router = useRouter();
 
       const handleSubmit = async () => {
@@ -91,10 +122,20 @@
           const json = await response.json();
           if (json.success) {
             localStorage.setItem('token', json.authToken);
-            console.log("User created successfully");
-            router.push('/');
+            // console.log("User created successfully");
+            router.push({
+              path: '/auth/login',
+              query: { successMessage: 'User created successfully. Please log in.' }
+            });
           } else {
-            console.log("Invalid Details");
+            // console.log("Invalid Details");
+            errors.value = json.error || '';
+
+            if (json.errors) {
+              json.errors.forEach(error => {
+                errors.value[error.param] = error.msg;
+              });
+            }
           }
         } catch (error) {
           console.error("Error:", error);
@@ -107,6 +148,7 @@
 
       return {
         credentials,
+        errors,
         handleSubmit,
         onChange
       };
@@ -116,3 +158,10 @@
   export default SignUp;
 
 </script>
+
+<style scoped>
+  .error-message {
+    color: red;
+    margin-bottom: 16px;
+  }
+</style>

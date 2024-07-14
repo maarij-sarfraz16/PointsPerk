@@ -8,13 +8,24 @@
         </div>
         
         <div class="ninjadash-authentication-content">
+
+          <!-- Display Success Message After New User Creation -->
+          <div v-if="successMessage" class="success-message">
+            {{ successMessage }}
+          </div>
+
+           <!-- Display Errors -->
+           <div v-if="errors" class="error-message">
+            {{ errors }}
+          </div>
+
           <a-form @submit.prevent="handleSubmit" layout="vertical">
             
             <a-form-item name="email" label="Email">
               <a-input type="email" v-model:value="credentials.email" placeholder="name@example.com" required/>
             </a-form-item>
             <a-form-item name="password" label="Password">
-              <a-input type="password" v-model:value="credentials.password" placeholder="Password" required/>
+              <a-input-password type="password" v-model:value="credentials.password" placeholder="Password" required/>
             </a-form-item>
             
             <div class="ninjadash-auth-extra-links">
@@ -58,10 +69,10 @@
 
 <script>
 
-  import { computed, ref, defineComponent } from "vue";
+  import { computed, ref, defineComponent, onMounted } from "vue";
   import { useStore } from "vuex";
   import { AuthWrapper } from "./style";
-  import { useRouter } from "vue-router";
+  import { useRouter, useRoute } from "vue-router";
   import InlineSvg from "vue-inline-svg";
 
   const SignIn = defineComponent({
@@ -74,7 +85,10 @@
 
       const host = 'http://localhost:5000';
       const credentials = ref({ email: '', password: '' });
+      const successMessage = ref('');
+      const errors = ref('');
       const router = useRouter();
+      const route = useRoute();
 
       const handleSubmit = async () => {
         try {
@@ -89,11 +103,18 @@
           const json = await response.json();
           if (json.success) {
             localStorage.setItem('token', json.authToken);
-            console.log("Logged in successfully");
+            // console.log("Logged in successfully");
             router.push('/');
             dispatch("login");
           } else {
-            console.log("Invalid Credentials");
+            // console.log("Invalid Credentials");
+            errors.value = json.error || '';
+
+            if (json.errors) {
+              json.errors.forEach(error => {
+                errors.value[error.param] = error.msg;
+              });
+            }
           }
         } catch (error) {
           console.error("Error:", error);
@@ -104,10 +125,18 @@
         credentials.value = { ...credentials.value, [e.target.name]: e.target.value };
       };
 
+      onMounted(() => {
+        if (route.query && route.query.successMessage) {
+          successMessage.value = route.query.successMessage;
+        }
+      });
+
       return {
         isLoading,
         checked,
         credentials,
+        successMessage,
+        errors,
         handleSubmit,
         onChange
       };
@@ -117,3 +146,14 @@
   export default SignIn;
 
 </script>
+
+<style scoped>
+  .success-message {
+    color: green;
+    margin-bottom: 16px;
+  }
+  .error-message {
+    color: red;
+    margin-bottom: 16px;
+  }
+</style>

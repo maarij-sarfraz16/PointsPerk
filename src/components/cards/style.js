@@ -337,7 +337,6 @@ const OverviewCard = Styled.div`
     
             &.ninjadash-overview-card-warning {
                 .ninjadash-overview-card__bottom {
-                    
                     visibility: hidden;
                 }
             }
@@ -347,6 +346,7 @@ const OverviewCard = Styled.div`
                     visibility: hidden;
                 }
             }
+
         }
 
     }
