@@ -37,6 +37,12 @@ const AuthWrapper = Styled.div `
         color: ${({ theme }) => theme[theme.mainContent]['extra-light-text']};
       }
     }
+    .ant-select-selector {
+      height: 50px !important;
+    }
+    .ant-select-selection-item {
+      line-height: 46px !important; 
+    }
     .ant-form-item-explain-error{
       font-size: 13px;
       margin-top: 2px;

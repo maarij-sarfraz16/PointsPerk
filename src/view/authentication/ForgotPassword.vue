@@ -8,8 +8,7 @@
         <div class="ninjadash-authentication-content">
           <a-form @finish="handleSubmit" :model="formState" layout="vertical">
             <p class="forgot-text">
-              Enter the email address you used when you joined and we’ll send
-              you instructions to reset your password.
+              Enter the email address you used when you joined and we’ll help you reset your password.
             </p>
             <a-form-item label="Email Address" name="email">
               <a-input
@@ -25,7 +24,7 @@
                 type="primary"
                 size="lg"
               >
-                Send Reset Instructions
+                Reset Password
               </sdButton>
             </a-form-item>
             <p class="return-text">

@@ -1,14 +1,14 @@
 const express = require('express');
-const User = require('../models/User');
-const Admin = require('../models/Admin');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const fetchUser = require('../middleware/fetchUser');
-const fetchAdmin = require('../middleware/fetchAdmin');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
 
+const User = require('../models/User');
+const fetchUser = require('../middleware/fetchUser');
+const Admin = require('../models/Admin');
+const fetchAdmin = require('../middleware/fetchAdmin');
 
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const JWT_SECRET = 'points-perk';
 
 
@@ -19,9 +19,14 @@ const JWT_SECRET = 'points-perk';
 // No Login Require
 
 router.post('/createuser', [
-  body('name', 'Enter a valid name'),
+  body('nameOfAgency', 'Agency name is required').notEmpty(),
+  body('agencyAddress', 'Agency address is required').notEmpty(),
+  body('firstName', 'First name is required').notEmpty(),
+  body('lastName', 'Last name is required').notEmpty(),
   body('email', 'Enter a valid email').isEmail(),
-  body('password', 'Password must be atleast 8 characters').isLength({ min: 8 }),
+  body('contactNumber', 'Enter a valid contact number').isLength({min: 10, max: 15}),
+  body('password', 'Password must be at least 8 characters').isLength({min: 8}),
+  body('country', 'Country is required').notEmpty(),
 ], async (req, res) => {
 
   let success = false;
@@ -29,23 +34,34 @@ router.post('/createuser', [
   // Returns a bad request in case of an error
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({success, errors: errors.array() });
+    return res.status(400).json({success, errors: errors.array()});
   }
   
   try {
-    // Check whether a user with an email exists already
+    // Check whether a user with an email already exists
     let user = await User.findOne({email: req.body.email});
     if (user) {
       return res.status(400).json({success, error: "Sorry a user with this email already exists"});
+    }
+
+    // Check whether a user with the contact number already exists
+    user = await User.findOne({contactNumber: req.body.contactNumber});
+    if (user) {
+      return res.status(400).json({success, error: "Sorry, a user with this contact number already exists"});
     }
 
     const salt = await bcrypt.genSalt(10);
     const secPass = await bcrypt.hash(req.body.password, salt);
 
     user = await User.create({
-      name: req.body.name,
+      nameOfAgency: req.body.nameOfAgency,
+      agencyAddress: req.body.agencyAddress,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,
+      contactNumber: req.body.contactNumber,
       password: secPass,
+      country: req.body.country
     });
 
     const data = {
