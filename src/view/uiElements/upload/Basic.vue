@@ -8,8 +8,9 @@
     @change="handleChange"
   >
     <sdButton class="btn-outlined" type="light" size="lg" :outlined="true">
-      <upload-outlined></upload-outlined>
+      <upload-outlined> </upload-outlined>
       <span>Click to Upload</span>
+      
     </sdButton>
   </a-upload>
 </template>

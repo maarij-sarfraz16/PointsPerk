@@ -2,7 +2,7 @@
   <a-row :gutter="25">
     <a-col
       v-for="(item, i) in OverviewDataSorted"
-      :lg="6"
+      :lg="12"
       :md="12"
       :sm="12"
       :xs="24"

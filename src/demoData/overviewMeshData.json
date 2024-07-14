@@ -12,7 +12,7 @@
       "decimel": 0,
       "dataPeriod": "Since last month"
   },
-  {
+  {     
       "id": 2,
       "type": "secondary",
       "icon": "arrow-growth",

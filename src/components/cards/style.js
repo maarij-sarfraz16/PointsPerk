@@ -100,7 +100,7 @@ const CourseCardWrap = Styled.div`
         }
     }
 `;
-const OverviewCard = Styled.div `
+const OverviewCard = Styled.div`
     margin-bottom: 25px;
     .ant-card {
         background-color: ${({ theme }) => theme[theme.mainContent]['white-background']};
@@ -331,19 +331,20 @@ const OverviewCard = Styled.div `
 
             &.ninjadash-overview-card-secondary {
                 .ninjadash-overview-card__bottom {
-                    display: none;
+                    visibility: hidden;
                 }
             }
     
             &.ninjadash-overview-card-warning {
                 .ninjadash-overview-card__bottom {
-                    display: none;
+                    
+                    visibility: hidden;
                 }
             }
     
             &.ninjadash-overview-card-info {
                 .ninjadash-overview-card__bottom {
-                    display: none;
+                    visibility: hidden;
                 }
             }
         }
@@ -356,7 +357,7 @@ const OverviewCard = Styled.div `
     }
 
 `;
-const BlogCardStyleWrap = Styled.figure `
+const BlogCardStyleWrap = Styled.figure`
     .ninjadash-blog{
         padding: 25px;
         border-radius: 10px;
@@ -677,7 +678,7 @@ const OverviewCardMeshWrap = Styled.div`
         }
     }
 `;
-const InfoCardStyle = Styled.article `
+const InfoCardStyle = Styled.article`
     ${({ theme, type }) => `
         background-color: ${theme[theme.mainContent]['white-background']};
         padding: 14px 15px;
@@ -718,7 +719,7 @@ const InfoCardStyle = Styled.article `
         }
     `}
 `;
-const NewsletterStyle = Styled.figure `
+const NewsletterStyle = Styled.figure`
     ${({ theme }) => `
         background-color: ${theme[theme.mainContent]['white-background']};
         padding: 0;
@@ -770,7 +771,7 @@ const NewsletterStyle = Styled.figure `
         }
     `}
 `;
-const ProfileCardWrapper = Styled.figure `
+const ProfileCardWrapper = Styled.figure`
   ${({ theme }) => `
     width: 100%;
     min-height: 390px;

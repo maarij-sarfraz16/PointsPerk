@@ -1,24 +1,17 @@
 <template>
   <div>
-    <sdPageHeader
-      title="Dashboard"
-      class="ninjadash-page-header-main"
-      :routes="pageRoutes"
-    ></sdPageHeader>
+    <sdPageHeader title="Dashboard" class="ninjadash-page-header-main" :routes="pageRoutes"></sdPageHeader>
     <Main>
       <a-row justify="center" :gutter="25">
-        <a-col :lg="24" :md="24"><OverviewDataList /></a-col>
-        <a-col :lg="24" :xs="24" :md="24">
-          <Suspense>
-            <template #default>
-              <TotalLineChart />
-            </template>
-            <template #fallback>
-              <sdCards headless>
-                <a-skeleton active />
-              </sdCards>
-            </template>
-          </Suspense>
+        <a-col :lg="16" :md="12">
+          <OverviewDataList />
+        </a-col>
+        <a-col :lg="8" :md="12">
+          <sdCards title="CSV File"> 
+            <basic-upload />
+           
+
+            </sdCards>
         </a-col>
         <a-col :lg="8" :xs="24" :md="24">
           <Suspense>
@@ -77,6 +70,9 @@
 import { Main } from "../styled";
 import cardData from "../../demoData/overviewCard.json";
 import { defineComponent, defineAsyncComponent } from "vue";
+import BasicUpload from "@/view/uiElements/upload/Basic.vue"
+
+
 
 const SalesOverview = defineAsyncComponent(() =>
   import("./overview/dashboard/SalesOverview.vue")
@@ -91,7 +87,6 @@ const OverviewDataList = defineAsyncComponent(() =>
   import("./overview/dashboard/OverviewDataList.vue")
 );
 
-
 const pageRoutes = [
   {
     path: "/",
@@ -103,6 +98,7 @@ export default defineComponent({
   name: "Dashboard",
   components: {
     Main,
+    BasicUpload,
     OverviewDataList,
     SalesOverview,
     SalesByLocation,
