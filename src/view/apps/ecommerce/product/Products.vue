@@ -73,7 +73,8 @@
             </a-col>
           </a-row>
         </TopToolBox>
-        <router-view name="grid"></router-view>
+        <!-- <router-view name="grid"></router-view> -->
+        <Grid />
       </a-col>
     </a-row>
   </Main>
@@ -84,6 +85,7 @@ import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import { Main } from "../../../styled";
 import { TopToolBox } from "../Style";
+import Grid from "@/view/apps/ecommerce/product/overview/Grid.vue";
 
 const Filters = defineAsyncComponent(() => import("./overview/Filters"));
 const pageRoutes = [
@@ -93,12 +95,12 @@ const pageRoutes = [
   },
   {
     path: "demo-one",
-    breadcrumbName: "Products",
+    breadcrumbName: "Coupons",
   },
 ];
 const Product = {
   name: "Product",
-  components: { TopToolBox, Main, Filters },
+  components: { TopToolBox, Main, Filters, Grid },
   setup() {
     const { state, dispatch } = useStore();
     const searchData = computed(() => state.headerSearchData.data);

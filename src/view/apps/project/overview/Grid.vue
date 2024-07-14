@@ -35,13 +35,13 @@
 </template>
 
 <script>
-import { computed, defineAsyncComponent, ref, defineComponent } from 'vue';
-import { useStore } from 'vuex';
-import { ProjectPagination } from '../style';
-const GridCard = defineAsyncComponent(() => import('./GridCard'));
+import { computed, defineAsyncComponent, ref, defineComponent } from "vue";
+import { useStore } from "vuex";
+import { ProjectPagination } from "../style";
+const GridCard = defineAsyncComponent(() => import("./GridCard"));
 
 const Grid = defineComponent({
-  name: 'Grid',
+  name: "Grid",
   components: { ProjectPagination, GridCard },
   setup() {
     const { state } = useStore();
