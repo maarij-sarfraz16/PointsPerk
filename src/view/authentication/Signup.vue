@@ -64,7 +64,7 @@
               </sdButton>
             </a-form-item>
 
-            <p class="ninjadash-form-divider"><span>Or</span></p>
+            <!-- <p class="ninjadash-form-divider"><span>Or</span></p>
             
             <ul class="ninjadash-social-login">
               <li>
@@ -79,7 +79,7 @@
                   <unicon name="facebook-f"></unicon>
                 </a>
               </li>
-            </ul>
+            </ul> -->
 
           </a-form>
         </div>
@@ -98,11 +98,11 @@
   import { AuthWrapper } from "./style";
   import { ref, defineComponent } from "vue";
   import { useRouter } from 'vue-router';
-  import InlineSvg from "vue-inline-svg";
+  // import InlineSvg from "vue-inline-svg";
 
   const SignUp = defineComponent({
     name: "SignUp",
-    components: { AuthWrapper, InlineSvg },
+    components: { AuthWrapper },
     setup() {
       const host = 'http://localhost:5000';
       const credentials = ref({ nameOfAgency: '', agencyAddress: '', firstName: '', lastName: '', email: '', contactNumber: '', password: '', country: '' });

@@ -3,8 +3,9 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 
 const User = require('../models/User');
-const fetchUser = require('../middleware/fetchUser');
 const Admin = require('../models/Admin');
+
+const fetchUser = require('../middleware/fetchUser');
 const fetchAdmin = require('../middleware/fetchAdmin');
 
 const bcrypt = require('bcrypt');
@@ -41,7 +42,7 @@ router.post('/createuser', [
     // Check whether a user with an email already exists
     let user = await User.findOne({email: req.body.email});
     if (user) {
-      return res.status(400).json({success, error: "Sorry a user with this email already exists"});
+      return res.status(400).json({success, error: "Sorry, a user with this email already exists"});
     }
 
     // Check whether a user with the contact number already exists
