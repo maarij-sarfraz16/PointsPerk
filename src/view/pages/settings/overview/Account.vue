@@ -6,6 +6,14 @@
           <sdHeading as="h4">Account Settings</sdHeading>
           <span>Update your username and manage your account</span>
         </div>
+        <sdAlerts
+                :outlined="false"
+                :closable="false"
+                :showIcon="true"
+                message="Reminder"
+                description="You Cannot change Username and Email. Please Contact Admin for Changings  "
+                type="warning"
+              />
       </template>
       <a-row>
         <a-col :xs="24">
