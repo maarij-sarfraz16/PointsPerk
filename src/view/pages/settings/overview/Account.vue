@@ -11,7 +11,7 @@
                 :closable="false"
                 :showIcon="true"
                 message="Reminder"
-                description="You Cannot change Username and Email. Please Contact Admin for Changings  "
+                description="You cannot change Username and Email. Please contact Admin for changings  "
                 type="warning"
               />
       </template>
