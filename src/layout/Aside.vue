@@ -18,12 +18,22 @@
       </router-link>
     </a-menu-item>
     <!-- coupons -->
-    <a-menu-item @click="toggleCollapsed" key="coupons">
+    <!-- <a-menu-item @click="toggleCollapsed" key="coupons">
       <template #icon>
         <unicon name="ticket"></unicon>
       </template>
-      <router-link to="/coupons"> Coupons </router-link>
+      <router-link to="/app/ecommerce/product/grid"> Coupons </router-link>
+    </a-menu-item> -->
+
+    <a-menu-item @click="toggleCollapsed" key="ecommerce-product">
+      <template #icon>
+        <unicon name="ticket"></unicon>
+      </template>
+      <router-link to="/app/ecommerce/product/grid">
+        {{ t("Coupons") }}
+      </router-link>
     </a-menu-item>
+
     <!-- redemprion history -->
     <a-menu-item @click="toggleCollapsed" key="redemptionHistory">
       <template #icon>

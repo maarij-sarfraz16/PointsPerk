@@ -88,14 +88,6 @@ const routes = [
       ),
   },
 
-  {
-    path: "/coupons",
-    name: "Coupons",
-    component: () =>
-      import(
-        /* webpackChunkName: "Coupons" */ "@/view/apps/ecommerce/product/Products.vue"
-      ),
-  },
   ...PageRoutes,
   ...FeaturesRoutes,
   ...Components,
