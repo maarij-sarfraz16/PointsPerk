@@ -60,7 +60,7 @@
         </div>
 
         <div class="ninjadash-authentication-bottom">
-          <p>Don't have an account?<router-link to="/auth/register">Sign up</router-link></p>
+          <p>Don't have an account?<router-link to="/auth/requestsignup">Sign up</router-link></p>
         </div>
       </AuthWrapper>
 

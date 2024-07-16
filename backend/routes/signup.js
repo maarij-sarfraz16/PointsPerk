@@ -7,10 +7,6 @@ const User = require('../models/User');
 
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
-const dotenv = require('dotenv');
-
-// Loading environment variables from .env file
-dotenv.config({ path: '../../.env' });
 
 
 /////////// SIGNUP REQUEST  ///////////
@@ -40,7 +36,7 @@ router.post('/requestsignup', [
     // Check if the email is already used to request signup and the token is not expired yet
     let signupToken = await SignupToken.findOne({ email });
     if (signupToken) {
-      return res.status(400).json({ message: 'Signup request already made. Please check your email.' });
+      return res.status(400).json({ error: 'Signup request already made. Please check your email.' });
     }
 
     // Generate a signup token
@@ -61,7 +57,7 @@ router.post('/requestsignup', [
       from: process.env.EMAIL_USER,
       to: email,
       subject: 'Points Perk Signup Link',
-      text: `Click the following link to complete your signup: http://localhost:8080/signup/${token} \nThe link will expire in 10 minutes`
+      text: `Click the following link to complete your signup: http://localhost:8080/api/signup/${token} \nThe link will expire in 10 minutes`
     };
 
     transporter.sendMail(mailOptions, async (error, info) => {
@@ -69,10 +65,10 @@ router.post('/requestsignup', [
         try {
           // Deleting token from the database in case there is an error sending email
           await SignupToken.deleteOne({ email });
-          console.error('Error sending email:', error);
+          // console.error('Error sending email:', error);
           return res.status(500).json({ error: 'Error sending email' });
         } catch (deleteOneError) {
-          console.error('Error sending email', deleteOneError);
+          // console.error('Error sending email', deleteOneError);
           return res.status(500).json({ error: 'Error sending email' });
         }
       }
@@ -80,12 +76,14 @@ router.post('/requestsignup', [
     });
 
   } catch (error) {
-    console.error(error.message);
+    // console.error(error.message);
     res.status(500).send('Server Error');
   }
 
 });
 
+
+// ROUTE 2: Rendering registration page using GET "/api/signup/:token"
 
 // router.get('/signup/:token', async (req, res) => {
 //   const { token } = req.params;
