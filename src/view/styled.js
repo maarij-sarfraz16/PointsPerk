@@ -409,7 +409,7 @@ const Main = Styled.div`
     .w-100{
         width: 100%;
     }
-    .product-sidebar-col{
+    .coupons-sidebar-col{
         @media only screen and (max-width: 767px){
             order: 2;
         }
@@ -2836,7 +2836,7 @@ const TopToolBox = Styled.div`
             justify-content: center;
         }
     }
-    .product-list-action__tab{
+    .coupons-list-action__tab{
         margin: -10px;
         color: ${({ theme }) => theme[theme.mainContent]['gray-light-text']};;
 
@@ -2865,7 +2865,7 @@ const TopToolBox = Styled.div`
         }
     }
 
-    .product-list-action__viewmode{
+    .coupons-list-action__viewmode{
         display: flex;
         align-items: center;
         a{

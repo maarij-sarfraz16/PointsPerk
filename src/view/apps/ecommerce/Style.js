@@ -530,7 +530,7 @@ const TopToolBox = Styled.div`
             justify-content: center;
         }
     }
-    .product-list-action__tab{
+    .coupons-list-action__tab{
         margin: -10px;
         color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
 
@@ -579,7 +579,7 @@ const TopToolBox = Styled.div`
         }
     }
 
-    .product-list-action__viewmode{
+    .coupons-list-action__viewmode{
         display: flex;
         align-items: center;
         a{

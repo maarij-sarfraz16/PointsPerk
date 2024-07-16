@@ -93,7 +93,7 @@ const routes = [
     name: "Coupons",
     component: () =>
       import(
-        /* webpackChunkName: "Coupons" */ "@/view/apps/ecommerce/product/Products.vue"
+        /* webpackChunkName: "Coupons" */ "@/view/apps/ecommerce/product/Coupons.vue"
       ),
   },
   ...PageRoutes,
