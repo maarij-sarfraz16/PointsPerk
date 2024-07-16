@@ -73,8 +73,9 @@
             </a-col>
           </a-row>
         </TopToolBox>
-        <!-- <router-view name="grid"></router-view> -->
-        <Grid />
+        <router-view name="grid"></router-view>
+        <!-- <router-link :to="`${path}/ecommerce/product/grid`"></router-link> -->
+        <!-- <Grid /> -->
       </a-col>
     </a-row>
   </Main>
@@ -85,7 +86,7 @@ import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import { Main } from "../../../styled";
 import { TopToolBox } from "../Style";
-import Grid from "@/view/apps/ecommerce/product/overview/Grid.vue";
+// import Grid from "@/view/apps/ecommerce/product/overview/Grid.vue";
 
 const Filters = defineAsyncComponent(() => import("./overview/Filters"));
 const pageRoutes = [
@@ -100,7 +101,7 @@ const pageRoutes = [
 ];
 const Product = {
   name: "Product",
-  components: { TopToolBox, Main, Filters, Grid },
+  components: { TopToolBox, Main, Filters },
   setup() {
     const { state, dispatch } = useStore();
     const searchData = computed(() => state.headerSearchData.data);
