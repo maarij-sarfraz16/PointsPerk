@@ -86,7 +86,7 @@
           }
         } catch (error) {
           // console.error("Error:", error);
-          errors.value = 'An error occurred';
+          errors.value = error;
         }
       };
 
