@@ -3,8 +3,10 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 
 const User = require('../models/User');
-const fetchUser = require('../middleware/fetchUser');
 const Admin = require('../models/Admin');
+const SignupToken = require('../models/SignupToken');
+
+const fetchUser = require('../middleware/fetchUser');
 const fetchAdmin = require('../middleware/fetchAdmin');
 
 const bcrypt = require('bcrypt');
@@ -27,9 +29,11 @@ router.post('/createuser', [
   body('contactNumber', 'Enter a valid contact number').isLength({min: 10, max: 15}),
   body('password', 'Password must be at least 8 characters').isLength({min: 8}),
   body('country', 'Country is required').notEmpty(),
+  body('token', 'Token is required').notEmpty()
 ], async (req, res) => {
 
   let success = false;
+  const { token } = req.body;
 
   // Returns a bad request in case of an error
   const errors = validationResult(req);
@@ -41,13 +45,19 @@ router.post('/createuser', [
     // Check whether a user with an email already exists
     let user = await User.findOne({email: req.body.email});
     if (user) {
-      return res.status(400).json({success, error: "Sorry a user with this email already exists"});
+      return res.status(400).json({success, error: "Sorry, a user with this email already exists"});
     }
 
     // Check whether a user with the contact number already exists
     user = await User.findOne({contactNumber: req.body.contactNumber});
     if (user) {
       return res.status(400).json({success, error: "Sorry, a user with this contact number already exists"});
+    }
+
+    // Check if the token is valid
+    const signupToken = await SignupToken.findOne({ token });
+    if (!signupToken) {
+      return res.status(400).json({ success, error: 'Invalid or expired token' });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -64,6 +74,9 @@ router.post('/createuser', [
       country: req.body.country
     });
 
+    // Delete the token after user creation
+    await SignupToken.deleteOne({ token });
+
     const data = {
       user: {
         id: user.id
@@ -75,8 +88,8 @@ router.post('/createuser', [
     res.json({success, authToken});
 
   } catch(err) {
-    console.log(err);
-    res.status(400),json({error: 'Internal Server Error'});
+    // console.log(err);
+    res.status(400).json({error: 'Internal Server Error'});
   }
 
 })
@@ -122,7 +135,7 @@ router.post('/login', [
     res.json({success, authToken});
 
   } catch(err) {
-    console.log(err);
+    // console.log(err);
     res.status(400),json({error: 'Internal Server Error'});
   }
 
@@ -139,7 +152,7 @@ router.post('/getuserdata', fetchUser, async (req, res) => {
     const user = await User.findById(userId).select('-password');
     res.send(user);
   } catch(err) {
-    console.log(err);
+    // console.log(err);
     res.status(400),json({error: 'Internal Server Error'});
   }
 
@@ -193,7 +206,7 @@ router.post('/createadmin', [
     res.json({success, authToken});
 
   } catch(err) {
-    console.log(err);
+    // console.log(err);
     res.status(400),json({error: 'Internal Server Error'});
   }
 
@@ -240,7 +253,7 @@ router.post('/adminlogin', [
     res.json({success, authToken});
 
   } catch(err) {
-    console.log(err);
+    // console.log(err);
     res.status(400),json({error: 'Internal Server Error'});
   }
 
@@ -257,7 +270,7 @@ router.post('/getadmindata', fetchAdmin, async (req, res) => {
     const admin = await Admin.findById(adminId).select('-password');
     res.send(admin);
   } catch(err) {
-    console.log(err);
+    // console.log(err);
     res.status(400),json({error: 'Internal Server Error'});
   }
 

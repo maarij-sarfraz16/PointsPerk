@@ -179,7 +179,7 @@ export default [
         name: "ecommerce-product",
         component: () =>
           import(
-            /* webpackChunkName: "product" */ "../view/apps/ecommerce/product/Products.vue"
+            /* webpackChunkName: "product" */ "../view/apps/ecommerce/product/Coupons.vue"
           ),
         children: [
           {
@@ -187,7 +187,7 @@ export default [
             path: "product",
             component: () =>
               import(
-                /* webpackChunkName: "product" */ "../view/apps/ecommerce/product/Products.vue"
+                /* webpackChunkName: "product" */ "../view/apps/ecommerce/product/Coupons.vue"
               ),
           },
           {
@@ -196,7 +196,7 @@ export default [
             components: {
               default: () =>
                 import(
-                  /* webpackChunkName: "product" */ "../view/apps/ecommerce/product/Products.vue"
+                  /* webpackChunkName: "product" */ "../view/apps/ecommerce/product/Coupons.vue"
                 ),
               grid: () =>
                 import(
@@ -210,7 +210,7 @@ export default [
             components: {
               default: () =>
                 import(
-                  /* webpackChunkName: "product" */ "../view/apps/ecommerce/product/Products.vue"
+                  /* webpackChunkName: "product" */ "../view/apps/ecommerce/product/Coupons.vue"
                 ),
               grid: () =>
                 import(

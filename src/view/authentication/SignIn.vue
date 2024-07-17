@@ -41,7 +41,7 @@
               </sdButton>
             </a-form-item>
 
-            <p class="ninjadash-form-divider"><span>Or</span></p>
+            <!-- <p class="ninjadash-form-divider"><span>Or</span></p>
 
             <ul class="ninjadash-social-login">
               <li>
@@ -54,12 +54,13 @@
                   <unicon name="facebook-f"></unicon>
                 </a>
               </li>
-            </ul>
+            </ul> -->
+
           </a-form>
         </div>
 
         <div class="ninjadash-authentication-bottom">
-          <p>Don't have an account?<router-link to="/auth/register">Sign up</router-link></p>
+          <p>Don't have an account?<router-link to="/auth/requestsignup">Sign up</router-link></p>
         </div>
       </AuthWrapper>
 
@@ -73,11 +74,11 @@
   import { useStore } from "vuex";
   import { AuthWrapper } from "./style";
   import { useRouter, useRoute } from "vue-router";
-  import InlineSvg from "vue-inline-svg";
+  // import InlineSvg from "vue-inline-svg";
 
   const SignIn = defineComponent({
     name: "SignIn",
-    components: { AuthWrapper, InlineSvg },
+    components: { AuthWrapper },
     setup() {
       const { state, dispatch } = useStore();
       const isLoading = computed(() => state.auth.loading);

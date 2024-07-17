@@ -6,7 +6,7 @@
   >
     <div class="ninjadash-authentication-wrap">
       <div class="ninjadash-authentication-brand">
-        <img :src="require('../static/img/points-perk-logo.png')" alt="" />
+        <img :src="require('../static/img/Logo_Dark.svg')" alt="" />
       </div>
       <router-view></router-view>
     </div>
