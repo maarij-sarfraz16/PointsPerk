@@ -3,7 +3,7 @@
     <sdCards more>
       <template #title>
         <div class="ninjadash-card-title-wrap">
-          <span class="ninjadash-card-title-text"> Sales By Location </span>
+          <span class="ninjadash-card-title-text" > Sales By Location </span>
         </div>
       </template>
       <template #button>
@@ -71,7 +71,7 @@
         </router-link>
       </template>
       <a-row>
-        <a-col :xxl="12" :lg="12" :xs="24">
+        <a-col :xxl="24" :lg="24" :xs="24">
           <LocationTableWrap>
             <div class="table-responsive">
               <a-table
@@ -83,19 +83,15 @@
             </div>
           </LocationTableWrap>
         </a-col>
-        <a-col :xxl="12" :lg="12" :xs="24">
-          <SaleLocationMap>
-            <WorldMap />
-          </SaleLocationMap>
-        </a-col>
+        
       </a-row>
     </sdCards>
   </div>
 </template>
 <script>
 import { computed, onMounted, ref, defineComponent } from "vue";
-import { SaleLocationMap, LocationTableWrap } from "../../style";
-import WorldMap from "@/components/utilities/VectorMap.vue";
+import { LocationTableWrap } from "../../style";
+
 import { useStore } from "vuex";
 
 const sellingColumns = [
@@ -119,8 +115,7 @@ const sellingColumns = [
 const SalesByLocation = defineComponent({
   name: "SalesByLocation",
   components: {
-    WorldMap,
-    SaleLocationMap,
+   
     LocationTableWrap,
   },
   setup() {
