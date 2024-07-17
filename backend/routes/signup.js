@@ -57,7 +57,7 @@ router.post('/requestsignup', [
       from: process.env.EMAIL_USER,
       to: email,
       subject: 'Points Perk Signup Link',
-      text: `Click the following link to complete your signup: http://localhost:8080/api/signup/${token} \nThe link will expire in 10 minutes`
+      text: `Click the following link to complete your signup: http://localhost:8080/auth/register?token=${token} \nThe link will expire in 1 hour`
     };
 
     transporter.sendMail(mailOptions, async (error, info) => {
@@ -83,25 +83,25 @@ router.post('/requestsignup', [
 });
 
 
-// ROUTE 2: Rendering registration page using GET "/api/signup/:token"
+// ROUTE 2: Rendering registration page based on token validity using GET "/api/signup/verifytoken/:token"
 
-// router.get('/signup/:token', async (req, res) => {
-//   const { token } = req.params;
+router.get('/verifytoken/:token', async (req, res) => {
+  const { token } = req.params;
 
-//   try {
-//     // Find the token in the database
-//     const signupToken = await SignupToken.findOne({ token });
-//     if (!signupToken) {
-//       return res.status(400).json({ error: 'Invalid or expired token' });
-//     }
+  try {
+    // Check if the token exists and is not expired
+    const signupToken = await SignupToken.findOne({ token });
 
-//     // Render the signup form (or send back a message to the frontend to show the signup form)
-//     res.json({ email: signupToken.email });
+    if (signupToken) {
+      res.status(200).json({ message: 'Valid token' });
+    } else {
+      res.status(400).json({ error: 'Invalid or expired token' });
+    }
 
-//   } catch (error) {
-//     console.error(error.message);
-//     res.status(500).send('Server Error');
-//   }
-// });
+  } catch (error) {
+    // console.error(error.message);
+    res.status(500).json({error: 'Internal Server Error'});
+  }
+});
 
 module.exports = router;

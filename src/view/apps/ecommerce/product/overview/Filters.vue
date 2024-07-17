@@ -27,55 +27,104 @@
             <li>
               <a @click="() => onChangeCategory('all')" to="#">
                 <span>All</span>
-                <span class="category-count">25</span>
+                <span class="category-count">200</span>
               </a>
             </li>
             <li>
-              <a @click="() => onChangeCategory('accessories')" to="#">
-                <span>Accessories</span>
-                <span class="category-count">25</span>
+              <a @click="() => onChangeCategory('electronics')" to="#">
+                <span>Electronics</span>
+                <span class="category-count">30</span>
               </a>
             </li>
             <li>
-              <a @click="() => onChangeCategory('appliance')" to="#">
-                <span>Appliances</span>
-                <span class="category-count">25</span>
+              <a @click="() => onChangeCategory('mobile')" to="#">
+                <span>Mobile</span>
+                <span class="category-count">20</span>
               </a>
             </li>
             <li>
               <a @click="() => onChangeCategory('bags')" to="#">
                 <span>Bags</span>
+                <span class="category-count">10</span>
+              </a>
+            </li>
+            <li>
+              <a @click="() => onChangeCategory('grocery')" to="#">
+                <span>Grocery</span>
                 <span class="category-count">25</span>
               </a>
             </li>
             <li>
-              <a @click="() => onChangeCategory('electronic')" to="#">
-                <span>Electronic</span>
-                <span class="category-count">25</span>
+              <a @click="() => onChangeCategory('shoes')" to="#">
+                <span>Shoes</span>
+                <span class="category-count">20</span>
               </a>
             </li>
             <li>
-              <a @click="() => onChangeCategory('entertainment')" to="#">
-                <span>Entertainment</span>
-                <span class="category-count">25</span>
+              <a @click="() => onChangeCategory('food')" to="#">
+                <span>Food</span>
+                <span class="category-count">15</span>
               </a>
             </li>
             <li>
-              <a @click="() => onChangeCategory('induction')" to="#">
-                <span>Induction</span>
-                <span class="category-count">25</span>
-              </a>
-            </li>
-            <li>
-              <a @click="() => onChangeCategory('mobile')" to="#">
-                <span>Mobile Phone</span>
-                <span class="category-count">25</span>
+              <a @click="() => onChangeCategory('cutlery')" to="#">
+                <span>Cutlery</span>
+                <span class="category-count">18</span>
               </a>
             </li>
           </ul>
         </nav>
         <div class="sidebar-single__action">
-          <a class="btn-seeMore" to="#"> See more </a>
+          <sdButton> <a class="btn-seeMore" to="#"> See more </a></sdButton>
+          
+          <li>
+              <a @click="() => onChangeCategory('mobile')" to="#">
+                <span>Cutlery</span>
+                <span class="category-count">18</span>
+              </a>
+            </li>
+            <li>
+              <a @click="() => onChangeCategory('mobile')" to="#">
+                <span>Cutlery</span>
+                <span class="category-count">18</span>
+              </a>
+            </li>
+            <li>
+              <a @click="() => onChangeCategory('mobile')" to="#">
+                <span>Cutlery</span>
+                <span class="category-count">18</span>
+              </a>
+            </li>
+            <li>
+              <a @click="() => onChangeCategory('mobile')" to="#">
+                <span>Cutlery</span>
+                <span class="category-count">18</span>
+              </a>
+            </li>
+            <li>
+              <a @click="() => onChangeCategory('mobile')" to="#">
+                <span>Cutlery</span>
+                <span class="category-count">18</span>
+              </a>
+            </li>
+            <li>
+              <a @click="() => onChangeCategory('mobile')" to="#">
+                <span>Cutlery</span>
+                <span class="category-count">18</span>
+              </a>
+            </li>
+            <li>
+              <a @click="() => onChangeCategory('mobile')" to="#">
+                <span>Cutlery</span>
+                <span class="category-count">18</span>
+              </a>
+            </li>
+            <li>
+              <a @click="() => onChangeCategory('mobile')" to="#">
+                <span>Cutlery</span>
+                <span class="category-count">18</span>
+              </a>
+            </li>
         </div>
       </SidebarSingle>
 
@@ -93,7 +142,7 @@
         </div>
       </SidebarSingle>
 
-      <SidebarSingle>
+      <!-- <SidebarSingle>
         <sdHeading as="h5">Ratings</sdHeading>
         <a-checkbox-group
           @change="onChangeRating"
@@ -101,7 +150,7 @@
           name="optionsRate"
           :options="options"
         />
-      </SidebarSingle>
+      </SidebarSingle> -->
     </sdCards>
   </Sidebar>
 </template>
@@ -110,69 +159,8 @@ import Slider from "../../../../../components/slider/Slider";
 import { Sidebar, SidebarSingle } from "../../Style";
 import { ref, defineComponent } from "vue";
 import { useStore } from "vuex";
-import { Rate } from "ant-design-vue";
+//import { Rate } from "ant-design-vue";
 
-const options = [
-  {
-    label: (
-      <>
-        <span class="rating-left">
-          <Rate allowHalf value={5} disabled />
-        </span>
-        <span class="rating-right">25</span>
-      </>
-    ),
-    value: 5,
-  },
-  {
-    label: (
-      <>
-        <span class="rating-left">
-          <Rate allowHalf value={4} disabled />
-          and up
-        </span>
-        <span class="rating-right">25</span>
-      </>
-    ),
-    value: 4,
-  },
-  {
-    label: (
-      <>
-        <span class="rating-left">
-          <Rate allowHalf value={3} disabled />
-          and up
-        </span>
-        <span class="rating-right">25</span>
-      </>
-    ),
-    value: 3,
-  },
-  {
-    label: (
-      <>
-        <span class="rating-left">
-          <Rate allowHalf value={2} disabled />
-          and up
-        </span>
-        <span class="rating-right">25</span>
-      </>
-    ),
-    value: 2,
-  },
-  {
-    label: (
-      <>
-        <span class="rating-left">
-          <Rate allowHalf value={1} disabled />
-          and up
-        </span>
-        <span class="rating-right">25</span>
-      </>
-    ),
-    value: 1,
-  },
-];
 
 const optionsBrand = [
   {
@@ -243,7 +231,6 @@ const Filters = defineComponent({
       min,
       max,
       optionsBrand,
-      options,
     };
   },
 });

@@ -6,17 +6,16 @@
         <a-col :lg="16" :md="12">
           <OverviewDataList />
         </a-col>
-        <a-col :lg="8" :md="12">
+        <a-col :lg="6" :md="12">
           <sdCards title="CSV File"> 
             <basic-upload />
-           
-
             </sdCards>
         </a-col>
-        <a-col :lg="8" :xs="24" :md="24">
+       
+        <a-col :lg="24" :xs="24" :md="24">
           <Suspense>
             <template #default>
-              <SalesOverview />
+              <csvFile/>
             </template>
             <template #fallback>
               <sdCards headless>
@@ -25,7 +24,8 @@
             </template>
           </Suspense>
         </a-col>
-        <a-col :lg="16" :xs="24" :md="24">
+
+        <a-col :lg="12" :xs="24" :md="24">
           <Suspense>
             <template #default>
               <SalesByLocation />
@@ -49,6 +49,7 @@
             </template>
           </Suspense>
         </a-col>
+       
         <a-col :lg="12" :xs="24" :md="24">
           <Suspense>
             <template #default>
@@ -71,12 +72,11 @@ import { Main } from "../styled";
 import cardData from "../../demoData/overviewCard.json";
 import { defineComponent, defineAsyncComponent } from "vue";
 import BasicUpload from "@/view/uiElements/upload/Basic.vue"
+import csvFile from "@/view/dashboard/overview/csvFile"
 
 
 
-const SalesOverview = defineAsyncComponent(() =>
-  import("./overview/dashboard/SalesOverview.vue")
-);
+
 const SalesByLocation = defineAsyncComponent(() =>
   import("./overview/dashboard/SalesByLocation.vue")
 );
@@ -100,9 +100,9 @@ export default defineComponent({
     Main,
     BasicUpload,
     OverviewDataList,
-    SalesOverview,
     SalesByLocation,
     TopSellingProduct,
+    csvFile,
   },
   setup() {
     return { cardData, pageRoutes };
