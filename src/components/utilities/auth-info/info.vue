@@ -1,16 +1,12 @@
 <template>
     <InfoWraper>
-        <SearchBar />
-        <Message />
-        <Notification />
-        <Settings />
         <!-- <Support /> -->
-        <div
-            class="ninjadash-nav-actions__item ninjadash-nav-actions__language"
+        <!-- <div -->
+            <!-- class="ninjadash-nav-actions__item ninjadash-nav-actions__language"
         >
-            <sdDropdown placement="bottomRight" :action="['click']">
-                <template v-slot:overlay>
-                    <NavAuth>
+            <sdDropdown placement="bottomRight" :action="['click']"> -->
+                <!-- <template v-slot:overlay> -->
+                    <!-- <NavAuth>
                         <router-link
                             @click="() => onFlagChangeHandle('english')"
                             to="#"
@@ -66,9 +62,9 @@
                         :src="require(`../../../static/img/flag/${flag}.png`)"
                         alt=""
                     />
-                </a>
-            </sdDropdown>
-        </div>
+                </a> -->
+            <!-- </sdDropdown>
+        </div> -->
 
         <div class="ninjadash-nav-actions__item ninjadash-nav-actions__author">
             <sdPopover placement="bottomRight" action="click">
@@ -144,17 +140,14 @@
 </template>
 
 <script setup>
-import { InfoWraper, NavAuth, UserDropDown } from './auth-info-style';
+import { InfoWraper, UserDropDown } from './auth-info-style';
 // import Support from "./Support";
-import Settings from './Settings.vue';
-import Notification from './Notification.vue';
-import Message from './Message.vue';
-import SearchBar from './Search.vue';
+
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { LogoutOutlined } from '@ant-design/icons-vue';
 
-let flag = 'english';
+// let flag = 'english';
 const { dispatch } = useStore();
 const { push } = useRouter();
 const SignOut = (e) => {
@@ -163,7 +156,7 @@ const SignOut = (e) => {
     dispatch('logOut');
 };
 
-const onFlagChangeHandle = (value) => {
-    flag = value;
-};
+// const onFlagChangeHandle = (value) => {
+//     flag = value;
+// };
 </script>
