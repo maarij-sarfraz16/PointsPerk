@@ -23,8 +23,8 @@
                 <img
                   :src="
                     !darkMode
-                      ? require(`../static/img/points-perk-logo.png`)
-                      : require(`../static/img/points-perk-logo.png`)
+                      ? require(`../static/img/Logo_Dark.svg`)
+                      : require(`../static/img/Logo_White.svg`)
                   "
                   alt="logo"
                 />

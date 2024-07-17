@@ -1287,9 +1287,6 @@ const AuthenticationWrap = Styled.div`
   .ninjadash-authentication-brand{
     text-align: center;
   }
-  .ninjadash-authentication-brand img {
-    width: 120px;
-  }
 `;
 
 export { NavTitle, Div, SmallScreenAuthInfo, SmallScreenSearch, ModeSwitch, TopMenuStyle, TopMenuSearch, Aside, Content, AuthenticationWrap };
