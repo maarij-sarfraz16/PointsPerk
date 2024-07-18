@@ -50,7 +50,7 @@
               class="ninjadash-showcase-top d-flex justify-content-between align-items-center"
             >
               <div class="ninjadash-showcase-top__text">
-                <p class="search-result">Showing 1–8 of 86 results</p>
+                <p class="search-result">Showing 1-8 of 86 results</p>
               </div>
 
               <div

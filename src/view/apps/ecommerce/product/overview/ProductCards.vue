@@ -8,13 +8,13 @@
       />
     </figure>
     <figcaption>
-      <a @click="() => addWishList(renderData.id)" class="btn-heart" to="#">
+      <!-- <a @click="() => addWishList(renderData.id)" class="btn-heart" to="#">
         <unicon
           name="heart"
           width="14"
           :style="{ fill: renderData.popular ? '#ff4d4f' : '#9299B8' }"
         ></unicon>
-      </a>
+      </a> -->
       <sdHeading class="product-single-title" as="h5">
         <router-link
           :to="`${matched[1].path}/ecommerce/productDetails/${renderData.id}`"
@@ -22,28 +22,28 @@
         >
       </sdHeading>
 
-      <div class="product-single-rating">
+      <!-- <div class="product-single-rating">
         <a-rate allow-half :value="renderData.rate" disabled /> 4.9
         <span class="total-reviews"> 778 Reviews</span>
-      </div>
+      </div> -->
 
       <p class="product-single-price">
-        <span class="product-single-price__new">${{ renderData.price }} </span>
+        <span class="product-single-price__new"><unicon name="star"> </unicon>{{ renderData.price }} </span>
 
-        <template v-if="renderData.oldPrice">
+        <!-- <template v-if="renderData.oldPrice">
           <del class="product-single-price__old">
-            ${{ renderData.oldPrice }}
-          </del>
-          <span class="product-single-price__offer"> 60% Off</span>
-        </template>
+            {{ renderData.oldPrice }}
+          </del> -->
+          <!-- <span class="product-single-price__offer"> 60% Off</span> -->
+        <!-- </template> -->
       </p>
 
       <div class="product-single-action">
-        <sdButton size="sm" type="white" class="btn-cart" outlined>
+        <!-- <sdButton size="sm" type="white" class="btn-cart" outlined>
           <unicon name="shopping-bag" width="14"></unicon>
-          <span>Add To Cart</span>
-        </sdButton>
-        <sdButton size="sm" type="primary"> Buy Now </sdButton>
+          <span>Add To Cart</span> 
+         </sdButton> -->
+        <sdButton size="sm" type="primary"> Claim </sdButton>
       </div>
     </figcaption>
   </ProductCard>

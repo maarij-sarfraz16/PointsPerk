@@ -1,6 +1,7 @@
 <template>
   <sdPageHeader
     title="Shop"
+
     class="ninjadash-page-header-main"
     :routes="pageRoutes"
   ></sdPageHeader>
@@ -49,9 +50,9 @@
                     @change="onSorting"
                     v-model:value="sortDefault"
                   >
-                    <a-radio-button value="rate">All</a-radio-button>
-                    <a-radio-button value="popular">Available</a-radio-button>
-                    <a-radio-button value="time">Claimed</a-radio-button>
+                    <a-radio-button value="all">All</a-radio-button>
+                    <a-radio-button value="available">Available</a-radio-button>
+                    <a-radio-button value="claimed">Claimed</a-radio-button>
                     <!-- <a-radio-button value="price">Price</a-radio-button> -->
                   </a-radio-group>
                 </div>
@@ -62,10 +63,10 @@
                   "
                   class="coupons-list-action__viewmode"
                 >
-                  <router-link :to="$path/ecommerce/product/grid">
+                  <router-link :to="`${path}/ecommerce/product/grid`">
                     <unicon name="apps" width="16"></unicon>
                   </router-link>
-                  <router-link :to="$path/ecommerce/product/list">
+                  <router-link :to="`${path}/ecommerce/product/list`">
                     <unicon name="list-ul" width="16"></unicon>
                   </router-link>
                 </div>

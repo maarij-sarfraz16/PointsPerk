@@ -32,7 +32,7 @@
         </a-col>
         <a-col :md="24" :lg="6" :xs="24">
           <div class="product-single-info">
-            <a
+            <!-- <a
               @click="() => addWishList(renderData.id)"
               class="btn-heart"
               to="#"
@@ -42,25 +42,26 @@
                 width="14"
                 :class="renderData.popular ? 'wish-active' : 'wish-deactivate'"
                 :fill="renderData.popular ? '#ff4d4f' : '#9299B8'"
-              ></unicon>
-            </a>
+              ></unicon> -->
+            <!-- </a> -->
             <p class="product-single-price">
+              <unicon name="star"></unicon>
               <span class="product-single-price__new"
-                >${{ renderData.price }}
+                >{{ renderData.price }}
               </span>
 
-              <template v-if="renderData.oldPrice">
+              <!-- <template v-if="renderData.oldPrice">
                 <del> ${{ renderData.oldPrice }} </del>
                 <span class="product-single-price__offer"> 60% Off</span>
-              </template>
+              </template> -->
             </p>
-            <div class="product-single-rating">
+            <!-- <div class="product-single-rating">
               <a-rate allow-half :value="renderData.rate" disabled />
               4.9
               <span class="total-reviews"> 778 Reviews</span>
-            </div>
+            </div> -->
             <div class="product-single-action">
-              <sdButton
+              <!-- <sdButton
                 size="sm"
                 class="btn-cart"
                 type="white"
@@ -68,8 +69,8 @@
               >
                 <unicon name="shopping-bag" width="14"></unicon>
                 <span>Add To Cart</span>
-              </sdButton>
-              <sdButton size="sm" type="primary"> Buy Now </sdButton>
+              </sdButton> -->
+              <sdButton size="sm" type="primary"> Claim </sdButton>
             </div>
           </div>
         </a-col>
@@ -97,16 +98,16 @@ const ProductCardsList = defineComponent({
     const renderData = computed(() => product.value);
     const { matched } = useRoute();
 
-    const addWishList = (value) => {
-      dispatch("updateWishList", value);
-    };
+    // const addWishList = (value) => {
+    //   dispatch("updateWishList", value);
+    // };
 
     return {
       dispatch,
       renderData,
       isLoader,
       matched,
-      addWishList,
+    
     };
   },
 });

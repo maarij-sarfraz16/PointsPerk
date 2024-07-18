@@ -76,53 +76,53 @@
         </nav>
         <div class="sidebar-single__action">
           <sdButton> <a class="btn-seeMore" to="#"> See more </a></sdButton>
-          
+
           <li>
-              <a @click="() => onChangeCategory('mobile')" to="#">
-                <span>Cutlery</span>
+              <a @click="() => onChangeCategory('automibile accesories')" to="#">
+                <span>Automobile Accesories </span>
+                <span class="category-count">10</span>
+              </a>
+            </li>
+            <li>
+              <a @click="() => onChangeCategory('games')" to="#">
+                <span>Games</span>
+                <span class="category-count">15</span>
+              </a>
+            </li>
+            <li>
+              <a @click="() => onChangeCategory('furniture')" to="#">
+                <span>Furniture</span>
                 <span class="category-count">18</span>
               </a>
             </li>
             <li>
-              <a @click="() => onChangeCategory('mobile')" to="#">
-                <span>Cutlery</span>
+              <a @click="() => onChangeCategory('e-books')" to="#">
+                <span>E-books</span>
+                <span class="category-count">9</span>
+              </a>
+            </li>
+            <li>
+              <a @click="() => onChangeCategory('toys')" to="#">
+                <span>Toys</span>
+                <span class="category-count">15</span>
+              </a>
+            </li>
+            <li>
+              <a @click="() => onChangeCategory('jewellery')" to="#">
+                <span>Jewellery </span>
                 <span class="category-count">18</span>
               </a>
             </li>
             <li>
-              <a @click="() => onChangeCategory('mobile')" to="#">
-                <span>Cutlery</span>
-                <span class="category-count">18</span>
+              <a @click="() => onChangeCategory('health')" to="#">
+                <span>Health</span>
+                <span class="category-count">20</span>
               </a>
             </li>
             <li>
-              <a @click="() => onChangeCategory('mobile')" to="#">
-                <span>Cutlery</span>
-                <span class="category-count">18</span>
-              </a>
-            </li>
-            <li>
-              <a @click="() => onChangeCategory('mobile')" to="#">
-                <span>Cutlery</span>
-                <span class="category-count">18</span>
-              </a>
-            </li>
-            <li>
-              <a @click="() => onChangeCategory('mobile')" to="#">
-                <span>Cutlery</span>
-                <span class="category-count">18</span>
-              </a>
-            </li>
-            <li>
-              <a @click="() => onChangeCategory('mobile')" to="#">
-                <span>Cutlery</span>
-                <span class="category-count">18</span>
-              </a>
-            </li>
-            <li>
-              <a @click="() => onChangeCategory('mobile')" to="#">
-                <span>Cutlery</span>
-                <span class="category-count">18</span>
+              <a @click="() => onChangeCategory('comics')" to="#">
+                <span>Comics</span>
+                <span class="category-count">10</span>
               </a>
             </li>
         </div>
@@ -137,9 +137,9 @@
           :options="optionsBrand"
         />
 
-        <div class="sidebar-single__action">
+        <!-- <div class="sidebar-single__action">
           <a class="btn-seeMore" to="#"> See more </a>
-        </div>
+        </div> -->
       </SidebarSingle>
 
       <!-- <SidebarSingle>
@@ -166,34 +166,56 @@ const optionsBrand = [
   {
     label: (
       <>
-        Cup <span class="brand-count">25</span>
+        Nike <span class="brand-count">20</span>
       </>
     ),
-    value: "cup",
+    value: "nike",
   },
   {
     label: (
       <>
-        Plate <span class="brand-count">25</span>
+        Addidas <span class="brand-count">25</span>
       </>
     ),
-    value: "plate",
+    value: "addidas",
   },
   {
     label: (
       <>
-        Chair <span class="brand-count">25</span>
+        Walmart <span class="brand-count">15</span>
       </>
     ),
-    value: "chair",
+    value: "walmart",
   },
   {
     label: (
       <>
-        Juice <span class="brand-count">25</span>
+        Seven Eleven<span class="brand-count">25</span>
       </>
     ),
-    value: "juice",
+    value: "seveneleven",
+  },
+  {
+    label: (
+      <>
+        Key Ring <span class="brand-count">20</span>
+      </>
+    ),
+    value: "keyring",
+  },{
+    label: (
+      <>
+        Webtalk <span class="brand-count">10</span>
+      </>
+    ),
+    value: "webtalk",
+  },{
+    label: (
+      <>
+        Target <span class="brand-count">19</span>
+      </>
+    ),
+    value: "target",
   },
 ];
 

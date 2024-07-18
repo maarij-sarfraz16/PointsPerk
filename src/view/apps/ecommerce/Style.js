@@ -277,6 +277,7 @@ const ProductCard = Styled.div`
     .product-single-price__new{
         font-weight: 600;
         color: ${({ theme }) => theme['primary-color']};
+        margin-bottom: 50px; 
     }
     .product-single-price__offer{
         font-weight: 500;
