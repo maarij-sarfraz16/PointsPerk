@@ -92,6 +92,8 @@
       const route = useRoute();
 
       const handleSubmit = async () => {
+        errors.value = '';
+
         try {
           const response = await fetch(`${host}/api/auth/login`, {
             method: 'POST',

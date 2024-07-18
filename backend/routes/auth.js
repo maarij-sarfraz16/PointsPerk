@@ -74,9 +74,6 @@ router.post('/createuser', [
       country: req.body.country
     });
 
-    // Delete the token after user creation
-    await SignupToken.deleteOne({ token });
-
     const data = {
       user: {
         id: user.id
@@ -85,6 +82,10 @@ router.post('/createuser', [
 
     const authToken = jwt.sign(data, JWT_SECRET);
     success = true;
+
+    // Delete the token after user creation
+    await SignupToken.deleteOne({ token });
+
     res.json({success, authToken});
 
   } catch(err) {

@@ -61,6 +61,9 @@
       const errors = ref('');
 
       const handleSubmit = async () => {
+        errors.value = '';
+        successMessage.value = '';
+        
         try {
           const response = await fetch(`${host}/api/signup/requestsignup`, {
             method: 'POST',
@@ -72,8 +75,8 @@
 
           const json = await response.json();
           if (response.ok) {
-            successMessage.value = json.message || '';
             errors.value = '';
+            successMessage.value = json.message || '';
           } else {
             successMessage.value = '';
             errors.value = json.error || '';

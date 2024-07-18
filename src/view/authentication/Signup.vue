@@ -115,6 +115,7 @@
       const tokenValid = ref(false);
 
       onMounted(async () => {
+        errors.value = '';
         const token = route.query.token;
 
         if (!token) {
@@ -144,6 +145,8 @@
       });
 
       const handleSubmit = async () => {
+        errors.value = '';
+
         try {
           const token = credentials.value.token;
 
