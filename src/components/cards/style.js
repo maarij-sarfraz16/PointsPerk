@@ -208,14 +208,14 @@ const OverviewCard = Styled.div`
                     }
                     &.ninjadash-primary{
                         background-color: ${({ theme }) => theme['primary-color']}15;
-                        svg path,
+                        svg ,
                         i{
                             fill: ${({ theme }) => theme['primary-color']};
                         }
                     }
                     &.ninjadash-secondary{
                         background-color: ${({ theme }) => theme['secondary-color']}15;
-                        svg path,
+                        svg ,
                         i{
                             fill: ${({ theme }) => theme['secondary-color']};
                         }

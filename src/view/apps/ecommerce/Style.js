@@ -277,6 +277,7 @@ const ProductCard = Styled.div`
     .product-single-price__new{
         font-weight: 600;
         color: ${({ theme }) => theme['primary-color']};
+        margin-bottom: 50px; 
     }
     .product-single-price__offer{
         font-weight: 500;
@@ -530,7 +531,7 @@ const TopToolBox = Styled.div`
             justify-content: center;
         }
     }
-    .product-list-action__tab{
+    .coupons-list-action__tab{
         margin: -10px;
         color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
 
@@ -579,7 +580,7 @@ const TopToolBox = Styled.div`
         }
     }
 
-    .product-list-action__viewmode{
+    .coupons-list-action__viewmode{
         display: flex;
         align-items: center;
         a{

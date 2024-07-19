@@ -6,8 +6,8 @@
     :theme="darkMode ? 'dark' : 'light'"
     class="scroll-menu"
     @openChange="onOpenChange"
-    @click="onClick"
-  >
+    @click="onClick">
+    
     <!-- Dashboard -->
     <a-menu-item @click="toggleCollapsed" key="dashboard">
       <template #icon>

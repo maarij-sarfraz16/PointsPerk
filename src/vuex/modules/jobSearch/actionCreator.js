@@ -41,10 +41,16 @@ const actions = {
     try {
       commit('jobsReadBegin');
       setTimeout(() => {
-        const data = oldState.sort((a, b) => {          
-          return sortBy === 'Old' ? b.id - a.id : a.id - b.id;
-        });        
-        commit('jobsReadSuccess', data);
+        console.log('oldState:', oldState); // Debug log
+        if (Array.isArray(oldState)) {
+          const data = oldState.sort((a, b) => {          
+            return sortBy === 'Old' ? b.id - a.id : a.id - b.id;
+          });
+          commit('jobsReadSuccess', data);
+        } else {
+          console.error('oldState is not an array or is undefined');
+          commit('jobsReadErr', new TypeError('oldState is not an array or is undefined'));
+        }
       }, 100);
     } catch (err) {
       commit('jobsReadErr', err);
@@ -71,8 +77,7 @@ const actions = {
       commit('filterSingleJobPageReadBegin');
       const data = initialState.filter(item => parseInt(item.id) === parseInt(id));       
         
-        commit('filterSingleJobPageReadSuccess', data);
-      
+      commit('filterSingleJobPageReadSuccess', data);
     } catch (err) {
       commit('filterSingleJobPageReadErr', err);
     }

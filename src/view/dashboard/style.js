@@ -1590,6 +1590,13 @@ const RevenueSourceStyle = Styled.div `
                 margin-top: 2px;
                 color: var(--color-gray);
             }
+               
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+
         }
     }
 `;
@@ -1620,5 +1627,6 @@ export {
     TimelineStyleWrap,
     InboxListStyleWrap,
     SalesReportWrapper,
-    RevenueSourceStyle
+    RevenueSourceStyle,
+   
 };
