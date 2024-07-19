@@ -47,7 +47,7 @@
             <p class="product-single-price">
               <unicon name="star"></unicon>
               <span class="product-single-price__new"
-                >{{ renderData.price }}
+                >{{ renderData.price }} 
               </span>
 
               <!-- <template v-if="renderData.oldPrice">

@@ -72,10 +72,10 @@
                 <span class="category-count">18</span>
               </a>
             </li>
-          </ul>
-        </nav>
+
         <div class="sidebar-single__action">
-          <sdButton> <a class="btn-seeMore" to="#"> See more </a></sdButton>
+          <sdButton> <a class="btn-seeMore" to="#"> See more </a></sdButton></div>
+
 
           <li>
               <a @click="() => onChangeCategory('automibile accesories')" to="#">
@@ -125,7 +125,8 @@
                 <span class="category-count">10</span>
               </a>
             </li>
-        </div>
+          </ul>
+        </nav>
       </SidebarSingle>
 
       <SidebarSingle>
