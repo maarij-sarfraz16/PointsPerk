@@ -3,10 +3,10 @@
     <sdPageHeader title="Dashboard" class="ninjadash-page-header-main" :routes="pageRoutes"></sdPageHeader>
     <Main>
       <a-row justify="center" :gutter="25">
-        <a-col :lg="16" :md="12">
+        <a-col :lg="20" :md="12">
           <OverviewDataList />
         </a-col>
-        <a-col :lg="6" :md="12">
+        <a-col :lg="4" :md="12">
           <sdCards title="CSV File"> 
             <basic-upload />
             </sdCards>
@@ -103,6 +103,7 @@ export default defineComponent({
     SalesByLocation,
     TopSellingProduct,
     csvFile,
+   
   },
   setup() {
     return { cardData, pageRoutes };
