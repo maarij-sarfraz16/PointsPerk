@@ -5,6 +5,7 @@ const InfoWraper = Styled('div', props)`
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
     .ninjadash-nav-action-link{
         text-decoration: none;
         color: ${({ theme }) => theme[theme.mainContent].secondary};
@@ -14,6 +15,12 @@ const InfoWraper = Styled('div', props)`
             vertical-align: unset;
         }
     }
+        .ninjadash-nav-action-mode{
+          padding: 0px 8px;
+          text-align:center;
+          display:flex;
+        }
+
     .ninjadash-nav-actions__searchbar{
         display: flex;
         align-items: center;
