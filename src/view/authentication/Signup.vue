@@ -101,7 +101,6 @@
   import { AuthWrapper } from "./style";
   import { ref, defineComponent, onMounted } from "vue";
   import { useRouter, useRoute } from 'vue-router';
-  // import InlineSvg from "vue-inline-svg";
 
   const SignUp = defineComponent({
     name: "SignUp",
@@ -124,7 +123,7 @@
         }
 
         try {
-          const response = await fetch(`${host}/api/signup/verifytoken/${token}`, {
+          const response = await fetch(`${host}/api/auth/user/signup/verifySignupToken/${token}`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -155,7 +154,7 @@
             return;
           }
 
-          const response = await fetch(`${host}/api/auth/createuser`, {
+          const response = await fetch(`${host}/api/auth/user/createUser`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -168,7 +167,7 @@
 
           const json = await response.json();
           if (json.success) {
-            localStorage.setItem('token', json.authToken);
+            // localStorage.setItem('token', json.authToken);
             // console.log("User created successfully");
             router.push({
               path: '/auth/login',

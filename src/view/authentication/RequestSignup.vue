@@ -9,7 +9,7 @@
 
         <div class="ninjadash-authentication-content">
 
-          <!-- Display Success Message After New User Creation -->
+          <!-- Display Success Message -->
           <div v-if="successMessage" class="success-message">
             {{ successMessage }}
           </div>
@@ -21,14 +21,14 @@
 
           <a-form @submit.prevent="handleSubmit" layout="vertical">
 
-            <p class="forgot-text">Enter your email address and we'll send you a signup link.</p>
+            <p class="request-signup-text">Enter your email address and we'll send you a signup link.</p>
             
             <a-form-item label="Email Address" name="email">
               <a-input type="email" v-model:value="credentials.email" placeholder="name@example.com" required/>
             </a-form-item>
             
             <a-form-item>
-              <sdButton class="btn-reset" htmlType="submit" type="primary" size="lg">
+              <sdButton class="btn-request-signup" htmlType="submit" type="primary" size="lg">
                 Request Signup Link
               </sdButton>
             </a-form-item>
@@ -65,7 +65,7 @@
         successMessage.value = '';
         
         try {
-          const response = await fetch(`${host}/api/signup/requestsignup`, {
+          const response = await fetch(`${host}/api/auth/user/signup/requestSignup`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

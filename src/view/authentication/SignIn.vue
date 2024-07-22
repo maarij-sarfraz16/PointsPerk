@@ -4,7 +4,7 @@
       
       <AuthWrapper>
         <div class="ninjadash-authentication-top">
-          <h2 class="ninjadash-authentication-top__title">Sign in Points Perk</h2>
+          <h2 class="ninjadash-authentication-top__title">Sign In Points Perk</h2>
         </div>
         
         <div class="ninjadash-authentication-content">
@@ -92,10 +92,11 @@
       const route = useRoute();
 
       const handleSubmit = async () => {
+        successMessage.value = '';
         errors.value = '';
 
         try {
-          const response = await fetch(`${host}/api/auth/login`, {
+          const response = await fetch(`${host}/api/auth/user/login`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
