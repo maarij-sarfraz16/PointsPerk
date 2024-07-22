@@ -10,16 +10,24 @@
       <a-col :xxl="12" :lg="24" :xs="24">
         <BasicFormWrapper>
           <a-form
-            :model="formState"
+              :model="formState" 
             @finish="handleFinish"
             @finishFailed="handleFinishFailed"
             layout="vertical"
           >
-            <a-form-Item label="Name">
-              <a-input v-model:value="formState.name" />
+            <a-form-Item name="input-name">
+              <a-input  v-model:value="formState.name" placeholder="Name">
+              <template #prefix>
+              <unicon name="user" width="18"></unicon>
+              </template>
+            </a-input>
             </a-form-Item>
-            <a-form-item label="Phone Number">
-              <a-input v-model:value="formState.phone" />
+            <a-form-item name="input-phone">
+              <a-input v-model:value="formState.phone" placeholder="Phone Number">
+              <template #prefix>
+              <unicon name="phone" width="18"></unicon>
+              </template>
+            </a-input>
             </a-form-item>
             <a-form-item label="Country">
               <a-select v-model:value="formState.country" style="width: 100%">
@@ -38,14 +46,25 @@
                 <a-select-option value="khulna">Khulna</a-select-option>
               </a-select>
             </a-form-item>
-            <a-form-item label="Company Name">
-              <a-input v-model:value="formState.company" />
+            <a-form-item name="input-companyname">
+              <a-input v-model:value="formState.company"  placeholder="Company Name">
+                <template #prefix>
+              <unicon name="building" width="18"></unicon>
+              </template>
+              </a-input>
             </a-form-item>
-            <a-form-item label="Website">
-              <a-input v-model:value="formState.website" />
+            <a-form-item name="input-website">
+              <a-input v-model:value="formState.website" placeholder="Website">
+                <template #prefix>
+              <unicon name="globe" width="18"></unicon>
+              </template>
+              </a-input>
             </a-form-item>
-            <a-form-item label="User Bio">
-              <a-textarea v-model:value="formState.userBio" :rows="3" />
+            <a-form-item name="input-userbio">
+              <a-textarea v-model:value="formState.userBio" :rows="3" placeholder="User Bio">
+                <template #prefix>
+              </template>
+              </a-textarea>
             </a-form-item>
             <a-form-item name="skills" label="Skills">
               <TagInput>
@@ -110,23 +129,22 @@
 </template>
 <script>
 import { BasicFormWrapper, TagInput } from "../../../styled";
-import { defineComponent, reactive } from "vue";
+import { defineComponent,reactive } from "vue";
 
 const Profile = defineComponent({
   name: "Profile",
   components: { BasicFormWrapper, TagInput },
 
   setup() {
-    const formState = reactive({
-      name: "Duran Clayton",
-      phone: "01742920502",
-      country: "",
-      city: "",
-      company: "Example",
-      website: "www.example.com",
-      userBio:
-        "Nam malesuada dolor tellus pretium amet was hendrerit facilisi id vitae enim sed ornare there suspendisse sed orci neque ac sed aliquet risus faucibus in pretium molestee.",
-    });
+     const formState = reactive({
+       name: "",
+       phone: "",
+       country: "",
+       city: "",
+       company: "",
+       website: "",
+       userBio:"",
+     });
 
     const handleFinish = (values) => {
       this.values = { ...values, tags: this.tags };
