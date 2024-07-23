@@ -59,37 +59,32 @@ export default [
     component: () => import(/* webpackChunkName: "404" */ '@/view/pages/404.vue'),
   },
   {
-    path: '/page',
+    path: '/page/settings',
     name: 'settings',
     component: () => import(/* webpackChunkName: "Settings" */ '@/view/pages/settings/Settings.vue'),
     children: [
       {
-        path: 'profile-settings',
-        name: 'profile-settings',
-        component: () => import(/* webpackChunkName: "Profile" */ '@/view/pages/settings/overview/Profile.vue'),
-      },
-      {
-        path: 'profile-settings/profile',
+        path: 'profile',
         name: 'set-profile',
         component: () => import(/* webpackChunkName: "Profile" */ '@/view/pages/settings/overview/Profile.vue'),
       },
       {
-        path: 'profile-settings/account',
+        path: 'account',
         name: 'set-account',
         component: () => import(/* webpackChunkName: "Account" */ '@/view/pages/settings/overview/Account.vue'),
       },
       {
-        path: 'profile-settings/password',
+        path: 'password',
         name: 'set-password',
         component: () => import(/* webpackChunkName: "Password" */ '@/view/pages/settings/overview/Password.vue'),
       },
       {
-        path: 'profile-settings/social',
+        path: 'social',
         name: 'set-social',
         component: () => import(/* webpackChunkName: "Social" */ '@/view/pages/settings/overview/SocialProfile.vue'),
       },
       {
-        path: 'profile-settings/notification',
+        path: 'notification',
         name: 'set-notification',
         component: () =>
           import(/* webpackChunkName: "Notification" */ '@/view/pages/settings/overview/Notification.vue'),

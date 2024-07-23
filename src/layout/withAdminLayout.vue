@@ -162,14 +162,12 @@
             >
               <a-row>
                 <a-col :md="12" :xs="24">
-                  <span class="admin-footer__copyright"
-                    >{{ currentYear }} ©
-                    <a href="#" style="">Points Perk</a>
-                  </span>
+                  <span class="admin-footer__copyright">{{ currentYear }} © <a href="#" style="">Points Perk</a></span>
                 </a-col>
                 <a-col :md="12" :xs="24">
                   <div class="admin-footer__links">
-                    <router-link to="/app/contact/contact-grid">Contact Support</router-link>
+                    <!-- <font-awesome-icon :icon="['fas', 'headset']" /> -->
+                    <router-link to="/page/support">Contact Support</router-link>
                   </div>
                 </a-col>
               </a-row>

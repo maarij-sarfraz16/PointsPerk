@@ -17,7 +17,8 @@
         {{ t("Dashboard") }}
       </router-link>
     </a-menu-item>
-    <!-- coupons -->
+
+    <!-- Coupons -->
     <!-- <a-menu-item @click="toggleCollapsed" key="coupons">
       <template #icon>
         <unicon name="ticket"></unicon>
@@ -34,40 +35,14 @@
       </router-link>
     </a-menu-item>
 
-    <!-- redemprion history -->
+    <!-- Redemprion History -->
     <a-menu-item @click="toggleCollapsed" key="redemptionHistory">
       <template #icon>
         <unicon name="history-alt"></unicon>
       </template>
       <router-link to="/redemptionHistory"> Redemption History </router-link>
     </a-menu-item>
-    <!-- Settings -->
-    <a-sub-menu key="settings">
-      <template #icon>
-        <unicon name="setting"></unicon>
-      </template>
-      <template #title>Settings</template>
 
-      <a-menu-item @click="toggleCollapsed" key="set-profile">
-        <router-link to="/page/profile-settings/profile"> Profile </router-link>
-      </a-menu-item>
-      <a-menu-item @click="toggleCollapsed" key="set-account">
-        <router-link to="/page/profile-settings/account"> Account </router-link>
-      </a-menu-item>
-      <a-menu-item @click="toggleCollapsed" key="set-password">
-        <router-link to="/page/profile-settings/password">
-          Password
-        </router-link>
-      </a-menu-item>
-      <a-menu-item @click="toggleCollapsed" key="set-social">
-        <router-link to="/page/profile-settings/social"> Social </router-link>
-      </a-menu-item>
-      <a-menu-item @click="toggleCollapsed" key="set-notification">
-        <router-link to="/page/profile-settings/notification">
-          Notification
-        </router-link>
-      </a-menu-item>
-    </a-sub-menu>
   </a-menu>
 </template>
 
