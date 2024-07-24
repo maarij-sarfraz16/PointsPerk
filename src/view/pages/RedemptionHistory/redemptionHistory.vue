@@ -1,23 +1,40 @@
 <template>
-  <div>
-    <sdPageHeader title="Redemption History" class="ninjadash-page-header-main"></sdPageHeader>
-    <Main>
-      <DataTable
-        :filterOption="true"
-        :filterOnchange="true"
-        :tableData="tableDataSource"
-        :columns="dataTableColumn"
-        :rowSelection="true"
-      />
-    </Main>
-  </div>
+
+    <div>
+      <sdPageHeader title="Redemption History" class="ninjadash-page-header-main" :routes="pageRoutes"></sdPageHeader>
+      <Main>
+        <DataTable
+      :filterOption="true"
+      :filterOnchange="true"
+      :tableData="tableData"
+      :columns="dataTableColumn"
+      :rowSelection="true"
+    />
+      </Main>
+    </div>
+
 </template>
+
 
 <script>
 import { Main } from "../../styled";
 import { defineComponent, ref } from "vue";
 import DataTable from "@/components/table/DataTable";
 import tableData from "@/view/pages/RedemptionHistory/table-data.json"; 
+
+  const pageRoutes = [
+      {
+        path: "/",
+        breadcrumbName: "Dashboard",
+      },
+      {
+        path: "",
+        breadcrumbName: "Redemption History",
+      },
+    ];
+  
+  const tableDataScource = [];
+
 
 const dataTableColumn = [
   {
@@ -52,19 +69,20 @@ const dataTableColumn = [
   },
 ];
 
-export default defineComponent({
-  name: "RedemptionHistory",
-  components: {
-    Main,
-    DataTable,
-  },
-  setup() {
-    const tableDataSource = ref(tableData);
 
-    return {
-      tableDataSource,
-      dataTableColumn,
-    };
-  },
-});
-</script>
+  export default defineComponent({
+    name: "RedemptionHistory",
+    components: {
+      Main,
+      DataTable,
+    },
+    setup() {
+    const tableDataSource = ref(tableData);
+      return {
+        pageRoutes,
+        tableDataScource,
+        dataTableColumn
+      }
+    }
+  });
+  </script>
