@@ -7,7 +7,7 @@ const routes = [
   {
     path: 'requestsignup',
     name: 'requestsignup',
-    component: () => import(/* webpackChunkName: "register" */ '@/view/authentication/RequestSignup.vue'),
+    component: () => import(/* webpackChunkName: "requestsignup" */ '@/view/authentication/RequestSignup.vue'),
   },
   {
     path: 'register',
@@ -15,9 +15,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "register" */ '@/view/authentication/Signup.vue'),
   },
   {
-    path: 'forgotPassword',
-    name: 'forgotPassword',
-    component: () => import(/* webpackChunkName: "forgotPassword" */ '@/view/authentication/ForgotPassword.vue'),
+    path: 'forgotpassword',
+    name: 'forgotpassword',
+    component: () => import(/* webpackChunkName: "forgotpassword" */ '@/view/authentication/ForgotPassword.vue'),
+  },
+  {
+    path: 'resetpassword',
+    name: 'resetpassword',
+    component: () => import(/* webpackChunkName: "resetpassword" */ '@/view/authentication/ResetPassword.vue'),
   },
 ];
 

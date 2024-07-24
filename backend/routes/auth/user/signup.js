@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
 
-const SignupToken = require('../models/SignupToken');
-const User = require('../models/User');
+const SignupToken = require('../../../models/SignupToken');
+const User = require('../../../models/User');
 
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
@@ -12,9 +12,9 @@ const nodemailer = require('nodemailer');
 /////////// SIGNUP REQUEST  ///////////
 
 
-// ROUTE 1: Sending signup link through gmail using POST "/api/signup/requestsignup"
+// ROUTE 1: Sending signup link through gmail using POST "/api/auth/user/signup/requestSignup"
 
-router.post('/requestsignup', [
+router.post('/requestSignup', [
   body('email', 'Enter a valid email').isEmail()
 ], async (req, res) => {
 
@@ -56,8 +56,19 @@ router.post('/requestsignup', [
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: 'Points Perk Signup Link',
-      text: `Click the following link to complete your signup: http://localhost:8080/auth/register?token=${token} \nThe link will expire in 1 hour`
+      subject: 'Complete Your Points Perk Registration',
+      text: `Hi,
+
+Welcome to Points Perk! To complete your registration and activate your account, please click the link below:
+
+http://localhost:8080/auth/register?token=${token}
+
+This link will expire in 1 hour. If you did not request to sign up for Points Perk, please ignore this email.
+
+We look forward to having you on board!
+
+Best regards,
+The Points Perk Team`
     };
 
     transporter.sendMail(mailOptions, async (error, info) => {
@@ -83,9 +94,9 @@ router.post('/requestsignup', [
 });
 
 
-// ROUTE 2: Rendering registration page based on token validity using GET "/api/signup/verifytoken/:token"
+// ROUTE 2: Rendering registration page based on token validity using GET "/api/auth/user/signup/verifySignupToken/:token"
 
-router.get('/verifytoken/:token', async (req, res) => {
+router.get('/verifySignupToken/:token', async (req, res) => {
   const { token } = req.params;
 
   try {

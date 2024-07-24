@@ -69,7 +69,8 @@ const AuthWrapper = Styled.div `
       }
     }
     .btn-signin,
-    .btn-create{
+    .btn-create,
+    .btn-reset {
       font-size: 14px;
       font-weight: 500;
       border-radius: 6px;

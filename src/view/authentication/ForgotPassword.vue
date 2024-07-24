@@ -1,63 +1,121 @@
 <template>
   <a-row justify="center">
     <a-col :xxl="6" :xl="12" :md="12" :sm="18">
+
       <AuthWrapper>
         <div class="ninjadash-authentication-top">
           <h2 class="ninjadash-authentication-top__title">Forgot Password?</h2>
         </div>
+
         <div class="ninjadash-authentication-content">
-          <a-form @finish="handleSubmit" :model="formState" layout="vertical">
-            <p class="forgot-text">
-              Enter the email address you used when you joined and we’ll help you reset your password.
-            </p>
+
+          <!-- Display Success Message After New User Creation -->
+          <div v-if="successMessage" class="success-message">
+            {{ successMessage }}
+          </div>
+
+           <!-- Display Errors -->
+           <div v-if="errors" class="error-message">
+            {{ errors }}
+          </div>
+
+          <a-form @submit.prevent="handleSubmit" layout="vertical">
+            
+            <p class="forgot-text">Enter the email address you used when you joined and we’ll help you reset your password.</p>
+            
             <a-form-item label="Email Address" name="email">
-              <a-input
-                type="email"
-                v-model:value="formState.email"
-                placeholder="name@example.com"
-              />
+              <a-input type="email" v-model:value="credentials.email" placeholder="name@example.com"/>
             </a-form-item>
             <a-form-item>
-              <sdButton
-                class="btn-reset"
-                htmlType="submit"
-                type="primary"
-                size="lg"
-              >
+              <sdButton class="btn-forget" htmlType="submit" type="primary" size="lg">
                 Reset Password
               </sdButton>
             </a-form-item>
+
             <p class="return-text">
               Return to <router-link to="/auth/login">Sign In</router-link>
             </p>
+
           </a-form>
         </div>
+
       </AuthWrapper>
+
     </a-col>
   </a-row>
 </template>
+
 <script>
-import { reactive, defineComponent } from "vue";
-import { AuthWrapper } from "./style";
+  import { AuthWrapper } from "./style";
+  import { ref, defineComponent } from "vue";
 
-const ForgotPassword = defineComponent({
-  name: "ForgotPassword",
-  components: { AuthWrapper },
-  setup() {
-    const handleSubmit = (values) => {
-      console.log(values);
-    };
+  const ForgotPassword = defineComponent({
+    name: "ForgotPassword",
+    components: { AuthWrapper },
+    setup() {
+      const host = 'http://localhost:5000';
+      const credentials = ref({ email: '' });
+      const successMessage = ref('');
+      const errors = ref('');
 
-    const formState = reactive({
-      email: "",
-    });
+      const handleSubmit = async () => {
+        errors.value = '';
+        successMessage.value = '';
+        
+        try {
+          const response = await fetch(`${host}/api/auth/user/password-reset/requestReset`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(credentials.value)
+          });
 
-    return {
-      handleSubmit,
-      formState,
-    };
-  },
-});
+          const json = await response.json();
+          if (response.ok) {
+            errors.value = '';
+            successMessage.value = json.message || '';
+          } else {
+            successMessage.value = '';
+            errors.value = json.error || '';
 
-export default ForgotPassword;
+            if (json.errors) {
+              json.errors.forEach(error => {
+                errors.value[error.param] = error.msg;
+              });
+            }
+          }
+        } catch (error) {
+          // console.error("Error:", error);
+          errors.value = error;
+        }
+      };
+
+      const onChange = (e) => {
+        credentials.value = { ...credentials.value, [e.target.name]: e.target.value };
+      };
+
+      return {
+        credentials,
+        successMessage,
+        errors,
+        handleSubmit,
+        onChange
+      };
+    },
+  });
+
+  export default ForgotPassword;
+  
 </script>
+
+<style scoped>
+  .success-message {
+    color: green;
+    margin-bottom: 16px;
+  }
+  .error-message {
+    color: red;
+    margin-bottom: 16px;
+  }
+</style>
