@@ -1,6 +1,6 @@
 <template>
   <sdPageHeader
-    title="Shop"
+    title="Coupons"
 
     class="ninjadash-page-header-main"
     :routes="pageRoutes"

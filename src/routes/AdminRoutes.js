@@ -88,6 +88,15 @@ const routes = [
       ),
   },
 
+  {
+    path: "/LeaderBoard",
+    name: "LeaderBoard",
+    component: () =>
+      import(
+        /* webpackChunkName: "redemptionHistory" */ "@/view/pages/LeaderBoard/LeaderBoard.vue"
+      ),
+  },
+
   ...PageRoutes,
   ...FeaturesRoutes,
   ...Components,

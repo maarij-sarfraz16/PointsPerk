@@ -113,33 +113,50 @@ export const Banner4 = () => {
   );
 };
 
-export const Banner5 = () => {
-  return (
-    <BannerWrapper>
-      <sdCards
-        bodyStyle={{
-          background: "#5F63F2",
-          borderRadius: "10px",
-          minHeight: "265px",
-          display: "flex",
-          alignItems: "center",
-        }}
-        headless
-      >
-        <Figure3 class="theme-wide">
-          <img src={require("../../static/img/banner/4.png")} alt="" />
-          <figcaption>
-            <h2>Congratulations Jhon!</h2>
-            <p>Best Seller on the last month.</p>
-            <sdButton size="lg" type="white">
-              Learn More
-            </sdButton>
-          </figcaption>
-        </Figure3>
-      </sdCards>
-    </BannerWrapper>
-  );
-};
+export const Banner5 = defineComponent({
+  name: "Banner5",
+  props: {
+    title: {
+      type: String,
+      default: "Default Title",
+    },
+    description: {
+      type: String,
+      default: "Default description",
+    },
+    buttonText: {
+      type: String,
+      default: "Learn More",
+    },
+  },
+  render() {
+    return (
+      <BannerWrapper>
+        <sdCards
+          bodyStyle={{
+            background: "#5F63F2",
+            borderRadius: "10px",
+            minHeight: "265px",
+            display: "flex",
+            alignItems: "center",
+          }}
+          headless
+        >
+          <Figure3 class="theme-wide">
+            <img src={require("../../static/img/banner/4.png")} alt="" />
+            <figcaption>
+              <h2>{this.title}</h2>
+              <p>{this.description}</p>
+              <sdButton size="lg" type="white">
+                {this.buttonText}
+              </sdButton>
+            </figcaption>
+          </Figure3>
+        </sdCards>
+      </BannerWrapper>
+    );
+  },
+});
 
 export const Banner6 = () => {
   return (

@@ -41,7 +41,15 @@
       </template>
       <router-link to="/redemptionHistory"> Redemption History </router-link>
     </a-menu-item>
-    <!-- Settings -->
+
+<!-- redemprion history -->
+<a-menu-item @click="toggleCollapsed" key="LeaderBoard">
+      <template #icon>
+        <unicon name="trophy"></unicon>
+      </template>
+      <router-link to="/LeaderBoard"> Leader Board </router-link>
+    </a-menu-item>
+      <!-- Settings  -->
     <a-sub-menu key="settings">
       <template #icon>
         <unicon name="setting"></unicon>
