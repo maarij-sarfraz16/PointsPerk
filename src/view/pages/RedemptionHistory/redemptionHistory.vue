@@ -1,6 +1,6 @@
 <template>
     <div>
-      <sdPageHeader title="Redemption History" class="ninjadash-page-header-main"></sdPageHeader>
+      <sdPageHeader title="Redemption History" class="ninjadash-page-header-main" :routes="pageRoutes"></sdPageHeader>
       <Main>
         <DataTable
       :filterOption="true"
@@ -18,6 +18,17 @@
   import { defineComponent } from "vue";
   import DataTable from "@/components/table/DataTable";
 
+  const pageRoutes = [
+      {
+        path: "/",
+        breadcrumbName: "Dashboard",
+      },
+      {
+        path: "",
+        breadcrumbName: "Redemption History",
+      },
+    ];
+  
   const tableDataScource = [];
 
   const dataTableColumn = [
@@ -64,6 +75,7 @@
     },
     setup() {
       return {
+        pageRoutes,
         tableDataScource,
         dataTableColumn
       }

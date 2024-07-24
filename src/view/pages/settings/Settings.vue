@@ -1,6 +1,6 @@
 <template>
   <div>
-    <sdPageHeader title="Profile Settings" class="ninjadash-page-header-main">
+    <sdPageHeader title="Settings" class="ninjadash-page-header-main" :routes="pageRoutes">
     </sdPageHeader>
     <Main>
       <a-row :gutter="25">
@@ -47,7 +47,21 @@ export default defineComponent({
     ProfileAuthorBox,
   },
   data() {
-    return {};
+    
+    const pageRoutes = [
+      {
+        path: "/",
+        breadcrumbName: "Dashboard",
+      },
+      {
+        path: "",
+        breadcrumbName: "Settings",
+      },
+    ];
+
+    return {
+      pageRoutes
+    };
   },
 });
 </script>
