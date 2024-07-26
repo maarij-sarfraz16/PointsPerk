@@ -90,7 +90,7 @@ const OverviewDataList = defineAsyncComponent(() =>
 const pageRoutes = [
   {
     path: "/",
-    breadcrumbName: "dashboard",
+    breadcrumbName: "Dashboard",
   },
 ];
 

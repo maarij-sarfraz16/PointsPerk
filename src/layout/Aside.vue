@@ -17,7 +17,8 @@
         {{ t("Dashboard") }}
       </router-link>
     </a-menu-item>
-    <!-- coupons -->
+
+    <!-- Coupons -->
     <!-- <a-menu-item @click="toggleCollapsed" key="coupons">
       <template #icon>
         <unicon name="ticket"></unicon>
@@ -34,7 +35,7 @@
       </router-link>
     </a-menu-item>
 
-    <!-- redemprion history -->
+    <!-- Redemprion History -->
     <a-menu-item @click="toggleCollapsed" key="redemptionHistory">
       <template #icon>
         <unicon name="history-alt"></unicon>
@@ -76,6 +77,7 @@
         </router-link>
       </a-menu-item>
     </a-sub-menu>
+
   </a-menu>
 </template>
 
