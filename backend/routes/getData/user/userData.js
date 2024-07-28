@@ -5,9 +5,9 @@ const User = require('../../../models/User');
 const fetchUser = require('../../../middleware/fetchUser');
 
 
-// ROUTE 1: Get loggedIn user details using POST "/api/fetchUserData/getdata"
+// ROUTE 1: Get loggedIn user details using GET "/api/getData/user/userData/fetchData"
 
-router.post('/getdata', fetchUser, async (req, res) => {
+router.get('/fetchData', fetchUser, async (req, res) => {
 
   try {
     userId = req.user.id;
@@ -15,7 +15,7 @@ router.post('/getdata', fetchUser, async (req, res) => {
     res.send(user);
   } catch(err) {
     // console.log(err);
-    res.status(400),json({error: 'Internal Server Error'});
+    res.status(400).json({error: 'Internal Server Error'});
   }
 
 });

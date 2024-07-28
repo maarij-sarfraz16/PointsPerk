@@ -1,10 +1,6 @@
 <template>
-  <sdPageHeader
-    title="Coupons"
+  <sdPageHeader title="Coupons" class="ninjadash-page-header-main" :routes="pageRoutes"></sdPageHeader>
 
-    class="ninjadash-page-header-main"
-    :routes="pageRoutes"
-  ></sdPageHeader>
   <Main>
     <a-row :gutter="30">
       <a-col
@@ -81,52 +77,53 @@
     </a-row>
   </Main>
 </template>
+
 <script>
-import { computed, ref, defineAsyncComponent } from "vue";
-import { useRoute } from "vue-router";
-import { useStore } from "vuex";
-import { Main } from "../../../styled";
-import { TopToolBox } from "../Style";
-//import {Grid}from "@/view/apps/ecommerce/product/overview/Grid.vue";
+  import { computed, ref, defineAsyncComponent } from "vue";
+  import { useRoute } from "vue-router";
+  import { useStore } from "vuex";
+  import { Main } from "../../../styled";
+  import { TopToolBox } from "../Style";
+  //import {Grid}from "@/view/apps/ecommerce/product/overview/Grid.vue";
 
-const Filters = defineAsyncComponent(() => import("./overview/Filters"));
-const pageRoutes = [
-  {
-    path: "/",
-    breadcrumbName: "Dashboard",
-  },
-  {
-    path: "",
-    breadcrumbName: "Coupons",
-  },
-];
-const coupons = {
-  name: "Coupons",
-  components: { TopToolBox, Main, Filters },
-  setup() {
-    const { state, dispatch } = useStore();
-    const searchData = computed(() => state.headerSearchData.data);
-    const { matched } = useRoute();
-    const { path } = matched[1];
-    const active = ref("active");
-    const onSorting = (e) => {
-      dispatch("sorting", e.target.value);
-    };
-    const sortDefault = ref("rate");
+  const Filters = defineAsyncComponent(() => import("./overview/Filters"));
+  const pageRoutes = [
+    {
+      path: "/",
+      breadcrumbName: "Dashboard",
+    },
+    {
+      path: "",
+      breadcrumbName: "Coupons",
+    },
+  ];
+  const coupons = {
+    name: "Coupons",
+    components: { TopToolBox, Main, Filters },
+    setup() {
+      const { state, dispatch } = useStore();
+      const searchData = computed(() => state.headerSearchData.data);
+      const { matched } = useRoute();
+      const { path } = matched[1];
+      const active = ref("active");
+      const onSorting = (e) => {
+        dispatch("sorting", e.target.value);
+      };
+      const sortDefault = ref("rate");
 
-    const innerWidth = ref(window.innerWidth);
+      const innerWidth = ref(window.innerWidth);
 
-    return {
-      searchData,
-      active,
-      onSorting,
-      innerWidth,
-      path,
-      pageRoutes,
-      sortDefault,
-    };
-  },
-};
+      return {
+        searchData,
+        active,
+        onSorting,
+        innerWidth,
+        path,
+        pageRoutes,
+        sortDefault,
+      };
+    },
+  };
 
-export default coupons;
+  export default coupons;
 </script>

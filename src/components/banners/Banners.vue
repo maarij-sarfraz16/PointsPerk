@@ -396,35 +396,37 @@ export const Banner9 = () => {
   );
 };
 
-export const PageHeaderBanner = () => {
-  return (
-    <BannerWrapper class="ninjadash-top-banner">
-      <sdCards headless>
-        <PageHeader class="theme-wide">
-          <div class="banner-feature__content">
-            <h2 class="ninjadash-top-banner__title">
-              Hey Danial! Welcome to the Dashboard
-            </h2>
-            <p class="ninjadash-top-banner__text">
-              There are many variations of passages of Lorem Ipsum available,
-              ut the majority have suffered passages of Lorem Ipsum available alteration in some form
-            </p>
-            <sdButton
-              class="ninjadash-top-banner__action"
-              size="lg"
-              type="primary"
-            >
-              Learn More
-            </sdButton>
-          </div>
-          <div class="banner-feature__shape">
-            <img src={require("@/static/img/banner-img.png")} alt="" />
-          </div>
-        </PageHeader>
-      </sdCards>
-    </BannerWrapper>
-  );
-};
+export const PageHeaderBanner = defineComponent({
+  name: "PageHeaderBanner",
+  props: {
+    firstName: {
+      type: String,
+      required: true,
+    }
+  },
+  render() {
+    return (
+      <BannerWrapper class="ninjadash-top-banner">
+        <sdCards headless>
+          <PageHeader class="theme-wide">
+            <div class="banner-feature__content">
+              <h2 class="ninjadash-top-banner__title">
+                Hey {this.firstName}! Welcome to the Dashboard
+              </h2>
+              <p class="ninjadash-top-banner__text">
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have suffered alteration in some form.
+              </p>
+            </div>
+            <div class="banner-feature__shape">
+              <img src={require("@/static/img/banner-img.png")} alt="" />
+            </div>
+          </PageHeader>
+        </sdCards>
+      </BannerWrapper>
+    );
+  },
+});
 
 export default Banner1;
 </script>

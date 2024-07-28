@@ -71,22 +71,6 @@
               </a>
             </div>
           </div>
-          <!-- <a-col :lg="!topMenu ? 14 : 15" :md="8" :sm="0" :xs="0">
-
-            <HeaderSearch v-else />
-          </a-col> -->
-
-          <!-- <a-col :style="{ position: 'static' }" :md="0" :sm="18" :xs="12">
-            <div class="mobile-action">
-              <a class="btn-search" @click="handleSearchHide(searchHide)" href="#">
-                <unicon name="search" v-if="searchHide"></unicon>
-                <unicon name="x" v-else></unicon>
-              </a>
-              <a class="btn-auth" @click="onShowHide(hide)" href="#">
-                <unicon name="ellipsis-v"><unicon>
-              </a>
-            </div>
-          </a-col> -->
         </div>
       </Header>
       <div class="header-more">

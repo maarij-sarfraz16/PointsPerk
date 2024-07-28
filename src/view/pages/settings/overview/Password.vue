@@ -4,25 +4,30 @@
       <template v-slot:title>
         <div class="setting-card-title">
           <sdHeading as="h4">Password Settings</sdHeading>
-          <span>Change or reset your account password</span>
+          <span>Change your account password</span>
         </div>
       </template>
       <a-row type="flex" justify="center">
         <a-col :lg="12" :sm="20" :xs="24">
           <BasicFormWrapper>
             <a-form :model="formState" @finish="handleFinish" @finishFailed="handleFinishFailed" layout="vertical">
-              <a-form-item label="Old Password">
-                <a-input v-model:value="formState.old" />
+              <a-form-item label="New Password">
+                <a-input-password v-model:value="formState.old" placeholder="Password">
+                  <template #prefix>
+                    <unicon name="lock" width="18"></unicon>
+                  </template>
+                </a-input-password>
               </a-form-item>
-              <a-form-item name="new" label="New Password">
-                <a-input-password v-model:value="formState.new" />
+              <a-form-item name="new" label="Confirm New Password">
+                <a-input-password v-model:value="formState.new" placeholder="Password">
+                  <template #prefix>
+                    <unicon name="lock" width="18"></unicon>
+                  </template>
+                </a-input-password>
               </a-form-item>
-              <p class="input-message">Minimum 6 characters</p>
               <a-form-item>
                 <div class="setting-form-actions">
                   <sdButton @click="handleFinish" htmlType="submit" type="primary"> Change Password </sdButton>
-                  &nbsp; &nbsp;
-                  <sdButton size="default" @click="handleCancel" type="light"> Cancel </sdButton>
                 </div>
               </a-form-item>
             </a-form>

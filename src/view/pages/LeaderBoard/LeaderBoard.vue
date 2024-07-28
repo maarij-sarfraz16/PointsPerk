@@ -1,18 +1,17 @@
 <template>
   <sdPageHeader
     title="Leader Board"
-
     class="ninjadash-page-header-main"
     :routes="pageRoutes"
   ></sdPageHeader>
-<div>
-    <Main>
 
+  <Main>
     <ChartStyle>
-    <a-row  :gutter="44">
-        <a-col  :lg="24" >
+      <a-row :gutter="44">
+        <a-col :lg="24" >
             <Banner5 title="Our Employee Of The Month For July Is John Dash" description="Completed his task earlier than other agents and earned 300 extra points" buttonText="View Profile"/>
         </a-col>
+
         <a-col :lg="16" :xs="24">
           <Suspense>
             <template #fallback>
@@ -23,14 +22,12 @@
             <template #default> <BestSeller /> </template>
           </Suspense>
         </a-col>
-
-
         
         <a-col :lg="8">
           <sdCards title="For Your Motivation">
             <CarouselStyleWraper>
               <div>
-                 <!-- <a-radio-group
+                  <!-- <a-radio-group
                   v-model:value="dotPosition"
                   style="margin-bottom: 8px"
                 >
@@ -50,7 +47,7 @@
           </sdCards>
         </a-col>
 
-        <a-col  :lg="16">
+        <a-col :lg="16">
           <Suspense>
             <template #fallback>
               <sdCards headless>
@@ -63,45 +60,37 @@
           </Suspense>
         </a-col>
 
-        <a-col   :lg="8">
-         
-         <Suspense>
-         <template #fallback>
-           <sdCards headless>
-             <a-skeleton active />
-           </sdCards>
-         </template>
-         <template #default> <PerformanceOverview />
-         </template>
-       </Suspense>
-     </a-col>
-    </a-row>
-  </ChartStyle>
+          <a-col :lg="8">        
+            <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
+            <template #default> <PerformanceOverview />
+            </template>
+          </Suspense>
+        </a-col>
+      </a-row>
+    </ChartStyle>
   </Main>
-</div>
 
 </template>
   
-  <script>
-  
+<script>
   import { defineAsyncComponent, defineComponent } from "vue";
-import { Banner5 } from "../../../components/banners/Banners.vue";
-import BestSeller from './overview/BestSeller.vue';
-// import {PerformanceOverview} from './overview/PerformanceOverview.vue';
-import {ChartStyle} from './overview/style'; 
-import { Main } from "../../styled";
-import {CarouselStyleWraper} from './overview/ui-elements-styled';
+  import { Banner5 } from "../../../components/banners/Banners.vue";
+  import BestSeller from './overview/BestSeller.vue';
+  // import {PerformanceOverview} from './overview/PerformanceOverview.vue';
+  import {ChartStyle} from './overview/style'; 
+  import { Main } from "../../styled";
+  import {CarouselStyleWraper} from './overview/ui-elements-styled';
 
-const PerformanceOverview = defineAsyncComponent(()=>
-import("./overview/PerformanceOverview.vue"));
-const MonthlyEarning = defineAsyncComponent(() =>
-  import("./overview/MonthlyEarning.vue")
-);
-
-
-
-  
-    
+  const PerformanceOverview = defineAsyncComponent(()=>
+  import("./overview/PerformanceOverview.vue"));
+  const MonthlyEarning = defineAsyncComponent(() =>
+    import("./overview/MonthlyEarning.vue")
+  );
 
   export default defineComponent({
     name: "LeaderBoard",
@@ -115,9 +104,21 @@ const MonthlyEarning = defineAsyncComponent(() =>
       CarouselStyleWraper,
     },
     setup() {
+
+      const pageRoutes = [
+        {
+          path: "/",
+          breadcrumbName: "Dashboard",
+        },
+        {
+          path: "",
+          breadcrumbName: "Leader Board",
+        },
+      ];
+
       return {
-       
+        pageRoutes
       }
     }
   });
-  </script>
+</script>
