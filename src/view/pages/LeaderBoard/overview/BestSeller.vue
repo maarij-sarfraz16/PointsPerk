@@ -57,6 +57,7 @@
               :columns="sellerColumns"
               :dataSource="bestSellerData"
               :pagination="false"
+              :filterOption="true"
             />
           </div>
         </TableDefaultStyle>
@@ -70,6 +71,7 @@ import Cards from "../../../../components/cards/frame/CardsFrame.vue";
 import { BorderLessHeading, TableDefaultStyle } from "../../../styled";
 
 import tableData from "../../../../demoData/table-data.json";
+// import { filter } from "core-js/core/array";
 
 const BestSeller = defineComponent({
   name: "BestSeller",
