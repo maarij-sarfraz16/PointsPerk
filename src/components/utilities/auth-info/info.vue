@@ -1,33 +1,32 @@
 <template>
   <InfoWraper>
-
-    <Notification/>
+    <Notification />
 
     <div class="ninjadash-nav-actions__item ninjadash-nav-actions__language">
       <sdDropdown placement="bottomRight" :action="['click']">
         <template v-slot:overlay>
           <NavAuth>
-              <a @click.prevent="onFlagChangeHandle('english')" to="#">
-                  <img src="../../../static/img/flag/english.png" alt=""/>
-                  <span>English</span>
-              </a>
-              <a @click.prevent="onFlagChangeHandle('germany')" href="#">
-                  <img src="../../../static/img/flag/germany.png" alt=""/>
-                  <span>Germany</span>
-              </a>
-              <a @click.prevent="onFlagChangeHandle('spain')" href="#">
-                  <img src="../../../static/img/flag/spain.png" alt=""/>
-                  <span>Spain</span>
-              </a>
-              <a @click.prevent="onFlagChangeHandle('turky')" href="#">
-                  <img src="../../../static/img/flag/turky.png" alt=""/>
-                  <span>Turky</span>
-              </a>
+            <a @click.prevent="onFlagChangeHandle('english')" to="#">
+              <img src="../../../static/img/flag/english.png" alt="" />
+              <span>English</span>
+            </a>
+            <a @click.prevent="onFlagChangeHandle('germany')" href="#">
+              <img src="../../../static/img/flag/germany.png" alt="" />
+              <span>Germany</span>
+            </a>
+            <a @click.prevent="onFlagChangeHandle('spain')" href="#">
+              <img src="../../../static/img/flag/spain.png" alt="" />
+              <span>Spain</span>
+            </a>
+            <a @click.prevent="onFlagChangeHandle('turky')" href="#">
+              <img src="../../../static/img/flag/turky.png" alt="" />
+              <span>Turky</span>
+            </a>
           </NavAuth>
         </template>
-        
+
         <a to="#" class="ninjadash-nav-action-link">
-            <img :src="require(`../../../static/img/flag/${flag}.png`)" alt=""/>
+          <img :src="require(`../../../static/img/flag/${flag}.png`)" alt="" />
         </a>
       </sdDropdown>
     </div>
@@ -75,40 +74,36 @@
         </a>
       </sdPopover>
     </div>
-
   </InfoWraper>
 </template>
-  
 
 <script setup>
+import { InfoWraper, NavAuth, UserDropDown } from "./auth-info-style";
+import { computed, ref } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import { LogoutOutlined } from "@ant-design/icons-vue";
+import Notification from "./Notification.vue";
 
-  import { InfoWraper, NavAuth, UserDropDown } from './auth-info-style';
-  import { computed, ref } from 'vue';
-  import { useStore } from 'vuex';
-  import { useRouter } from 'vue-router';
-  import { LogoutOutlined } from '@ant-design/icons-vue';
-  import Notification from './Notification.vue';
-  
-  const store = useStore();
-  const { push } = useRouter();
+const store = useStore();
+const { push } = useRouter();
 
-  const flag = ref('english');
+const flag = ref("english");
 
-  const onFlagChangeHandle = (value) => {
-    flag.value = value;
-  };
-  
-  const darkMode = computed(() => store.state.themeLayout.data);
-  
-  const toggleMode = () => {
-    store.dispatch("changeLayoutMode", !darkMode.value);
-  };
-  
-  const SignOut = (e) => {
-    e.preventDefault();
-    push('/auth/login');
-    store.dispatch('logOut');
-    localStorage.removeItem('token');
-  };
-  
-</script>  
+const onFlagChangeHandle = (value) => {
+  flag.value = value;
+};
+
+const darkMode = computed(() => store.state.themeLayout.data);
+
+const toggleMode = () => {
+  store.dispatch("changeLayoutMode", !darkMode.value);
+};
+
+const SignOut = (e) => {
+  e.preventDefault();
+  push("/auth/login");
+  store.dispatch("logOut");
+  localStorage.removeItem("token");
+};
+</script>

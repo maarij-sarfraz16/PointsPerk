@@ -7,13 +7,13 @@
           <span>Update your username and manage your account</span>
         </div>
         <sdAlerts
-                :outlined="false"
-                :closable="false"
-                :showIcon="true"
-                message="Reminder"
-                description="You cannot change Username and Email. Please contact Admin for changings  "
-                type="warning"
-              />
+          :outlined="false"
+          :closable="false"
+          :showIcon="true"
+          message="Reminder"
+          description="You cannot change Username and Email. Please contact Admin for changings  "
+          type="warning"
+        />
       </template>
       <a-row>
         <a-col :xs="24">
@@ -32,6 +32,7 @@
                         <a-input
                           v-model:value="formState.username"
                           @change="handleChange"
+                          disabled
                         />
                       </a-form-item>
                       <p>
@@ -40,7 +41,7 @@
                         }}</span>
                       </p>
                       <a-form-item label="Email">
-                        <a-input v-model:value="formState.email" />
+                        <a-input v-model:value="formState.email" disabled />
                       </a-form-item>
                     </div>
                   </a-col>

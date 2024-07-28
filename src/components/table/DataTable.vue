@@ -19,11 +19,7 @@
           </a-select>
         </div>
         <div class="ninjadash-datatable-filter__action">
-          <sdButton
-            type="primary"
-            size="sm"
-            @click="handleSearch"
-            transparented
+          <sdButton type="primary" size="sm" @click="handleSearch" transparented
             >Submit</sdButton
           >
         </div>
@@ -80,8 +76,8 @@
 <script>
 import { defineComponent, computed, ref, unref } from "vue";
 import VueTypes from "vue-types";
-import { DataTableStyleWrap } from "./Style";
-import { TableWrapper } from "../../view/styled";
+import DataTableStyleWrap from "./Style"; // Ensure this is the correct path
+import TableWrapper from "../../view/styled"; // Ensure this is the correct path
 import { useStore } from "vuex";
 
 export default defineComponent({

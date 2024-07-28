@@ -15,7 +15,6 @@
           icon.name !== 'squre-shape' &&
           icon.name !== 'right-indent' &&
           icon.name !== 'covid-19'
-          
         "
         class="icon-single"
       >

@@ -1,21 +1,59 @@
 <template>
   <div>
-    <sdPageHeader title="Dashboard" class="ninjadash-page-header-main" :routes="pageRoutes"></sdPageHeader>
+    <sdPageHeader
+      title="Dashboard"
+      class="ninjadash-page-header-main"
+      :routes="pageRoutes"
+    ></sdPageHeader>
     <Main>
       <a-row justify="center" :gutter="25">
+        <!-- welcome banner -->
+        <a-col :xs="24" :md="24">
+          <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
+            <template #default> <PageHeaderBanner /> </template>
+          </Suspense>
+        </a-col>
+
+        <!-- Overview Data List -->
+
         <a-col :lg="20" :md="12">
-          <OverviewDataList />
+          <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
+            <template #default>
+              <OverviewDataList />
+            </template>
+          </Suspense>
         </a-col>
-        <a-col :lg="4" :md="12">
-          <sdCards title="CSV File"> 
-            <basic-upload />
-            </sdCards>
+
+        <!-- Customize Dashboard & CSV Upload -->
+        <a-col :xl="4" :lg="24" :md="24" :sm="24" :xs="24">
+          <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
+            <template #default>
+              <DashboardTools />
+            </template>
+          </Suspense>
         </a-col>
-       
+
+        <!-- CSV File Data Table-->
+
         <a-col :lg="24" :xs="24" :md="24">
           <Suspense>
             <template #default>
-              <csvFile/>
+              <csvFile />
             </template>
             <template #fallback>
               <sdCards headless>
@@ -49,7 +87,7 @@
             </template>
           </Suspense>
         </a-col>
-       
+
         <a-col :lg="12" :xs="24" :md="24">
           <Suspense>
             <template #default>
@@ -71,11 +109,9 @@
 import { Main } from "../styled";
 import cardData from "../../demoData/overviewCard.json";
 import { defineComponent, defineAsyncComponent } from "vue";
-import BasicUpload from "@/view/uiElements/upload/Basic.vue"
-import csvFile from "@/view/dashboard/overview/csvFile"
-
-
-
+import { PageHeaderBanner } from "@/components/banners/Banners.vue";
+import csvFile from "@/view/dashboard/overview/csvFile";
+import DashboardTools from "./overview/DashboardTools.vue";
 
 const SalesByLocation = defineAsyncComponent(() =>
   import("./overview/dashboard/SalesByLocation.vue")
@@ -98,12 +134,12 @@ export default defineComponent({
   name: "Dashboard",
   components: {
     Main,
-    BasicUpload,
     OverviewDataList,
     SalesByLocation,
     TopSellingProduct,
     csvFile,
-   
+    DashboardTools,
+    PageHeaderBanner,
   },
   setup() {
     return { cardData, pageRoutes };

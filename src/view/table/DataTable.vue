@@ -1,6 +1,4 @@
 <template>
-
-
   <DataTableStyleWrap>
     <div v-if="filterOption" class="ninjadash-datatable-filter">
       <div v-if="!filterOnchange" class="ninjadash-datatable-filter__left">
@@ -21,11 +19,7 @@
           </a-select>
         </div>
         <div class="ninjadash-datatable-filter__action">
-          <sdButton
-            type="primary"
-            size="sm"
-            @click="handleSearch"
-            transparented
+          <sdButton type="primary" size="sm" @click="handleSearch" transparented
             >Submit</sdButton
           >
         </div>
@@ -140,7 +134,6 @@ export default defineComponent({
       handleDataUser,
       handleSearch,
       rowSelections,
-
     };
   },
 });
