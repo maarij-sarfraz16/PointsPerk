@@ -35,6 +35,17 @@
       </router-link>
     </a-menu-item>
 
+
+<!-- Leader Board  -->
+<a-menu-item @click="toggleCollapsed" key="LeaderBoard">
+
+      <template #icon>
+        <unicon name="trophy"></unicon>
+      </template>
+      <router-link to="/LeaderBoard"> Leader Board </router-link>
+    </a-menu-item>
+
+    
     <!-- Redemprion History -->
     <a-menu-item @click="toggleCollapsed" key="redemptionHistory">
       <template #icon>
@@ -42,15 +53,8 @@
       </template>
       <router-link to="/redemptionHistory"> Redemption History </router-link>
     </a-menu-item>
+      <!-- Settings  -->
 
-    <!-- redemprion history -->
-    <a-menu-item @click="toggleCollapsed" key="LeaderBoard">
-      <template #icon>
-        <unicon name="trophy"></unicon>
-      </template>
-      <router-link to="/LeaderBoard"> Leader Board </router-link>
-    </a-menu-item>
-    <!-- Settings  -->
     <!-- <a-sub-menu key="settings">
       <template #icon>
         <unicon name="setting"></unicon>
@@ -77,6 +81,7 @@
         </router-link>
       </a-menu-item>
     </a-sub-menu> -->
+
   </a-menu>
 </template>
 

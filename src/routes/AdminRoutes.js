@@ -93,7 +93,7 @@ const routes = [
     name: "LeaderBoard",
     component: () =>
       import(
-        /* webpackChunkName: "redemptionHistory" */ "@/view/pages/LeaderBoard/LeaderBoard.vue"
+        /* webpackChunkName: "LeaderBoard" */ "@/view/pages/LeaderBoard/LeaderBoard.vue"
       ),
   },
 
