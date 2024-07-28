@@ -1,4 +1,4 @@
-import Styled from 'vue3-styled-components';
+import Styled from "vue3-styled-components";
 
 const Figure2 = Styled.figure`
     position: relative;
@@ -8,7 +8,7 @@ const Figure2 = Styled.figure`
         position: absolute;
         bottom : -15px;
         right : 0;
-        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
+        ${({ theme }) => (theme.rtl ? "left" : "right")}: 0;
     }
     figcaption{
         h2{
@@ -24,7 +24,7 @@ const Figure2 = Styled.figure`
         }
         button{
             margin-top: 26px;
-            color: ${({ theme }) => theme['primary-color']} !important;
+            color: ${({ theme }) => theme["primary-color"]} !important;
             &:focus{
                 background-color: #fff !important;
             }
@@ -84,13 +84,13 @@ const Figure3 = Styled.figure`
     img {
         position: absolute;
         bottom: -65px;
-        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: -25px;
+        ${({ theme }) => (theme.rtl ? "left" : "right")}: -25px;
         @media only screen and (max-width: 1599px){
             max-width: 150px;
         }
     }
     button{
-        color: ${({ theme }) => theme['primary-color']} !important;
+        color: ${({ theme }) => theme["primary-color"]} !important;
         &:focus{
             background-color: #fff !important;
         }
@@ -159,14 +159,14 @@ const Figure8 = Styled.figure`
         position: absolute;
         bottom: -45px;
         max-width: 200px;
-        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: -25px;
+        ${({ theme }) => (theme.rtl ? "left" : "right")}: -25px;
         @media only screen and (max-width: 1599px){
             max-width: 150px;
         }
     }
     button{
         font-weight: 600;
-        color: ${({ theme }) => theme['secondary-color']} !important;
+        color: ${({ theme }) => theme["secondary-color"]} !important;
         &:focus{
             background-color: #fff !important;
         }
@@ -180,7 +180,7 @@ const Figure8 = Styled.figure`
 const Figure6 = Styled.figure`
     position: relative;
     margin-bottom: 0;
-    direction: ${({ theme }) => (theme.rtl ? 'rtl' : 'ltr')};
+    direction: ${({ theme }) => (theme.rtl ? "rtl" : "ltr")};
     figcaption{
         h2{
             font-size: 22px;
@@ -253,7 +253,8 @@ const BannerWrapper = Styled.figure`
         margin-top: 30px;
         .ant-card{
             margin-bottom: 25px !important;
-            background-color: ${({ theme }) => theme[theme.mainContent]['card-background']} !important;
+            background-color: ${({ theme }) =>
+              theme[theme.mainContent]["card-background"]} !important;
             .ant-card-head {
                 display: none !important;
             }
@@ -285,7 +286,7 @@ const BannerWrapper = Styled.figure`
         .ninjadash-top-banner__title{
             font-size: 30px;
             font-weight: 600;
-            color: ${({ theme }) => theme['dark-color']};
+            color: ${({ theme }) => theme["dark-color"]};
             margin-bottom: 17px;
             @media only screen and (max-width: 991px){
                 font-size: 24px;
@@ -296,7 +297,7 @@ const BannerWrapper = Styled.figure`
             max-width: 610px;
             opacity: 1;
             margin-bottom: 25px;
-            color: ${({ theme }) => theme['dark-color']};
+            color: ${({ theme }) => theme["dark-color"]};
             @media only screen and (max-width: 1599px){
                 max-width: 480px;
             }
@@ -316,7 +317,8 @@ const BannerWrapper = Styled.figure`
 const BannerNormal = Styled.div`
     .ant-card{
         margin-bottom: 70px !important;
-        box-shadow: 0 5px 20px ${({ theme }) => theme[theme.mainContent]['dark-text']}15;
+        box-shadow: 0 5px 20px ${({ theme }) =>
+          theme[theme.mainContent]["dark-text"]}15;
         @media only screen and (max-width: 1199px){
             margin-bottom: 50px !important;
         }
@@ -331,14 +333,14 @@ const BannerNormal = Styled.div`
         font-size: 30px;
         font-weight: 600;
         margin-bottom: 12px;
-        color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
+        color: ${({ theme }) => theme[theme.mainContent]["dark-text"]};
     }
     p{
         font-size: 15px;
         font-weight: 400;
         margin-bottom: 18px;
         line-height: 1.667;
-        color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+        color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
     }
     .ant-btn{
         height: 38px;
@@ -346,10 +348,12 @@ const BannerNormal = Styled.div`
     &.theme-wide{
         .ant-card-body{
             padding: 50px 25px 50px 0 !important;
-            padding: ${({ theme }) => (theme.rtl ? '50px 25px 50px 25px' : '50px 25px 50px 0')}!important;
+            padding: ${({ theme }) =>
+              theme.rtl ? "50px 25px 50px 25px" : "50px 25px 50px 0"}!important;
         }
         figcaption{
-            ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 18px;
+            ${({ theme }) =>
+              theme.rtl ? "margin-right" : "margin-left"}: 18px;
             h2{
                 font-size: 23px;
                 font-weight: 600;
@@ -368,7 +372,7 @@ const BannerCarouselWrap = Styled.div`
     margin-bottom: 70px;
     border-radius: 10px;
     padding: 60px 0 105px;
-    background-color: ${({ theme }) => theme['primary-color']};
+    background-color: ${({ theme }) => theme["primary-color"]};
     @media only screen and (max-width: 1199px){
         margin-bottom: 50px !important;
     }
@@ -483,13 +487,13 @@ const BannerCardWrap = Styled.div`
             height: 44px;
             font-size: 15px;
             font-weight: 500;
-            color: ${({ theme }) => theme['primary-color']} !important;
+            color: ${({ theme }) => theme["primary-color"]} !important;
         }
         img{
             position: absolute;
             bottom: 0;
             max-width: 460px;
-            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
+            ${({ theme }) => (theme.rtl ? "left" : "right")}: 0;
         }
     }
 `;
@@ -514,14 +518,15 @@ const BannerCtaWrap = Styled.div`
         .banner-cta__content{
             text-align: center;
             margin-top: -8px;
-            padding: ${({ theme }) => (theme.rtl ? '30px 0px 30px 30px' : '30px 30px 30px 0px')};
+            padding: ${({ theme }) =>
+              theme.rtl ? "30px 0px 30px 30px" : "30px 30px 30px 0px"};
             @media only screen and (max-width: 575px){
                 padding: 0 30px;
             }
             h2{
                 font-size: 30px;
                 font-weight: 600;
-								color: ${({theme}) => theme[theme.mainContent]['dark-text']};
+								color: ${({ theme }) => theme[theme.mainContent]["dark-text"]};
             }
             button{
                 margin-top: 10px;
@@ -535,8 +540,9 @@ const BannerCtaWrap = Styled.div`
                 background-position: center;
             }
             .banner-cta__content{
-                padding: ${({ theme }) => (theme.rtl ? '30px 30px 30px 0px' : '30px 0px 30px 30px')};
-                text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')}
+                padding: ${({ theme }) =>
+                  theme.rtl ? "30px 30px 30px 0px" : "30px 0px 30px 30px"};
+                text-align: ${({ theme }) => (theme.rtl ? "right" : "left")}
                 h2{
                     margin-bottom: 10px;
                 }
@@ -598,7 +604,7 @@ const PageHeader = Styled.figure`
         bottom: 50%;
         margin-bottom: -80px;
         max-width: 240px;
-        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 30px;
+        ${({ theme }) => (theme.rtl ? "left" : "right")}: 30px;
         @media only screen and (max-width: 1599px){
             max-width: 250px;
         }
@@ -629,5 +635,5 @@ export {
   BannerLongWrap,
   BannerCardWrap,
   BannerCtaWrap,
-  PageHeader
+  PageHeader,
 };

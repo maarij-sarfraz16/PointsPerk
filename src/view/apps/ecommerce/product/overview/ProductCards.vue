@@ -28,13 +28,16 @@
       </div> -->
 
       <p class="product-single-price">
-        <span class="product-single-price__new"><unicon name="star"> </unicon>{{ renderData.price }} </span>
+        <span class="product-single-price__new"
+          ><unicon name="star" style="padding-top: 12px"> </unicon
+          >{{ renderData.price }}
+        </span>
 
         <!-- <template v-if="renderData.oldPrice">
           <del class="product-single-price__old">
             {{ renderData.oldPrice }}
           </del> -->
-          <!-- <span class="product-single-price__offer"> 60% Off</span> -->
+        <!-- <span class="product-single-price__offer"> 60% Off</span> -->
         <!-- </template> -->
       </p>
 

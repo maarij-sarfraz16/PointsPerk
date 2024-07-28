@@ -6,8 +6,8 @@
     :theme="darkMode ? 'dark' : 'light'"
     class="scroll-menu"
     @openChange="onOpenChange"
-    @click="onClick">
-    
+    @click="onClick"
+  >
     <!-- Dashboard -->
     <a-menu-item @click="toggleCollapsed" key="dashboard">
       <template #icon>
@@ -35,15 +35,16 @@
       </router-link>
     </a-menu-item>
 
-    
 
 <!-- Leader Board  -->
 <a-menu-item @click="toggleCollapsed" key="LeaderBoard">
+
       <template #icon>
         <unicon name="trophy"></unicon>
       </template>
       <router-link to="/LeaderBoard"> Leader Board </router-link>
     </a-menu-item>
+
     
     <!-- Redemprion History -->
     <a-menu-item @click="toggleCollapsed" key="redemptionHistory">
@@ -53,6 +54,7 @@
       <router-link to="/redemptionHistory"> Redemption History </router-link>
     </a-menu-item>
       <!-- Settings  -->
+
     <!-- <a-sub-menu key="settings">
       <template #icon>
         <unicon name="setting"></unicon>
