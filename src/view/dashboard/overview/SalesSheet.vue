@@ -4,7 +4,7 @@
       <a-row :gutter="15">
         <a-col :lg="24" :md="24" :xs="24">
           <BorderLessHeading>
-            <sdCards title="Data Table">
+            <sdCards title="Your Sales Sheet">
               <DataTables
                 :filterOption="true"
                 :filterOnchange="true"
@@ -25,7 +25,7 @@ import { defineComponent } from 'vue'
 import DataTables from "@/view/table/DataTable.vue"
 
 export default defineComponent({
-  name: "csvFile",
+  name: "SalesSheet",
   components: {
     DataTables
 },

@@ -8,8 +8,8 @@
         </a-col>
 
         <a-col :lg="24" :md="24" :sm="24" :xs="24">
-          <!-- CSV file upload -->
-          <sdCards title="CSV File">
+          <!-- Sales Sheet file upload -->
+          <sdCards title="Upload Your Sales Sheet">
             <basic-upload />
           </sdCards>
         </a-col>

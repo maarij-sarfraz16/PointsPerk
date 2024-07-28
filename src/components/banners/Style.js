@@ -250,7 +250,7 @@ const BannerWrapper = Styled.figure`
                 }
             }
         }
-        margin-top: 30px;
+        // margin-top: 30px;
         .ant-card{
             margin-bottom: 25px !important;
             background-color: ${({ theme }) =>

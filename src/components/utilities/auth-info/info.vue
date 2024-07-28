@@ -43,8 +43,8 @@
               <figure class="user-dropdown__info">
                 <img src="../../../static/img/avatar/chat-auth.png" alt="" />
                 <figcaption>
-                  <sdHeading as="h5">Danial</sdHeading>
-                  <p>Support Engineer</p>
+                  <sdHeading as="h5">{{ userData.firstName }}</sdHeading>
+                  <p>Agent</p>
                 </figcaption>
               </figure>
               <ul class="user-dropdown__links">
@@ -69,7 +69,7 @@
         </template>
         <a to="#" class="ninjadash-nav-action-link">
           <a-avatar src="../../../static/img/avatar/chat-auth.png" />
-          <span class="ninjadash-nav-actions__author--name">Danial</span>
+          <span class="ninjadash-nav-actions__author--name">{{ userData.firstName }}</span>
           <unicon name="angle-down"></unicon>
         </a>
       </sdPopover>
@@ -78,32 +78,56 @@
 </template>
 
 <script setup>
-import { InfoWraper, NavAuth, UserDropDown } from "./auth-info-style";
-import { computed, ref } from "vue";
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
-import { LogoutOutlined } from "@ant-design/icons-vue";
-import Notification from "./Notification.vue";
 
-const store = useStore();
-const { push } = useRouter();
+  import { InfoWraper, NavAuth, UserDropDown } from './auth-info-style';
+  import { computed, onMounted, ref } from 'vue';
+  import { useStore } from 'vuex';
+  import { useRouter } from 'vue-router';
+  import { LogoutOutlined } from '@ant-design/icons-vue';
+  import Notification from './Notification.vue';
+  
+  const host = 'http://localhost:5000';
+  const store = useStore();
+  const { push } = useRouter();
+  const flag = ref('english');
+  const userData = ref({ firstName: '' });
 
-const flag = ref("english");
+  onMounted(async () => {
+    try {
+      const response = await fetch(`${host}/api/get-data/user/user-data/fetchData`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': localStorage.getItem('token'),
+        }
+      });
 
-const onFlagChangeHandle = (value) => {
-  flag.value = value;
-};
+      const json = await response.json();
+      if (response.ok) {
+        userData.value = json;
+      } else {
+        console.error('Failed to fetch user data:', json);
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  });
 
-const darkMode = computed(() => store.state.themeLayout.data);
+  const onFlagChangeHandle = (value) => {
+    flag.value = value;
+  };
 
-const toggleMode = () => {
-  store.dispatch("changeLayoutMode", !darkMode.value);
-};
+  const darkMode = computed(() => store.state.themeLayout.data);
 
-const SignOut = (e) => {
-  e.preventDefault();
-  push("/auth/login");
-  store.dispatch("logOut");
-  localStorage.removeItem("token");
-};
+  const toggleMode = () => {
+    store.dispatch("changeLayoutMode", !darkMode.value);
+  };
+
+  const SignOut = (e) => {
+    e.preventDefault();
+    push("/auth/login");
+    store.dispatch("logOut");
+    localStorage.removeItem("token");
+  };
+  
 </script>

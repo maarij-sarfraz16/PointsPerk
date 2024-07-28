@@ -80,11 +80,11 @@ const routes = [
   },
 
   {
-    path: "/redemptionHistory",
+    path: "/RedemptionHistory",
     name: "Redemption History",
     component: () =>
       import(
-        /* webpackChunkName: "redemptionHistory" */ "@/view/pages/RedemptionHistory/redemptionHistory.vue"
+        /* webpackChunkName: "redemptionHistory" */ "@/view/pages/RedemptionHistory/RedemptionHistory.vue"
       ),
   },
 

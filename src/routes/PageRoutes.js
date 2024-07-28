@@ -79,11 +79,6 @@ export default [
         component: () => import(/* webpackChunkName: "Password" */ '@/view/pages/settings/overview/Password.vue'),
       },
       {
-        path: 'social',
-        name: 'set-social',
-        component: () => import(/* webpackChunkName: "Social" */ '@/view/pages/settings/overview/SocialProfile.vue'),
-      },
-      {
         path: 'notification',
         name: 'set-notification',
         component: () =>

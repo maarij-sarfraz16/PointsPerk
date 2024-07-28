@@ -194,10 +194,8 @@
       </a-row>
       <div class="notification-actions">
         <sdButton size="default" type="primary">
-          Update Email Notifications
+          Update Notifications
         </sdButton>
-        &nbsp; &nbsp;
-        <sdButton size="default" type="light"> Cancel </sdButton>
       </div>
     </sdCards>
   </NotificationWrapper>

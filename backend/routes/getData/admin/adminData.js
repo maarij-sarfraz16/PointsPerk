@@ -5,9 +5,9 @@ const Admin = require('../../../models/Admin');
 const fetchAdmin = require('../../../middleware/fetchAdmin');
 
 
-// ROUTE 1: Get loggedIn admin details using POST "/api/fetchAdminData/getdata"
+// ROUTE 1: Get loggedIn admin details using POST "/api/getData/admin/adminData/fetchData"
 
-router.post('/getdata', fetchAdmin, async (req, res) => {
+router.post('/fetchData', fetchAdmin, async (req, res) => {
 
   try {
     adminId = req.admin.id;
