@@ -3,6 +3,7 @@ import PageRoutes from "./PageRoutes";
 import Components from "./Components";
 import Apps from "./Applications";
 
+
 const routes = [
   {
     path: "",
@@ -98,6 +99,15 @@ const routes = [
   },
 
   {
+    path: "/MyPerformance",
+    name: "MyPerformance",
+    component: () =>
+      import(
+        /* webpackChunkName: "LeaderBoard" */ "@/view/pages/LeaderBoard/MyPerformance.vue"
+      ),
+  },
+
+  {
     path: "/hassan",
     name: "hassan",
     component: () =>
@@ -105,6 +115,8 @@ const routes = [
         /* webpackChunkName: "LeaderBoard" */ "@/view/pages/hassan/hassan.vue"
       ),
   },
+
+ 
 
   ...PageRoutes,
   ...FeaturesRoutes,
