@@ -19,23 +19,23 @@
       <span class="pdbr__currency">$</span>
       <span class="pdbr__price">{{ product.price }}</span>
     </sdHeading>
-<!-- 
+    <!-- 
     <sdHeading v-if="product.oldPrice" class="pdbr__old-price" as="h6">
       <del>${{ product.oldPrice }}</del> -->
-      <!-- <span class="pdbr__offer-price">30% Off</span> -->
+    <!-- <span class="pdbr__offer-price">30% Off</span> -->
     <!-- </sdHeading> -->
 
     <p class="pdbr__desc">{{ product.description }}</p>
     <!-- <div class="pdbr__current-status"> -->
-      <!-- <p>
+    <!-- <p>
         <span class="current-status-title">Available:</span>
         <span class="stock-status in-stock"> In Stock</span>
       </p> -->
-      <!-- <p>
+    <!-- <p>
         <span class="current-status-title"> Shipping: </span>
         <span class="shipping-cost">Free</span>
       </p> -->
-      <!-- <p class="pdbr__quantity">
+    <!-- <p class="pdbr__quantity">
         <span class="current-status-title">Quantity:</span>
 
         <sdButton class="btn-inc" @click="decrementQuantity" type="default">
@@ -46,14 +46,21 @@
           +
         </sdButton>
         <span class="pdbr__availability">540 pieces available</span> -->
-      <!-- </p>
+    <!-- </p>
     </div> -->
 
     <div class="pdbr__Actions d-flex align-items-center">
       <div class="pdbr__product-action">
-        <sdButton class="btn-buy" size="default" type="primary">
-          Claim
-        </sdButton>
+        <sdButton
+          :disabled="isDisabled"
+          size="sm"
+          type="primary"
+          :class="{
+            '': !isDisabled,
+            'disabled-hover': isDisabled,
+          }"
+          >{{ text }}</sdButton
+        >
         <!-- <sdButton class="btn-cart" size="default" type="secondary">
           <unicon name="shopping-bag" width="14"></unicon>
           <span>Add To Cart</span>
@@ -66,7 +73,7 @@
           type="white"
           shape="circle"
         > -->
-          <!-- <unicon
+        <!-- <unicon
             name="heart"
             width="14"
             :fill="product.popular ? '#ff4d4f' : 'none'"
@@ -153,6 +160,9 @@ const DetailsRight = {
     const { product } = toRefs(props);
     const { state, dispatch } = useStore();
 
+    const isDisabled = computed(() => product.value.claimed === true);
+    const text = computed(() => (product.value.claimed ? "Claimed" : "Claim"));
+
     const incrementQuantity = (e) => {
       e.preventDefault();
       if (quantity.value !== 5) quantity.value = quantity.value + 1;
@@ -166,6 +176,8 @@ const DetailsRight = {
     const isLoader = computed(() => state.ecommerce.isLoading);
 
     return {
+      isDisabled,
+      text,
       quantity,
       incrementQuantity,
       decrementQuantity,
@@ -178,3 +190,9 @@ const DetailsRight = {
 
 export default DetailsRight;
 </script>
+<style scoped>
+.disabled-hover:hover {
+  color: #c6c3b6 !important;
+  background-color: #f5f5f5 !important;
+}
+</style>

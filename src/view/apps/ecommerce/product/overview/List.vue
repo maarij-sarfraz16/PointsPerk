@@ -7,14 +7,32 @@
     </a-col>
     <template v-else-if="products.length">
       <a-col
-        v-for="{ id, name, rate, price, oldPrice, popular, img } in products"
+        v-for="{
+          id,
+          name,
+          rate,
+          price,
+          oldPrice,
+          popular,
+          img,
+          claimed,
+        } in products"
         :xs="24"
         :key="id"
       >
         <Suspense>
           <template #default>
             <ProductCardsList
-              :product="{ id, name, rate, price, oldPrice, popular, img }"
+              :product="{
+                id,
+                name,
+                rate,
+                price,
+                oldPrice,
+                popular,
+                img,
+                claimed,
+              }"
             />
           </template>
           <template #fallback>
