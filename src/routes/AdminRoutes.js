@@ -84,7 +84,7 @@ const routes = [
     name: "Redemption History",
     component: () =>
       import(
-        /* webpackChunkName: "redemptionHistory" */ "@/view/pages/RedemptionHistory/RedemptionHistory.vue"
+        /* webpackChunkName: "redemptionHistory" */ "@/view/pages/RedemptionHistory/redemptionHistory.vue"
       ),
   },
 
@@ -94,6 +94,15 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "LeaderBoard" */ "@/view/pages/LeaderBoard/LeaderBoard.vue"
+      ),
+  },
+
+  {
+    path: "/hassan",
+    name: "hassan",
+    component: () =>
+      import(
+        /* webpackChunkName: "LeaderBoard" */ "@/view/pages/hassan/hassan.vue"
       ),
   },
 

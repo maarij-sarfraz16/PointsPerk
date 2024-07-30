@@ -1,33 +1,34 @@
 <template>
   <Main>
-    <sdCards title="Customize Dashboard" class="ninjadash-drawer">
-      <sdDrawer
-        title="Close"
-        placement="right"
-        type="submit"
-        btnText="Customize"
-        IconName="palette"
-        BottomBtnText="Done"
-      >
-        <a-row justify="center" gutter="35">
-          <a-col :lg="24" :md="24" :sm="24">
-            <div>
-              <SampleCardThree :item="cardThree[0]" />
-            </div>
-          </a-col>
+    <sdDrawer
+      title="Close"
+      placement="right"
+      type="submit"
+      btnText="Customize"
+      btnType="secondary"
+      btnShape="round"
+      btnMode="transparent"
+      IconName="palette"
+      BottomBtnText="Done"
+    >
+      <a-row justify="center" gutter="35">
+        <a-col :lg="24" :md="24" :sm="24">
+          <div>
+            <SampleCardThree :item="cardThree[0]" />
+          </div>
+        </a-col>
 
-          <a-col :lg="24" :md="24" :sm="24">
-            <DataTable
-              :filterOption="false"
-              :filterOnchange="false"
-              :rowSelection="false"
-              :tableData="tableDataSource"
-              :columns="dataTableColumn"
-            />
-          </a-col>
-        </a-row>
-      </sdDrawer>
-    </sdCards>
+        <a-col :lg="24" :md="24" :sm="24">
+          <DataTable
+            :filterOption="false"
+            :filterOnchange="false"
+            :rowSelection="false"
+            :tableData="tableDataSource"
+            :columns="dataTableColumn"
+          />
+        </a-col>
+      </a-row>
+    </sdDrawer>
   </Main>
 </template>
 

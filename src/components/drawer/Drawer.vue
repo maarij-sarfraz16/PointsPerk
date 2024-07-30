@@ -70,7 +70,15 @@
     </div>
 
     <div v-if="type == 'submit'">
-      <sdButton type="primary" :raised="true" @click="showDrawer">
+      <sdButton
+        :type="btnType"
+        :shape="btnShape"
+        :raised="true"
+        :transparented="isTransparent"
+        :ghost="isGhost"
+        :outlined="isOutlined"
+        @click="showDrawer"
+      >
         <span> {{ btnText }}</span>
         <unicon :name="IconName" class="Basic-Drawer-Button"></unicon>
       </sdButton>
@@ -123,15 +131,22 @@ export default defineComponent({
     title: VueTypes.string,
     placement: VueTypes.string.def("right"),
     btnText: VueTypes.string.def("Open"),
+    btnType: VueTypes.string.def("primary"),
+    btnShape: VueTypes.string.def(""),
+    btnMode: VueTypes.string.def(""),
     width: VueTypes.number.def(320),
     IconName: VueTypes.string.def(""),
     BottomBtnText: VueTypes.string.def("Submit"),
   },
-  setup() {
+  setup(props) {
     const { state } = useStore();
     const visible = ref(false);
     const customPlacement = ref("left");
     const rtl = computed(() => state.themeLayout.rtlData);
+
+    const isTransparent = computed(() => props.btnMode === "transparent");
+    const isGhost = computed(() => props.btnMode === "ghost");
+    const isOutlined = computed(() => props.btnMode === "outlined");
 
     const afterVisibleChange = (bool) => {
       console.log("visible", bool);
@@ -154,6 +169,9 @@ export default defineComponent({
       showDrawer,
       onClose,
       rtl,
+      isTransparent,
+      isGhost,
+      isOutlined,
     };
   },
 });
