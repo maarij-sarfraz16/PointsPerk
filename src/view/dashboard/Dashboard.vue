@@ -36,7 +36,7 @@
           </Suspense>
         </a-col>
 
-        <!-- Customize Dashboard & CSV Upload -->
+        <!-- Customize Dashboard -->
         <a-col :xl="6" :lg="24" :md="24" :sm="24" :xs="24">
           <Suspense>
             <template #fallback>
@@ -45,7 +45,7 @@
               </sdCards>
             </template>
             <template #default>
-              <DashboardTools />
+              <DashboardTools @csv-uploaded="handleCSVUpload" />
             </template>
           </Suspense>
         </a-col>
@@ -54,7 +54,7 @@
         <a-col :lg="24" :xs="24" :md="24">
           <Suspense>
             <template #default>
-              <SalesSheet />
+              <SalesSheet :data="salesData" />
             </template>
             <template #fallback>
               <sdCards headless>
@@ -108,9 +108,9 @@
 </template>
 
 <script>
+// import CsvFileComponent from "./overview/CsvFileComponent.vue";
 import { onMounted, ref } from "vue";
 import { Main } from "../styled";
-import cardData from "../../demoData/overviewCard.json";
 import { defineComponent, defineAsyncComponent } from "vue";
 import { PageHeaderBanner } from "@/components/banners/Banners.vue";
 import SalesSheet from "@/view/dashboard/overview/SalesSheet.vue";
@@ -142,37 +142,40 @@ export default defineComponent({
     TopSellingProduct,
     SalesSheet,
     DashboardTools,
+    // CsvFileComponent,
     PageHeaderBanner,
   },
   setup() {
-    const host = "http://localhost:5000";
-    const userData = ref({ firstName: "", lastName: "" });
+    const host = 'http://localhost:5000';
+    const userData = ref({ firstName: '', lastName: '' });
+    const salesData = ref([]);
 
     onMounted(async () => {
       try {
-        const response = await fetch(
-          `${host}/api/get-data/user/user-data/fetchData`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              "auth-token": localStorage.getItem("token"),
-            },
+        const response = await fetch(`${host}/api/get-data/user/user-data/fetchData`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('token'),
           }
-        );
+        });
 
         const json = await response.json();
         if (response.ok) {
           userData.value = json;
         } else {
-          console.error("Failed to fetch user data:", json);
+          console.error('Failed to fetch user data:', json);
         }
       } catch (error) {
-        console.error("Error fetching user data:", error);
+        console.error('Error fetching user data:', error);
       }
     });
 
-    return { cardData, pageRoutes, userData };
+    const handleCSVUpload = (data) => {
+      salesData.value = data;
+    };
+
+    return { pageRoutes, userData, salesData, handleCSVUpload };
   },
 });
 </script>
