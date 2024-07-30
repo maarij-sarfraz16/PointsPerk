@@ -1,11 +1,10 @@
-import Styled from 'vue3-styled-components';
-const props = ['darkMode'];
+import Styled from "vue3-styled-components";
+const props = ["darkMode"];
 
-const InfoWraper = Styled('div', props)`
+const InfoWraper = Styled("div", props)`
     display: flex;
-    justify-content: flex-end;
+    justify-content:center;
     align-items: center;
-
     .ninjadash-nav-action-link{
         text-decoration: none;
         color: ${({ theme }) => theme[theme.mainContent].secondary};
@@ -33,7 +32,7 @@ const InfoWraper = Styled('div', props)`
             height: 16px;
 					}
 				svg{
-					fill: ${({ theme }) => theme[theme.mainContent]['light-text']};
+					fill: ${({ theme }) => theme[theme.mainContent]["light-text"]};
 				}
         .ninjadash-searchbar{
             opacity: 0;
@@ -64,7 +63,7 @@ const InfoWraper = Styled('div', props)`
         }
         .ninjadash-search-icon{
             svg{
-                fill: ${({theme}) => theme['gray-color']};
+                fill: ${({ theme }) => theme["gray-color"]};
             }
         }
         .ninjadash-close-icon{
@@ -96,18 +95,20 @@ const InfoWraper = Styled('div', props)`
         .ant-badge{
             .ant-badge-dot{
                 top: 4px;
-                ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 11px !important;
+                ${({ theme }) =>
+                  theme.rtl ? "left" : "right"}: 11px !important;
             }
         }
         &.ninjadash-nav-actions__message{
             .ant-badge{
                 .ant-badge-dot{
-                    background: ${({ theme }) => theme[theme.mainContent].success};
+                    background: ${({ theme }) =>
+                      theme[theme.mainContent].success};
                 }
             }
         }
         svg{
-            fill: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+            fill: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
         }
     }
     .ninjadash-nav-actions__message,
@@ -175,13 +176,13 @@ const InfoWraper = Styled('div', props)`
             padding: 12px 0;
             background: #fff;
             border: 0 none;
-            box-shadow: 0 5px 30px ${({ theme }) => theme['gray-solid']}15;
+            box-shadow: 0 5px 30px ${({ theme }) => theme["gray-solid"]}15;
             li{
                 &:first-child{
                     margin-top: 12px;
                 }
                 &:hover{
-                    background: ${({ theme }) => theme['primary-color']}05;
+                    background: ${({ theme }) => theme["primary-color"]}05;
                 }
                 span{
                     display: flex !important;
@@ -192,7 +193,7 @@ const InfoWraper = Styled('div', props)`
                     }
                     span{
                         font-weight: 500;
-                        color: ${({ theme }) => theme['gray-color']};
+                        color: ${({ theme }) => theme["gray-color"]};
                         padding: 0;
                         margin-left: 10px;
                     }
@@ -217,7 +218,7 @@ const SettingDropdown = Styled.div`
                 top: 0;
                 width: 100%;
                 height: 100%;
-                box-shadow: 0 5px 20px ${({ theme }) => theme['gray-solid']}15;
+                box-shadow: 0 5px 20px ${({ theme }) => theme["gray-solid"]}15;
                 z-index: 1;
                 content: '';
                 opacity: 0;
@@ -233,18 +234,20 @@ const SettingDropdown = Styled.div`
                 font-size: 15px;
                 font-weight: 500;
                 margin: -4px 0 2px;
-				color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
+				color: ${({ theme }) => theme[theme.mainContent]["dark-text"]};
             }
             p{
                 margin-bottom: 0;
-                color: ${({ theme }) => theme['gray-solid']};
+                color: ${({ theme }) => theme["gray-solid"]};
             }
             img{
-                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 16px;
-                transform: ${({ theme }) => (theme.rtl ? 'rotatey(180deg)' : 'rotatey(0deg)')};
+                ${({ theme }) =>
+                  theme.rtl ? "margin-left" : "margin-right"}: 16px;
+                transform: ${({ theme }) =>
+                  theme.rtl ? "rotatey(180deg)" : "rotatey(0deg)"};
             }
             figcaption{
-                text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')}
+                text-align: ${({ theme }) => (!theme.rtl ? "left" : "right")}
             }
         }
     }
@@ -253,7 +256,7 @@ const SettingDropdown = Styled.div`
 const NestedDropdown = Styled.div`
     .support-dropdown{
         padding: 10px 15px;
-        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
+        text-align: ${({ theme }) => (!theme.rtl ? "left" : "right")};
         ul{
             &:not(:last-child){
                 margin-bottom: 16px;
@@ -261,16 +264,17 @@ const NestedDropdown = Styled.div`
             h1{
                 font-size: 14px;
                 font-weight: 400;
-                color: ${({ theme }) => theme[theme.mainContent]['light-text']};
+                color: ${({ theme }) => theme[theme.mainContent]["light-text"]};
             }
             li{
                 a{
                     font-weight: 500;
                     padding: 4px 16px;
-                    color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
+                    color: ${({ theme }) =>
+                      theme[theme.mainContent]["dark-text"]};
                     &:hover{
                         background: #fff;
-                        color: ${({ theme }) => theme['primary-color']};
+                        color: ${({ theme }) => theme["primary-color"]};
                     }
                 }
             }
@@ -287,20 +291,24 @@ const UserDropDown = Styled.div`
             padding: 20px 25px;
             border-radius: 8px;
             margin-bottom: 12px;
-            background: ${({ theme }) => theme[theme.mainContent]['general-background']};
+            background: ${({ theme }) =>
+              theme[theme.mainContent]["general-background"]};
             img{
-                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
+                ${({ theme }) =>
+                  theme.rtl ? "margin-left" : "margin-right"}: 15px;
             }
             figcaption{
                 h1{
                     font-size: 14px;
                     margin-bottom: 2px;
-                    color:  ${({ theme }) => theme[theme.mainContent]['dark-text']};
+                    color:  ${({ theme }) =>
+                      theme[theme.mainContent]["dark-text"]};
                 }
                 p{
                     margin-bottom: 0px;
                     font-size: 13px;
-                    color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                    color: ${({ theme }) =>
+                      theme[theme.mainContent]["gray-text"]};
                 }
             }
         }
@@ -314,20 +322,25 @@ const UserDropDown = Styled.div`
                 padding: 10px 12px;
                 font-size: 14px;
                 transition: .3s;
-                color: ${({ theme }) => theme[theme.mainContent]['gray-light-text']};
+                color: ${({ theme }) =>
+                  theme[theme.mainContent]["gray-light-text"]};
                 &:hover{
-                    background: ${({ theme }) => theme['primary-color']}05;
-                    color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
-                    ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 22px;
+                    background: ${({ theme }) => theme["primary-color"]}05;
+                    color: ${({ theme }) =>
+                      theme[theme.mainContent]["menu-active"]};
+                    ${({ theme }) =>
+                      theme.rtl ? "padding-right" : "padding-left"}: 22px;
                     svg{
-                        fill: ${({ theme }) => theme['primary-color']};
+                        fill: ${({ theme }) => theme["primary-color"]};
                     }
                 }
                 svg{
                     width: 16px;
-                    transform: ${({ theme }) => (theme.rtl ? 'rotateY(180deg)' : 'rotateY(0deg)')};
-                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 14px;
-					fill: ${({ theme }) => theme[theme.mainContent]['light-text']};
+                    transform: ${({ theme }) =>
+                      theme.rtl ? "rotateY(180deg)" : "rotateY(0deg)"};
+                    ${({ theme }) =>
+                      theme.rtl ? "margin-left" : "margin-right"}: 14px;
+					fill: ${({ theme }) => theme[theme.mainContent]["light-text"]};
                 }
             }
         }
@@ -346,12 +359,14 @@ const UserDropDown = Styled.div`
             bottom: -15px;
             border-radius: 0 0 6px 6px;
             padding: 15px 0;
-            background: ${({ theme }) => theme[theme.mainContent]['general-background']};
-            color: ${({ theme }) => theme[theme.mainContent]['light-text']};
+            background: ${({ theme }) =>
+              theme[theme.mainContent]["general-background"]};
+            color: ${({ theme }) => theme[theme.mainContent]["light-text"]};
             svg{
                 width: 15px;
                 height: 15px;
-                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
+                ${({ theme }) =>
+                  theme.rtl ? "margin-left" : "margin-right"}: 8px;
             }
         }
     }
@@ -359,40 +374,43 @@ const UserDropDown = Styled.div`
 
 const NinjadashTopDropdown = Styled.div`
     .ninjadash-top-dropdown__title .title-text {
-        ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
-		color: ${({ theme }) => theme[theme.mainContent]['dark-color']};
+        ${({ theme }) => (!theme.rtl ? "margin-right" : "margin-left")}: 10px;
+		color: ${({ theme }) => theme[theme.mainContent]["dark-color"]};
     }
     .ninjadash-top-dropdown__content {
         figcaption{
             h1{
-                color: ${({ theme }) => theme[theme.mainContent]['dark-color']};
+                color: ${({ theme }) => theme[theme.mainContent]["dark-color"]};
             }
             .ninjadash-top-dropdownText{
                 min-width: 216px;
-                ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 15px;
+                ${({ theme }) =>
+                  !theme.rtl ? "margin-right" : "margin-left"}: 15px;
             }
             span{
-                ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0;
+                ${({ theme }) =>
+                  theme.rtl ? "padding-right" : "padding-left"}: 0;
             }
         }
         .notification-icon{
             width: 39.2px;
             height: 32px;
-            ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 15px;
+            ${({ theme }) =>
+              !theme.rtl ? "margin-right" : "margin-left"}: 15px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             &.bg-primary{
-                background: ${({ theme }) => theme['primary-color']}15;
+                background: ${({ theme }) => theme["primary-color"]}15;
                 svg{
-                    fill: ${({ theme }) => theme['primary-color']};
+                    fill: ${({ theme }) => theme["primary-color"]};
                 }
             }
             &.bg-secondary{
-                background: ${({ theme }) => theme['secondary-color']}15;
+                background: ${({ theme }) => theme["secondary-color"]}15;
                 svg{
-                    fill: ${({ theme }) => theme['secondary-color']};
+                    fill: ${({ theme }) => theme["secondary-color"]};
                 }
             }
             svg{
@@ -418,21 +436,28 @@ const NinjadashTopDropdown = Styled.div`
     .notification-text h1 span {
         color: #5F63F2;
         font-weight: 500;
-        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0;
+        ${({ theme }) => (theme.rtl ? "padding-right" : "padding-left")}: 0;
     }
 
     .notification-text p {
         font-size: 12px;
         color: #ADB4D2;
         margin-bottom: 0;
-        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')}
+        text-align: ${({ theme }) => (!theme.rtl ? "left" : "right")}
     }
 `;
 
 const NavAuth = Styled.span`
     i, svg, img {
-        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
+        ${({ theme }) => (theme.rtl ? "margin-left" : "margin-right")}: 8px;
     }
 `;
 
-export { InfoWraper, SettingDropdown, NestedDropdown, UserDropDown, NinjadashTopDropdown, NavAuth };
+export {
+  InfoWraper,
+  SettingDropdown,
+  NestedDropdown,
+  UserDropDown,
+  NinjadashTopDropdown,
+  NavAuth,
+};

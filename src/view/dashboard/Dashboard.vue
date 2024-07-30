@@ -8,7 +8,6 @@
 
     <Main>
       <a-row justify="center" :gutter="25">
-
         <!-- Welcome Banner -->
         <a-col :xs="24" :md="24">
           <Suspense>
@@ -17,7 +16,9 @@
                 <a-skeleton active />
               </sdCards>
             </template>
-            <template #default> <PageHeaderBanner :firstName="userData.firstName" /> </template>
+            <template #default>
+              <PageHeaderBanner :firstName="userData.firstName" />
+            </template>
           </Suspense>
         </a-col>
 
@@ -101,76 +102,77 @@
             </template>
           </Suspense>
         </a-col>
-
       </a-row>
     </Main>
-    
   </div>
 </template>
 
 <script>
-  import { onMounted, ref } from 'vue';
-  import { Main } from "../styled";
-  import cardData from "../../demoData/overviewCard.json";
-  import { defineComponent, defineAsyncComponent } from "vue";
-  import { PageHeaderBanner } from "@/components/banners/Banners.vue";
-  import SalesSheet from "@/view/dashboard/overview/SalesSheet.vue";
-  import DashboardTools from "./overview/DashboardTools.vue";
+import { onMounted, ref } from "vue";
+import { Main } from "../styled";
+import cardData from "../../demoData/overviewCard.json";
+import { defineComponent, defineAsyncComponent } from "vue";
+import { PageHeaderBanner } from "@/components/banners/Banners.vue";
+import SalesSheet from "@/view/dashboard/overview/SalesSheet.vue";
+import DashboardTools from "./overview/DashboardTools.vue";
 
-  const SalesByLocation = defineAsyncComponent(() =>
-    import("./overview/dashboard/SalesByLocation.vue")
-  );
-  const TopSellingProduct = defineAsyncComponent(() =>
-    import("./overview/dashboard/TopSellingProduct.vue")
-  );
-  const OverviewDataList = defineAsyncComponent(() =>
-    import("./overview/dashboard/OverviewDataList.vue")
-  );
+const SalesByLocation = defineAsyncComponent(() =>
+  import("./overview/dashboard/SalesByLocation.vue")
+);
+const TopSellingProduct = defineAsyncComponent(() =>
+  import("./overview/dashboard/TopSellingProduct.vue")
+);
+const OverviewDataList = defineAsyncComponent(() =>
+  import("./overview/dashboard/OverviewDataList.vue")
+);
 
-  const pageRoutes = [
-    {
-      path: "/",
-      breadcrumbName: "Dashboard",
-    },
-  ];
+const pageRoutes = [
+  {
+    path: "/",
+    breadcrumbName: "Dashboard",
+  },
+];
 
-  export default defineComponent({
-    name: "Dashboard",
-    components: {
-      Main,
-      OverviewDataList,
-      SalesByLocation,
-      TopSellingProduct,
-      SalesSheet,
-      DashboardTools,
-      PageHeaderBanner,
-    },
-    setup() {
-      const host = 'http://localhost:5000';
-      const userData = ref({ firstName: '', lastName: '' });
+export default defineComponent({
+  name: "Dashboard",
+  components: {
+    Main,
+    OverviewDataList,
+    SalesByLocation,
+    TopSellingProduct,
+    SalesSheet,
+    DashboardTools,
+    PageHeaderBanner,
+  },
+  setup() {
+    const host = "http://localhost:5000";
+    const userData = ref({ firstName: "", lastName: "" });
 
-      onMounted(async () => {
-        try {
-          const response = await fetch(`${host}/api/get-data/user/user-data/fetchData`, {
-            method: 'GET',
+    onMounted(async () => {
+      try {
+        const response = await fetch(
+          `${host}/api/get-data/user/user-data/fetchData`,
+          {
+            method: "GET",
             headers: {
-              'Content-Type': 'application/json',
-              'auth-token': localStorage.getItem('token'),
-            }
-          });
-
-          const json = await response.json();
-          if (response.ok) {
-            userData.value = json;
-          } else {
-            console.error('Failed to fetch user data:', json);
+              "Content-Type": "application/json",
+              "auth-token": localStorage.getItem("token"),
+            },
           }
-        } catch (error) {
-          console.error('Error fetching user data:', error);
-        }
-      });
+        );
 
-      return { cardData, pageRoutes, userData };
-    },
-  });
+        const json = await response.json();
+        if (response.ok) {
+          userData.value = json;
+        } else {
+          console.error("Failed to fetch user data:", json);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    });
+
+    return { cardData, pageRoutes, userData };
+  },
+});
 </script>

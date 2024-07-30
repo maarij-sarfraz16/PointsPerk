@@ -69,7 +69,9 @@
         </template>
         <a to="#" class="ninjadash-nav-action-link">
           <a-avatar src="../../../static/img/avatar/chat-auth.png" />
-          <span class="ninjadash-nav-actions__author--name">{{ userData.firstName }}</span>
+          <span class="ninjadash-nav-actions__author--name">{{
+            userData.firstName
+          }}</span>
           <unicon name="angle-down"></unicon>
         </a>
       </sdPopover>
@@ -78,56 +80,57 @@
 </template>
 
 <script setup>
+import { InfoWraper, NavAuth, UserDropDown } from "./auth-info-style";
+import { computed, onMounted, ref } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import { LogoutOutlined } from "@ant-design/icons-vue";
+import Notification from "./Notification.vue";
 
-  import { InfoWraper, NavAuth, UserDropDown } from './auth-info-style';
-  import { computed, onMounted, ref } from 'vue';
-  import { useStore } from 'vuex';
-  import { useRouter } from 'vue-router';
-  import { LogoutOutlined } from '@ant-design/icons-vue';
-  import Notification from './Notification.vue';
-  
-  const host = 'http://localhost:5000';
-  const store = useStore();
-  const { push } = useRouter();
-  const flag = ref('english');
-  const userData = ref({ firstName: '' });
+const host = "http://localhost:5000";
+const store = useStore();
+const { push } = useRouter();
+const flag = ref("english");
+const userData = ref({ firstName: "" });
 
-  onMounted(async () => {
-    try {
-      const response = await fetch(`${host}/api/get-data/user/user-data/fetchData`, {
-        method: 'GET',
+onMounted(async () => {
+  try {
+    const response = await fetch(
+      `${host}/api/get-data/user/user-data/fetchData`,
+      {
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
-          'auth-token': localStorage.getItem('token'),
-        }
-      });
-
-      const json = await response.json();
-      if (response.ok) {
-        userData.value = json;
-      } else {
-        console.error('Failed to fetch user data:', json);
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
       }
-    } catch (error) {
-      console.error('Error fetching user data:', error);
+    );
+
+    const json = await response.json();
+    if (response.ok) {
+      userData.value = json;
+    } else {
+      console.error("Failed to fetch user data:", json);
     }
-  });
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+  }
+});
 
-  const onFlagChangeHandle = (value) => {
-    flag.value = value;
-  };
+const onFlagChangeHandle = (value) => {
+  flag.value = value;
+};
 
-  const darkMode = computed(() => store.state.themeLayout.data);
+const darkMode = computed(() => store.state.themeLayout.data);
 
-  const toggleMode = () => {
-    store.dispatch("changeLayoutMode", !darkMode.value);
-  };
+const toggleMode = () => {
+  store.dispatch("changeLayoutMode", !darkMode.value);
+};
 
-  const SignOut = (e) => {
-    e.preventDefault();
-    push("/auth/login");
-    store.dispatch("logOut");
-    localStorage.removeItem("token");
-  };
-  
+const SignOut = (e) => {
+  e.preventDefault();
+  push("/auth/login");
+  store.dispatch("logOut");
+  localStorage.removeItem("token");
+};
 </script>

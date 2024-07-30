@@ -35,15 +35,14 @@
                 type="white"
               >
                 <img
-                  :src="
-                    require(`../static/img/icon/align-center-alt.svg`)
-                  "
+                  :src="require(`../static/img/icon/align-center-alt.svg`)"
                   alt="menu"
                 />
               </sdButton>
             </div>
           </div>
           <div class="ninjadash-header-content__right d-flex">
+            <DashboardSideDrawer></DashboardSideDrawer>
             <div class="ninjadash-navbar-menu d-flex align-center-v">
               <TopMenu v-if="topMenu && innerWidth > 991" />
             </div>
@@ -146,12 +145,17 @@
             >
               <a-row>
                 <a-col :md="12" :xs="24">
-                  <span class="admin-footer__copyright">{{ currentYear }} © <a href="#" style="">Points Perk</a></span>
+                  <span class="admin-footer__copyright"
+                    >{{ currentYear }} ©
+                    <a href="#" style="">Points Perk</a></span
+                  >
                 </a-col>
                 <a-col :md="12" :xs="24">
                   <div class="admin-footer__links">
                     <!-- <font-awesome-icon :icon="['fas', 'headset']" /> -->
-                    <router-link to="/page/support">Contact Support</router-link>
+                    <router-link to="/page/support"
+                      >Contact Support</router-link
+                    >
                   </div>
                 </a-col>
               </a-row>
@@ -179,6 +183,9 @@ import { PerfectScrollbar } from "vue3-perfect-scrollbar";
 import "vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css";
 import { computed, ref, defineComponent } from "vue";
 import { useStore } from "vuex";
+
+import DashboardSideDrawer from "../view/dashboard/overview/DashboardSideDrawer.vue";
+
 const { Header, Footer, Sider, Content } = Layout;
 
 export default defineComponent({
@@ -198,6 +205,7 @@ export default defineComponent({
     AsideItems,
     TopMenu,
     PerfectScrollbar,
+    DashboardSideDrawer,
   },
   setup() {
     const collapsed = ref(false);
