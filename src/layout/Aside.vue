@@ -25,7 +25,7 @@
       </template>
       <router-link to="/app/ecommerce/product/grid"> Coupons </router-link>
     </a-menu-item> -->
-
+     <!-- Coupons -->
     <a-menu-item @click="toggleCollapsed" key="ecommerce-product">
       <template #icon>
         <unicon name="ticket"></unicon>
@@ -33,6 +33,13 @@
       <router-link to="/app/ecommerce/product/grid">
         {{ t("Coupons") }}
       </router-link>
+    </a-menu-item>
+      <!-- My Performance  -->
+    <a-menu-item @click="toggleCollapsed" key="MyPerformance">
+      <template #icon>
+        <unicon name="arrow-growth"></unicon>
+      </template>
+      <router-link to="/MyPerformance"> My Performance </router-link>
     </a-menu-item>
 
     <!-- Redemption History -->

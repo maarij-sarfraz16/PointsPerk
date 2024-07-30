@@ -2,7 +2,7 @@ import Styled from "vue3-styled-components";
 
 const Main = Styled.div`
     padding: 0px 30px 50px;
-    min-height: 715px;
+    min-height: 84vh;
     background-color: transparent;
     &.grid-boxed{
         padding: 0px 180px 20px;
