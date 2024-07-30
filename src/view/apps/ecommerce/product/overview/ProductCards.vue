@@ -47,9 +47,16 @@
           <span>Add To Cart</span> 
          </sdButton> -->
         <div class="product-single-action">
-          <sdButton :disabled="isDisabled" size="sm" type="primary">{{
-            text
-          }}</sdButton>
+          <sdButton
+            :disabled="isDisabled"
+            size="sm"
+            type="primary"
+            :class="{
+              '': !isDisabled,
+              'disabled-hover': isDisabled,
+            }"
+            >{{ text }}</sdButton
+          >
         </div>
       </div>
     </figcaption>
@@ -98,3 +105,10 @@ const ProductCards = defineComponent({
 
 export default ProductCards;
 </script>
+
+<style scoped>
+.disabled-hover:hover {
+  color: #c6c3b6 !important;
+  background-color: #f5f5f5 !important;
+}
+</style>
