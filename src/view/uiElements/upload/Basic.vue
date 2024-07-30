@@ -3,12 +3,11 @@
     v-model:file-list="fileList"
     name="file"
     :multiple="true"
-    action="https://run.mocky.io/v3/312f67de-2b2b-4749-ae73-374aae273e0b"
-    :headers="headers"
-    @change="handleChange"
+    :before-upload="beforeUpload"
+    :show-upload-list="false"
   >
     <sdButton class="btn-outlined" type="primary" size="lg">
-      <upload-outlined> </upload-outlined>
+      <upload-outlined />
       <span>Click to Upload</span>
     </sdButton>
   </a-upload>
@@ -24,26 +23,29 @@ export default defineComponent({
   components: {
     UploadOutlined,
   },
-  setup() {
-    const handleChange = (info) => {
-      if (info.file.status !== "uploading") {
-        console.log(info.file, info.fileList);
-      }
-
-      if (info.file.status === "done") {
-        message.success(`${info.file.name} file uploaded successfully`);
-      } else if (info.file.status === "error") {
-        message.error(`${info.file.name} file upload failed.`);
-      }
+  setup(props, { emit }) {
+    const fileList = ref([]);
+    
+    const parseCSV = (text) => {
+      const rows = text.trim().split('\n');
+      return rows.map(row => row.split(','));
     };
 
-    const fileList = ref([]);
+    const beforeUpload = (file) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const text = e.target.result;
+        const data = parseCSV(text);
+        emit('csv-uploaded', data);
+        message.success(`${file.name} file uploaded successfully`);
+      };
+      reader.readAsText(file);
+      return false; // Prevent auto-upload
+    };
+
     return {
       fileList,
-      headers: {
-        authorization: "authorization-text",
-      },
-      handleChange,
+      beforeUpload,
     };
   },
 });
