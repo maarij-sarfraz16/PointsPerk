@@ -46,7 +46,11 @@
           <unicon name="shopping-bag" width="14"></unicon>
           <span>Add To Cart</span> 
          </sdButton> -->
-        <sdButton size="sm" type="primary"> Claim </sdButton>
+        <div class="product-single-action">
+          <sdButton :disabled="isDisabled" size="sm" type="primary">{{
+            text
+          }}</sdButton>
+        </div>
       </div>
     </figcaption>
   </ProductCard>
@@ -70,6 +74,12 @@ const ProductCards = defineComponent({
     const { product } = toRefs(props);
     const renderData = computed(() => product.value);
     const { matched } = useRoute();
+
+    const isDisabled = computed(() => renderData.value.claimed === true);
+
+    const text = computed(() =>
+      renderData.value.claimed ? "Claimed" : "Claim"
+    );
     const addWishList = (value) => {
       dispatch("updateWishList", value);
     };
@@ -80,6 +90,8 @@ const ProductCards = defineComponent({
       isLoader,
       matched,
       addWishList,
+      isDisabled,
+      text,
     };
   },
 });

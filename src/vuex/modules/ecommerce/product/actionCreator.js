@@ -1,5 +1,5 @@
-import staticData from '../../../../demoData/products.json';
-import mutations from './mutations';
+import staticData from "../../../../demoData/products.json";
+import mutations from "./mutations";
 
 const state = () => ({
   isProductLoading: false,
@@ -12,45 +12,45 @@ const state = () => ({
 const actions = {
   async filterSinglePage({ commit }, { paramsId, currentState }) {
     try {
-      commit('singleProductBegin');
+      commit("singleProductBegin");
       const data = currentState.filter((product) => {
         return product.id === paramsId;
       });
-      commit('singleProductSuccess', data);
+      commit("singleProductSuccess", data);
     } catch (err) {
-      commit('singleProductErr', err);
+      commit("singleProductErr", err);
     }
   },
 
   async sorting({ commit }, sortBy) {
     try {
-      commit('sortingProductBegin');
+      commit("sortingProductBegin");
       setTimeout(() => {
         const data = staticData.sort((a, b) => {
           return b[sortBy] - a[sortBy];
         });
-        commit('sortingProductSuccess', data);
+        commit("sortingProductSuccess", data);
       }, 100);
     } catch (err) {
-      commit('sortingProductErr', err);
+      commit("sortingProductErr", err);
     }
   },
 
   async filterByPriceRange({ commit }, range) {
-    commit('filterProductBegin');
+    commit("filterProductBegin");
     try {
       const data = staticData.filter((product) => {
         return product.price >= range[0] && product.price <= range[1];
       });
-      commit('filterProductSuccess', data);
+      commit("filterProductSuccess", data);
     } catch (err) {
-      commit('filterProductErr', err);
+      commit("filterProductErr", err);
     }
   },
 
   async filterByRating({ commit }, range) {
     try {
-      commit('filterProductBegin');
+      commit("filterProductBegin");
       setTimeout(() => {
         const data = staticData.filter((product) => {
           if (range[0].length) {
@@ -58,16 +58,16 @@ const actions = {
           }
           return staticData;
         });
-        commit('filterProductSuccess', data);
+        commit("filterProductSuccess", data);
       }, 100);
     } catch (err) {
-      commit('filterProductErr', err);
+      commit("filterProductErr", err);
     }
   },
 
   async filterByBrand({ commit }, brand) {
     try {
-      commit('filterProductBegin');
+      commit("filterProductBegin");
       setTimeout(() => {
         const data = staticData.filter((product) => {
           if (brand[0].length) {
@@ -75,43 +75,83 @@ const actions = {
           }
           return staticData;
         });
-        commit('filterProductSuccess', data);
+        commit("filterProductSuccess", data);
       }, 100);
     } catch (err) {
-      commit('filterProductErr', err);
+      commit("filterProductErr", err);
     }
   },
 
   async filterByCategory({ commit }, category) {
     try {
-      commit('filterProductBegin');
+      commit("filterProductBegin");
       setTimeout(() => {
         const data = staticData.filter((product) => {
-          if (category !== 'all') {
+          if (category !== "all") {
             return product.category === category;
           }
           return staticData;
         });
-        commit('filterProductSuccess', data);
+        commit("filterProductSuccess", data);
       }, 100);
     } catch (err) {
-      commit('filterProductErr', err);
+      commit("filterProductErr", err);
     }
   },
 
-  async updateWishList({ commit }, id) {
-    
+  async filterByClaimed({ commit }) {
     try {
-      commit('filterProductBegin');
+      commit("filterProductBegin");
+      setTimeout(() => {
+        const data = staticData.filter((product) => {
+          return product.claimed === true;
+        });
+        commit("filterProductSuccess", data);
+      }, 100);
+    } catch (err) {
+      commit("filterProductErr", err);
+    }
+  },
+
+  async filterByAll({ commit }) {
+    try {
+      commit("filterProductBegin");
+      setTimeout(() => {
+        const data = staticData;
+        commit("filterProductSuccess", data);
+      }, 100);
+    } catch (err) {
+      commit("filterProductErr", err);
+    }
+  },
+
+  async filterByAvailable({ commit }) {
+    try {
+      commit("filterProductBegin");
+      setTimeout(() => {
+        const data = staticData.filter((product) => {
+          return product.claimed === false;
+        });
+        commit("filterProductSuccess", data);
+      }, 100);
+    } catch (err) {
+      commit("filterProductErr", err);
+    }
+  },
+  async updateWishList({ commit }, id) {
+    try {
+      commit("filterProductBegin");
 
       staticData.map((product) => {
         if (product.id === id) {
-          return product.popular ? (product.popular = false) : (product.popular = true);
+          return product.popular
+            ? (product.popular = false)
+            : (product.popular = true);
         }
-        return commit('filterProductSuccess', staticData);
+        return commit("filterProductSuccess", staticData);
       });
     } catch (err) {
-      commit('filterProductErr', err);
+      commit("filterProductErr", err);
     }
   },
 };

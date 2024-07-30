@@ -6,10 +6,36 @@
       </div>
     </a-col>
     <template v-else-if="products.length">
-      <a-col v-for="{ id, name, rate, price, oldPrice, popular, img } in products" :xxl="6" :lg="12" :xs="24" :key="id">
+      <a-col
+        v-for="{
+          id,
+          name,
+          rate,
+          price,
+          oldPrice,
+          popular,
+          img,
+          claimed,
+        } in products"
+        :xxl="6"
+        :lg="12"
+        :xs="24"
+        :key="id"
+      >
         <Suspense>
           <template #default>
-            <ProductCards :product="{ id, name, rate, price, oldPrice, popular, img }" />
+            <ProductCards
+              :product="{
+                id,
+                name,
+                rate,
+                price,
+                oldPrice,
+                popular,
+                img,
+                claimed,
+              }"
+            />
           </template>
           <template #fallback>
             <sdCards headless>
@@ -43,13 +69,13 @@
   </a-row>
 </template>
 <script>
-import { computed, ref, defineAsyncComponent } from 'vue';
-import { useStore } from 'vuex';
-import { PaginationWrapper, NotFoundWrapper } from '../../Style';
-const ProductCards = defineAsyncComponent(() => import('./ProductCards'));
+import { computed, ref, defineAsyncComponent } from "vue";
+import { useStore } from "vuex";
+import { PaginationWrapper, NotFoundWrapper } from "../../Style";
+const ProductCards = defineAsyncComponent(() => import("./ProductCards"));
 
 const Grid = {
-  name: 'Grid',
+  name: "Grid",
   components: { PaginationWrapper, NotFoundWrapper, ProductCards },
   setup() {
     const { state } = useStore();
