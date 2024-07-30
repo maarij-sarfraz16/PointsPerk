@@ -9,7 +9,7 @@
         <a-col :lg="24" :md="24" :sm="24" :xs="24">
           <!-- Sales Sheet file upload -->
           <sdCards title="Upload Your Sales Sheet">
-            <basic-upload />
+            <basic-upload @csv-uploaded="handleCSVUpload" />
           </sdCards>
         </a-col>
       </a-row>
@@ -20,13 +20,17 @@
 <script>
 import { defineComponent } from "vue";
 import BasicUpload from "@/view/uiElements/upload/Basic.vue";
-// import DashboardSideDrawer from "./DashboardSideDrawer.vue";
 
 export default defineComponent({
   name: "DashboardTools",
   components: {
     BasicUpload,
-    // DashboardSideDrawer,
+  },
+  emits: ['csv-uploaded'],
+  methods: {
+    handleCSVUpload(data) {
+      this.$emit('csv-uploaded', data);
+    },
   },
 });
 </script>
