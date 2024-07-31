@@ -2,7 +2,7 @@ const config = {
   topMenu: false,
   rtl: false,
   darkMode: false,
-  mainTemplate: 'lightMode',
+  mainTemplate: "lightMode",
 };
 
 export default config;

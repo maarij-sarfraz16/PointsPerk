@@ -43,8 +43,6 @@
           </div>
           <div class="ninjadash-header-content__right d-flex">
             <div class="ninjadash-navbar-menu d-flex align-center-v">
-              <DashboardSideDrawer></DashboardSideDrawer>
-
               <TopMenu v-if="topMenu && innerWidth > 991" />
             </div>
             <div class="ninjadash-nav-actions">
@@ -185,8 +183,6 @@ import "vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css";
 import { computed, ref, defineComponent } from "vue";
 import { useStore } from "vuex";
 
-import DashboardSideDrawer from "../view/dashboard/overview/DashboardSideDrawer.vue";
-
 const { Header, Footer, Sider, Content } = Layout;
 
 export default defineComponent({
@@ -206,7 +202,6 @@ export default defineComponent({
     AsideItems,
     TopMenu,
     PerfectScrollbar,
-    DashboardSideDrawer,
   },
   setup() {
     const collapsed = ref(false);

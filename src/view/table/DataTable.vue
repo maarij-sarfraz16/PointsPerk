@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <div class="ninjadasj-datatable">
+    <div class="ninjadash-datatable">
       <TableWrapper class="table-data-view table-responsive">
         <a-table
           v-if="rowSelection"

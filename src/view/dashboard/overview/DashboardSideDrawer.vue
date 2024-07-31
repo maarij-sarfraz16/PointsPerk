@@ -4,6 +4,7 @@
       title="Close"
       placement="right"
       type="submit"
+      btnSize="sm"
       btnText="Customize"
       btnType="secondary"
       btnShape="round"

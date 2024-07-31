@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <div class="ninjadasj-datatable">
+    <div class="ninjadash-datatable">
       <TableWrapper class="table-data-view table-responsive">
         <a-table
           v-if="rowSelection"
@@ -76,8 +76,8 @@
 <script>
 import { defineComponent, computed, ref, unref } from "vue";
 import VueTypes from "vue-types";
-import DataTableStyleWrap from "./Style"; // Ensure this is the correct path
-import TableWrapper from "../../view/styled"; // Ensure this is the correct path
+import { DataTableStyleWrap } from "./Style";
+import { TableWrapper } from "../../view/styled";
 import { useStore } from "vuex";
 
 export default defineComponent({

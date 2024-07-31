@@ -1,4 +1,4 @@
-import Styled from 'vue3-styled-components';
+import Styled from "vue3-styled-components";
 
 const ProfileAuthorBox = Styled.div`
     .ant-card-body{
@@ -7,7 +7,8 @@ const ProfileAuthorBox = Styled.div`
     .author-info{
         padding: 0 20px 20px;
         text-align: center;
-        border-bottom: 1px solid ${({ theme }) => theme[theme.mainContent]['border-color-default']};
+        border-bottom: 1px solid ${({ theme }) =>
+          theme[theme.mainContent]["border-color-default"]};
         .info{
             background-color: transparent;
         }
@@ -18,7 +19,7 @@ const ProfileAuthorBox = Styled.div`
         margin: 0 auto 18px;
         .ant-upload-select{
             position: absolute;
-            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
+            ${({ theme }) => (theme.rtl ? "left" : "right")}: 0;
             bottom: -2px;
             height: 40px;
             width: 40px;
@@ -34,7 +35,7 @@ const ProfileAuthorBox = Styled.div`
                 justify-content: center;
                 border-radius: 50%;
                 width: 32px;
-                background: ${({ theme }) => theme['primary-color']};
+                background: ${({ theme }) => theme["primary-color"]};
             }
             a{
                 display: flex;
@@ -63,7 +64,7 @@ const ProfileAuthorBox = Styled.div`
             }
             p{
                 margin-bottom: 0;
-                color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
             }
         }
     }
@@ -76,21 +77,22 @@ const ProfileAuthorBox = Styled.div`
                 align-items: center;
                 padding: 12px 20px;
                 border-radius: 6px;
-                color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
                 i,
                 svg,
                 img{
-                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 6px;
+                    ${({ theme }) =>
+                      theme.rtl ? "margin-left" : "margin-right"}: 6px;
                 }
 								svg{
-									fill: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+									fill: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
 								}
                 &.router-link-active{
                     font-weight: 500;
-                    color: ${({ theme }) => theme['primary-color']};
-                    background: ${({ theme }) => theme['primary-color']}05;
+                    color: ${({ theme }) => theme["primary-color"]};
+                    background: ${({ theme }) => theme["primary-color"]}05;
                     svg{
-                        fill: ${({ theme }) => theme['primary-color']};
+                        fill: ${({ theme }) => theme["primary-color"]};
                     }
                 }
             }
@@ -104,13 +106,13 @@ const SettingWrapper = Styled.div`
         margin-bottom: 25px;
         .ant-upload-select{
             position: absolute;
-            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 20px;
+            ${({ theme }) => (theme.rtl ? "left" : "right")}: 20px;
             top: 20px;
             border: 1px solid #ffffff50;
             border-radius: 6px;
             @media only screen and (max-width: 991px){
                 top: 50%;
-                ${({ theme }) => (theme.rtl ? 'left' : 'right')}: auto;
+                ${({ theme }) => (theme.rtl ? "left" : "right")}: auto;
                 left: 50%;
                 transform: translate(-50%,-50%);
             }
@@ -126,7 +128,8 @@ const SettingWrapper = Styled.div`
                 svg,
                 img
                 {
-                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
+                    ${({ theme }) =>
+                      theme.rtl ? "margin-left" : "margin-right"}: 8px;
                 }
 								svg{
 									fill: #fff;
@@ -152,7 +155,7 @@ const SettingWrapper = Styled.div`
             font-size: 13px;
             font-weight: 400;
             margin: 0;
-            color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+            color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
         }
     }
 `;
@@ -167,7 +170,8 @@ const AccountWrapper = Styled.div`
     .account-form-top{
         margin-bottom: 26px;
         padding-bottom: 30px;
-        border-bottom: 1px solid ${({ theme }) => theme[theme.mainContent]['light-border']};
+        border-bottom: 1px solid ${({ theme }) =>
+          theme[theme.mainContent]["light-border"]};
     }
     .account-form{
         .ant-row{
@@ -177,10 +181,11 @@ const AccountWrapper = Styled.div`
         }
         p{
             margin: 2px 0 22px;
-            color: ${({ theme }) => theme[theme.mainContent]['light-text']};
+            color: ${({ theme }) => theme[theme.mainContent]["light-text"]};
             span{
                     font-weight: 500;
-                    color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
+                    color: ${({ theme }) =>
+                      theme[theme.mainContent]["dark-text"]};
             }
         }
     }
@@ -195,7 +200,7 @@ const AccountWrapper = Styled.div`
         }
         p{
             margin-bottom: 0;
-            color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+            color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
         }
         button{
             height: 38px;
@@ -217,8 +222,10 @@ const AccountWrapper = Styled.div`
         }
         .ant-btn-light{
             font-weight: 400;
-            background: ${({ theme }) => theme[theme.mainContent]['light-background']};
-            border: 1px solid ${({ theme }) => theme[theme.mainContent]['border-color-default']};
+            background: ${({ theme }) =>
+              theme[theme.mainContent]["light-background"]};
+            border: 1px solid ${({ theme }) =>
+              theme[theme.mainContent]["border-color-default"]};
         }
     }
 `;
@@ -233,19 +240,21 @@ const ChangePasswordWrapper = Styled.div`
         }
         .ant-form-item-control-input-content{
             .ant-input-password:not(.ant-input-affix-wrapper){
-            padding: ${({ theme }) => (theme.rtl ? '0 0 0 20px' : '0 20px 0 0')} !important;
+            padding: ${({ theme }) =>
+              theme.rtl ? "0 0 0 20px" : "0 20px 0 0"} !important;
             }
         }
         .input-message{
             font-size: 13px;
-            color: ${({ theme }) => theme[theme.mainContent]['light-text']};
+            color: ${({ theme }) => theme[theme.mainContent]["light-text"]};
             margin: -22px 0 0;
         }
         .ant-form-item-control-input-content{
             .anticon-eye-invisible{
                 svg,
                 i{
-                    color: ${({ theme }) => theme[theme.mainContent]['extra-light-text']};
+                    color: ${({ theme }) =>
+                      theme[theme.mainContent]["extra-light-text"]};
                 }
             }
         }
@@ -254,8 +263,9 @@ const ChangePasswordWrapper = Styled.div`
                 border-radius: 6px;
             }
             .ant-btn-light{
-                color: ${({ theme }) => theme['gray-color']};
-                border: 1px solid ${({ theme }) => theme[theme.mainContent]['border-color-default']};
+                color: ${({ theme }) => theme["gray-color"]};
+                border: 1px solid ${({ theme }) =>
+                  theme[theme.mainContent]["border-color-default"]};
             }
         }
     }
@@ -266,11 +276,14 @@ const SocialProfileForm = Styled.div`
         min-height: 44px;
         .ant-form-item-control-input-content{
             input{
-            padding: ${({ theme }) => (theme.rtl ? '12px 50px 12px 20px' : '12px 20px 12px 50px')} !important;
+            padding: ${({ theme }) =>
+              theme.rtl
+                ? "12px 50px 12px 20px"
+                : "12px 20px 12px 50px"} !important;
             }
             input::placeholder{
                 font-size: 13px;
-                color: ${({ theme }) => theme[theme.mainContent]['light-text']};
+                color: ${({ theme }) => theme[theme.mainContent]["light-text"]};
             }
         }
         .ant-input-affix-wrapper{
@@ -282,12 +295,13 @@ const SocialProfileForm = Styled.div`
             padding: 0px 23px;
         }
         label{
-            color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
+            color: ${({ theme }) => theme[theme.mainContent]["dark-text"]};
         }
         .ant-input-affix-wrapper{
             position: relative;
             input{
-                ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 50px;
+                ${({ theme }) =>
+                  !theme.rtl ? "padding-left" : "padding-right"}: 50px;
             }
             span.fa,
             i{
@@ -337,7 +351,7 @@ const SocialProfileForm = Styled.div`
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
+                ${({ theme }) => (!theme.rtl ? "left" : "right")}: 0;
                 top: 50%;
                 transform: translateY(-50%);
                 background: #ddd;
@@ -360,10 +374,11 @@ const SocialProfileForm = Styled.div`
 const NotificationWrapper = Styled.div`
     .notification-box-single{
         .ant-card{
-            border: 1px solid ${({ theme }) => theme[theme.mainContent]['light-border']};
+            border: 1px solid ${({ theme }) =>
+              theme[theme.mainContent]["light-border"]};
         }
 				.ant-card-body{
-					background: ${({ theme }) => theme[theme.mainContent]['main-background-light']};
+					background: ${({ theme }) => theme[theme.mainContent]["main-background-light"]};
 					border-radius: 10px;
 				}
         .notification-header{
@@ -371,15 +386,16 @@ const NotificationWrapper = Styled.div`
             .notification-header__text{
                 font-size: 15px;
                 font-weight: 500;
-                color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
             }
             .btn-toggle{
                 font-size: 13px;
-                color: ${({ theme }) => theme['info-color']};
+                color: ${({ theme }) => theme["info-color"]};
             }
         }
         .notification-body{
-            box-shadow: 0 10px 30px ${({ theme }) => theme[theme.mainContent]['light-text']}10;
+            box-shadow: 0 10px 30px ${({ theme }) =>
+              theme[theme.mainContent]["light-text"]}10;
             .ant-card{
                 margin-bottom: 0 !important;
             }
@@ -393,7 +409,8 @@ const NotificationWrapper = Styled.div`
                         padding: 15px 20px !important;
                     }
                     &:not(:last-child){
-                        border-bottom: 1px solid ${({ theme }) => theme[theme.mainContent]['light-border']};
+                        border-bottom: 1px solid ${({ theme }) =>
+                          theme[theme.mainContent]["light-border"]};
                     }
                 }
             }
@@ -403,11 +420,11 @@ const NotificationWrapper = Styled.div`
                 font-size: 14px;
                 font-weight: 500;
                 margin-bottom: 2px;
-                color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
             }
             p{
                 margin-bottom: 3px;
-                color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
             }
         }
     }

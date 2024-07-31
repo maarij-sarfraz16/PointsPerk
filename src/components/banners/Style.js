@@ -286,7 +286,8 @@ const BannerWrapper = Styled.figure`
         .ninjadash-top-banner__title{
             font-size: 30px;
             font-weight: 600;
-            color: ${({ theme }) => theme["dark-color"]};
+            color: ${({ theme }) =>
+              theme[theme.mainContent]["dark-text"]} !important;
             margin-bottom: 17px;
             @media only screen and (max-width: 991px){
                 font-size: 24px;
@@ -297,7 +298,8 @@ const BannerWrapper = Styled.figure`
             max-width: 610px;
             opacity: 1;
             margin-bottom: 25px;
-            color: ${({ theme }) => theme["dark-color"]};
+            color: ${({ theme }) =>
+              theme[theme.mainContent]["dark-text"]} !important;
             @media only screen and (max-width: 1599px){
                 max-width: 480px;
             }
@@ -340,7 +342,7 @@ const BannerNormal = Styled.div`
         font-weight: 400;
         margin-bottom: 18px;
         line-height: 1.667;
-        color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
+        color: ${({ theme }) => theme[theme.mainContent]["dark-text"]};
     }
     .ant-btn{
         height: 38px;
