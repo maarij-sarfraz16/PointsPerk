@@ -6,7 +6,7 @@
 <Main>
   <ChartStyle>
     <a-row :gutter="44">
-        <a-col :lg="16">
+        <a-col :lg="16" :md="24" :sm="24">
           <Suspense>
             <template #fallback>
               <sdCards headless>
@@ -19,7 +19,7 @@
           </Suspense>
         </a-col>
 
-          <a-col :lg="8">        
+          <a-col :lg="8" :md="24" :sm="24">        
             <Suspense>
             <template #fallback>
               <sdCards headless>
