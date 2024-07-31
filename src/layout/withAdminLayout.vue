@@ -42,8 +42,9 @@
             </div>
           </div>
           <div class="ninjadash-header-content__right d-flex">
-            <DashboardSideDrawer></DashboardSideDrawer>
             <div class="ninjadash-navbar-menu d-flex align-center-v">
+              <DashboardSideDrawer></DashboardSideDrawer>
+
               <TopMenu v-if="topMenu && innerWidth > 991" />
             </div>
             <div class="ninjadash-nav-actions">

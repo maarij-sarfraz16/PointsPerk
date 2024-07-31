@@ -47,7 +47,7 @@
             <p class="product-single-price">
               <unicon name="star"></unicon>
               <span class="product-single-price__new"
-                >{{ renderData.price }} 
+                >{{ renderData.price }}
               </span>
 
               <!-- <template v-if="renderData.oldPrice">
@@ -70,7 +70,16 @@
                 <unicon name="shopping-bag" width="14"></unicon>
                 <span>Add To Cart</span>
               </sdButton> -->
-              <sdButton size="sm" type="primary"> Claim </sdButton>
+              <sdButton
+                :disabled="isDisabled"
+                size="sm"
+                type="primary"
+                :class="{
+                  '': !isDisabled,
+                  'disabled-hover': isDisabled,
+                }"
+                >{{ text }}</sdButton
+              >
             </div>
           </div>
         </a-col>
@@ -98,16 +107,18 @@ const ProductCardsList = defineComponent({
     const renderData = computed(() => product.value);
     const { matched } = useRoute();
 
-    // const addWishList = (value) => {
-    //   dispatch("updateWishList", value);
-    // };
+    const isDisabled = computed(() => renderData.value.claimed === true);
 
+    const text = computed(() =>
+      renderData.value.claimed ? "Claimed" : "Claim"
+    );
     return {
       dispatch,
       renderData,
       isLoader,
       matched,
-    
+      isDisabled,
+      text,
     };
   },
 });
