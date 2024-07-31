@@ -217,29 +217,29 @@ export const BannerCarousel = defineComponent({
               <img src={require("../../static/img/banner/8.png")} alt="" />
             </div>
             <div class="banner-single__content">
-              <h3>Achievements</h3>
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+              <h3>"Don’t watch the clock; do what it does. Keep going."</h3>
+              <p>Sam Levenson</p>
             </div>
           </div>
           {/* End of /.banner-signle */}
           <div class="banner-signle">
             <div class="banner-single__img">
-              <img src={require("../../static/img/banner/8.png")} alt="" />
+              <img src={require("../../static/img/banner/09.png")} alt="" />
             </div>
             <div class="banner-single__content">
-              <h3>Achievements</h3>
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+              <h3>"Quality is not an act, it is a habit." </h3>
+              <p>Aristotle</p>
             </div>
           </div>
           {/* End of /.banner-signle */}
           <div class="banner-signle">
             <div class="banner-single__img">
-              <img src={require("../../static/img/banner/8.png")} alt="" />
+              <img src={require("../../static/img/banner/2.png")} alt="" />
             </div>
             <div class="banner-single__content">
-              <h3>Achievements</h3>
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-            </div>
+              <h3>"Don't be afraid to give up the good to go for the great."</h3>
+              <p>John D. Rockefeller</p>
+           </div>
           </div>
           {/* End of /.banner-signle */}
         </a-carousel>
