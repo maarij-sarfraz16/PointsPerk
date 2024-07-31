@@ -60,6 +60,13 @@
                     Billings
                   </router-link>
                 </li>
+
+                <li>
+                  <router-link to="/page/support">
+                    <unicon name="headphones"></unicon>
+                    Contact Support
+                  </router-link>
+                </li>
               </ul>
               <a @click="SignOut" class="user-dropdown__bottomAction" href="#">
                 <LogoutOutlined /> Sign Out
