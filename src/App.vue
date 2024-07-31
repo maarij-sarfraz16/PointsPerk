@@ -43,7 +43,6 @@ export default defineComponent({
     const darkMode = computed(() => state.themeLayout.data);
     const topMenu = computed(() => state.themeLayout.topMenu);
     const mainContent = computed(() => state.themeLayout.main);
-
     onMounted(() => {
       window.addEventListener("load", () => {
         const domHtml = document.getElementsByTagName("html")[0];

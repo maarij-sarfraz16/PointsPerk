@@ -91,7 +91,8 @@ const InfoWraper = Styled("div", props)`
             }
         }
     }
-    .ninjadash-nav-actions__item{
+        
+    .ninjadash-nav-actions__item {
         .ant-badge{
             .ant-badge-dot{
                 top: 4px;
@@ -283,7 +284,10 @@ const NestedDropdown = Styled.div`
 `;
 
 const UserDropDown = Styled.div`
+
     .user-dropdown{
+        background: ${({ theme }) =>
+          theme[theme.mainContent]["white-background"]};
         max-width: 280px;
         .user-dropdown__info{
             display: flex;
@@ -292,7 +296,7 @@ const UserDropDown = Styled.div`
             border-radius: 8px;
             margin-bottom: 12px;
             background: ${({ theme }) =>
-              theme[theme.mainContent]["general-background"]};
+              theme[theme.mainContent]["white-background"]};
             img{
                 ${({ theme }) =>
                   theme.rtl ? "margin-left" : "margin-right"}: 15px;
@@ -345,7 +349,8 @@ const UserDropDown = Styled.div`
             }
         }
         .user-dropdown__bottomAction{
-            display: inline-flex;
+
+            display:flex;
             align-items: center;
             justify-content: center;
             font-size: 13px;

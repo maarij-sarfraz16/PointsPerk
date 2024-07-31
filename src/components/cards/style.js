@@ -1,10 +1,10 @@
 import Styled from "vue3-styled-components";
-
 const CourseCardWrap = Styled.div`
     &.ninjadash-course-card-single{
         margin-bottom: 25px;
         .ant-card{
-            background-color: ${({ theme }) => theme[theme.mainContent]['white-background']};
+            background-color: ${({ theme }) =>
+              theme[theme.mainContent]["white-background"]};
         }
         .ant-card-body{
             padding: 20px !important;
@@ -22,9 +22,9 @@ const CourseCardWrap = Styled.div`
             margin-bottom: 12px;
             font-weight: 600;
             a{
-                color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
+                color: ${({ theme }) => theme[theme.mainContent]["dark-text"]};
                 &:hover{
-                    color: ${({ theme }) => theme['primary-color']};
+                    color: ${({ theme }) => theme["primary-color"]};
                 }
             }
         }
@@ -34,11 +34,13 @@ const CourseCardWrap = Styled.div`
             margin-bottom: 20px;
             img{
                 max-width: 30px;
-                ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
+                ${({ theme }) =>
+                  !theme.rtl ? "margin-right" : "margin-left"}: 10px;
             }
             .ninjadash-course-card-author__name{
                 font-size: 15px;
-                color: ${({ theme }) => theme[theme.mainContent]['gray-light-text']};
+                color: ${({ theme }) =>
+                  theme[theme.mainContent]["gray-light-text"]};
             }
             @media only screen and (max-width: 1599px){
                 margin-bottom: 15px;
@@ -54,7 +56,7 @@ const CourseCardWrap = Styled.div`
             .ninjadash-course-card-meta__pricing{
                 font-size: 20px;
                 font-weight: 600;
-                color: ${({ theme }) => theme['success-color']};
+                color: ${({ theme }) => theme["success-color"]};
             }
         }
         .ninjadash-course-card-meta__left{
@@ -72,18 +74,22 @@ const CourseCardWrap = Styled.div`
                 padding: 0 15px;
                 margin: 5px;
                 &.bg-secondary{
-                    color: ${({ theme }) => theme[theme.mainContent]['secondary-white']};
+                    color: ${({ theme }) =>
+                      theme[theme.mainContent]["secondary-white"]};
                     background-color: rgba(88,64,255,.15);
                     svg{
-                        fill: ${({ theme }) => theme[theme.mainContent]['secondary-white']};
+                        fill: ${({ theme }) =>
+                          theme[theme.mainContent]["secondary-white"]};
                         top: 0;
                     }
                 }
                 &.bg-primary{
-                    color: ${({ theme }) => theme[theme.mainContent]['primary-white']};
+                    color: ${({ theme }) =>
+                      theme[theme.mainContent]["primary-white"]};
                     background-color: rgba(251,53,134,.15);
                     svg{
-                        fill: ${({ theme }) => theme[theme.mainContent]['primary-white']};;
+                        fill: ${({ theme }) =>
+                          theme[theme.mainContent]["primary-white"]};;
                         top: 0;
                     }
                 }
@@ -94,7 +100,8 @@ const CourseCardWrap = Styled.div`
                 }
                 svg{
                     width: 14px;
-                    ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 3px;
+                    ${({ theme }) =>
+                      !theme.rtl ? "margin-right" : "margin-left"}: 3px;
                 }
             }
         }
@@ -103,7 +110,8 @@ const CourseCardWrap = Styled.div`
 const OverviewCard = Styled.div`
     margin-bottom: 25px;
     .ant-card {
-        background-color: ${({ theme }) => theme[theme.mainContent]['white-background']};
+        background-color: ${({ theme }) =>
+          theme[theme.mainContent]["white-background"]};
         &.ninjadash-overview-halfCircle-card{
             overflow: hidden;
             .ant-card-body {
@@ -183,7 +191,7 @@ const OverviewCard = Styled.div`
             padding: 15px !important;
         }
         .ninjadash-overview-total {
-            color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+            color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
         }
         .ninjadash-overview-card{
             .ninjadash-overview-card__top{
@@ -207,31 +215,35 @@ const OverviewCard = Styled.div`
                         height: 32px;
                     }
                     &.ninjadash-primary{
-                        background-color: ${({ theme }) => theme['primary-color']}15;
+                        background-color: ${({ theme }) =>
+                          theme["primary-color"]}15;
                         svg ,
                         i{
-                            fill: ${({ theme }) => theme['primary-color']};
+                            fill: ${({ theme }) => theme["primary-color"]};
                         }
                     }
                     &.ninjadash-secondary{
-                        background-color: ${({ theme }) => theme['secondary-color']}15;
+                        background-color: ${({ theme }) =>
+                          theme["secondary-color"]}15;
                         svg ,
                         i{
-                            fill: ${({ theme }) => theme['secondary-color']};
+                            fill: ${({ theme }) => theme["secondary-color"]};
                         }
                     }
                     &.ninjadash-warning{
-                        background-color: ${({ theme }) => theme['warning-color']}15;
+                        background-color: ${({ theme }) =>
+                          theme["warning-color"]}15;
                         svg path,
                         i{
-                            fill: ${({ theme }) => theme['warning-color']};
+                            fill: ${({ theme }) => theme["warning-color"]};
                         }
                     }
                     &.ninjadash-info{
-                        background-color: ${({ theme }) => theme['info-color']}15;
+                        background-color: ${({ theme }) =>
+                          theme["info-color"]}15;
                         svg path,
                         i{
-                            fill: ${({ theme }) => theme['info-color']};
+                            fill: ${({ theme }) => theme["info-color"]};
                         }
                     }
                 }
@@ -241,7 +253,8 @@ const OverviewCard = Styled.div`
                         line-height: 1.45;
                         font-weight: 600;
                         margin-bottom: 0;
-                        color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
+                        color: ${({ theme }) =>
+                          theme[theme.mainContent]["dark-text"]};
                         @media only screen and (max-width: 991px){
                             font-size: 24px;
                         }
@@ -252,7 +265,8 @@ const OverviewCard = Styled.div`
                     .ninjadahs-overview-label{
                         font-size: 16px;
                         font-weight: 400;
-                        color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                        color: ${({ theme }) =>
+                          theme[theme.mainContent]["gray-text"]};
                         @media only screen and (max-width: 767px){
                             font-size: 15px;
                         }
@@ -284,7 +298,8 @@ const OverviewCard = Styled.div`
                     padding: 0 10px;
                     min-height: 46px;
                     border-radius: 8px;
-                    background-color: ${({ theme }) => theme[theme.mainContent]['status-background']};
+                    background-color: ${({ theme }) =>
+                      theme[theme.mainContent]["status-background"]};
                     @media only screen and (max-width: 1399px){
                         flex-wrap: wrap;
                         padding-top: 5px;
@@ -294,8 +309,10 @@ const OverviewCard = Styled.div`
                         font-size: 14px;
                     }
                     .ninjadash-status-label{
-                        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
-                        color: ${({ theme }) => theme[theme.mainContent]['gray-light-text']};
+                        ${({ theme }) =>
+                          !theme.rtl ? "margin-left" : "margin-right"}: 10px;
+                        color: ${({ theme }) =>
+                          theme[theme.mainContent]["gray-light-text"]};
                     }
                     .ninjadash-status-rate{
                         display: flex;
@@ -304,7 +321,10 @@ const OverviewCard = Styled.div`
                         svg,
                         img{
                             width: 20px;
-                            ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: -1px;
+                            ${({ theme }) =>
+                              !theme.rtl
+                                ? "margin-right"
+                                : "margin-left"}: -1px;
                         }
                         .unicon{
                             line-height: 0;
@@ -312,17 +332,17 @@ const OverviewCard = Styled.div`
                     }
                     &.ninjadash-status-upward{
                         .ninjadash-status-rate{
-                            color: ${({ theme }) => theme['success-color']};
+                            color: ${({ theme }) => theme["success-color"]};
                             svg{
-                                fill: ${({ theme }) => theme['success-color']};
+                                fill: ${({ theme }) => theme["success-color"]};
                             }
                         }
                     }
                     &.ninjadash-status-downward{
                         .ninjadash-status-rate{
-                            color: ${({ theme }) => theme['danger-color']};
+                            color: ${({ theme }) => theme["danger-color"]};
                             svg{
-                                fill: ${({ theme }) => theme['danger-color']};
+                                fill: ${({ theme }) => theme["danger-color"]};
                             }
                         }
                     }
@@ -363,7 +383,8 @@ const BlogCardStyleWrap = Styled.figure`
         border-radius: 10px;
         box-shadow: 0 5px 20px rgba(173,181,217,.05);
         margin-bottom: 25px;
-        background-color: ${({ theme }) => theme[theme.mainContent]['white-background']};
+        background-color: ${({ theme }) =>
+          theme[theme.mainContent]["white-background"]};
         &:hover{
             .ninjadash-blog-thumb{
                 &:after{
@@ -375,14 +396,14 @@ const BlogCardStyleWrap = Styled.figure`
             position: relative;
             &:after{
                 position:  absolute;
-                ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
+                ${({ theme }) => (!theme.rtl ? "left" : "right")}: 0;
                 top: 0;
                 width: 100%;
                 height: 0%;
                 content: '';
                 border-radius: 10px;
                 transition: .35s;
-                background-color: ${({ theme }) => theme['dark-color']}15;
+                background-color: ${({ theme }) => theme["dark-color"]}15;
             }
         }
         &.ninjadash-blog-style-3,
@@ -424,15 +445,17 @@ const BlogCardStyleWrap = Styled.figure`
                     margin: 3px;
                     &:before{
                         position: absolute;
-                        ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
+                        ${({ theme }) => (!theme.rtl ? "left" : "right")}: 0;
                         top: calc(50% - 4px);
                         width: 4px;
                         height: 4px;
                         border-radius: 50%;
-                        background-color: ${({ theme }) => theme[theme.mainContent]['light-text']};
+                        background-color: ${({ theme }) =>
+                          theme[theme.mainContent]["light-text"]};
                     }
                     &:not(:first-child){
-                        ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 10px;
+                        ${({ theme }) =>
+                          !theme.rtl ? "padding-left" : "padding-right"}: 10px;
                         &:before{
                             content: '';
                         }
@@ -443,23 +466,23 @@ const BlogCardStyleWrap = Styled.figure`
         .ninjadash-blog-meta__single{
             display: inline-block;
             font-size: 15px;
-            color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+            color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
         }
         .ninjadash-blog__title{
             font-size: 20px;
             font-weight: 600;
             margin: 10px 0 5px;
             a{
-                color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
+                color: ${({ theme }) => theme[theme.mainContent]["dark-text"]};
                 &:hover{
-                    color: ${({ theme }) => theme['primary-color']};
+                    color: ${({ theme }) => theme["primary-color"]};
                 }
             }
         }
         .ninjadash-blog__text{
             font-size: 16px;
             margin-bottom: 15px;
-            color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+            color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
         }
         .ninjadash-blog__bottom{
             display: flex;
@@ -472,8 +495,9 @@ const BlogCardStyleWrap = Styled.figure`
             }
             .ninjadash-blog__author-name{
                 font-size: 15px;
-                ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
-                color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                ${({ theme }) =>
+                  theme.rtl ? "margin-right" : "margin-left"}: 10px;
+                color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
             }
         }
         .ninjadash-blog__meta{
@@ -489,12 +513,15 @@ const BlogCardStyleWrap = Styled.figure`
                     display: flex;
                     align-items: center;
                     line-height: 1;
-                    color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                    color: ${({ theme }) =>
+                      theme[theme.mainContent]["gray-text"]};
                     svg{
                         width: 12px;
                         height: 12px;
-                        ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 4px;
-                        fill: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                        ${({ theme }) =>
+                          !theme.rtl ? "margin-right" : "margin-left"}: 4px;
+                        fill: ${({ theme }) =>
+                          theme[theme.mainContent]["gray-text"]};
                     }
                 }
             }
@@ -511,11 +538,12 @@ const OverviewCardMeshWrap = Styled.div`
                 position: absolute;
                 width: 1px;
                 height: 70px;
-                ${({ theme }) => (!theme.rtl ? 'right' : 'left')}: -60px;
+                ${({ theme }) => (!theme.rtl ? "right" : "left")}: -60px;
                 top: 50%;
                 transform: translateY(-50%);
                 content: '';
-                background-color: ${({ theme }) => theme[theme.mainContent]['light-border']};
+                background-color: ${({ theme }) =>
+                  theme[theme.mainContent]["light-border"]};
             }
         }
 				@media only screen and (max-width: 1399px){
@@ -548,12 +576,13 @@ const OverviewCardMeshWrap = Styled.div`
                 position: relative;
                 &:after{
                     position: absolute;
-                    ${({ theme }) => (!theme.rtl ? 'right' : 'left')}: 0;
+                    ${({ theme }) => (!theme.rtl ? "right" : "left")}: 0;
                     top: 0;
                     width: 1px;
                     height: 100%;
                     content: '';
-                    background-color: ${({ theme }) => theme[theme.mainContent].borderLight};
+                    background-color: ${({ theme }) =>
+                      theme[theme.mainContent].borderLight};
                 }
             }
         }
@@ -569,7 +598,8 @@ const OverviewCardMeshWrap = Styled.div`
                 width: 70px;
                 height: 70px;
                 border-radius: 14px;
-                ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 25px;
+                ${({ theme }) =>
+                  !theme.rtl ? "margin-right" : "margin-left"}: 25px;
                 >div{
                     line-height: 1;
                 }
@@ -578,51 +608,56 @@ const OverviewCardMeshWrap = Styled.div`
                     height: auto;
                 }
                 &.ninjadash-primary{
-                    background-color: ${({ theme }) => theme['primary-color']}15;
+                    background-color: ${({ theme }) =>
+                      theme["primary-color"]}15;
                     svg path,
                     i{
-                        fill: ${({ theme }) => theme['primary-color']};
-                        color: ${({ theme }) => theme['primary-color']};
+                        fill: ${({ theme }) => theme["primary-color"]};
+                        color: ${({ theme }) => theme["primary-color"]};
                     }
                 }
                 &.ninjadash-secondary{
-                    background-color: ${({ theme }) => theme['secondary-color']}15;
+                    background-color: ${({ theme }) =>
+                      theme["secondary-color"]}15;
                     svg path,
                     i{
-                        fill: ${({ theme }) => theme['secondary-color']};
-                        color: ${({ theme }) => theme['secondary-color']};
+                        fill: ${({ theme }) => theme["secondary-color"]};
+                        color: ${({ theme }) => theme["secondary-color"]};
                     }
                 }
                 &.ninjadash-success{
-                    background-color: ${({ theme }) => theme['success-color']}15;
+                    background-color: ${({ theme }) =>
+                      theme["success-color"]}15;
                     svg path,
                     i{
-                        fill: ${({ theme }) => theme['success-color']};
-                        color: ${({ theme }) => theme['success-color']};
+                        fill: ${({ theme }) => theme["success-color"]};
+                        color: ${({ theme }) => theme["success-color"]};
                     }
                 }
                 &.ninjadash-warning{
-                    background-color: ${({ theme }) => theme['warning-color']}15;
+                    background-color: ${({ theme }) =>
+                      theme["warning-color"]}15;
                     svg path,
                     i{
-                        fill: ${({ theme }) => theme['warning-color']};
-                        color: ${({ theme }) => theme['warning-color']};
+                        fill: ${({ theme }) => theme["warning-color"]};
+                        color: ${({ theme }) => theme["warning-color"]};
                     }
                 }
                 &.ninjadash-info{
-                    background-color: ${({ theme }) => theme['warning-color']}15;
+                    background-color: ${({ theme }) =>
+                      theme["warning-color"]}15;
                     svg path,
                     i{
-                        fill: ${({ theme }) => theme['info-color']};
-                        color: ${({ theme }) => theme['info-color']};
+                        fill: ${({ theme }) => theme["info-color"]};
+                        color: ${({ theme }) => theme["info-color"]};
                     }
                 }
                 &.ninjadash-danger{
-                    background-color: ${({ theme }) => theme['danger-color']}15;
+                    background-color: ${({ theme }) => theme["danger-color"]}15;
                     svg path,
                     i{
-                        fill: ${({ theme }) => theme['danger-color']};
-                        color: ${({ theme }) => theme['danger-color']};
+                        fill: ${({ theme }) => theme["danger-color"]};
+                        color: ${({ theme }) => theme["danger-color"]};
                     }
                 }
             }
@@ -630,37 +665,40 @@ const OverviewCardMeshWrap = Styled.div`
         .ninjadash-overview-card__right{
             display: flex;
             .ninjadash-overview-card__right--content{
-                ${({ theme }) => (!theme.rtl ? 'margin-right' : 'margin-left')}: 25px;
+                ${({ theme }) =>
+                  !theme.rtl ? "margin-right" : "margin-left"}: 25px;
                 .ninjadash-overview-total{
                     font-size: 30px;
                     line-height: 1.2;
                     font-weight: 600;
                     margin-bottom: 0;
-                    color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
+                    color: ${({ theme }) =>
+                      theme[theme.mainContent]["dark-text"]};
                     @media only screen and (max-width: 480px){
                         font-size: 20px;
                     }
                 }
                 .ninjadahs-overview-label{
                     font-size: 16px;
-                    color: ${({ theme }) => theme[theme.mainContent]['gray-text']}
+                    color: ${({ theme }) =>
+                      theme[theme.mainContent]["gray-text"]}
                 }
             }
             .ninjadash-overview-status{
                 margin-top: 6px;
                 &.ninjadash-status-growth{
                     .ninjadash-status-rate{
-                        color: ${({ theme }) => theme['success-color']};
+                        color: ${({ theme }) => theme["success-color"]};
                         svg{
-													fill: ${({ theme }) => theme['success-color']};
+													fill: ${({ theme }) => theme["success-color"]};
 												}
                     }
                 }
                 &.ninjadash-status-down{
                     .ninjadash-status-rate{
-                        color: ${({ theme }) => theme['danger-color']};
+                        color: ${({ theme }) => theme["danger-color"]};
                         svg{
-													fill: ${({ theme }) => theme['danger-color']};
+													fill: ${({ theme }) => theme["danger-color"]};
 												}
                     }
                 }
@@ -680,12 +718,12 @@ const OverviewCardMeshWrap = Styled.div`
 `;
 const InfoCardStyle = Styled.article`
     ${({ theme, type }) => `
-        background-color: ${theme[theme.mainContent]['white-background']};
+        background-color: ${theme[theme.mainContent]["white-background"]};
         padding: 14px 15px;
         text-align: center;
         border-radius: 10px;
         margin-bottom: 25px;
-        box-shadow: 0px 5px 20px ${theme['extra-light-color']}05;
+        box-shadow: 0px 5px 20px ${theme["extra-light-color"]}05;
 
         .ninjadash-infocard-icon {
             width: 60px;
@@ -709,23 +747,23 @@ const InfoCardStyle = Styled.article`
         .ninjadash-infocard-text {
             font-size: 16px;
             margin-bottom: 0;
-            color: ${theme[theme.mainContent]['gray-text']};
+            color: ${theme[theme.mainContent]["gray-text"]};
         }
         .ninjadash-infocard-label {
             font-size: 30px;
             font-weight: 500;
             margin-bottom: 4px;
-            color: ${theme[theme.mainContent]['dark-text']};
+            color: ${theme[theme.mainContent]["dark-text"]};
         }
     `}
 `;
 const NewsletterStyle = Styled.figure`
     ${({ theme }) => `
-        background-color: ${theme[theme.mainContent]['white-background']};
+        background-color: ${theme[theme.mainContent]["white-background"]};
         padding: 0;
-        text-align: ${!theme.rtl ? 'left' : 'right'};
+        text-align: ${!theme.rtl ? "left" : "right"};
         border-radius: 10px;
-        box-shadow: 0px 5px 20px ${theme['extra-light-color']}05;
+        box-shadow: 0px 5px 20px ${theme["extra-light-color"]}05;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -749,7 +787,7 @@ const NewsletterStyle = Styled.figure`
         .newsletter-shape{
             width: 150px;
             height: 150px;
-            ${theme.rtl ? 'padding-left' : 'padding-right'} : 15px;
+            ${theme.rtl ? "padding-left" : "padding-right"} : 15px;
             img{
                 max-width: 100%;
             }
@@ -761,12 +799,12 @@ const NewsletterStyle = Styled.figure`
                 font-weight: 600;
                 line-height: 1;
                 margin: 0 0 10px;
-                color: ${theme[theme.mainContent]['dark-text']};
+                color: ${theme[theme.mainContent]["dark-text"]};
             }
             p {
                 font-size: 15px;
                 margin-bottom: 15px;
-                color: ${theme[theme.mainContent]['gray-text']}
+                color: ${theme[theme.mainContent]["gray-text"]}
             }
         }
     `}
@@ -775,10 +813,10 @@ const ProfileCardWrapper = Styled.figure`
   ${({ theme }) => `
     width: 100%;
     min-height: 390px;
-    background-color: ${theme[theme.mainContent]['white-background']};
+    background-color: ${theme[theme.mainContent]["white-background"]};
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0px 5px 20px ${theme['extra-light-color']}05;
+    box-shadow: 0px 5px 20px ${theme["extra-light-color"]}05;
     position: relative;
     @media only screen and (max-width: 991px){
         min-height: auto;
@@ -807,11 +845,11 @@ const ProfileCardWrapper = Styled.figure`
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 2px;
-            color: ${theme[theme.mainContent]['dark-text']};
+            color: ${theme[theme.mainContent]["dark-text"]};
         }
         .ninjadash-profile-text{
             margin-bottom: 18px;
-            color: ${theme[theme.mainContent]['gray-text']};
+            color: ${theme[theme.mainContent]["gray-text"]};
         }
     }
     .ninjadash-profile-socials{
@@ -849,4 +887,12 @@ const ProfileCardWrapper = Styled.figure`
 
   `}
 `;
-export { OverviewCard, ProfileCardWrapper, CourseCardWrap, BlogCardStyleWrap, OverviewCardMeshWrap, InfoCardStyle, NewsletterStyle };
+export {
+  OverviewCard,
+  ProfileCardWrapper,
+  CourseCardWrap,
+  BlogCardStyleWrap,
+  OverviewCardMeshWrap,
+  InfoCardStyle,
+  NewsletterStyle,
+};

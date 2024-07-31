@@ -2220,10 +2220,10 @@ const TableWrapper = Styled.div`
         transform: rotateY(${({ theme }) => (theme.rtl ? "180deg" : "0deg")})
     }
     .ant-table table{
-        text-align: ${({ theme }) => (!theme.rtl ? "left" : "right")};
+        text-align: left;
     }
     .ant-table-thead > tr > th{
-        text-align: ${({ theme }) => (!theme.rtl ? "left" : "right")};
+        text-align: left;
 				&:before{
 					content: none !important;
 				}
@@ -2235,6 +2235,7 @@ const TableWrapper = Styled.div`
         transform: rotateY(${({ theme }) => (theme.rtl ? "180deg" : "0deg")})
     }
     .ant-table{
+        border-radius:10px 10px 0 0;
         background-color: ${({ theme }) =>
           theme[theme.mainContent]["white-background"]};
     }
@@ -2247,6 +2248,7 @@ const TableWrapper = Styled.div`
                     background: ${({ theme }) => theme["primary-color"]};
                     border-color: ${({ theme }) => theme["primary-color"]};
                     &:after{
+
                         height: 2px;
                         background-color: ${({ theme }) =>
                           theme[theme.mainContent]["white-background"]};
@@ -2388,6 +2390,7 @@ const TableWrapper = Styled.div`
         }
     }
     table{
+    
         thead{
             tr{
                 border-radius: 10px;
@@ -2404,8 +2407,7 @@ const TableWrapper = Styled.div`
                           theme.rtl
                             ? "10px 0 0 10px"
                             : "0 10px 10px 0"} !important;
-                        text-align: ${({ theme }) =>
-                          theme.rtl ? "left" : "right"};
+                        text-align:left;
                     }
                     color: ${({ theme }) =>
                       theme[theme.mainContent]["gray-text"]};

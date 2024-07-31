@@ -1,5 +1,7 @@
 <template>
   <InfoWraper>
+    <DashboardSideDrawer v-if="isHomeRoute" />
+
     <Notification />
 
     <div class="ninjadash-nav-actions__item ninjadash-nav-actions__language">
@@ -64,16 +66,45 @@
                 <li>
                   <router-link to="/page/support">
                     <unicon name="headphones"></unicon>
-                    Contact Support
+                    Support
+                  </router-link>
+                </li>
+                <li>
+                  <router-link @click="SignOut" to="#">
+                    <unicon name="signout"></unicon>
+                    Sign out
                   </router-link>
                 </li>
               </ul>
-              <a @click="SignOut" class="user-dropdown__bottomAction" href="#">
-                <LogoutOutlined /> Sign Out
-              </a>
+              <!-- <div
+                :style="{
+                  display: 'flex',
+                  'justify-content': 'center',
+                  'align-items': 'center',
+                }"
+              >
+                <sdButton
+                  @click="SignOut"
+                  :style="{
+                    display: 'flex',
+                    'justify-content': 'center',
+                    'align-items': 'center',
+                    gap: '10px',
+                  }"
+                  transparented="true"
+                  size="xs"
+                  shape="round"
+                  type="dark"
+                  href="#"
+                >
+                  <unicon name="signout"></unicon>
+                  Sign Out
+                </sdButton>
+              </div> -->
             </div>
           </UserDropDown>
         </template>
+
         <a to="#" class="ninjadash-nav-action-link">
           <a-avatar src="../../../static/img/avatar/chat-auth.png" />
           <span class="ninjadash-nav-actions__author--name">{{
@@ -91,8 +122,10 @@ import { InfoWraper, NavAuth, UserDropDown } from "./auth-info-style";
 import { computed, onMounted, ref } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-import { LogoutOutlined } from "@ant-design/icons-vue";
+// import { LogoutOutlined } from "@ant-design/icons-vue";
 import Notification from "./Notification.vue";
+import { useRoute } from "vue-router";
+import DashboardSideDrawer from "../../../view/dashboard/overview/DashboardSideDrawer.vue";
 
 const host = "http://localhost:5000";
 const store = useStore();
@@ -100,6 +133,8 @@ const { push } = useRouter();
 const flag = ref("english");
 const userData = ref({ firstName: "" });
 
+const route = useRoute();
+const isHomeRoute = computed(() => route.path === "/");
 onMounted(async () => {
   try {
     const response = await fetch(

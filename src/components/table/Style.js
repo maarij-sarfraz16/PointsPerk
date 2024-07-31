@@ -1,4 +1,4 @@
-import Styled from 'vue3-styled-components';
+import Styled from "vue3-styled-components";
 
 const DataTableStyleWrap = Styled.div`
     .ninjadash-datatable-filter{
@@ -21,7 +21,7 @@ const DataTableStyleWrap = Styled.div`
             }
             span.label{
                 margin-right: 8px;
-                color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
             }
             .ninjadash-datatable-filter__input{
                 display: flex;
@@ -44,7 +44,8 @@ const DataTableStyleWrap = Styled.div`
                     svg{
                         width: 16px;
                         height: 16px;
-                        fill: ${({ theme }) => theme[theme.mainContent]['light-text']};
+                        fill: ${({ theme }) =>
+                          theme[theme.mainContent]["light-text"]};
                     }
                 }
             }

@@ -71,6 +71,7 @@
 
     <div v-if="type == 'submit'">
       <sdButton
+        :size="btnSize"
         :type="btnType"
         :shape="btnShape"
         :raised="true"
@@ -134,6 +135,7 @@ export default defineComponent({
     btnType: VueTypes.string.def("primary"),
     btnShape: VueTypes.string.def(""),
     btnMode: VueTypes.string.def(""),
+    btnSize: VueTypes.string.def("default"),
     width: VueTypes.number.def(320),
     IconName: VueTypes.string.def(""),
     BottomBtnText: VueTypes.string.def("Submit"),
