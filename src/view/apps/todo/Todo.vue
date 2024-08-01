@@ -1,134 +1,123 @@
 <template>
-  <sdPageHeader
-    title="Todo"
-    class="ninjadash-page-header-main"
-    :routes="pageRoutes"
-  ></sdPageHeader>
-
-  <Main>
-    <a-row :gutter="30">
-      <a-col :md="24">
-        <TodoStyleWrapper>
-          <sdCards title="Task Lists">
-            <TableWrapper class="table-responsive">
-              <div class="ant-table-content">
-                <table class="ant-table">
-                  <draggable
-                    v-model="myList"
-                    tag="tbody"
-                    group="people"
-                    handle=".handle"
-                    item-key="name"
-                  >
-                    <template #item="{ element }">
-                      <tr>
-                        <td>
-                          <a-checkbox
-                            @click="() => onSelectChange(element.key)"
-                          />
-                        </td>
-                        <td scope="row">
-                          <div class="user-info">
-                            {{ element.item }}
-                          </div>
-                        </td>
-                        <td>
-                          <div class="todos-action">
+  <a-row :gutter="30">
+    <a-col :md="24">
+      <TodoStyleWrapper>
+        <sdCards title="Todo List">
+          <TableWrapper class="table-responsive">
+            <div class="ant-table-content">
+              <table class="ant-table">
+                <draggable
+                  v-model="myList"
+                  tag="tbody"
+                  group="people"
+                  handle=".handle"
+                  item-key="name"
+                >
+                  <template #item="{ element }">
+                    <tr>
+                      <td>
+                        <a-checkbox
+                          @click="() => onSelectChange(element.key)"
+                        />
+                      </td>
+                      <td scope="row">
+                        <div class="user-info">
+                          {{ element.item }}
+                        </div>
+                      </td>
+                      <td>
+                        <div class="todos-action">
+                          <unicon
+                            class="handle"
+                            :style="{ cursor: 'pointer', color: '#999' }"
+                            name="expand-arrows"
+                            width="14"
+                            height="14"
+                          ></unicon>
+                          <a
+                            :class="element.favorite ? 'star active' : 'star'"
+                            @click="
+                              () =>
+                                dispatch('onTodoStarUpdate', {
+                                  data: todoData,
+                                  id: element.key,
+                                })
+                            "
+                            to="#"
+                          >
                             <unicon
-                              class="handle"
-                              :style="{ cursor: 'pointer', color: '#999' }"
-                              name="expand-arrows"
-                              width="14"
-                              height="14"
+                              name="star"
+                              :style="{
+                                color: element.favorite ? 'gold' : '#888',
+                              }"
+                              :width="16"
                             ></unicon>
-                            <a
-                              :class="element.favorite ? 'star active' : 'star'"
-                              @click="
-                                () =>
-                                  dispatch('onTodoStarUpdate', {
-                                    data: todoData,
-                                    id: element.key,
-                                  })
-                              "
-                              to="#"
-                            >
-                              <unicon
-                                name="star"
-                                :style="{
-                                  color: element.favorite ? 'gold' : '#888',
-                                }"
-                                :width="16"
-                              ></unicon>
-                            </a>
-                            <a
-                              @click="() => onHandleDelete(element.key)"
-                              to="#"
-                            >
-                              <unicon name="trash-alt" width="16"></unicon>
-                            </a>
-                          </div>
-                        </td>
-                      </tr>
-                    </template>
-                  </draggable>
-                </table>
-              </div>
-            </TableWrapper>
-            <div class="new-todo-wrap">
-              <sdButton
-                @click="showModal"
-                class="btn-toDoAdd"
-                transparented
-                type="primary"
-                size="lg"
-              >
-                + Add New Task
-              </sdButton>
+                          </a>
+                          <a @click="() => onHandleDelete(element.key)" to="#">
+                            <unicon name="trash-alt" width="16"></unicon>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  </template>
+                </draggable>
+              </table>
             </div>
-          </sdCards>
-        </TodoStyleWrapper>
-      </a-col>
-    </a-row>
-    <sdModal
-      type="primary"
-      title="Add New Todo"
-      :visible="visible"
-      :footer="null"
-      :onCancel="handleCancel"
-    >
-      <div class="todo-modal">
-        <BasicFormWrapper>
-          <a-form
-            class="adTodo-form"
-            name="todoAdd"
-            :model="formState"
-            @finish="onSubmitHandler"
-          >
-            <a-input
-              v-model:value="formState.todoAdd"
-              placeholder="Input Item Name......."
-            />
-            <br />
-            <br />
-
+          </TableWrapper>
+          <div class="new-todo-wrap">
             <sdButton
               @click="showModal"
-              htmlType="submit"
-              class="btn-adTodo"
+              class="btn-toDoAdd"
+              transparented
               type="primary"
               size="lg"
             >
-              Add New
+              + Add New Task
             </sdButton>
-          </a-form>
-        </BasicFormWrapper>
-      </div>
-    </sdModal>
-  </Main>
+          </div>
+        </sdCards>
+      </TodoStyleWrapper>
+    </a-col>
+  </a-row>
+  <sdModal
+    type="primary"
+    title="Add New Todo"
+    :visible="visible"
+    :footer="null"
+    :onCancel="handleCancel"
+  >
+    <div class="todo-modal">
+      <BasicFormWrapper>
+        <a-form
+          class="adTodo-form"
+          name="todoAdd"
+          :model="formState"
+          @finish="onSubmitHandler"
+        >
+          <a-input
+            v-model:value="formState.todoAdd"
+            placeholder="Input Item Name......."
+          />
+          <br />
+          <br />
+
+          <sdButton
+            @click="showModal"
+            htmlType="submit"
+            class="btn-adTodo"
+            type="primary"
+            size="lg"
+          >
+            Add New
+          </sdButton>
+        </a-form>
+      </BasicFormWrapper>
+    </div>
+  </sdModal>
 </template>
 <script>
 import { TodoStyleWrapper } from "./style";
-import { Main, TableWrapper, BasicFormWrapper } from "../../styled";
+import { TableWrapper, BasicFormWrapper } from "../../styled";
 import { useStore } from "vuex";
 import { computed, reactive, ref, defineComponent } from "vue";
 import draggable from "vuedraggable";
@@ -160,7 +149,6 @@ const ToDo = defineComponent({
   name: "ToDo",
   components: {
     TodoStyleWrapper,
-    Main,
     TableWrapper,
     BasicFormWrapper,
     draggable,

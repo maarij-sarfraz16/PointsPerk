@@ -2,8 +2,8 @@
   <DrawerStyle>
     <div v-if="type == 'basic'">
       <sdButton type="primary" :raised="true" @click="showDrawer">
-        {{ btnText }}
         <unicon :name="IconName" class="Basic-Drawer-Button"></unicon>
+        {{ btnText }}
       </sdButton>
 
       <a-drawer

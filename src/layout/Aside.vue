@@ -43,10 +43,8 @@
       <router-link to="/RedemptionHistory"> Redemption History </router-link>
     </a-menu-item>
 
-    <NavTitle class="ninjadash-sidebar-nav-title">{{
-      t("Company")
-    }}</NavTitle>
-    
+    <NavTitle class="ninjadash-sidebar-nav-title">{{ t("Company") }}</NavTitle>
+
     <!-- Leader Board -->
     <a-menu-item @click="toggleCollapsed" key="LeaderBoard">
       <template #icon>
@@ -54,7 +52,6 @@
       </template>
       <router-link to="/LeaderBoard"> Leader Board </router-link>
     </a-menu-item>
-
   </a-menu>
 </template>
 

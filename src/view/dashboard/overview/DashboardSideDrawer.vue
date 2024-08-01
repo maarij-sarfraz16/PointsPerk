@@ -1,18 +1,18 @@
 <template>
-  <Main>
-    <sdDrawer
-      title="Close"
-      placement="right"
-      type="submit"
-      btnSize="sm"
-      btnText="Customize"
-      btnType="secondary"
-      btnShape="round"
-      btnMode="transparent"
-      IconName="palette"
-      BottomBtnText="Done"
-    >
-      <a-row justify="center" gutter="35">
+  <sdDrawer
+    title="Close"
+    placement="right"
+    type="submit"
+    btnSize="sm"
+    btnText="Customize"
+    btnType="secondary"
+    btnShape="round"
+    btnMode="transparent"
+    IconName="palette"
+    BottomBtnText="Done"
+  >
+    <Main>
+      <a-row justify="center">
         <a-col :lg="24" :md="24" :sm="24">
           <div>
             <SampleCardThree :item="cardThree[0]" />
@@ -29,18 +29,19 @@
           />
         </a-col>
       </a-row>
-    </sdDrawer>
-  </Main>
+    </Main>
+  </sdDrawer>
 </template>
 
 <script>
-import { defineComponent, reactive, h } from "vue";
+import { defineComponent, h, computed } from "vue";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons-vue";
 import cardsData from "@/demoData/sampleCards.json";
 import SampleCardThree from "@/components/cards/sampleCard/SampleCardThree";
 import DataTable from "@/components/table/DataTable.vue";
 import Main from "../../styled";
 import { Switch } from "ant-design-vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "DashboardSideDrawer",
@@ -50,92 +51,79 @@ export default defineComponent({
     Main,
   },
   setup() {
+    // applying vuex for toggle functionlaity
+    const store = useStore();
+    const widgetsVisibility = computed(
+      () => store.getters["dashboard/widgetsVisibility"]
+    );
+
     const { cardThree } = cardsData;
 
-    const tableDataSource = reactive([
+    const tableDataSource = computed(() => [
       {
-        key: "1",
-        Widget: "Welcome Banner",
-        Display: true,
-        Description: "Displays various charts",
-      },
-      {
-        key: "2",
-        Widget: "CSV Data Table",
-        Display: false,
-        Description: "Displays tabular data",
-      },
-      {
-        key: "3",
-        Widget: "Sales By Location",
-        Display: true,
-        Description: "Displays different types of graphs",
-      },
-      {
-        key: "4",
-        Widget: "Top Selling Products",
-        Display: true,
-        Description: "Displays various charts",
-      },
-      {
-        key: "5",
-        Widget: "Latest Transaction",
-        Display: false,
-        Description: "Displays tabular data",
-      },
-      {
-        key: "6",
+        key: "pointsEarningReport",
         Widget: "Points Earning Report",
-        Display: true,
+        Display: widgetsVisibility.value.pointsEarningReport,
         Description: "Displays different types of graphs",
       },
       {
-        key: "7",
+        key: "latestRedemptions",
+        Widget: "Latest Redemptions",
+        Display: widgetsVisibility.value.latestRedemptions,
+        Description: "Displays various charts",
+      },
+      {
+        key: "salesByLocation",
+        Widget: "Sales by Location",
+        Display: widgetsVisibility.value.salesByLocation,
+        Description: "Displays tabular data",
+      },
+      {
+        key: "topSellingProducts",
+        Widget: "Top Selling Products",
+        Display: widgetsVisibility.value.topSellingProducts,
+        Description: "Displays different types of graphs",
+      },
+      {
+        key: "kanbanBoards",
+        Widget: "Task Manager Board",
+        Display: widgetsVisibility.value.kanbanBoards,
+        Description: "Task organization tool",
+      },
+      {
+        key: "taskToDo",
         Widget: "Todo List",
-        Display: true,
-        Description: "Displays various charts",
+        Display: widgetsVisibility.value.taskToDo,
+        Description: "Displays tasks to be done",
       },
       {
-        key: "8",
-        Widget: "Notes",
-        Display: false,
-        Description: "Displays tabular data",
-      },
-      {
-        key: "9",
+        key: "upcomingEvents",
         Widget: "Upcoming Events",
-        Display: true,
-        Description: "Displays different types of graphs",
-      },
-      {
-        key: "10",
-        Widget: "Kanban Board",
-        Display: true,
-        Description: "Displays various charts",
-      },
-      {
-        key: "11",
-        Widget: "My Profile",
-        Display: false,
+        Display: widgetsVisibility.value.upcomingEvents,
         Description: "Displays tabular data",
       },
       {
-        key: "12",
-        Widget: "Team Members",
-        Display: true,
+        key: "myProfile",
+        Widget: "My Profile",
+        Display: widgetsVisibility.value.myProfile,
         Description: "Displays different types of graphs",
+      },
+      {
+        key: "agencyMembers",
+        Widget: "Agency Members",
+        Display: widgetsVisibility.value.agencyMembers,
+        Description: "Displays various charts",
       },
     ]);
 
-    // Handle switch change
     const handleSwitchChange = (key, checked) => {
-      const item = tableDataSource.find((item) => item.key === key);
+      store.dispatch("dashboard/toggleWidget", key);
+      const item = tableDataSource.value.find((item) => item.key === key);
       if (item) {
         item.Display = checked;
       }
     };
 
-    // Define columns with custom render
     const dataTableColumn = [
       {
         title: "Widget",
@@ -146,7 +134,6 @@ export default defineComponent({
         title: "Display",
         dataIndex: "Display",
         key: "Display",
-        // Using Vue's `h` to create VNodes
         customRender: ({ record }) => {
           return h(
             Switch,
@@ -171,6 +158,7 @@ export default defineComponent({
       cardThree,
       tableDataSource,
       dataTableColumn,
+      widgetsVisibility,
     };
   },
 });

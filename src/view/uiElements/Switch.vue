@@ -64,6 +64,7 @@ export default defineComponent({
     CheckOutlined,
     CloseOutlined,
   },
+
   setup() {
     const checked = ref(false);
     const state = reactive({

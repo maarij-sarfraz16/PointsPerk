@@ -24,9 +24,9 @@
 
 <script>
 import { defineComponent } from "vue";
-import OverviewCard from "../../../../components/cards/OverviewCard.vue";
+import OverviewCard from "@/components/cards/OverviewCard.vue";
 //import { OverviewDataStyleWrap } from "../../style";
-import OverviewData from "../../../../demoData/overviewCard.json";
+import OverviewData from "@/demoData/overviewCard.json";
 
 const OverviewDataList = defineComponent({
   name: "OverviewDataList",

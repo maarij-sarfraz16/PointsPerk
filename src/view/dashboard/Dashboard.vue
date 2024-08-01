@@ -53,52 +53,169 @@
         <!-- Sales Sheet Data Table -->
         <a-col :lg="24" :xs="24" :md="24">
           <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
             <template #default>
               <SalesSheet :data="salesData" />
             </template>
+          </Suspense>
+        </a-col>
+
+        <!-- Points Earning Report Graph -->
+        <a-col
+          v-if="widgetsVisibility.pointsEarningReport"
+          :lg="12"
+          :xs="24"
+          :md="24"
+        >
+          <Suspense>
             <template #fallback>
               <sdCards headless>
                 <a-skeleton active />
               </sdCards>
             </template>
+            <template #default>
+              <PointsEarning />
+            </template>
           </Suspense>
         </a-col>
 
-        <a-col :lg="12" :xs="24" :md="24">
+        <!-- Latest Redemptions -->
+        <a-col
+          v-if="widgetsVisibility.latestRedemptions"
+          :lg="12"
+          :xs="24"
+          :md="24"
+        >
           <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
+            <template #default>
+              <LatestRedemptions />
+            </template>
+          </Suspense>
+        </a-col>
+
+        <!-- Sales By Location -->
+        <a-col
+          v-if="widgetsVisibility.salesByLocation"
+          :lg="12"
+          :xs="24"
+          :md="24"
+        >
+          <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
             <template #default>
               <SalesByLocation />
             </template>
+          </Suspense>
+        </a-col>
+
+        <!-- Top Selling Products -->
+        <a-col
+          v-if="widgetsVisibility.topSellingProducts"
+          :lg="12"
+          :xs="24"
+          :md="24"
+        >
+          <Suspense>
             <template #fallback>
               <sdCards headless>
                 <a-skeleton active />
               </sdCards>
             </template>
-          </Suspense>
-        </a-col>
-
-        <a-col :lg="12" :xs="24" :md="24">
-          <Suspense>
             <template #default>
               <TopSellingProduct />
             </template>
+          </Suspense>
+        </a-col>
+
+        <!-- Kanban Boards -->
+        <a-col v-if="widgetsVisibility.kanbanBoards" :lg="24" :xs="24" :md="24">
+          <Suspense>
             <template #fallback>
               <sdCards headless>
                 <a-skeleton active />
               </sdCards>
+            </template>
+            <template #default>
+              <Index />
             </template>
           </Suspense>
         </a-col>
 
-        <a-col :lg="12" :xs="24" :md="24">
+        <!-- Task To Do -->
+        <a-col v-if="widgetsVisibility.taskToDo" :lg="12" :xs="24" :md="24">
           <Suspense>
-            <template #default>
-              <BrowsersState />
-            </template>
             <template #fallback>
               <sdCards headless>
                 <a-skeleton active />
               </sdCards>
+            </template>
+            <template #default>
+              <ToDo />
+            </template>
+          </Suspense>
+        </a-col>
+
+        <!-- Upcoming Events -->
+        <a-col
+          v-if="widgetsVisibility.upcomingEvents"
+          :lg="12"
+          :xs="24"
+          :md="24"
+        >
+          <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
+            <template #default>
+              <UpcomingEvents />
+            </template>
+          </Suspense>
+        </a-col>
+
+        <!-- My Profile Card -->
+        <a-col v-if="widgetsVisibility.myProfile" :lg="12" :xs="24" :md="24">
+          <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
+            <template #default>
+              <ProfileCard />
+            </template>
+          </Suspense>
+        </a-col>
+
+        <!-- Agency Members List -->
+        <a-col
+          v-if="widgetsVisibility.agencyMembers"
+          :lg="12"
+          :xs="24"
+          :md="24"
+        >
+          <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
+            <template #default>
+              <TeamList />
             </template>
           </Suspense>
         </a-col>
@@ -109,21 +226,29 @@
 
 <script>
 // import CsvFileComponent from "./overview/CsvFileComponent.vue";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
+import { useStore } from "vuex";
 import { Main } from "../styled";
 import { defineComponent, defineAsyncComponent } from "vue";
 import { PageHeaderBanner } from "@/components/banners/Banners.vue";
 import SalesSheet from "@/view/dashboard/overview/SalesSheet.vue";
 import DashboardTools from "./overview/DashboardTools.vue";
+import LatestRedemptions from "./overview/LatestRedemptions.vue";
+import PointsEarning from "./overview/PointsEarning.vue";
+import Index from "./overview/kanban/Index.vue";
+import UpcomingEvents from "./overview/UpcomingEvents.vue";
+import ToDo from "@/view/apps/todo/Todo.vue";
+import ProfileCard from "@/components/cards/ProfileCard.vue";
+import TeamList from "./overview/TeamList.vue";
 
 const SalesByLocation = defineAsyncComponent(() =>
-  import("./overview/dashboard/SalesByLocation.vue")
+  import("./overview/SalesByLocation.vue")
 );
 const TopSellingProduct = defineAsyncComponent(() =>
-  import("./overview/dashboard/TopSellingProduct.vue")
+  import("./overview/TopSellingProduct.vue")
 );
 const OverviewDataList = defineAsyncComponent(() =>
-  import("./overview/dashboard/OverviewDataList.vue")
+  import("./overview/OverviewDataList.vue")
 );
 
 const pageRoutes = [
@@ -144,30 +269,46 @@ export default defineComponent({
     DashboardTools,
     // CsvFileComponent,
     PageHeaderBanner,
+    LatestRedemptions,
+    PointsEarning,
+    Index,
+    UpcomingEvents,
+    ToDo,
+    ProfileCard,
+    TeamList,
   },
   setup() {
-    const host = 'http://localhost:5000';
-    const userData = ref({ firstName: '', lastName: '' });
+    const host = "http://localhost:5000";
+    const userData = ref({ firstName: "", lastName: "" });
     const salesData = ref([]);
+
+    // applying vuex for toggle functionlaity
+    const store = useStore();
+    const widgetsVisibility = computed(
+      () => store.getters["dashboard/widgetsVisibility"]
+    );
 
     onMounted(async () => {
       try {
-        const response = await fetch(`${host}/api/get-data/user/user-data/fetchData`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'auth-token': localStorage.getItem('token'),
+        const response = await fetch(
+          `${host}/api/get-data/user/user-data/fetchData`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "auth-token": localStorage.getItem("token"),
+            },
           }
-        });
+        );
 
         const json = await response.json();
         if (response.ok) {
           userData.value = json;
         } else {
-          console.error('Failed to fetch user data:', json);
+          console.error("Failed to fetch user data:", json);
         }
       } catch (error) {
-        console.error('Error fetching user data:', error);
+        console.error("Error fetching user data:", error);
       }
     });
 
@@ -175,7 +316,13 @@ export default defineComponent({
       salesData.value = data;
     };
 
-    return { pageRoutes, userData, salesData, handleCSVUpload };
+    return {
+      pageRoutes,
+      userData,
+      salesData,
+      handleCSVUpload,
+      widgetsVisibility,
+    };
   },
 });
 </script>

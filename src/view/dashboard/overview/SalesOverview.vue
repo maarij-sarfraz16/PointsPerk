@@ -58,9 +58,9 @@
 
 <script>
 import { defineComponent } from "vue";
-import Cards from "../../../../components/cards/frame/CardsFrame.vue";
-import { SalesOverviewStyleWrap } from "../../style";
-import salesData from "../../../../demoData/salesData.json";
+import Cards from "@/components/cards/frame/CardsFrame.vue";
+import { SalesOverviewStyleWrap } from "../style";
+import salesData from "@/demoData/salesData.json";
 
 const SalesOverview = defineComponent({
   name: "SalesOverview",

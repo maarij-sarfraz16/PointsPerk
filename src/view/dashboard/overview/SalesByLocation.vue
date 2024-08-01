@@ -3,7 +3,7 @@
     <sdCards more>
       <template #title>
         <div class="ninjadash-card-title-wrap">
-          <span class="ninjadash-card-title-text" > Sales By Location </span>
+          <span class="ninjadash-card-title-text"> Sales By Location </span>
         </div>
       </template>
       <template #button>
@@ -83,14 +83,13 @@
             </div>
           </LocationTableWrap>
         </a-col>
-        
       </a-row>
     </sdCards>
   </div>
 </template>
 <script>
 import { computed, onMounted, ref, defineComponent } from "vue";
-import { LocationTableWrap } from "../../style";
+import { LocationTableWrap } from "../style";
 
 import { useStore } from "vuex";
 
@@ -115,7 +114,6 @@ const sellingColumns = [
 const SalesByLocation = defineComponent({
   name: "SalesByLocation",
   components: {
-   
     LocationTableWrap,
   },
   setup() {

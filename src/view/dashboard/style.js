@@ -1647,6 +1647,83 @@ const RevenueSourceStyle = Styled.div`
     }
 `;
 
+const TeamListStyle = Styled.div`
+  min-height: 300px;
+  .ant-list-split {
+    .ant-list-item,
+    .ant-list-item-meta {
+      border-bottom: 0 none;
+      padding: 0;
+    }
+    .ant-list-item-meta {
+      .ant-list-item-meta-title {
+        font-size: 15px;
+        font-weight: 500;
+        color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
+        line-height: 1.25;
+      }
+      .ant-list-item-meta-description {
+        font-size: 12px;
+        line-height: 1;
+        ${({ theme }) => (theme.rtl ? "padding-right" : "padding-left")}: 12px;
+				color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
+        position: relative;
+        &:before {
+          position: absolute;
+          ${({ theme }) => (theme.rtl ? "right" : "left")}: 0;
+          top: 50%;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          transform: translateY(-50%);
+          content: '';
+          background-color: ${({ theme }) => theme["success-color"]};
+        }
+      }
+    }
+    .ant-list-items{
+      padding-top: 0;
+    }
+    .ant-list-item-meta-avatar {
+      ${({ theme }) => (!theme.rtl ? "margin-right" : "margin-left")}: 16px;
+      img {
+        border-radius: 5px;
+      }
+    }
+  }
+  .ant-list-item {
+    &:not(:last-child) {
+      margin-bottom: 14px !important;
+    }
+    .ant-btn {
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 3px;
+      padding: 0 12px;
+      color: ${({ theme }) => theme["primary-color"]};
+      background-color: #8231D310;
+      height: 32px;
+      &:hover {
+        color: #fff;
+        background-color: ${({ theme }) => theme["primary-color"]};
+      }
+    }
+  }
+  .teamlist-two{
+    .ant-avatar-image{
+      img{
+        border-radius: 50%;
+      }
+    }
+    .ant-list-item-meta{
+      align-items: center;
+      h4{
+        margin-bottom: 0;
+      }
+    }
+  }
+`;
+
 export {
   PerformanceChartWrapper,
   OverviewDataStyleWrap,
@@ -1674,4 +1751,5 @@ export {
   InboxListStyleWrap,
   SalesReportWrapper,
   RevenueSourceStyle,
+  TeamListStyle,
 };

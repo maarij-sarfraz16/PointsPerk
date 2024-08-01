@@ -1,0 +1,13 @@
+[
+  {
+    "pointsEarningReport": true,
+    "latestRedemptions": true,
+    "salesByLocation": true,
+    "topSellingProducts": true,
+    "kanbanBoards": true,
+    "taskToDo": true,
+    "upcomingEvents": true,
+    "myProfile": true,
+    "agencyMembers": true
+  }
+]

@@ -166,6 +166,7 @@
   </Div>
 </template>
 <script>
+import { provide } from "vue";
 import { Layout } from "ant-design-vue";
 import {
   Div,
@@ -204,12 +205,31 @@ export default defineComponent({
     PerfectScrollbar,
   },
   setup() {
+    const drawerState = ref({
+      pointsEarningReport: false,
+      latestRedemptions: false,
+      salesByLocation: false,
+      topSellingProducts: false,
+      taskManager: false,
+      todoList: false,
+      upcomingEvents: false,
+      myProfile: false,
+      agencyMembers: false,
+    });
     const collapsed = ref(false);
     const hide = ref(true);
     const searchHide = ref(true);
     const customizerAction = ref(false);
     const activeSearch = ref(false);
     const currentYear = ref(new Date().getFullYear());
+
+    // side drawer functionality
+    provide("drawerState", drawerState);
+    const updateDrawerState = (newState) => {
+      drawerState.value = newState;
+    };
+
+    provide("updateDrawerState", updateDrawerState);
 
     // const store = useStore();
     const { dispatch, state } = useStore();
@@ -309,6 +329,8 @@ export default defineComponent({
       topMenu,
       onEventChange,
       currentYear,
+      drawerState,
+      updateDrawerState,
     };
   },
 });

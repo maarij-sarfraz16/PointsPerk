@@ -1,5 +1,5 @@
-import staticData from '@/config/config';
-import mutations from './mutations';
+import staticData from "@/config/config";
+import mutations from "./mutations";
 
 const state = () => ({
   data: staticData.darkMode,
@@ -18,28 +18,28 @@ const state = () => ({
 const actions = {
   async changeLayoutMode({ commit }, value) {
     try {
-      commit('changeLayoutBegin');
-      setTimeout(() => commit('changeLayoutSuccess', value), 10);
+      commit("changeLayoutBegin");
+      setTimeout(() => commit("changeLayoutSuccess", value), 10);
     } catch (err) {
-      commit('changeLayoutErr', err);
+      commit("changeLayoutErr", err);
     }
   },
 
   async changeRtlMode({ commit }, value) {
     try {
-      commit('changeRtlBegin');
-      setTimeout(() => commit('changeRtlSuccess', value), 10);
+      commit("changeRtlBegin");
+      setTimeout(() => commit("changeRtlSuccess", value), 10);
     } catch (err) {
-      commit('changeRtlErr', err);
+      commit("changeRtlErr", err);
     }
   },
 
   async changeMenuMode({ commit }, value) {
     try {
-      commit('changeMenuBegin');
-      setTimeout(() => commit('changeMenuSuccess', value), 10);
+      commit("changeMenuBegin");
+      setTimeout(() => commit("changeMenuSuccess", value), 10);
     } catch (err) {
-      commit('changeMenuErr', err);
+      commit("changeMenuErr", err);
     }
   },
 };

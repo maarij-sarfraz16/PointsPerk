@@ -69,9 +69,9 @@
 <script>
 import { computed, onMounted, ref, defineComponent } from "vue";
 import { useStore } from "vuex";
-import Cards from "../../../../components/cards/frame/CardsFrame.vue";
-import { TopSellerWrap } from "../../style";
-import { BorderLessHeading, TableDefaultStyle } from "../../../styled";
+import Cards from "@/components/cards/frame/CardsFrame.vue";
+import { TopSellerWrap } from "../style";
+import { BorderLessHeading, TableDefaultStyle } from "../../styled";
 
 const sellingColumns = [
   {
@@ -125,7 +125,7 @@ const TopSellingProduct = defineComponent({
                 <div className="product-info align-center-v">
                   <div className="product-img">
                     <img
-                      src={require(`../../../../static/img/products/electronics/${img}`)}
+                      src={require(`@/static/img/products/electronics/${img}`)}
                       alt=""
                     />
                   </div>

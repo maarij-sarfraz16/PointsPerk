@@ -154,15 +154,15 @@ import { Main } from "../styled";
 import { MixedCardWrap } from "./Style";
 
 const OverviewDataList = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/dashboard/OverviewDataList.vue")
+  import("@/view/dashboard/overview/OverviewDataList.vue")
 );
 
 const SalesOverview = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/dashboard/SalesOverview.vue")
+  import("@/view/dashboard/overview/SalesOverview.vue")
 );
 
 const SalesByLocation = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/dashboard/SalesByLocation.vue")
+  import("@/view/dashboard/overview/SalesByLocation.vue")
 );
 
 const InfoCard = defineAsyncComponent(() =>

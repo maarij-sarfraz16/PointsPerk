@@ -76,8 +76,8 @@
 <script>
 import { defineComponent, computed, ref, unref } from "vue";
 import VueTypes from "vue-types";
-import { DataTableStyleWrap } from "./Style";
-import { TableWrapper } from "../../view/styled";
+import DataTableStyleWrap from "./Style";
+import TableWrapper from "@/view/styled";
 import { useStore } from "vuex";
 
 export default defineComponent({
