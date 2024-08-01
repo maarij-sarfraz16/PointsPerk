@@ -35,6 +35,15 @@
       </router-link>
     </a-menu-item>
 
+
+    <!-- Redemption History -->
+    <a-menu-item @click="toggleCollapsed" key="myperformance">
+      <template #icon>
+        <unicon name="arrow-growth"></unicon>
+      </template>
+      <router-link to="/MyPerformance"> My Performance </router-link>
+    </a-menu-item>
+
     <!-- Redemption History -->
     <a-menu-item @click="toggleCollapsed" key="redemptionHistory">
       <template #icon>

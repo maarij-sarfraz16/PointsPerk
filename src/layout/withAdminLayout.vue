@@ -149,14 +149,6 @@
                     <a href="#" style="">Points Perk</a></span
                   >
                 </a-col>
-                <a-col :md="12" :xs="24">
-                  <div class="admin-footer__links">
-                    <!-- <font-awesome-icon :icon="['fas', 'headset']" /> -->
-                    <router-link to="/page/support"
-                      >Contact Support</router-link
-                    >
-                  </div>
-                </a-col>
               </a-row>
             </Footer>
           </Content>

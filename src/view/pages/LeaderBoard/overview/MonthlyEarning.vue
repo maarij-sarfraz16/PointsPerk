@@ -4,7 +4,7 @@
         <ChartContainer>
           <sdCards :title="title">
             
-            <!-- <template #button>
+            <template #button>
               <div class="ninjadash-card-nav">
                 <ul>
                   <li
@@ -51,7 +51,7 @@
                   </li>
                 </ul>
               </div>
-            </template> -->
+            </template> 
              <div 
               class="ninjadash-chart-container ninjadash-sales-revenue-lineChart" >
               <DashboardChart
@@ -64,7 +64,7 @@
                   custom: customTooltips,
                   callbacks: {
                     title() {
-                      return `Total Revenue`;
+                      return `Total Earning`;
                     },
                     label(t) {
                       const { formattedValue, dataset } = t;
@@ -93,6 +93,7 @@
   import { BorderLessHeading } from "../../../styled";
   import chartContent from "@/demoData/dashboardChartContent.json";
   
+  
   const { earnings } = chartContent;
   export default defineComponent({
     props: {
@@ -103,6 +104,7 @@
       SalesRevenueWrapper,
       ChartContainer,
       DashboardChart,
+    
     },
     setup() {
       const earningsTab = ref("today");
