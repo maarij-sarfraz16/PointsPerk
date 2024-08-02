@@ -8,8 +8,8 @@
               <DataTables
                 :filterOption="true"
                 :filterOnchange="true"
-                :tableData="processedData.length ? processedData : tableDataSource"
-                :columns="processedData.length ? Object.keys(processedData[0]).map(key => ({ title: key, dataIndex: key })) : dataTableColumn"
+                :tableData="tableDataSource"
+                :columns="dataTableColumn"
                 :rowSelection="false"
               />
             </sdCards>
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { defineComponent, toRefs, ref, computed } from 'vue';
+import { defineComponent, toRefs, computed } from "vue";
 import DataTables from "@/view/table/DataTable.vue";
 
 export default defineComponent({
@@ -37,15 +37,31 @@ export default defineComponent({
   },
   setup(props) {
     const { data } = toRefs(props);
-    const tableDataSource = ref([]);  // Placeholder for initial empty state
-    const dataTableColumn = ref([]);  // Placeholder for initial empty state
+    const dataTableColumn = computed(() => {
+      if (data.value.length === 0 || data.value.length === undefined) return [];
+      const header = data.value[0];
 
-    const processedData = computed(() => {
-      return data.value.length ? data.value : tableDataSource.value;
+      return header.map((key) => ({
+        title: key,
+        dataIndex: key,
+      }));
     });
 
-    return { processedData, tableDataSource, dataTableColumn };
+    const tableDataSource = computed(() => {
+      if (data.value.length <= 1 || data.value.length === undefined) return [];
+      const header = data.value[0];
+      const rows = data.value.slice(1);
+
+      return rows.map((row) => {
+        const rowData = {};
+        row.forEach((value, index) => {
+          rowData[header[index]] = value;
+        });
+        return rowData;
+      });
+    });
+
+    return { dataTableColumn, tableDataSource };
   },
 });
 </script>
-
