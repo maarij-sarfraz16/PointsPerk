@@ -3,6 +3,7 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 
 const User = require('../../../models/User');
+const UserProfileData = require('../../../models/UserProfileData');
 const SignupToken = require('../../../models/SignupToken');
 
 const bcrypt = require('bcrypt');
@@ -77,6 +78,13 @@ router.post('/createUser', [
 
     const authToken = jwt.sign(data, JWT_SECRET);
     success = true;
+
+    // Create new profile data with default values
+    const profileData = new UserProfileData({
+      user: user.id,
+    });
+
+    await profileData.save();
 
     // Delete the token after user creation
     await SignupToken.deleteOne({ token });

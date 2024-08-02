@@ -18,12 +18,16 @@ app.use(express.json());
 const userAuthRouter = require("./routes/auth/user/userAuth");
 const userSignupRouter = require("./routes/auth/user/signup");
 const userPasswordResetRouter = require("./routes/auth/user/passwordReset");
+const userUpdateRouter = require("./routes/auth/user/updateUser");
+const userDeleteRouter = require("./routes/auth/user/deleteUser");
 const userDataRouter = require("./routes/getData/user/userData");
 const userProfileDataRouter = require("./routes/getData/user/userProfileData");
 
 app.use("/api/auth/user", userAuthRouter);
 app.use("/api/auth/user/signup", userSignupRouter);
 app.use("/api/auth/user/password-reset", userPasswordResetRouter);
+app.use("/api/auth/user/update-user", userUpdateRouter);
+app.use("/api/auth/user/delete-user", userDeleteRouter);
 app.use("/api/get-data/user/user-data", userDataRouter);
 app.use("/api/get-data/user/user-profile-data", userProfileDataRouter);
 

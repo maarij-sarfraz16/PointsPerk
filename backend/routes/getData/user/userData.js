@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../../../models/User');
+const UserProfileData = require('../../../models/UserProfileData');
 const fetchUser = require('../../../middleware/fetchUser');
 
 
@@ -12,9 +13,18 @@ router.get('/fetchData', fetchUser, async (req, res) => {
   try {
     userId = req.user.id;
     const user = await User.findById(userId).select('-password');
-    res.send(user);
+
+    const userProfileData = await UserProfileData.findOne({ user: userId });
+    if (!userProfileData) {
+      return res.status(404).json({ error: 'User profile data not found' });
+    }
+
+    res.json({
+      user,
+      userProfileData
+    });
+
   } catch(err) {
-    // console.log(err);
     res.status(400).json({error: 'Internal Server Error'});
   }
 

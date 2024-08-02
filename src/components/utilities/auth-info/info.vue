@@ -150,7 +150,7 @@ onMounted(async () => {
 
     const json = await response.json();
     if (response.ok) {
-      userData.value = json;
+      userData.value = json.user;
     } else {
       console.error("Failed to fetch user data:", json);
     }
