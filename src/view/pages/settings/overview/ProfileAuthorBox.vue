@@ -4,12 +4,24 @@
 
       <figure>
         <img :src="profilePicture" alt="Profile Picture" />
-        <a-upload type="file" @change="handleFileChange" style="display: none;" ref="fileInput">
-          <a @click="triggerFileInput">
-            <unicon name="camera" width="16"></unicon>
-          </a>
-        </a-upload>
+        <input type="file" @change="handleFileChange" style="display: none" ref="fileInput">
+            <a @click="triggerPictureUpload">
+              <unicon name="camera" width="16"></unicon>
+            </a>
+            <a @click="handlePictureDelete">
+              <unicon name="trash" width="16"></unicon>
+            </a>
       </figure>
+
+      <!-- Display Success Message -->
+      <div v-if="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+
+      <!-- Display Errors -->
+      <div v-if="errors" class="error-message">
+        {{ errors }}
+      </div>
 
       <figcaption>
         <div class="info">
@@ -56,34 +68,43 @@
   import { onMounted, ref } from 'vue';
   const host = 'http://localhost:5000';
   const userData = ref({ firstName: '', lastName: '' });
-  const profilePicture = ref(require('../../../../static/img/users/1.png'));
+  const profilePicture = ref('');
   const fileInput = ref(null);
+  const successMessage = ref('');
+  const errors = ref('');
 
-  const fetchUserData = async () => {
+  onMounted(async () => {
     try {
-      const response = await axios.get(`${host}/api/get-data/user/user-data/fetchData`, {
+      const response = await fetch(`${host}/api/get-data/user/user-data/fetchData`, {
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
-          'auth-token': localStorage.getItem('token'),
-        }
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
       });
 
-      if (response.status === 200) {
-        userData.value = response.data;
-        profilePicture.value = response.data.profilePicture || profilePicture.value;
+      const json = await response.json();
+      if (response.ok) {
+        userData.value = json.user;
+        profilePicture.value = json.userProfileData ? json.userProfileData.profilePictureUrl : '';
       } else {
-        console.error('Failed to fetch user data:', response.data);
+        // console.error("Failed to fetch user data:", json);
+        errors.value = 'Failed to fetch user data';
       }
     } catch (error) {
-      console.error('Error fetching user data:', error);
+      // console.error("Error fetching user data:", error);
+      errors.value = error;
     }
-  };
+  });
 
-  const triggerFileInput = () => {
+  const triggerPictureUpload = () => {
+    successMessage.value = '';
+    errors.value = '';
     fileInput.value.click();
   };
 
   const handleFileChange = async (event) => {
+
     const file = event.target.files[0];
     if (file && file.size <= 1048576) { // Ensure file size is less than 1MB
       try {
@@ -99,18 +120,53 @@
 
         if (response.data.success) {
           profilePicture.value = response.data.profilePictureUrl;
-          console.log('Profile picture uploaded successfully:', response.data.profilePictureUrl);
+          successMessage.value = 'Profile picture uploaded successfully';
         } else {
-          console.error('Failed to upload profile picture:', response.data.error);
+          // console.error(response.data.error);
+          errors.value = 'Failed to upload profile picture';
         }
       } catch (error) {
-        console.error('Error uploading profile picture:', error);
+        errors.value = error;
       }
     } else {
-      console.error('File is too large or not selected');
+      errors.value = 'File is too large or not selected';
     }
   };
 
-  onMounted(fetchUserData);
-  
+  const handlePictureDelete = async () => {
+    successMessage.value = '';
+    errors.value = '';
+
+    try {
+      const response = await fetch(`${host}/api/get-data/user/user-profile-data/deleteProfilePicture`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': localStorage.getItem('token'),
+        },
+      });
+
+      const json = await response.json();
+      if (response.ok) {
+        profilePicture.value = json.profilePictureUrl;
+        successMessage.value = 'Profile picture deleted successfully';
+      } else {
+        errors.value = 'Failed to delete profile picture';
+      }
+    } catch (error) {
+      errors.value = error;
+    }
+  };
+
 </script>
+
+<style scoped>
+  .success-message {
+    color: green;
+    margin-bottom: 16px;
+  }
+  .error-message {
+    color: red;
+    margin-bottom: 16px;
+  }
+</style>

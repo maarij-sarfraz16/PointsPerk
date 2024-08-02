@@ -85,7 +85,7 @@ const routes = [
     name: "Redemption History",
     component: () =>
       import(
-        /* webpackChunkName: "redemptionHistory" */ "@/view/pages/RedemptionHistory/redemptionHistory.vue"
+        /* webpackChunkName: "RedemptionHistory" */ "@/view/pages/RedemptionHistory/RedemptionHistory.vue"
       ),
   },
 

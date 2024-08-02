@@ -13,7 +13,18 @@
         <a-col :xs="24">
 
           <BasicFormWrapper>
-            <a-form :model="formState" @finish="handleFinish" @finishFailed="handleFinishFailed" layout="vertical">
+
+            <!-- Display Success Message -->
+            <div v-if="successMessage" class="success-message">
+              {{ successMessage }}
+            </div>
+
+            <!-- Display Errors -->
+            <div v-if="errors" class="error-message">
+              {{ errors }}
+            </div>
+
+            <a-form @submit.prevent="handleSubmit" layout="vertical">
 
                 <a-row type="flex" justify="center">
                   <a-col :xxl="10" :lg="16" :md="18" :xs="24">
@@ -26,7 +37,7 @@
                           <p>Delete Your Account and Account data</p>
                         </a-col>
                         <a-col :lg="6" :md="24" :sm="6" :xs="24">
-                          <sdButton size="sm" type="danger">
+                          <sdButton htmlType="submit" size="sm" type="danger">
                             Close Account
                           </sdButton>
                         </a-col>
@@ -48,54 +59,71 @@
 <script>
 import { AccountWrapper } from "./style";
 import { BasicFormWrapper } from "../../../styled";
-import { reactive, defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+import { useRouter } from 'vue-router';
 
 const Account = defineComponent({
   name: "Account",
   components: { AccountWrapper, BasicFormWrapper },
-  data() {
-    const name = "clayton";
-    const formState = reactive({
-      username: name,
-      email: "contact@example.com",
-    });
 
-    const handleFinish = (values) => {
-      this.values = { ...values };
-      console.log(values, formState);
-    };
+  setup() {
+    const host = 'http://localhost:5000';
+    const router = useRouter();
+    const successMessage = ref('');
+    const errors = ref('');
 
-    const handleFinishFailed = (errors) => {
-      console.log(errors);
-    };
-    return {
-      name,
-      values: null,
-      formState,
-      handleFinish,
-      handleFinishFailed,
-      // form: this.$form.createForm(this, { name: "account" }),
-    };
-  },
+    const handleSubmit = async () => {
+        successMessage.value = '';
+        errors.value = '';
 
-  methods: {
-    handleSubmit(e) {
-      e.preventDefault();
-      this.form.validateFields((err, values) => {
-        if (!err) {
-          this.values = { ...values, tags: this.tags };
-          console.log(values);
+        try {
+          const response = await fetch(`${host}/api/auth/user/delete-user/delete`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              "auth-token": localStorage.getItem("token")
+            }
+          });
+
+          const json = await response.json();
+          if (json.success) {
+            successMessage.value = 'User deleted successfully!';
+            localStorage.removeItem("token");
+            router.push({
+              path: '/auth/login',
+              query: { successMessage: 'User deleted successfully!' }
+            });
+          } else {
+            errors.value = json.error;
+            if (json.errors) {
+              json.errors.forEach(error => {
+                errors.value[error.param] = error.msg;
+              });
+            }
+          }
+        } catch (error) {
+          errors.value = error;
         }
-      });
-    },
-    handleCancel(e) {
-      e.preventDefault();
-    },
-    handleChange(e) {
-      this.name = e.target.value;
-    },
+      };
+
+      return {
+        handleSubmit,
+        successMessage,
+        errors
+      }
   },
 });
 
 export default Account;
 </script>
+
+<style scoped>
+  .success-message {
+    color: green;
+    margin-bottom: 16px;
+  }
+  .error-message {
+    color: red;
+    margin-bottom: 16px;
+  }
+</style>

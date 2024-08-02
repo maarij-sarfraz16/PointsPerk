@@ -66,8 +66,11 @@ const RequestSignup = defineComponent({
     const errors = ref("");
 
     const handleSubmit = async () => {
+      successMessage.value = "";
+      errors.value = "";
+
       try {
-        const response = await fetch(`${host}/api/signup/requestsignup`, {
+        const response = await fetch(`${host}/api/auth/user/signup/requestSignup`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -77,11 +80,9 @@ const RequestSignup = defineComponent({
 
         const json = await response.json();
         if (response.ok) {
-          successMessage.value = json.message || "";
-          errors.value = "";
+          successMessage.value = json.message;
         } else {
-          successMessage.value = "";
-          errors.value = json.error || "";
+          errors.value = json.error;
 
           if (json.errors) {
             json.errors.forEach((error) => {

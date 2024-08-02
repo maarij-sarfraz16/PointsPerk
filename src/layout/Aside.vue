@@ -35,8 +35,15 @@
       </router-link>
     </a-menu-item>
 
-
     <!-- Redemption History -->
+    <a-menu-item @click="toggleCollapsed" key="redemptionhistory">
+      <template #icon>
+        <unicon name="history-alt"></unicon>
+      </template>
+      <router-link to="/RedemptionHistory"> Redemption History </router-link>
+    </a-menu-item>
+
+    <!-- MY Performance -->
     <a-menu-item @click="toggleCollapsed" key="myperformance">
       <template #icon>
         <unicon name="arrow-growth"></unicon>
@@ -44,24 +51,17 @@
       <router-link to="/MyPerformance"> My Performance </router-link>
     </a-menu-item>
 
-    <!-- Redemption History -->
-    <a-menu-item @click="toggleCollapsed" key="redemptionHistory">
-      <template #icon>
-        <unicon name="history-alt"></unicon>
-      </template>
-      <router-link to="/RedemptionHistory"> Redemption History </router-link>
-    </a-menu-item>
-
-    <NavTitle class="ninjadash-sidebar-nav-title">{{ t("Company") }}</NavTitle>
-
+    
     <!-- Leader Board -->
-    <a-menu-item @click="toggleCollapsed" key="LeaderBoard">
+    <NavTitle class="ninjadash-sidebar-nav-title">{{ t("Company") }}</NavTitle>
+    <a-menu-item @click="toggleCollapsed" key="leaderboard">
       <template #icon>
         <unicon name="trophy"></unicon>
       </template>
       <router-link to="/LeaderBoard"> Leader Board </router-link>
     </a-menu-item>
   </a-menu>
+  
 </template>
 
 <script>

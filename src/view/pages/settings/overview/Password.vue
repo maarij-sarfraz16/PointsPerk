@@ -7,19 +7,32 @@
           <span>Change your account password</span>
         </div>
       </template>
+
       <a-row type="flex" justify="center">
         <a-col :lg="12" :sm="20" :xs="24">
+
           <BasicFormWrapper>
-            <a-form :model="formState" @finish="handleFinish" @finishFailed="handleFinishFailed" layout="vertical">
+
+            <!-- Display Success Message -->
+            <div v-if="successMessage" class="success-message">
+              {{ successMessage }}
+            </div>
+
+            <!-- Display Errors -->
+            <div v-if="errors" class="error-message">
+              {{ errors }}
+            </div>
+
+            <a-form @submit.prevent="handleSubmit" layout="vertical">
               <a-form-item label="New Password">
-                <a-input-password v-model:value="formState.old" placeholder="Password">
+                <a-input-password type="password" v-model:value="credentials.newPassword" placeholder="Password" required minlength="8">
                   <template #prefix>
                     <unicon name="lock" width="18"></unicon>
                   </template>
                 </a-input-password>
               </a-form-item>
               <a-form-item name="new" label="Confirm New Password">
-                <a-input-password v-model:value="formState.new" placeholder="Password">
+                <a-input-password type="password" v-model:value="credentials.confirmNewPassword" placeholder="Password" required minlength="8">
                   <template #prefix>
                     <unicon name="lock" width="18"></unicon>
                   </template>
@@ -27,53 +40,90 @@
               </a-form-item>
               <a-form-item>
                 <div class="setting-form-actions">
-                  <sdButton @click="handleFinish" htmlType="submit" type="primary"> Change Password </sdButton>
+                  <sdButton htmlType="submit" type="primary"> Change Password </sdButton>
                 </div>
               </a-form-item>
             </a-form>
+
           </BasicFormWrapper>
+        
         </a-col>
       </a-row>
+
     </sdCards>
   </ChangePasswordWrapper>
 </template>
 
 <script>
-import { ChangePasswordWrapper } from './style';
-import { BasicFormWrapper } from '../../../styled';
-import { reactive, defineComponent } from 'vue';
+  import { ChangePasswordWrapper } from './style';
+  import { BasicFormWrapper } from '../../../styled';
+  import { defineComponent, ref } from 'vue';
 
-const Password = defineComponent({
-  name: 'Password',
-  data() {
-    const formState = reactive({
-      old: '',
-      new: '',
-    });
+  const Password = defineComponent({
+    name: 'Password',
+    components: { ChangePasswordWrapper, BasicFormWrapper },
+    
+    setup() {
+      const host = 'http://localhost:5000';
+      const credentials = ref({ newPassword: '', confirmNewPassword: '' });
+      const successMessage = ref('');
+      const errors = ref('');
 
-    const handleFinish = (values) => {
-      this.values = { ...values };
-      console.log(values, formState);
-    };
+      const handleSubmit = async () => {
+        successMessage.value = '';
+        errors.value = '';
 
-    const handleFinishFailed = (errors) => {
-      console.log(errors);
-    };
-    return {
-      values: null,
-      formState,
-      handleFinish,
-      handleFinishFailed,
-    };
-  },
-  components: { ChangePasswordWrapper, BasicFormWrapper },
-  methods: {
-    handleCancel(e) {
-      e.preventDefault();
-      //form.resetFields();
-    },
-  },
-});
+        try {
+          const response = await fetch(`${host}/api/auth/user/update-user/updatePassword`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              "auth-token": localStorage.getItem("token")
+            },
+            body: JSON.stringify(credentials.value)
+          });
 
-export default Password;
+          const json = await response.json();
+          if (json.success) {
+            successMessage.value = 'Password reset successfully!';
+          } else {
+            errors.value = json.error;
+            if (json.errors) {
+              json.errors.forEach(error => {
+                errors.value[error.param] = error.msg;
+              });
+            }
+          }
+        } catch (error) {
+          errors.value = error;
+        }
+      };
+
+      const onChange = (e) => {
+        credentials.value = { ...credentials.value, [e.target.name]: e.target.value };
+      };
+
+      return {
+        credentials,
+        successMessage,
+        errors,
+        handleSubmit,
+        onChange
+      }
+    }
+
+  });
+
+  export default Password;
 </script>
+
+<style scoped>
+  .success-message {
+    color: green;
+    margin-bottom: 16px;
+  }
+  .error-message {
+    color: red;
+    margin-bottom: 16px;
+  }
+</style>
