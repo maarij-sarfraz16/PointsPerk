@@ -267,7 +267,6 @@ export default defineComponent({
     TopSellingProduct,
     SalesSheet,
     DashboardTools,
-    // CsvFileComponent,
     PageHeaderBanner,
     LatestRedemptions,
     PointsEarning,
@@ -282,7 +281,6 @@ export default defineComponent({
     const userData = ref({ firstName: "", lastName: "" });
     const salesData = ref([]);
 
-    // applying vuex for toggle functionlaity
     const store = useStore();
     const widgetsVisibility = computed(
       () => store.getters["dashboard/widgetsVisibility"]
