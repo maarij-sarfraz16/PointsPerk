@@ -6,10 +6,10 @@
         <img :src="profilePicture" alt="Profile Picture" />
         <input type="file" @change="handleFileChange" style="display: none" ref="fileInput">
             <a @click="triggerPictureUpload">
-              <unicon name="camera" width="16"></unicon>
+              <unicon name="camera" width="18" style="margin: 5px 5px 0 0;"></unicon>
             </a>
             <a @click="handlePictureDelete">
-              <unicon name="trash" width="16"></unicon>
+              <unicon name="trash" width="18" style="margin: 5px 0 0 5px;"></unicon>
             </a>
       </figure>
 
