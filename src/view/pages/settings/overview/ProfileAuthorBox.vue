@@ -8,7 +8,7 @@
             <a @click="triggerPictureUpload">
               <unicon name="camera" width="18" style="margin: 5px 5px 0 0;"></unicon>
             </a>
-            <a @click="handlePictureDelete">
+            <a @click="handlePictureDelete" :class="{ disabled: isDefaultProfilePicture }">
               <unicon name="trash" width="18" style="margin: 5px 0 0 5px;"></unicon>
             </a>
       </figure>
@@ -65,13 +65,16 @@
 
 <script setup>
   import axios from 'axios';
-  import { onMounted, ref } from 'vue';
+  import { onMounted, ref, computed } from 'vue';
   const host = 'http://localhost:5000';
   const userData = ref({ firstName: '', lastName: '' });
   const profilePicture = ref('');
   const fileInput = ref(null);
   const successMessage = ref('');
   const errors = ref('');
+
+  const DEFAULT_PROFILE_PICTURE_URL = 'https://res.cloudinary.com/drlb3eani/image/upload/v1722537563/tnf5ax4za2k3cslb2zvq.png';
+  const isDefaultProfilePicture = computed(() => profilePicture.value === DEFAULT_PROFILE_PICTURE_URL);
 
   onMounted(async () => {
     try {
@@ -86,7 +89,7 @@
       const json = await response.json();
       if (response.ok) {
         userData.value = json.user;
-        profilePicture.value = json.userProfileData ? json.userProfileData.profilePictureUrl : '';
+        profilePicture.value = json.userProfileData ? json.userProfileData.profilePictureUrl : DEFAULT_PROFILE_PICTURE_URL;
       } else {
         // console.error("Failed to fetch user data:", json);
         errors.value = 'Failed to fetch user data';
@@ -106,6 +109,13 @@
   const handleFileChange = async (event) => {
 
     const file = event.target.files[0];
+    const supportedFileTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+
+    if (file && !supportedFileTypes.includes(file.type)) {
+      errors.value = 'Unsupported file format';
+      return;
+    }
+
     if (file && file.size <= 1048576) { // Ensure file size is less than 1MB
       try {
         const formData = new FormData();
@@ -121,6 +131,7 @@
         if (response.data.success) {
           profilePicture.value = response.data.profilePictureUrl;
           successMessage.value = 'Profile picture uploaded successfully';
+          window.location.reload();
         } else {
           // console.error(response.data.error);
           errors.value = 'Failed to upload profile picture';
@@ -129,11 +140,16 @@
         errors.value = error;
       }
     } else {
-      errors.value = 'File is too large or not selected';
+      errors.value = 'File is larger than 1 MB or not selected';
     }
   };
 
   const handlePictureDelete = async () => {
+    // Prevent delete action if profile picture is the default one
+    if (isDefaultProfilePicture.value) {
+      return;
+    }
+
     successMessage.value = '';
     errors.value = '';
 
@@ -150,6 +166,7 @@
       if (response.ok) {
         profilePicture.value = json.profilePictureUrl;
         successMessage.value = 'Profile picture deleted successfully';
+        window.location.reload();
       } else {
         errors.value = 'Failed to delete profile picture';
       }
@@ -168,5 +185,10 @@
   .error-message {
     color: red;
     margin-bottom: 16px;
+  }
+  a.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
   }
 </style>
