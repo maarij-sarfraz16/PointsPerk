@@ -9,7 +9,7 @@
             </span>
           </div>
         </template>
-        <template #button>
+        <!-- <template #button>
           <div class="ninjadash-card-nav">
             <ul>
               <li
@@ -50,7 +50,7 @@
               </li>
             </ul>
           </div>
-        </template>
+        </template> -->
         <TableDefaultStyle class="ninjadash-having-header-bg">
           <TopSellerWrap>
             <div class="table-bordered top-seller-table table-responsive">
