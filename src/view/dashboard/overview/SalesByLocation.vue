@@ -3,10 +3,10 @@
     <sdCards more>
       <template #title>
         <div class="ninjadash-card-title-wrap">
-          <span class="ninjadash-card-title-text"> Sales By Location </span>
+          <span class="ninjadash-card-title-text"> Sales By Region </span>
         </div>
       </template>
-      <template #button>
+      <!-- <template #button>
         <div class="ninjadash-card-nav">
           <ul>
             <li
@@ -47,7 +47,7 @@
             </li>
           </ul>
         </div>
-      </template>
+      </template> -->
       <template #more>
         <router-link to="#">
           <unicon name="print" width="16"></unicon>

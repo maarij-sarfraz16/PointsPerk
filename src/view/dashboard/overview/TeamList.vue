@@ -43,7 +43,7 @@
                   class="ninjadash-status-online"
                   description="online"
                 ></a-list-item-meta>
-                <sdButton @click="handleActive" type="primary"> Add </sdButton>
+                <!-- <sdButton @click="handleActive" type="primary"> Add </sdButton> -->
               </a-list-item>
             </template>
           </a-list>

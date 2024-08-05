@@ -4,7 +4,7 @@
         <ChartContainer>
           <sdCards :title="title">
             
-            <template #button>
+            <!-- <template #button>
               <div class="ninjadash-card-nav">
                 <ul>
                   <li
@@ -51,7 +51,7 @@
                   </li>
                 </ul>
               </div>
-            </template> 
+            </template>  -->
              <div 
               class="ninjadash-chart-container ninjadash-sales-revenue-lineChart" >
               <DashboardChart
@@ -84,10 +84,7 @@
   <script>
   import { computed, defineComponent, onMounted, ref } from "vue";
   import PropTypes from "vue-types";
-  import {
-    customTooltips,
-    chartLinearGradient,
-  } from "@/components/utilities/utilities";
+  import {customTooltips,chartLinearGradient,} from "@/components/utilities/utilities";
   import DashboardChart from "@/components/utilities/chartjs.vue";
   import { SalesRevenueWrapper, ChartContainer } from "../../style";
   import { BorderLessHeading } from "../../../styled";

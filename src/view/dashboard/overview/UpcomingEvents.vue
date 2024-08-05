@@ -3,7 +3,7 @@
   <BorderLessHeading>
     <UpcomingEventsStyleWrap>
       <sdCards title="Upcoming Events">
-        <template #button>
+        <!-- <template #button>
           <div class="ninjadash-card-nav">
             <ul>
               <li
@@ -35,7 +35,7 @@
               </li>
             </ul>
           </div>
-        </template>
+        </template> -->
         <TableDefaultStyle class="ninjadash-having-header-bg">
           <a-table
             :data-source="dataSource"
@@ -103,7 +103,7 @@ const events = {
       id: 1,
       type: "primary",
       title: "Planning for new dashboard wireframe and prototype design",
-      date: "19",
+      date: "23",
       month: "March",
       time: "08:30 AM",
     },
@@ -111,7 +111,7 @@ const events = {
       id: 2,
       type: "secondary",
       title: "International Web Conference 2021",
-      date: "19",
+      date: "30",
       month: "March",
       time: "09:30 AM",
     },
@@ -119,7 +119,7 @@ const events = {
       id: 3,
       type: "info",
       title: "Dribble Designer Meetup",
-      date: "19",
+      date: "18",
       month: "March",
       time: "10:30 AM",
     },
@@ -127,7 +127,7 @@ const events = {
       id: 4,
       type: "warning",
       title: "Dribble Designer Meetup",
-      date: "19",
+      date: "12",
       month: "March",
       time: "11:30 AM",
     },
@@ -137,7 +137,7 @@ const events = {
       id: 1,
       type: "primary",
       title: "Planning for new dashboard wireframe and prototype design",
-      date: "12",
+      date: "10",
       month: "September",
       time: "08:30 AM",
     },
