@@ -1,9 +1,5 @@
 <template>
-  <sdPageHeader
-    title="Redemption History"
-    class="ninjadash-page-header-main"
-    :routes="pageRoutes"
-  ></sdPageHeader>
+  <sdPageHeader title="Redemption History" class="ninjadash-page-header-main" :routes="pageRoutes"></sdPageHeader>
   <Main>
     <DataTable
       :filterOption="true"
@@ -16,57 +12,57 @@
 </template>
 
 <script>
-import { Main } from "../../styled";
-import { defineComponent, ref } from "vue";
-import DataTable from "@/components/table/DataTable";
-import tableData from "@/view/pages/RedemptionHistory/table-data.json";
+import { Main } from '../../styled';
+import { defineComponent, ref } from 'vue';
+import DataTable from '@/components/table/DataTable';
+import tableData from '@/view/pages/RedemptionHistory/table-data.json';
 
 const pageRoutes = [
   {
-    path: "/",
-    breadcrumbName: "Dashboard",
+    path: '/',
+    breadcrumbName: 'Dashboard',
   },
   {
-    path: "",
-    breadcrumbName: "Redemption History",
+    path: '',
+    breadcrumbName: 'Redemption History',
   },
 ];
 
 const dataTableColumn = [
   {
-    title: "Redemption ID",
-    dataIndex: "id",
-    key: "id",
+    title: 'Redemption ID',
+    dataIndex: 'id',
+    key: 'id',
   },
   {
-    title: "Points Redeemed",
-    dataIndex: "points",
-    key: "points",
+    title: 'Points Redeemed',
+    dataIndex: 'points',
+    key: 'points',
   },
   {
-    title: "Coupon ID",
-    dataIndex: "Coupon id",
-    key: "Coupon id",
+    title: 'Coupon ID',
+    dataIndex: 'Coupon id',
+    key: 'Coupon id',
   },
   {
-    title: "Coupon",
-    dataIndex: "Coupon",
-    key: "Coupon",
+    title: 'Coupon',
+    dataIndex: 'Coupon',
+    key: 'Coupon',
   },
   {
-    title: "Date",
-    dataIndex: "date",
-    key: "date",
+    title: 'Date',
+    dataIndex: 'date',
+    key: 'date',
   },
   {
-    title: "Status",
-    dataIndex: "status",
-    key: "status",
+    title: 'Status',
+    dataIndex: 'status',
+    key: 'status',
   },
 ];
 
 export default defineComponent({
-  name: "RedemptionHistory",
+  name: 'RedemptionHistory',
   components: {
     Main,
     DataTable,

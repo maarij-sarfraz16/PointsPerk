@@ -8,20 +8,14 @@
         </div>
         <div class="ninjadash-datatable-filter__input">
           <span class="label">Status:</span>
-          <a-select
-            :style="{ width: 200 }"
-            class="ninjadash-data-status"
-            defaultValue="active"
-          >
+          <a-select :style="{ width: 200 }" class="ninjadash-data-status" defaultValue="active">
             <a-select-option value="active">Active</a-select-option>
             <a-select-option value="deactiveted">Deactivated</a-select-option>
             <a-select-option value="blocked">Blocked</a-select-option>
           </a-select>
         </div>
         <div class="ninjadash-datatable-filter__action">
-          <sdButton type="primary" size="sm" @click="handleSearch" transparented
-            >Submit</sdButton
-          >
+          <sdButton type="primary" size="sm" @click="handleSearch" transparented>Submit</sdButton>
         </div>
       </div>
 
@@ -32,11 +26,7 @@
         </div>
         <div class="ninjadash-datatable-filter__input">
           <span class="label">Status:</span>
-          <a-select
-            @change="handleStatusSearch"
-            :style="{ width: 200 }"
-            defaultValue="active"
-          >
+          <a-select @change="handleStatusSearch" :style="{ width: 200 }" defaultValue="active">
             <a-select-option value="active">Active</a-select-option>
             <a-select-option value="deactiveted">Deactivated</a-select-option>
             <a-select-option value="blocked">Blocked</a-select-option>
@@ -74,11 +64,11 @@
   </DataTableStyleWrap>
 </template>
 <script>
-import { defineComponent, computed, ref, unref } from "vue";
-import VueTypes from "vue-types";
-import { DataTableStyleWrap } from "./Style";
-import { TableWrapper } from "../../view/styled";
-import { useStore } from "vuex";
+import { defineComponent, computed, ref, unref } from 'vue';
+import VueTypes from 'vue-types';
+import { DataTableStyleWrap } from './Style';
+import { TableWrapper } from '../../view/styled';
+import { useStore } from 'vuex';
 
 export default defineComponent({
   components: { DataTableStyleWrap, TableWrapper },
@@ -94,29 +84,27 @@ export default defineComponent({
 
     const handleIdSearch = (e) => {
       const id = e.currentTarget.value;
-      dispatch("dataLiveFilter", { value: id, key: "id" });
+      dispatch('dataLiveFilter', { value: id, key: 'id' });
     };
     const handleStatusSearch = (value) => {
-      dispatch("dataLiveFilter", { value, key: "status" });
+      dispatch('dataLiveFilter', { value, key: 'status' });
     };
 
     const handleDataUser = (e) => {
       const { value } = e.currentTarget;
-      dispatch("dataLiveFilter", { value, key: "name" });
+      dispatch('dataLiveFilter', { value, key: 'name' });
     };
 
     const handleSearch = () => {
-      const id = document.querySelector(".ninjadash-data-id").value;
-      const status = document.querySelector(
-        ".ninjadash-data-status .ant-select-selection-item"
-      ).title;
-      dispatch("filterWithSubmit", { id, status });
+      const id = document.querySelector('.ninjadash-data-id').value;
+      const status = document.querySelector('.ninjadash-data-status .ant-select-selection-item').title;
+      dispatch('filterWithSubmit', { id, status });
     };
 
     const selectedRowKeys = ref([]); // Check here to configure the default column
 
     const onSelectChange = (changableRowKeys) => {
-      console.log("selectedRowKeys changed: ", changableRowKeys);
+      console.log('selectedRowKeys changed: ', changableRowKeys);
       selectedRowKeys.value = changableRowKeys;
     };
 
