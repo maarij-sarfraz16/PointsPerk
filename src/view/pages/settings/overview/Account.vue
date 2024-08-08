@@ -60,7 +60,8 @@
 import { AccountWrapper } from "./style";
 import { BasicFormWrapper } from "../../../styled";
 import { defineComponent, ref } from "vue";
-import { useRouter } from 'vue-router';
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
 const Account = defineComponent({
   name: "Account",
@@ -68,9 +69,10 @@ const Account = defineComponent({
 
   setup() {
     const host = 'http://localhost:5000';
-    const router = useRouter();
     const successMessage = ref('');
     const errors = ref('');
+    const store = useStore();
+    const { push } = useRouter();
 
     const handleSubmit = async () => {
         successMessage.value = '';
@@ -88,11 +90,11 @@ const Account = defineComponent({
           const json = await response.json();
           if (json.success) {
             successMessage.value = 'User deleted successfully!';
+            await new Promise(resolve => setTimeout(resolve, 2000));
             localStorage.removeItem("token");
-            router.push({
-              path: '/auth/login',
-              query: { successMessage: 'User deleted successfully!' }
-            });
+            push("/auth/login");
+            store.dispatch("logOut");
+            localStorage.removeItem("token");
           } else {
             errors.value = json.error;
             if (json.errors) {

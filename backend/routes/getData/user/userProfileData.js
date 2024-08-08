@@ -20,7 +20,7 @@ const storage = new CloudinaryStorage({
     return {
       folder: 'profile_pictures',
       format: format,
-      transformation: [{ width: 120, height: 120, crop: 'limit' }],
+      transformation: [{ width: 120, height: 120, crop: 'auto' }],
       public_id: `${Date.now()}-${file.originalname}`,
     };
   },
