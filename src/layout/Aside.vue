@@ -14,7 +14,7 @@
         <unicon name="create-dashboard"></unicon>
       </template>
       <router-link to="/">
-        {{ t("Dashboard") }}
+        {{ t('Dashboard') }}
       </router-link>
     </a-menu-item>
 
@@ -31,7 +31,7 @@
         <unicon name="ticket"></unicon>
       </template>
       <router-link to="/app/ecommerce/product/grid">
-        {{ t("Coupons") }}
+        {{ t('Coupons') }}
       </router-link>
     </a-menu-item>
 
@@ -51,9 +51,8 @@
       <router-link to="/MyPerformance"> My Performance </router-link>
     </a-menu-item>
 
-    
     <!-- Leader Board -->
-    <NavTitle class="ninjadash-sidebar-nav-title">{{ t("Company") }}</NavTitle>
+    <NavTitle class="ninjadash-sidebar-nav-title">{{ t('Company') }}</NavTitle>
     <a-menu-item @click="toggleCollapsed" key="leaderboard">
       <template #icon>
         <unicon name="trophy"></unicon>
@@ -61,28 +60,19 @@
       <router-link to="/LeaderBoard"> Leader Board </router-link>
     </a-menu-item>
   </a-menu>
-  
 </template>
 
 <script>
-import {
-  computed,
-  reactive,
-  ref,
-  toRefs,
-  watch,
-  watchEffect,
-  defineComponent,
-} from "vue";
-import VueTypes from "vue-types";
-import { useStore } from "vuex";
-import { useRoute } from "vue-router";
-import versions from "../demoData/changelog.json";
+import { computed, reactive, ref, toRefs, watch, watchEffect, defineComponent } from 'vue';
+import VueTypes from 'vue-types';
+import { useStore } from 'vuex';
+import { useRoute } from 'vue-router';
+import versions from '../demoData/changelog.json';
 // import { NavTitle } from './style';
-import { useI18n } from "vue-i18n";
+import { useI18n } from 'vue-i18n';
 
 export default defineComponent({
-  name: "AsideItems",
+  name: 'AsideItems',
   props: {
     toggleCollapsed: VueTypes.func,
     events: VueTypes.object,
@@ -94,30 +84,21 @@ export default defineComponent({
     const { t } = useI18n();
     const store = useStore();
     const darkMode = computed(() => store.state.themeLayout.data);
-    const mode = ref("inline");
+    const mode = ref('inline');
     const { events } = toRefs(props);
-    const {
-      onRtlChange,
-      onLtrChange,
-      modeChangeDark,
-      modeChangeLight,
-      modeChangeTopNav,
-      modeChangeSideNav,
-    } = events.value;
+    const { onRtlChange, onLtrChange, modeChangeDark, modeChangeLight, modeChangeTopNav, modeChangeSideNav } =
+      events.value;
 
     const router = computed(() => useRoute());
     const state = reactive({
-      rootSubmenuKeys: ["sub1", "sub2", "sub4"],
-      selectedKeys: ["home"],
-      openKeys: ["dashboard"],
-      preOpenKeys: ["dashboard"],
+      rootSubmenuKeys: ['sub1', 'sub2', 'sub4'],
+      selectedKeys: ['home'],
+      openKeys: ['dashboard'],
+      preOpenKeys: ['dashboard'],
     });
 
     const onOpenChange = (keys) => {
-      state.openKeys =
-        keys[keys.length - 1] !== "recharts"
-          ? [keys.length && keys[keys.length - 1]]
-          : keys;
+      state.openKeys = keys[keys.length - 1] !== 'recharts' ? [keys.length && keys[keys.length - 1]] : keys;
     };
 
     const onClick = (item) => {
@@ -146,7 +127,7 @@ export default defineComponent({
       () => state.openKeys,
       (val, oldVal) => {
         state.preOpenKeys = oldVal;
-      }
+      },
     );
 
     return {
