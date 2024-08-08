@@ -3,21 +3,54 @@
     <BorderLessHeading v-if="earningsData !== null">
       <ChartContainer>
         <sdCards :title="title">
-          <template #button>
-            <div class="ninjadash-card-nav">
-              <ul>
-                <li :class="earningsTab === 'today' ? 'ninjadash-active' : 'ninjadash-today'">
-                  <router-link @click="(event) => handleTabActivation('today', event)" to="#"> Today </router-link>
-                </li>
-                <li :class="earningsTab === 'week' ? 'ninjadash-active' : 'ninjadash-week'">
-                  <router-link @click="(event) => handleTabActivation('week', event)" to="#"> Week </router-link>
-                </li>
-                <li :class="earningsTab === 'month' ? 'ninjadash-active' : 'ninjadash-month'">
-                  <router-link @click="(event) => handleTabActivation('month', event)" to="#"> Month </router-link>
-                </li>
-              </ul>
-            </div>
-          </template>
+          <!-- <template #button>
+              <div class="ninjadash-card-nav">
+                <ul>
+                  <li
+                    :class="
+                      earningsTab === 'today'
+                        ? 'ninjadash-active'
+                        : 'ninjadash-today'
+                    "
+                  >
+                    <router-link
+                      @click="(event) => handleTabActivation('today', event)"
+                      to="#"
+                    >
+                      Today
+                    </router-link>
+                  </li>
+                  <li
+                    :class="
+                      earningsTab === 'week'
+                        ? 'ninjadash-active'
+                        : 'ninjadash-week'
+                    "
+                  >
+                    <router-link
+                      @click="(event) => handleTabActivation('week', event)"
+                      to="#"
+                    >
+                      Week
+                    </router-link>
+                  </li>
+                  <li
+                    :class="
+                      earningsTab === 'month'
+                        ? 'ninjadash-active'
+                        : 'ninjadash-month'
+                    "
+                  >
+                    <router-link
+                      @click="(event) => handleTabActivation('month', event)"
+                      to="#"
+                    >
+                      Month
+                    </router-link>
+                  </li>
+                </ul>
+              </div>
+            </template>  -->
           <div class="ninjadash-chart-container ninjadash-sales-revenue-lineChart">
             <DashboardChart
               v-if="!isLoading"
@@ -51,8 +84,8 @@ import { computed, defineComponent, onMounted, ref } from 'vue';
 import PropTypes from 'vue-types';
 import { customTooltips, chartLinearGradient } from '@/components/utilities/utilities';
 import DashboardChart from '@/components/utilities/chartjs.vue';
-import { SalesRevenueWrapper, ChartContainer } from '@/view/dashboard/style';
-import { BorderLessHeading } from '@/view/styled';
+import { SalesRevenueWrapper, ChartContainer } from '../../style';
+import { BorderLessHeading } from '../../../styled';
 import chartContent from '@/demoData/dashboardChartContent.json';
 
 const { earnings } = chartContent;

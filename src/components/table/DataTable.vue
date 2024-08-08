@@ -1,5 +1,5 @@
 <template>
-  <DataTableStyleWrap>
+  <DataTableStyleWrap :darkMode="darkMode">
     <div v-if="filterOption" class="ninjadash-datatable-filter">
       <div v-if="!filterOnchange" class="ninjadash-datatable-filter__left">
         <div class="ninjadash-datatable-filter__input">
