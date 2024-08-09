@@ -1,48 +1,58 @@
 <template>
   <a-row justify="center">
     <a-col :xxl="6" :xl="12" :md="12" :sm="18">
-
       <AuthWrapper class="basic-form-inner theme-light">
         <div class="ninjadash-authentication-top">
           <h2 class="ninjadash-authentication-top__title">Sign Up Points Perk</h2>
         </div>
 
         <div class="ninjadash-authentication-content">
+          <!-- Display Success Message After New User Creation -->
+          <MessageDisplay v-if="successMessage" type="success" :message="successMessage" />
 
           <!-- Display Errors -->
-          <div v-if="errors" class="error-message">
-            {{ errors }}
-          </div>
+          <MessageDisplay v-if="errors" type="error" :message="errors" />
 
           <div v-if="tokenValid">
             <a-form @submit.prevent="handleSubmit" layout="vertical">
-              
               <a-form-item label="Name of the Agency" name="nameOfAgency">
-                <a-input v-model:value="credentials.nameOfAgency" placeholder="ABC Travels" required/>
+                <a-input v-model:value="credentials.nameOfAgency" placeholder="ABC Travels" required />
               </a-form-item>
 
               <a-form-item label="Agency Address" name="agencyAddress">
-                <a-input v-model:value="credentials.agencyAddress" placeholder="123 Main Street" required/>
+                <a-input v-model:value="credentials.agencyAddress" placeholder="123 Main Street" required />
               </a-form-item>
 
               <a-form-item label="First Name" name="firstName">
-                <a-input v-model:value="credentials.firstName" placeholder="John" required/>
+                <a-input v-model:value="credentials.firstName" placeholder="John" required />
               </a-form-item>
 
               <a-form-item label="Last Name" name="lastName">
-                <a-input v-model:value="credentials.lastName" placeholder="Doe" required/>
+                <a-input v-model:value="credentials.lastName" placeholder="Doe" required />
               </a-form-item>
-            
+
               <a-form-item label="Email Address" name="email">
-                <a-input type="email" v-model:value="credentials.email" placeholder="name@example.com" required/>
+                <a-input type="email" v-model:value="credentials.email" placeholder="name@example.com" required />
               </a-form-item>
 
               <a-form-item label="Contact Number" name="contactNumber">
-                <a-input v-model:value="credentials.contactNumber" placeholder="+1" required minlength="10" maxlength="15"/>
+                <a-input
+                  v-model:value="credentials.contactNumber"
+                  placeholder="+1"
+                  required
+                  minlength="10"
+                  maxlength="15"
+                />
               </a-form-item>
 
               <a-form-item label="Password" name="password">
-                <a-input-password type="password" v-model:value="credentials.password" placeholder="Password" required minlength="8"/>
+                <a-input-password
+                  type="password"
+                  v-model:value="credentials.password"
+                  placeholder="Password"
+                  required
+                  minlength="8"
+                />
               </a-form-item>
 
               <a-form-item label="Country/Region" name="country">
@@ -60,9 +70,7 @@
               </div>
 
               <a-form-item>
-                <sdButton class="btn-create" htmlType="submit" type="primary" size="lg">
-                  Create Account
-                </sdButton>
+                <sdButton class="btn-create" htmlType="submit" type="primary" size="lg"> Create Account </sdButton>
               </a-form-item>
 
               <!-- <p class="ninjadash-form-divider"><span>Or</span></p>
@@ -81,135 +89,133 @@
                   </a>
                 </li>
               </ul> -->
-
             </a-form>
           </div>
-          
         </div>
 
         <div class="ninjadash-authentication-bottom">
           <p>Already have an account?<router-link to="/auth/login">Sign In</router-link></p>
         </div>
       </AuthWrapper>
-
     </a-col>
   </a-row>
 </template>
 
 <script>
+import { AuthWrapper } from './style';
+import { ref, defineComponent, onMounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+import MessageDisplay from './overview/MessageDisplay.vue';
 
-  import { AuthWrapper } from "./style";
-  import { ref, defineComponent, onMounted } from "vue";
-  import { useRouter, useRoute } from 'vue-router';
+const SignUp = defineComponent({
+  name: 'SignUp',
+  components: { AuthWrapper, MessageDisplay },
+  setup() {
+    const host = 'http://localhost:5000';
+    const credentials = ref({
+      nameOfAgency: '',
+      agencyAddress: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      contactNumber: '',
+      password: '',
+      country: '',
+    });
+    const errors = ref('');
+    const router = useRouter();
+    const route = useRoute();
+    const tokenValid = ref(false);
 
-  const SignUp = defineComponent({
-    name: "SignUp",
-    components: { AuthWrapper },
-    setup() {
-      const host = 'http://localhost:5000';
-      const credentials = ref({ nameOfAgency: '', agencyAddress: '', firstName: '', lastName: '', email: '', contactNumber: '', password: '', country: '' });
-      const errors = ref('');
-      const router = useRouter();
-      const route = useRoute();
-      const tokenValid = ref(false);
+    onMounted(async () => {
+      errors.value = '';
+      const token = route.query.token;
 
-      onMounted(async () => {
-        errors.value = '';
-        const token = route.query.token;
+      if (!token) {
+        errors.value = 'No token provided';
+        return;
+      }
+
+      try {
+        const response = await fetch(`${host}/api/auth/user/signup/verifySignupToken/${token}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        const json = await response.json();
+        if (response.ok) {
+          tokenValid.value = true;
+          credentials.value.token = token;
+        } else {
+          errors.value = json.error || '';
+        }
+      } catch (error) {
+        // console.error('Error:', error);
+        errors.value = error;
+      }
+    });
+
+    const handleSubmit = async () => {
+      errors.value = '';
+
+      try {
+        const token = credentials.value.token;
 
         if (!token) {
-          errors.value = 'No token provided';
+          errors.value = 'Token is required';
           return;
         }
 
-        try {
-          const response = await fetch(`${host}/api/auth/user/signup/verifySignupToken/${token}`, {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            }
+        const response = await fetch(`${host}/api/auth/user/createUser`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...credentials.value,
+            token,
+          }),
+        });
+
+        const json = await response.json();
+        if (json.success) {
+          // localStorage.setItem('token', json.authToken);
+          // console.log("User created successfully");
+          router.push({
+            path: '/auth/login',
+            query: { successMessage: 'User created successfully. Please log in.' },
           });
+        } else {
+          // console.log("Invalid Details");
+          errors.value = json.error;
 
-          const json = await response.json();
-          if (response.ok) {
-            tokenValid.value = true;
-            credentials.value.token = token;
-          } else {
-            errors.value = json.error || '';
-          }
-        } catch (error) {
-          // console.error('Error:', error);
-          errors.value = error;
-        }
-      });
-
-      const handleSubmit = async () => {
-        errors.value = '';
-
-        try {
-          const token = credentials.value.token;
-
-          if (!token) {
-            errors.value = 'Token is required';
-            return;
-          }
-
-          const response = await fetch(`${host}/api/auth/user/createUser`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              ...credentials.value,
-              token
-            })
-          });
-
-          const json = await response.json();
-          if (json.success) {
-            // localStorage.setItem('token', json.authToken);
-            // console.log("User created successfully");
-            router.push({
-              path: '/auth/login',
-              query: { successMessage: 'User created successfully. Please log in.' }
+          if (json.errors) {
+            json.errors.forEach((error) => {
+              errors.value[error.param] = error.msg;
             });
-          } else {
-            // console.log("Invalid Details");
-            errors.value = json.error;
-
-            if (json.errors) {
-              json.errors.forEach(error => {
-                errors.value[error.param] = error.msg;
-              });
-            }
           }
-        } catch (error) {
-          // console.error("Error:", error);
-          errors.value = error;
         }
-      };
+      } catch (error) {
+        // console.error("Error:", error);
+        errors.value = error;
+      }
+    };
 
-      const onChange = (e) => {
-        credentials.value = { ...credentials.value, [e.target.name]: e.target.value };
-      };
+    const onChange = (e) => {
+      credentials.value = { ...credentials.value, [e.target.name]: e.target.value };
+    };
 
-      return {
-        tokenValid,
-        credentials,
-        errors,
-        handleSubmit,
-        onChange
-      };
-    }
-  });
+    return {
+      tokenValid,
+      credentials,
+      errors,
+      handleSubmit,
+      onChange,
+    };
+  },
+});
 
-  export default SignUp;
-
+export default SignUp;
 </script>
-
-<style scoped>
-  .error-message {
-    color: red;
-    margin-bottom: 16px;
-  }
-</style>

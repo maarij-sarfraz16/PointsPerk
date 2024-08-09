@@ -73,12 +73,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "LeaderBoard" */ '@/view/pages/LeaderBoard/MyPerformance.vue'),
   },
 
-  {
-    path: '/hassan',
-    name: 'hassan',
-    component: () => import(/* webpackChunkName: "LeaderBoard" */ '@/view/pages/hassan/hassan.vue'),
-  },
-
   ...PageRoutes,
   ...FeaturesRoutes,
   ...Components,

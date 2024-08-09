@@ -1,6 +1,6 @@
 import Styled from 'vue3-styled-components';
 
-const AuthWrapper = Styled.div `
+const AuthWrapper = Styled.div`
   border-radius: 6px;
   margin-top: 25px;
   box-shadow: 0 5px 20px rgba(140,144,164,.08);
@@ -200,6 +200,7 @@ const AuthWrapper = Styled.div `
       }
     }
   }
+ 
   .ninjadash-authentication-bottom{
     text-align: center;
     padding: 25px;
@@ -280,8 +281,10 @@ const AuthWrapper = Styled.div `
     }
   }
 }
+  
+`;
+const Alerts = Styled.div`
+margin-bottom:30px;
 `;
 
-export {
-  AuthWrapper
-};
+export { AuthWrapper, Alerts };
