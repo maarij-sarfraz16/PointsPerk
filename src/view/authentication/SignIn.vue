@@ -5,7 +5,9 @@
         <div class="ninjadash-authentication-top">
           <h2 class="ninjadash-authentication-top__title">Sign In Points Perk</h2>
         </div>
-
+        <div v-if="showAlert">
+          <Alerts :type="alertType" :message="alertMessage" />
+        </div>
         <div class="ninjadash-authentication-content">
           <!-- Display Success Message After New User Creation -->
           <MessageDisplay v-if="successMessage" :message="successMessage" type="success" />
@@ -58,16 +60,15 @@
 </template>
 
 <script>
-import { computed, ref, defineComponent, onMounted } from 'vue';
+import { computed, ref, defineComponent, onMounted, watch } from 'vue';
 import { useStore } from 'vuex';
 import { AuthWrapper } from './style';
 import { useRouter, useRoute } from 'vue-router';
 import MessageDisplay from './overview/MessageDisplay.vue';
-// import InlineSvg from "vue-inline-svg";
-
+import Alerts from '../../components/alerts/Alerts.vue';
 const SignIn = defineComponent({
   name: 'SignIn',
-  components: { AuthWrapper, MessageDisplay },
+  components: { AuthWrapper, MessageDisplay, Alerts },
   setup() {
     const { state, dispatch } = useStore();
     const isLoading = computed(() => state.auth.loading);
@@ -77,6 +78,36 @@ const SignIn = defineComponent({
     const credentials = ref({ email: '', password: '' });
     const successMessage = ref('');
     const errors = ref('');
+
+    const alertMessage = ref('');
+    const showAlert = ref(false);
+    const alertType = ref('error');
+    const isOnline = ref(navigator.onLine);
+
+    window.addEventListener('online', () => {
+      isOnline.value = navigator.onLine;
+    });
+    window.addEventListener('offline', () => {
+      isOnline.value = navigator.onLine;
+    });
+
+    const connectionLost = computed(() => !isOnline.value);
+
+    watch(connectionLost, (newValue) => {
+      showAlert.value = true;
+
+      if (newValue) {
+        alertMessage.value = 'Internet Connection Lost';
+        alertType.value = 'error';
+      } else {
+        alertMessage.value = 'Internet Connection Active';
+        alertType.value = 'success';
+        setTimeout(() => {
+          showAlert.value = false;
+        }, 2000);
+      }
+    });
+
     const router = useRouter();
     const route = useRoute();
 
@@ -128,10 +159,14 @@ const SignIn = defineComponent({
       isLoading,
       checked,
       credentials,
+      alertMessage,
+      showAlert,
+      alertType,
       successMessage,
       errors,
       handleSubmit,
       onChange,
+      isOnline,
     };
   },
 });
