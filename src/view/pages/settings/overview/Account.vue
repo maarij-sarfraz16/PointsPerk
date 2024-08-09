@@ -11,6 +11,7 @@
       <a-row>
         <a-col :xs="24">
           <BasicFormWrapper>
+
             <!-- Display Success Message After New User Creation -->
             <MessageDisplay v-if="successMessage" :message="successMessage" type="success" />
 
@@ -42,9 +43,10 @@
 </template>
 
 <script>
-import { AccountWrapper } from './style';
-import { BasicFormWrapper } from '../../../styled';
-import { defineComponent, ref } from 'vue';
+import { AccountWrapper } from "./style";
+import { BasicFormWrapper } from "../../../styled";
+import { defineComponent, ref } from "vue";
+import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import MessageDisplay from '@/view/authentication/overview/MessageDisplay.vue';
 
@@ -54,9 +56,10 @@ const Account = defineComponent({
 
   setup() {
     const host = 'http://localhost:5000';
-    const router = useRouter();
     const successMessage = ref('');
     const errors = ref('');
+    const store = useStore();
+    const { push } = useRouter();
 
     const handleSubmit = async () => {
       successMessage.value = '';
@@ -71,26 +74,26 @@ const Account = defineComponent({
           },
         });
 
-        const json = await response.json();
-        if (json.success) {
-          successMessage.value = 'User deleted successfully!';
-          localStorage.removeItem('token');
-          router.push({
-            path: '/auth/login',
-            query: { successMessage: 'User deleted successfully!' },
-          });
-        } else {
-          errors.value = json.error;
-          if (json.errors) {
-            json.errors.forEach((error) => {
-              errors.value[error.param] = error.msg;
-            });
+          const json = await response.json();
+          if (json.success) {
+            successMessage.value = 'User deleted successfully!';
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            localStorage.removeItem('token');
+            push('/auth/login');
+            store.dispatch('logOut');
+            localStorage.removeItem('token');
+          } else {
+            errors.value = json.error;
+            if (json.errors) {
+              json.errors.forEach(error => {
+                errors.value[error.param] = error.msg;
+              });
+            }
           }
+        } catch (error) {
+          errors.value = error;
         }
-      } catch (error) {
-        errors.value = error;
-      }
-    };
+      };
 
     return {
       handleSubmit,
