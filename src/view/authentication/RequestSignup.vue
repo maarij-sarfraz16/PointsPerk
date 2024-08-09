@@ -7,44 +7,24 @@
         </div>
 
         <div class="ninjadash-authentication-content">
-          <!-- Display Success Message -->
-          <div v-if="successMessage" class="success-message">
-            {{ successMessage }}
-          </div>
+          <!-- Display Success Message After New User Creation -->
+          <MessageDisplay v-if="successMessage" type="success" :message="successMessage" />
 
           <!-- Display Errors -->
-          <div v-if="errors" class="error-message">
-            {{ errors }}
-          </div>
+          <MessageDisplay v-if="errors" type="error" :message="errors" />
 
           <a-form @submit.prevent="handleSubmit" layout="vertical">
-            <p class="forgot-text">
-              Enter your email address and we'll send you a signup link.
-            </p>
+            <p class="forgot-text">Enter your email address and we'll send you a signup link.</p>
 
             <a-form-item label="Email Address" name="email">
-              <a-input
-                type="email"
-                v-model:value="credentials.email"
-                placeholder="name@example.com"
-                required
-              />
+              <a-input type="email" v-model:value="credentials.email" placeholder="name@example.com" required />
             </a-form-item>
 
             <a-form-item>
-              <sdButton
-                class="btn-reset"
-                htmlType="submit"
-                type="primary"
-                size="lg"
-              >
-                Request Signup Link
-              </sdButton>
+              <sdButton class="btn-reset" htmlType="submit" type="primary" size="lg"> Request Signup Link </sdButton>
             </a-form-item>
 
-            <p class="return-text">
-              Return to <router-link to="/auth/login">Sign In</router-link>
-            </p>
+            <p class="return-text">Return to <router-link to="/auth/login">Sign In</router-link></p>
           </a-form>
         </div>
       </AuthWrapper>
@@ -53,27 +33,28 @@
 </template>
 
 <script>
-import { AuthWrapper } from "./style";
-import { ref, defineComponent } from "vue";
+import MessageDisplay from './overview/MessageDisplay.vue';
+import { AuthWrapper } from './style';
+import { ref, defineComponent } from 'vue';
 
 const RequestSignup = defineComponent({
-  name: "RequestSignup",
-  components: { AuthWrapper },
+  name: 'RequestSignup',
+  components: { AuthWrapper, MessageDisplay },
   setup() {
-    const host = "http://localhost:5000";
-    const credentials = ref({ email: "" });
-    const successMessage = ref("");
-    const errors = ref("");
+    const host = 'http://localhost:5000';
+    const credentials = ref({ email: '' });
+    const successMessage = ref('');
+    const errors = ref('');
 
     const handleSubmit = async () => {
-      successMessage.value = "";
-      errors.value = "";
+      successMessage.value = '';
+      errors.value = '';
 
       try {
         const response = await fetch(`${host}/api/auth/user/signup/requestSignup`, {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(credentials.value),
         });
@@ -115,14 +96,3 @@ const RequestSignup = defineComponent({
 
 export default RequestSignup;
 </script>
-
-<style scoped>
-.success-message {
-  color: green;
-  margin-bottom: 16px;
-}
-.error-message {
-  color: red;
-  margin-bottom: 16px;
-}
-</style>

@@ -30,7 +30,7 @@
       <template #icon>
         <unicon name="ticket"></unicon>
       </template>
-      <router-link to="/app/ecommerce/product/grid">
+      <router-link to="/Coupons">
         {{ t('Coupons') }}
       </router-link>
     </a-menu-item>

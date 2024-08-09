@@ -19,19 +19,12 @@
     <a-row type="flex" justify="center">
       <a-col :xxl="12" :lg="24" :xs="24">
         <BasicFormWrapper>
+          <!-- Display Success Message After New User Creation -->
+          <MessageDisplay v-if="successMessage" :message="successMessage" type="success" />
 
-            <!-- Display Success Message -->
-            <div v-if="successMessage" class="success-message">
-              {{ successMessage }}
-            </div>
-
-            <!-- Display Errors -->
-            <div v-if="errors" class="error-message">
-              {{ errors }}
-            </div>
-
+          <!-- Display Errors -->
+          <MessageDisplay v-if="errors" :message="errors" type="error" />
           <a-form @submit.prevent="handleSubmit" layout="vertical">
-
             <a-form-item label="Email Address">
               <a-input :placeholder="userData.email" disabled>
                 <template #prefix>
@@ -41,7 +34,13 @@
             </a-form-item>
 
             <a-form-item label="Contact Number">
-              <a-input v-model:value="credentials.contactNumber" :placeholder="userData.contactNumber" required minlength="10" maxlength="15">
+              <a-input
+                v-model:value="credentials.contactNumber"
+                :placeholder="userData.contactNumber"
+                required
+                minlength="10"
+                maxlength="15"
+              >
                 <template #prefix>
                   <unicon name="phone" width="18"></unicon>
                 </template>
@@ -49,9 +48,7 @@
             </a-form-item>
 
             <div class="setting-form-actions">
-              <sdButton size="default" htmlType="submit" type="primary">
-                Update Profile
-              </sdButton>
+              <sdButton size="default" htmlType="submit" type="primary"> Update Profile </sdButton>
             </div>
           </a-form>
         </BasicFormWrapper>
@@ -61,104 +58,94 @@
 </template>
 
 <script>
-  import { BasicFormWrapper } from "../../../styled";
-  import { defineComponent, onMounted, ref } from "vue";
+import MessageDisplay from '@/view/authentication/overview/MessageDisplay.vue';
+import { BasicFormWrapper } from '../../../styled';
+import { defineComponent, onMounted, ref } from 'vue';
 
-  const Profile = defineComponent({
-    name: "Profile",
-    components: { BasicFormWrapper },
+const Profile = defineComponent({
+  name: 'Profile',
+  components: { BasicFormWrapper, MessageDisplay },
 
-    setup() {
-      const host = "http://localhost:5000";
-      const userData = ref({ email: "", contactNumber: "" });
-      const credentials = ref({ contactNumber: "" });
-      const successMessage = ref('');
-      const errors = ref('');
-      
-      onMounted(async () => {
-        try {
-          const response = await fetch(`${host}/api/get-data/user/user-data/fetchData`, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              "auth-token": localStorage.getItem("token"),
-            },
-          });
+  setup() {
+    const host = 'http://localhost:5000';
+    const userData = ref({ email: '', contactNumber: '' });
+    const credentials = ref({ contactNumber: '' });
+    const successMessage = ref('');
+    const errors = ref('');
 
-          const json = await response.json();
-          if (response.ok) {
-            userData.value = json.user;
-          } else {
-            // console.error("Failed to fetch user data:", json);
-            errors.value = 'Failed to fetch user data';
+    onMounted(async () => {
+      try {
+        const response = await fetch(`${host}/api/get-data/user/user-data/fetchData`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('token'),
+          },
+        });
+
+        const json = await response.json();
+        if (response.ok) {
+          userData.value = json.user;
+        } else {
+          // console.error("Failed to fetch user data:", json);
+          errors.value = 'Failed to fetch user data';
+        }
+      } catch (error) {
+        // console.error("Error fetching user data:", error);
+        errors.value = error;
+      }
+    });
+
+    const handleSubmit = async () => {
+      successMessage.value = '';
+      errors.value = '';
+
+      if (credentials.value.contactNumber === userData.value.contactNumber) {
+        errors.value = 'Contact number is the same as before. No changes made.';
+        return;
+      }
+
+      try {
+        const response = await fetch(`${host}/api/auth/user/update-user/update`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('token'),
+          },
+          body: JSON.stringify(credentials.value),
+        });
+
+        const json = await response.json();
+        if (json.success) {
+          successMessage.value = 'Updated!';
+          userData.value.contactNumber = credentials.value.contactNumber;
+        } else {
+          errors.value = json.error;
+          if (json.errors) {
+            json.errors.forEach((error) => {
+              errors.value[error.param] = error.msg;
+            });
           }
-        } catch (error) {
-          // console.error("Error fetching user data:", error);
-          errors.value = error;
         }
-      });
+      } catch (error) {
+        errors.value = error;
+      }
+    };
 
-      const handleSubmit = async () => {
-        successMessage.value = '';
-        errors.value = '';
+    const onChange = (e) => {
+      credentials.value = { ...credentials.value, [e.target.name]: e.target.value };
+    };
 
-        if (credentials.value.contactNumber === userData.value.contactNumber) {
-          errors.value = "Contact number is the same as before. No changes made.";
-          return;
-        }
+    return {
+      userData,
+      credentials,
+      successMessage,
+      errors,
+      handleSubmit,
+      onChange,
+    };
+  },
+});
 
-        try {
-          const response = await fetch(`${host}/api/auth/user/update-user/update`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              "auth-token": localStorage.getItem("token")
-            },
-            body: JSON.stringify(credentials.value)
-          });
-
-          const json = await response.json();
-          if (json.success) {
-            successMessage.value = 'Updated!';
-            userData.value.contactNumber = credentials.value.contactNumber;
-          } else {
-            errors.value = json.error;
-            if (json.errors) {
-              json.errors.forEach(error => {
-                errors.value[error.param] = error.msg;
-              });
-            }
-          }
-        } catch (error) {
-          errors.value = error;
-        }
-      };
-
-      const onChange = (e) => {
-        credentials.value = { ...credentials.value, [e.target.name]: e.target.value };
-      };
-
-      return {
-        userData,
-        credentials,
-        successMessage,
-        errors,
-        handleSubmit,
-        onChange
-      };
-    },
-  });
-
-  export default Profile;
+export default Profile;
 </script>
-
-<style scoped>
-  .success-message {
-    color: green;
-    margin-bottom: 16px;
-  }
-  .error-message {
-    color: red;
-    margin-bottom: 16px;
-  }
-</style>

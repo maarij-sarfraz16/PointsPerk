@@ -1,43 +1,34 @@
 <template>
   <a-row justify="center">
     <a-col :xxl="6" :xl="12" :md="12" :sm="18">
-      
       <AuthWrapper>
         <div class="ninjadash-authentication-top">
           <h2 class="ninjadash-authentication-top__title">Sign In Points Perk</h2>
         </div>
-        
+
         <div class="ninjadash-authentication-content">
-
           <!-- Display Success Message After New User Creation -->
-          <div v-if="successMessage" class="success-message">
-            {{ successMessage }}
-          </div>
+          <MessageDisplay v-if="successMessage" :message="successMessage" type="success" />
 
-           <!-- Display Errors -->
-           <div v-if="errors" class="error-message">
-            {{ errors }}
-          </div>
-
+          <!-- Display Errors -->
+          <MessageDisplay v-if="errors" :message="errors" type="error" />
           <a-form @submit.prevent="handleSubmit" layout="vertical">
-            
             <a-form-item name="email" label="Email">
-              <a-input type="email" v-model:value="credentials.email" placeholder="name@example.com" required/>
+              <a-input type="email" v-model:value="credentials.email" placeholder="name@example.com" required />
             </a-form-item>
             <a-form-item name="password" label="Password">
-              <a-input-password type="password" v-model:value="credentials.password" placeholder="Password" required/>
+              <a-input-password type="password" v-model:value="credentials.password" placeholder="Password" required />
             </a-form-item>
-            
+
             <div class="ninjadash-auth-extra-links">
-              <a-checkbox>Keep me logged in</a-checkbox> <!-- TODO: Keep me logged in function -->
-              <router-link class="forgot-pass-link" to="/auth/forgotPassword">
-                Forgot password?
-              </router-link>
+              <a-checkbox>Keep me logged in</a-checkbox>
+              <!-- TODO: Keep me logged in function -->
+              <router-link class="forgot-pass-link" to="/auth/forgotPassword"> Forgot password? </router-link>
             </div>
 
             <a-form-item>
               <sdButton class="btn-signin" htmlType="submit" type="primary">
-                {{ isLoading ? "Loading..." : "Sign In" }}
+                {{ isLoading ? 'Loading...' : 'Sign In' }}
               </sdButton>
             </a-form-item>
 
@@ -55,7 +46,6 @@
                 </a>
               </li>
             </ul> -->
-
           </a-form>
         </div>
 
@@ -63,101 +53,88 @@
           <p>Don't have an account?<router-link to="/auth/requestsignup">Sign up</router-link></p>
         </div>
       </AuthWrapper>
-
     </a-col>
   </a-row>
 </template>
 
 <script>
+import { computed, ref, defineComponent, onMounted } from 'vue';
+import { useStore } from 'vuex';
+import { AuthWrapper } from './style';
+import { useRouter, useRoute } from 'vue-router';
+import MessageDisplay from './overview/MessageDisplay.vue';
+// import InlineSvg from "vue-inline-svg";
 
-  import { computed, ref, defineComponent, onMounted } from "vue";
-  import { useStore } from "vuex";
-  import { AuthWrapper } from "./style";
-  import { useRouter, useRoute } from "vue-router";
-  // import InlineSvg from "vue-inline-svg";
+const SignIn = defineComponent({
+  name: 'SignIn',
+  components: { AuthWrapper, MessageDisplay },
+  setup() {
+    const { state, dispatch } = useStore();
+    const isLoading = computed(() => state.auth.loading);
+    const checked = ref(null);
 
-  const SignIn = defineComponent({
-    name: "SignIn",
-    components: { AuthWrapper },
-    setup() {
-      const { state, dispatch } = useStore();
-      const isLoading = computed(() => state.auth.loading);
-      const checked = ref(null);
+    const host = 'http://localhost:5000';
+    const credentials = ref({ email: '', password: '' });
+    const successMessage = ref('');
+    const errors = ref('');
+    const router = useRouter();
+    const route = useRoute();
 
-      const host = 'http://localhost:5000';
-      const credentials = ref({ email: '', password: '' });
-      const successMessage = ref('');
-      const errors = ref('');
-      const router = useRouter();
-      const route = useRoute();
+    const handleSubmit = async () => {
+      successMessage.value = '';
+      errors.value = '';
 
-      const handleSubmit = async () => {
-        successMessage.value = '';
-        errors.value = '';
+      try {
+        const response = await fetch(`${host}/api/auth/user/login`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(credentials.value),
+        });
 
-        try {
-          const response = await fetch(`${host}/api/auth/user/login`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(credentials.value)
-          });
+        const json = await response.json();
+        if (json.success) {
+          localStorage.setItem('token', json.authToken);
+          // console.log("Logged in successfully");
+          router.push('/');
+          dispatch('login');
+        } else {
+          // console.log("Invalid Credentials");
+          errors.value = json.error || '';
 
-          const json = await response.json();
-          if (json.success) {
-            localStorage.setItem('token', json.authToken);
-            // console.log("Logged in successfully");
-            router.push('/');
-            dispatch("login");
-          } else {
-            // console.log("Invalid Credentials");
-            errors.value = json.error || '';
-
-            if (json.errors) {
-              json.errors.forEach(error => {
-                errors.value[error.param] = error.msg;
-              });
-            }
+          if (json.errors) {
+            json.errors.forEach((error) => {
+              errors.value[error.param] = error.msg;
+            });
           }
-        } catch (error) {
-          console.error("Error:", error);
         }
-      };
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
 
-      const onChange = (e) => {
-        credentials.value = { ...credentials.value, [e.target.name]: e.target.value };
-      };
+    const onChange = (e) => {
+      credentials.value = { ...credentials.value, [e.target.name]: e.target.value };
+    };
 
-      onMounted(() => {
-        if (route.query && route.query.successMessage) {
-          successMessage.value = route.query.successMessage;
-        }
-      });
+    onMounted(() => {
+      if (route.query && route.query.successMessage) {
+        successMessage.value = route.query.successMessage;
+      }
+    });
 
-      return {
-        isLoading,
-        checked,
-        credentials,
-        successMessage,
-        errors,
-        handleSubmit,
-        onChange
-      };
-    },
-  });
+    return {
+      isLoading,
+      checked,
+      credentials,
+      successMessage,
+      errors,
+      handleSubmit,
+      onChange,
+    };
+  },
+});
 
-  export default SignIn;
-
+export default SignIn;
 </script>
-
-<style scoped>
-  .success-message {
-    color: green;
-    margin-bottom: 16px;
-  }
-  .error-message {
-    color: red;
-    margin-bottom: 16px;
-  }
-</style>
