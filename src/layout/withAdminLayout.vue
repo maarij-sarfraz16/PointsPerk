@@ -45,6 +45,10 @@
             <div class="ninjadash-navbar-menu d-flex align-center-v">
               <TopMenu v-if="topMenu && innerWidth > 991" />
             </div>
+
+            <!-- Dashboard Customization Button -->
+            <DashboardSideDrawer v-if="isHomeRoute" />
+            
             <div class="ninjadash-nav-actions">
               <TopMenuSearch v-if="topMenu && innerWidth > 991">
                 <div class="top-right-wrap d-flex">
@@ -167,7 +171,7 @@ import {
   TopMenuSearch,
 } from "./style";
 import HeaderSearch from "../components/header-search/HeaderSearch.vue";
-
+import DashboardSideDrawer from "../view/dashboard/overview/DashboardSideDrawer.vue";
 import AuthInfo from "../components/utilities/auth-info/info.vue";
 import AsideItems from "./Aside";
 import TopMenu from "./TopMenuItems";
@@ -175,6 +179,7 @@ import { PerfectScrollbar } from "vue3-perfect-scrollbar";
 import "vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css";
 import { computed, ref, defineComponent } from "vue";
 import { useStore } from "vuex";
+import { useRoute } from 'vue-router';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -195,6 +200,7 @@ export default defineComponent({
     AsideItems,
     TopMenu,
     PerfectScrollbar,
+    DashboardSideDrawer
   },
   setup() {
     const drawerState = ref({
@@ -214,6 +220,8 @@ export default defineComponent({
     const customizerAction = ref(false);
     const activeSearch = ref(false);
     const currentYear = ref(new Date().getFullYear());
+    const route = useRoute();
+    const isHomeRoute = computed(() => route.path === '/');
 
     // side drawer functionality
     provide("drawerState", drawerState);
@@ -323,6 +331,7 @@ export default defineComponent({
       currentYear,
       drawerState,
       updateDrawerState,
+      isHomeRoute
     };
   },
 });
