@@ -44,8 +44,13 @@ router.post('/uploadProfilePicture', fetchUser, upload.single('profilePicture'),
     // Delete existing profile picture from Cloudinary if it is not the default one
     if (userProfileData.profilePictureUrl && userProfileData.profilePictureUrl !== DEFAULT_PROFILE_PICTURE_URL) {
       const oldProfilePictureUrl = userProfileData.profilePictureUrl;
-      const oldProfilePicturePublicId = oldProfilePictureUrl.split('/').slice(-2).join('/').split('.')[0];
-      await cloudinary.uploader.destroy(oldProfilePicturePublicId);
+      
+      // Extract the filename and the file extension
+      const oldProfilePictureParts = oldProfilePictureUrl.split('/').pop().split('.');
+      // Ensure that the public ID is correctly formatted without URL encoding
+      const oldProfilePicturePublicId = decodeURIComponent(oldProfilePictureParts.slice(0, -1).join('.'));
+      
+      await cloudinary.uploader.destroy(`profile_pictures/${oldProfilePicturePublicId}`);
     }
 
     // Store the image URL in the user's profile
@@ -73,11 +78,16 @@ router.post('/deleteProfilePicture', fetchUser, async (req, res) => {
     // Delete existing profile picture from Cloudinary if it is not the default one
     if (userProfileData.profilePictureUrl && userProfileData.profilePictureUrl !== DEFAULT_PROFILE_PICTURE_URL) {
       const oldProfilePictureUrl = userProfileData.profilePictureUrl;
-      const oldProfilePicturePublicId = oldProfilePictureUrl.split('/').slice(-2).join('/').split('.')[0];
-      await cloudinary.uploader.destroy(oldProfilePicturePublicId);
+      
+      // Extract the filename and the file extension
+      const oldProfilePictureParts = oldProfilePictureUrl.split('/').pop().split('.');
+      // Ensure that the public ID is correctly formatted without URL encoding
+      const oldProfilePicturePublicId = decodeURIComponent(oldProfilePictureParts.slice(0, -1).join('.'));
+      
+      await cloudinary.uploader.destroy(`profile_pictures/${oldProfilePicturePublicId}`);
     }
 
-    // Store the image URL in the user's profile
+    // Update the user profilePictureUrl to the default one
     userProfileData.profilePictureUrl = DEFAULT_PROFILE_PICTURE_URL;
     await userProfileData.save();
 
