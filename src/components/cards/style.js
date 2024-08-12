@@ -349,6 +349,12 @@ const OverviewCard = Styled.div`
                 }
             }
 
+            &.ninjadash-overview-card-primary {
+                .ninjadash-overview-card__bottom {
+                    visibility: hidden;
+                }
+            }
+
             &.ninjadash-overview-card-secondary {
                 .ninjadash-overview-card__bottom {
                     visibility: hidden;

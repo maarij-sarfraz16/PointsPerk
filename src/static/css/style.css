@@ -467,6 +467,10 @@ ul {
   background: #8231D360 !important;
 }
 
+.ant-btn-secondary.ant-btn-sm.ant-btn-round {
+  box-shadow: 0 8px 15px #5840FF20 !important;
+}
+
 .btn-icon {
   padding: 0 13px;
 }

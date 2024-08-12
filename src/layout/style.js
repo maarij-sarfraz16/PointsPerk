@@ -153,6 +153,7 @@ const Div = Styled("div", props)`
             }
         }
         .ninjadash-header-content__right{
+            padding-left: 30px;
             flex: auto;
             svg{
                 fill: ${({ theme }) => theme[theme.mainContent]["light-text"]}};

@@ -24,14 +24,6 @@
           <span class="label">Id:</span>
           <a-input @change="handleIdSearch" placeholder="Search with Id" />
         </div>
-        <div class="ninjadash-datatable-filter__input">
-          <span class="label">Status:</span>
-          <a-select @change="handleStatusSearch" :style="{ width: 200 }" defaultValue="active">
-            <a-select-option value="active">Active</a-select-option>
-            <a-select-option value="deactiveted">Deactivated</a-select-option>
-            <a-select-option value="blocked">Blocked</a-select-option>
-          </a-select>
-        </div>
       </div>
 
       <div class="ninjadash-datatable-filter__right">

@@ -1,6 +1,5 @@
 <template>
   <InfoWraper>
-    <DashboardSideDrawer v-if="isHomeRoute" />
 
     <Notification />
 
@@ -94,8 +93,6 @@ import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { LogoutOutlined } from '@ant-design/icons-vue';
 import Notification from './Notification.vue';
-import { useRoute } from 'vue-router';
-import DashboardSideDrawer from '../../../view/dashboard/overview/DashboardSideDrawer.vue';
 
 const host = 'http://localhost:5000';
 const store = useStore();
@@ -103,9 +100,6 @@ const { push } = useRouter();
 const flag = ref('english');
 const userData = ref({ firstName: '' });
 const profilePicture = ref('');
-
-const route = useRoute();
-const isHomeRoute = computed(() => route.path === '/');
 
 onMounted(async () => {
   try {

@@ -3,12 +3,12 @@
         "id": "1",
         "type": "primary",
         "icon": "usd-circle",
-        "total": "5890",
+        "total": "0",
         "suffix": "$",
         "prefix": "",
         "label": "Revenue",
-        "growth": "downward",
-        "growthRate": "15.65",
+        "growth": "",
+        "growthRate": "",
         "dataPeriod": "Since Last Month",
         "decimal": 0
     },
@@ -16,21 +16,21 @@
         "id": "2",
         "type": "secondary",
         "icon": "star",
-        "total": "220",
+        "total": "0",
         "label": "Points"
     },
     {
         "id": "3",
         "type": "warning",
         "icon": "ticket",
-        "total": "18",
+        "total": "0",
         "label": "Coupons"
     },
     {
         "id": "4",
         "type": "info",
         "icon": "ticket",
-        "total": "1230",
+        "total": "0",
         "label": "Coupons Redeemed"
     }
 ]
