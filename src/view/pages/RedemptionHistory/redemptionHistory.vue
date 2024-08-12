@@ -54,11 +54,6 @@ const dataTableColumn = [
     dataIndex: 'date',
     key: 'date',
   },
-  {
-    title: 'Status',
-    dataIndex: 'status',
-    key: 'status',
-  },
 ];
 
 export default defineComponent({
