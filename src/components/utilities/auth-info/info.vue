@@ -1,6 +1,5 @@
 <template>
   <InfoWraper>
-
     <Notification />
 
     <div class="ninjadash-nav-actions__item ninjadash-nav-actions__language">
@@ -51,7 +50,7 @@
 
               <ul class="user-dropdown__links">
                 <li>
-                  <router-link to="/page/settings">
+                  <router-link to="/page/settings/profile">
                     <unicon name="setting"></unicon>
                     Settings
                   </router-link>
