@@ -1,10 +1,6 @@
 <template>
   <div>
-    <sdPageHeader
-      title="Dashboard"
-      class="ninjadash-page-header-main"
-      :routes="pageRoutes"
-    ></sdPageHeader>
+    <sdPageHeader title="Dashboard" class="ninjadash-page-header-main" :routes="pageRoutes"></sdPageHeader>
 
     <Main>
       <a-row justify="center" :gutter="25">
@@ -65,12 +61,7 @@
         </a-col>
 
         <!-- Points Earning Report Graph -->
-        <a-col
-          v-if="widgetsVisibility.pointsEarningReport"
-          :lg="12"
-          :xs="24"
-          :md="24"
-        >
+        <a-col v-if="widgetsVisibility.pointsEarningReport" :lg="12" :xs="24" :md="24">
           <Suspense>
             <template #fallback>
               <sdCards headless>
@@ -84,12 +75,7 @@
         </a-col>
 
         <!-- Latest Redemptions -->
-        <a-col
-          v-if="widgetsVisibility.latestRedemptions"
-          :lg="12"
-          :xs="24"
-          :md="24"
-        >
+        <a-col v-if="widgetsVisibility.latestRedemptions" :lg="12" :xs="24" :md="24">
           <Suspense>
             <template #fallback>
               <sdCards headless>
@@ -103,12 +89,7 @@
         </a-col>
 
         <!-- Sales By Location -->
-        <a-col
-          v-if="widgetsVisibility.salesByLocation"
-          :lg="12"
-          :xs="24"
-          :md="24"
-        >
+        <a-col v-if="widgetsVisibility.salesByLocation" :lg="12" :xs="24" :md="24">
           <Suspense>
             <template #fallback>
               <sdCards headless>
@@ -122,12 +103,7 @@
         </a-col>
 
         <!-- Top Selling Products -->
-        <a-col
-          v-if="widgetsVisibility.topSellingProducts"
-          :lg="12"
-          :xs="24"
-          :md="24"
-        >
+        <a-col v-if="widgetsVisibility.topSellingProducts" :lg="12" :xs="24" :md="24">
           <Suspense>
             <template #fallback>
               <sdCards headless>
@@ -169,12 +145,7 @@
         </a-col>
 
         <!-- Upcoming Events -->
-        <a-col
-          v-if="widgetsVisibility.upcomingEvents"
-          :lg="12"
-          :xs="24"
-          :md="24"
-        >
+        <a-col v-if="widgetsVisibility.upcomingEvents" :lg="12" :xs="24" :md="24">
           <Suspense>
             <template #fallback>
               <sdCards headless>
@@ -202,12 +173,7 @@
         </a-col>
 
         <!-- Agency Members List -->
-        <a-col
-          v-if="widgetsVisibility.agencyMembers"
-          :lg="12"
-          :xs="24"
-          :md="24"
-        >
+        <a-col v-if="widgetsVisibility.agencyMembers" :lg="12" :xs="24" :md="24">
           <Suspense>
             <template #fallback>
               <sdCards headless>
@@ -226,40 +192,34 @@
 
 <script>
 // import CsvFileComponent from "./overview/CsvFileComponent.vue";
-import { onMounted, ref, computed } from "vue";
-import { useStore } from "vuex";
-import { Main } from "../styled";
-import { defineComponent, defineAsyncComponent } from "vue";
-import { PageHeaderBanner } from "@/components/banners/Banners.vue";
-import SalesSheet from "@/view/dashboard/overview/SalesSheet.vue";
-import DashboardTools from "./overview/DashboardTools.vue";
-import LatestRedemptions from "./overview/LatestRedemptions.vue";
-import PointsEarning from "./overview/PointsEarning.vue";
-import Index from "./overview/kanban/Index.vue";
-import UpcomingEvents from "./overview/UpcomingEvents.vue";
-import ToDo from "@/view/apps/todo/Todo.vue";
-import ProfileCard from "@/components/cards/ProfileCard.vue";
-import TeamList from "./overview/TeamList.vue";
+import { onMounted, ref, computed } from 'vue';
+import { useStore } from 'vuex';
+import { Main } from '../styled';
+import { defineComponent, defineAsyncComponent } from 'vue';
+import { PageHeaderBanner } from '@/components/banners/Banners.vue';
+import DashboardTools from './overview/DashboardTools.vue';
+import LatestRedemptions from './overview/LatestRedemptions.vue';
+import PointsEarning from './overview/PointsEarning.vue';
+import Index from './overview/kanban/Index.vue';
+import UpcomingEvents from './overview/UpcomingEvents.vue';
+import ToDo from '@/view/apps/todo/Todo.vue';
+import ProfileCard from '@/components/cards/ProfileCard.vue';
+import TeamList from './overview/TeamList.vue';
+import SalesSheet from './overview/SalesSheet.vue';
 
-const SalesByLocation = defineAsyncComponent(() =>
-  import("./overview/SalesByLocation.vue")
-);
-const TopSellingProduct = defineAsyncComponent(() =>
-  import("./overview/TopSellingProduct.vue")
-);
-const OverviewDataList = defineAsyncComponent(() =>
-  import("./overview/OverviewDataList.vue")
-);
+const SalesByLocation = defineAsyncComponent(() => import('./overview/SalesByLocation.vue'));
+const TopSellingProduct = defineAsyncComponent(() => import('./overview/TopSellingProduct.vue'));
+const OverviewDataList = defineAsyncComponent(() => import('./overview/OverviewDataList.vue'));
 
 const pageRoutes = [
   {
-    path: "/",
-    breadcrumbName: "Dashboard",
+    path: '/',
+    breadcrumbName: 'Dashboard',
   },
 ];
 
 export default defineComponent({
-  name: "Dashboard",
+  name: 'Dashboard',
   components: {
     Main,
     OverviewDataList,
@@ -277,36 +237,31 @@ export default defineComponent({
     TeamList,
   },
   setup() {
-    const host = "http://localhost:5000";
-    const userData = ref({ firstName: "", lastName: "" });
+    const host = 'http://localhost:5000';
+    const userData = ref({ firstName: '', lastName: '' });
     const salesData = ref([]);
 
     const store = useStore();
-    const widgetsVisibility = computed(
-      () => store.getters["dashboard/widgetsVisibility"]
-    );
+    const widgetsVisibility = computed(() => store.getters['dashboard/widgetsVisibility']);
 
     onMounted(async () => {
       try {
-        const response = await fetch(
-          `${host}/api/get-data/user/user-data/fetchData`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              "auth-token": localStorage.getItem("token"),
-            },
-          }
-        );
+        const response = await fetch(`${host}/api/get-data/user/user-data/fetchData`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('token'),
+          },
+        });
 
         const json = await response.json();
         if (response.ok) {
           userData.value = json.user;
         } else {
-          console.error("Failed to fetch user data:", json);
+          console.error('Failed to fetch user data:', json);
         }
       } catch (error) {
-        console.error("Error fetching user data:", error);
+        console.error('Error fetching user data:', error);
       }
     });
 

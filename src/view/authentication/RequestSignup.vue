@@ -21,7 +21,9 @@
             </a-form-item>
 
             <a-form-item>
-              <sdButton class="btn-reset" htmlType="submit" type="primary" size="lg"> Request Signup Link </sdButton>
+              <sdButton :disabled="isLoading" class="btn-reset" htmlType="submit" type="primary" size="lg">
+                {{ isLoading ? 'Loading...' : 'Request Signup Link' }}
+              </sdButton>
             </a-form-item>
 
             <p class="return-text">Return to <router-link to="/auth/login">Sign In</router-link></p>
@@ -35,12 +37,16 @@
 <script>
 import MessageDisplay from './overview/MessageDisplay.vue';
 import { AuthWrapper } from './style';
-import { ref, defineComponent } from 'vue';
+import { ref, defineComponent, computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
 
 const RequestSignup = defineComponent({
   name: 'RequestSignup',
   components: { AuthWrapper, MessageDisplay },
   setup() {
+    const { state } = useStore();
+    const isLoading = computed(() => state.auth.loading);
+
     const host = 'http://localhost:5000';
     const credentials = ref({ email: '' });
     const successMessage = ref('');
@@ -50,6 +56,7 @@ const RequestSignup = defineComponent({
       successMessage.value = '';
       errors.value = '';
 
+      state.auth.loading = true;
       try {
         const response = await fetch(`${host}/api/auth/user/signup/requestSignup`, {
           method: 'POST',
@@ -61,6 +68,7 @@ const RequestSignup = defineComponent({
 
         const json = await response.json();
         if (response.ok) {
+          state.auth.loading = false;
           successMessage.value = json.message;
         } else {
           errors.value = json.error;
@@ -70,9 +78,9 @@ const RequestSignup = defineComponent({
               errors.value[error.param] = error.msg;
             });
           }
+          state.auth.loading = false;
         }
       } catch (error) {
-        // console.error("Error:", error);
         errors.value = error;
       }
     };
@@ -83,8 +91,11 @@ const RequestSignup = defineComponent({
         [e.target.name]: e.target.value,
       };
     };
-
+    onMounted(() => {
+      state.auth.loading = false;
+    });
     return {
+      isLoading,
       credentials,
       successMessage,
       errors,

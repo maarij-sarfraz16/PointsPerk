@@ -10,10 +10,10 @@
         </div>
         <div class="ninjadash-authentication-content">
           <!-- Display Success Message After New User Creation -->
-          <MessageDisplay v-if="successMessage" :message="successMessage" type="success" />
+          <!-- <MessageDisplay v-if="successMessage" :message="successMessage" type="success" /> -->
 
           <!-- Display Errors -->
-          <MessageDisplay v-if="errors" :message="errors" type="error" />
+          <!-- <MessageDisplay v-if="errors" :message="errors" type="error" /> -->
           <a-form @submit.prevent="handleSubmit" layout="vertical">
             <a-form-item name="email" label="Email">
               <a-input type="email" v-model:value="credentials.email" placeholder="name@example.com" required />
@@ -29,7 +29,7 @@
             </div>
 
             <a-form-item>
-              <sdButton class="btn-signin" htmlType="submit" type="primary">
+              <sdButton :disabled="isLoading" class="btn-signin" htmlType="submit" type="primary">
                 {{ isLoading ? 'Loading...' : 'Sign In' }}
               </sdButton>
             </a-form-item>
@@ -64,11 +64,10 @@ import { computed, ref, defineComponent, onMounted, watch } from 'vue';
 import { useStore } from 'vuex';
 import { AuthWrapper } from './style';
 import { useRouter, useRoute } from 'vue-router';
-import MessageDisplay from './overview/MessageDisplay.vue';
 import Alerts from '../../components/alerts/Alerts.vue';
 const SignIn = defineComponent({
   name: 'SignIn',
-  components: { AuthWrapper, MessageDisplay, Alerts },
+  components: { AuthWrapper, Alerts },
   setup() {
     const { state, dispatch } = useStore();
     const isLoading = computed(() => state.auth.loading);
@@ -91,20 +90,11 @@ const SignIn = defineComponent({
       isOnline.value = navigator.onLine;
     });
 
-    const connectionLost = computed(() => !isOnline.value);
-
-    watch(connectionLost, (newValue) => {
-      showAlert.value = true;
-
-      if (newValue) {
-        alertMessage.value = 'Internet Connection Lost';
-        alertType.value = 'error';
+    watch(isOnline, (onlineStatus) => {
+      if (onlineStatus) {
+        showAlertMessage('Internet Connection Active', 'success');
       } else {
-        alertMessage.value = 'Internet Connection Active';
-        alertType.value = 'success';
-        setTimeout(() => {
-          showAlert.value = false;
-        }, 2000);
+        showAlertMessage('Internet Connection Lost', 'error');
       }
     });
 
@@ -112,8 +102,7 @@ const SignIn = defineComponent({
     const route = useRoute();
 
     const handleSubmit = async () => {
-      successMessage.value = '';
-      errors.value = '';
+      state.auth.loading = true;
 
       try {
         const response = await fetch(`${host}/api/auth/user/login`, {
@@ -125,14 +114,22 @@ const SignIn = defineComponent({
         });
 
         const json = await response.json();
+
         if (json.success) {
           localStorage.setItem('token', json.authToken);
-          // console.log("Logged in successfully");
-          router.push('/');
-          dispatch('login');
+
+          showAlertMessage('Logged In Successfully', 'success');
+
+          setTimeout(() => {
+            router.push('/');
+            dispatch('login');
+            state.auth.loading = false;
+          }, 1000);
         } else {
-          // console.log("Invalid Credentials");
           errors.value = json.error || '';
+
+          showAlertMessage(errors.value, 'error');
+          state.auth.loading = false;
 
           if (json.errors) {
             json.errors.forEach((error) => {
@@ -150,12 +147,26 @@ const SignIn = defineComponent({
     };
 
     onMounted(() => {
+      state.auth.loading = false;
       if (route.query && route.query.successMessage) {
         successMessage.value = route.query.successMessage;
       }
     });
 
+    const showAlertMessage = (message, type = 'error', duration = 2000) => {
+      alertMessage.value = message;
+      alertType.value = type;
+      showAlert.value = true;
+
+      if (duration) {
+        setTimeout(() => {
+          showAlert.value = false;
+        }, duration);
+      }
+    };
+
     return {
+      showAlertMessage,
       isLoading,
       checked,
       credentials,
