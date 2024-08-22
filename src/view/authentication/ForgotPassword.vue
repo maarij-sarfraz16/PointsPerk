@@ -22,7 +22,9 @@
               <a-input type="email" v-model:value="credentials.email" placeholder="name@example.com" />
             </a-form-item>
             <a-form-item>
-              <sdButton class="btn-forget" htmlType="submit" type="primary" size="lg"> Reset Password </sdButton>
+              <sdButton :disabled="isLoading" class="btn-forget" htmlType="submit" type="primary" size="lg">
+                Reset Password
+              </sdButton>
             </a-form-item>
 
             <p class="return-text">Return to <router-link to="/auth/login">Sign In</router-link></p>
@@ -36,12 +38,16 @@
 <script>
 import MessageDisplay from './overview/MessageDisplay.vue';
 import { AuthWrapper } from './style';
-import { ref, defineComponent } from 'vue';
+import { ref, defineComponent, computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
 
 const ForgotPassword = defineComponent({
   name: 'ForgotPassword',
   components: { AuthWrapper, MessageDisplay },
   setup() {
+    const { state } = useStore();
+    const isLoading = computed(() => state.auth.loading);
+
     const host = 'http://localhost:5000';
     const credentials = ref({ email: '' });
     const successMessage = ref('');
@@ -50,6 +56,7 @@ const ForgotPassword = defineComponent({
     const handleSubmit = async () => {
       errors.value = '';
       successMessage.value = '';
+      state.auth.loading = true;
 
       try {
         const response = await fetch(`${host}/api/auth/user/password-reset/requestReset`, {
@@ -62,6 +69,7 @@ const ForgotPassword = defineComponent({
 
         const json = await response.json();
         if (response.ok) {
+          state.auth.loading = false;
           errors.value = '';
           successMessage.value = json.message || '';
         } else {
@@ -76,6 +84,8 @@ const ForgotPassword = defineComponent({
         }
       } catch (error) {
         // console.error("Error:", error);
+        state.auth.loading = false;
+
         errors.value = error;
       }
     };
@@ -83,8 +93,11 @@ const ForgotPassword = defineComponent({
     const onChange = (e) => {
       credentials.value = { ...credentials.value, [e.target.name]: e.target.value };
     };
-
+    onMounted(() => {
+      state.auth.loading = false;
+    });
     return {
+      isLoading,
       credentials,
       successMessage,
       errors,
