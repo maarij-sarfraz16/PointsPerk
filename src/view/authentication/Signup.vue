@@ -70,7 +70,9 @@
               </div>
 
               <a-form-item>
-                <sdButton class="btn-create" htmlType="submit" type="primary" size="lg"> Create Account </sdButton>
+                <sdButton :disabled="isLoading" class="btn-create" htmlType="submit" type="primary">
+                  {{ isLoading ? 'Loading...' : 'Create Account' }}
+                </sdButton>
               </a-form-item>
 
               <!-- <p class="ninjadash-form-divider"><span>Or</span></p>
@@ -103,7 +105,8 @@
 
 <script>
 import { AuthWrapper } from './style';
-import { ref, defineComponent, onMounted } from 'vue';
+import { ref, defineComponent, onMounted, computed } from 'vue';
+import { useStore } from 'vuex';
 import { useRouter, useRoute } from 'vue-router';
 import MessageDisplay from './overview/MessageDisplay.vue';
 
@@ -122,14 +125,18 @@ const SignUp = defineComponent({
       password: '',
       country: '',
     });
+
     const errors = ref('');
     const router = useRouter();
     const route = useRoute();
     const tokenValid = ref(false);
+    const { state } = useStore();
+    const isLoading = computed(() => state.auth.loading);
 
     onMounted(async () => {
       errors.value = '';
       const token = route.query.token;
+      state.auth.loading = false;
 
       if (!token) {
         errors.value = 'No token provided';
@@ -152,13 +159,13 @@ const SignUp = defineComponent({
           errors.value = json.error || '';
         }
       } catch (error) {
-        // console.error('Error:', error);
         errors.value = error;
       }
     });
 
     const handleSubmit = async () => {
       errors.value = '';
+      state.auth.loading = true;
 
       try {
         const token = credentials.value.token;
@@ -181,15 +188,14 @@ const SignUp = defineComponent({
 
         const json = await response.json();
         if (json.success) {
-          // localStorage.setItem('token', json.authToken);
-          // console.log("User created successfully");
           router.push({
             path: '/auth/login',
             query: { successMessage: 'User created successfully. Please log in.' },
           });
+          state.auth.loading = true;
         } else {
-          // console.log("Invalid Details");
           errors.value = json.error;
+          state.auth.loading = false;
 
           if (json.errors) {
             json.errors.forEach((error) => {
@@ -198,8 +204,8 @@ const SignUp = defineComponent({
           }
         }
       } catch (error) {
-        // console.error("Error:", error);
         errors.value = error;
+        state.auth.loading = false;
       }
     };
 
@@ -213,6 +219,7 @@ const SignUp = defineComponent({
       errors,
       handleSubmit,
       onChange,
+      isLoading
     };
   },
 });

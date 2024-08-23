@@ -55,8 +55,8 @@ const RequestSignup = defineComponent({
     const handleSubmit = async () => {
       successMessage.value = '';
       errors.value = '';
-
       state.auth.loading = true;
+
       try {
         const response = await fetch(`${host}/api/auth/user/signup/requestSignup`, {
           method: 'POST',
@@ -68,20 +68,21 @@ const RequestSignup = defineComponent({
 
         const json = await response.json();
         if (response.ok) {
-          state.auth.loading = false;
           successMessage.value = json.message;
+          state.auth.loading = false;
         } else {
           errors.value = json.error;
+          state.auth.loading = false;
 
           if (json.errors) {
             json.errors.forEach((error) => {
               errors.value[error.param] = error.msg;
             });
           }
-          state.auth.loading = false;
         }
       } catch (error) {
-        errors.value = error;
+        errors.value = error || '';
+        state.auth.loading = false;
       }
     };
 
@@ -91,9 +92,11 @@ const RequestSignup = defineComponent({
         [e.target.name]: e.target.value,
       };
     };
+
     onMounted(() => {
       state.auth.loading = false;
     });
+
     return {
       isLoading,
       credentials,

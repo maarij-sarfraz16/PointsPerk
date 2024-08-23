@@ -48,7 +48,9 @@
             </a-form-item>
 
             <div class="setting-form-actions">
-              <sdButton size="default" htmlType="submit" type="primary"> Update Profile </sdButton>
+              <sdButton :disabled="isLoading" size="default" htmlType="submit" type="primary">
+                  {{ isLoading ? 'Loading...' : 'Update Profile' }}
+              </sdButton>
             </div>
           </a-form>
         </BasicFormWrapper>
@@ -60,7 +62,8 @@
 <script>
 import MessageDisplay from '@/view/authentication/overview/MessageDisplay.vue';
 import { BasicFormWrapper } from '../../../styled';
-import { defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, onMounted, ref, computed } from 'vue';
+import { useStore } from 'vuex';
 
 const Profile = defineComponent({
   name: 'Profile',
@@ -72,8 +75,12 @@ const Profile = defineComponent({
     const credentials = ref({ contactNumber: '' });
     const successMessage = ref('');
     const errors = ref('');
+    const { state } = useStore();
+    const isLoading = computed(() => state.auth.loading);
 
     onMounted(async () => {
+      state.auth.loading = false;
+
       try {
         const response = await fetch(`${host}/api/get-data/user/user-data/fetchData`, {
           method: 'GET',
@@ -99,9 +106,11 @@ const Profile = defineComponent({
     const handleSubmit = async () => {
       successMessage.value = '';
       errors.value = '';
+      state.auth.loading = true;
 
       if (credentials.value.contactNumber === userData.value.contactNumber) {
         errors.value = 'Contact number is the same as before. No changes made.';
+        state.auth.loading = false;
         return;
       }
 
@@ -118,9 +127,11 @@ const Profile = defineComponent({
         const json = await response.json();
         if (json.success) {
           successMessage.value = 'Updated!';
+          state.auth.loading = false;
           userData.value.contactNumber = credentials.value.contactNumber;
         } else {
           errors.value = json.error;
+          state.auth.loading = false;
           if (json.errors) {
             json.errors.forEach((error) => {
               errors.value[error.param] = error.msg;
@@ -129,6 +140,7 @@ const Profile = defineComponent({
         }
       } catch (error) {
         errors.value = error;
+        state.auth.loading = false;
       }
     };
 
@@ -143,6 +155,7 @@ const Profile = defineComponent({
       errors,
       handleSubmit,
       onChange,
+      isLoading
     };
   },
 });
