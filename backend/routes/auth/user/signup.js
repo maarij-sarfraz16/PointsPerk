@@ -87,8 +87,7 @@ The Points Perk Team`
     });
 
   } catch (error) {
-    // console.error(error.message);
-    res.status(500).send('Server Error');
+    res.status(500).json({error: 'Internal Server Error'});
   }
 
 });

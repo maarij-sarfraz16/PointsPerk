@@ -2,16 +2,19 @@
   <a-row justify="center">
     <a-col :xxl="6" :xl="12" :md="12" :sm="18">
       <AuthWrapper class="basic-form-inner theme-light">
+
         <div class="ninjadash-authentication-top">
           <h2 class="ninjadash-authentication-top__title">Reset Account Password</h2>
         </div>
 
         <div class="ninjadash-authentication-content">
+
           <!-- Display Success Message After New User Creation -->
           <MessageDisplay v-if="successMessage" type="success" :message="successMessage" />
 
           <!-- Display Errors -->
           <MessageDisplay v-if="errors" type="error" :message="errors" />
+
           <div v-if="tokenValid">
             <a-form @submit.prevent="handleSubmit" layout="vertical">
               <a-form-item label="New Password" name="new-password">
@@ -35,7 +38,9 @@
               </a-form-item>
 
               <a-form-item>
-                <sdButton class="btn-reset" htmlType="submit" type="primary" size="lg"> Reset Password </sdButton>
+                <sdButton :disabled="isLoading" class="btn-reset" htmlType="submit" type="primary" size="lg">
+                  {{ isLoading ? 'Loading...' : 'Reset Password' }}
+                </sdButton>
               </a-form-item>
             </a-form>
           </div>
@@ -51,7 +56,8 @@
 
 <script>
 import { AuthWrapper } from './style';
-import { ref, defineComponent, onMounted } from 'vue';
+import { ref, defineComponent, onMounted, computed } from 'vue';
+import { useStore } from 'vuex';
 import { useRouter, useRoute } from 'vue-router';
 import MessageDisplay from './overview/MessageDisplay.vue';
 
@@ -65,10 +71,13 @@ const ResetPassword = defineComponent({
     const router = useRouter();
     const route = useRoute();
     const tokenValid = ref(false);
+    const { state } = useStore();
+    const isLoading = computed(() => state.auth.loading);
 
     onMounted(async () => {
       errors.value = '';
       const token = route.query.token;
+      state.auth.loading = false;
 
       if (!token) {
         errors.value = 'No token provided';
@@ -98,6 +107,7 @@ const ResetPassword = defineComponent({
 
     const handleSubmit = async () => {
       errors.value = '';
+      state.auth.loading = true;
 
       try {
         const token = route.query.token;
@@ -124,8 +134,10 @@ const ResetPassword = defineComponent({
             path: '/auth/login',
             query: { successMessage: 'Password reset successfully. Please log in.' },
           });
+          state.auth.loading = true;
         } else {
           errors.value = json.error;
+          state.auth.loading = false;
           if (json.errors) {
             json.errors.forEach((error) => {
               errors.value[error.param] = error.msg;
@@ -134,6 +146,7 @@ const ResetPassword = defineComponent({
         }
       } catch (error) {
         errors.value = error;
+        state.auth.loading = false;
       }
     };
 
@@ -147,6 +160,7 @@ const ResetPassword = defineComponent({
       errors,
       handleSubmit,
       onChange,
+      isLoading
     };
   },
 });

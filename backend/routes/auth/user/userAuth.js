@@ -38,6 +38,19 @@ router.post('/createUser', [
   }
   
   try {
+
+    // Check if the token is valid
+    let signupToken = await SignupToken.findOne({ token });
+    if (!signupToken) {
+      return res.status(400).json({ success, error: 'Invalid or expired token' });
+    }
+
+    // Check whether the email address is same to which the signup link was sent to
+    signupToken = await SignupToken.findOne({ email: req.body.email });
+    if (!signupToken) {
+      return res.status(400).json({success, error: "Sorry, signup link was not sent to this email address"});
+    }
+
     // Check whether a user with an email already exists
     let user = await User.findOne({email: req.body.email});
     if (user) {
@@ -48,12 +61,6 @@ router.post('/createUser', [
     user = await User.findOne({contactNumber: req.body.contactNumber});
     if (user) {
       return res.status(400).json({success, error: "Sorry, a user with this contact number already exists"});
-    }
-
-    // Check if the token is valid
-    const signupToken = await SignupToken.findOne({ token });
-    if (!signupToken) {
-      return res.status(400).json({ success, error: 'Invalid or expired token' });
     }
 
     const salt = await bcrypt.genSalt(10);

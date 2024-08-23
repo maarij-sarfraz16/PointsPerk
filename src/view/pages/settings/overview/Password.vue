@@ -46,7 +46,9 @@
               </a-form-item>
               <a-form-item>
                 <div class="setting-form-actions">
-                  <sdButton htmlType="submit" type="primary"> Change Password </sdButton>
+                  <sdButton :disabled="isLoading" htmlType="submit" type="primary">
+                    {{ isLoading ? 'Loading...' : 'Change Password' }}
+                  </sdButton>
                 </div>
               </a-form-item>
             </a-form>
@@ -60,7 +62,8 @@
 <script>
 import { ChangePasswordWrapper } from './style';
 import { BasicFormWrapper } from '../../../styled';
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, onMounted, computed } from 'vue';
+import { useStore } from 'vuex';
 import MessageDisplay from '@/view/authentication/overview/MessageDisplay.vue';
 
 const Password = defineComponent({
@@ -72,10 +75,13 @@ const Password = defineComponent({
     const credentials = ref({ newPassword: '', confirmNewPassword: '' });
     const successMessage = ref('');
     const errors = ref('');
+    const { state } = useStore();
+    const isLoading = computed(() => state.auth.loading);
 
     const handleSubmit = async () => {
       successMessage.value = '';
       errors.value = '';
+      state.auth.loading = true;
 
       try {
         const response = await fetch(`${host}/api/auth/user/update-user/updatePassword`, {
@@ -90,8 +96,10 @@ const Password = defineComponent({
         const json = await response.json();
         if (json.success) {
           successMessage.value = 'Password reset successfully!';
+          state.auth.loading = false;
         } else {
           errors.value = json.error;
+          state.auth.loading = false;
           if (json.errors) {
             json.errors.forEach((error) => {
               errors.value[error.param] = error.msg;
@@ -100,6 +108,7 @@ const Password = defineComponent({
         }
       } catch (error) {
         errors.value = error;
+        state.auth.loading = false;
       }
     };
 
@@ -107,12 +116,17 @@ const Password = defineComponent({
       credentials.value = { ...credentials.value, [e.target.name]: e.target.value };
     };
 
+    onMounted(() => {
+      state.auth.loading = false;
+    });
+
     return {
       credentials,
       successMessage,
       errors,
       handleSubmit,
       onChange,
+      isLoading
     };
   },
 });

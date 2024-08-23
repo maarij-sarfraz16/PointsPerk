@@ -23,7 +23,7 @@
             </a-form-item>
             <a-form-item>
               <sdButton :disabled="isLoading" class="btn-forget" htmlType="submit" type="primary" size="lg">
-                Reset Password
+                {{ isLoading ? 'Loading...' : 'Reset Password' }}
               </sdButton>
             </a-form-item>
 
@@ -69,12 +69,11 @@ const ForgotPassword = defineComponent({
 
         const json = await response.json();
         if (response.ok) {
-          state.auth.loading = false;
-          errors.value = '';
           successMessage.value = json.message || '';
+          state.auth.loading = false;
         } else {
-          successMessage.value = '';
           errors.value = json.error || '';
+          state.auth.loading = false;
 
           if (json.errors) {
             json.errors.forEach((error) => {
@@ -83,19 +82,19 @@ const ForgotPassword = defineComponent({
           }
         }
       } catch (error) {
-        // console.error("Error:", error);
-        state.auth.loading = false;
-
         errors.value = error;
+        state.auth.loading = false;
       }
     };
 
     const onChange = (e) => {
       credentials.value = { ...credentials.value, [e.target.name]: e.target.value };
     };
+
     onMounted(() => {
       state.auth.loading = false;
     });
+    
     return {
       isLoading,
       credentials,

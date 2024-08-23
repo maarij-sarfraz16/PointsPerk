@@ -28,7 +28,9 @@
                         <p>Delete Your Account and Account data</p>
                       </a-col>
                       <a-col :lg="6" :md="24" :sm="6" :xs="24">
-                        <sdButton htmlType="submit" size="sm" type="danger"> Close Account </sdButton>
+                        <sdButton :disabled="isLoading" htmlType="submit" size="sm" type="danger">
+                          {{ isLoading ? 'Loading...' : 'Close Account' }}
+                        </sdButton>
                       </a-col>
                     </a-row>
                   </div>
@@ -45,7 +47,7 @@
 <script>
 import { AccountWrapper } from "./style";
 import { BasicFormWrapper } from "../../../styled";
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, onMounted, computed } from "vue";
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import MessageDisplay from '@/view/authentication/overview/MessageDisplay.vue';
@@ -60,10 +62,13 @@ const Account = defineComponent({
     const errors = ref('');
     const store = useStore();
     const { push } = useRouter();
+    const { state } = useStore();
+    const isLoading = computed(() => state.auth.loading);
 
     const handleSubmit = async () => {
       successMessage.value = '';
       errors.value = '';
+      state.auth.loading = true;
 
       try {
         const response = await fetch(`${host}/api/auth/user/delete-user/delete`, {
@@ -77,6 +82,7 @@ const Account = defineComponent({
           const json = await response.json();
           if (json.success) {
             successMessage.value = 'User deleted successfully!';
+            state.auth.loading = false;
             await new Promise(resolve => setTimeout(resolve, 2000));
             localStorage.removeItem('token');
             push('/auth/login');
@@ -84,6 +90,7 @@ const Account = defineComponent({
             localStorage.removeItem('token');
           } else {
             errors.value = json.error;
+            state.auth.loading = false;
             if (json.errors) {
               json.errors.forEach(error => {
                 errors.value[error.param] = error.msg;
@@ -92,13 +99,19 @@ const Account = defineComponent({
           }
         } catch (error) {
           errors.value = error;
+          state.auth.loading = false;
         }
       };
+
+      onMounted(() => {
+      state.auth.loading = false;
+    });
 
     return {
       handleSubmit,
       successMessage,
       errors,
+      isLoading
     };
   },
 });

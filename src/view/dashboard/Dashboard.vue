@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <sdPageHeader title="Dashboard" class="ninjadash-page-header-main" :routes="pageRoutes"></sdPageHeader>
 
     <Main>
@@ -32,7 +33,7 @@
           </Suspense>
         </a-col>
 
-        <!-- Customize Dashboard -->
+        <!-- Sales Sheet Upload -->
         <a-col :xl="6" :lg="24" :md="24" :sm="24" :xs="24">
           <Suspense>
             <template #fallback>
@@ -55,7 +56,7 @@
               </sdCards>
             </template>
             <template #default>
-              <SalesSheet :data="salesData" />
+              <SalesSheet :data="salesData"/>
             </template>
           </Suspense>
         </a-col>
@@ -191,7 +192,6 @@
 </template>
 
 <script>
-// import CsvFileComponent from "./overview/CsvFileComponent.vue";
 import { onMounted, ref, computed } from 'vue';
 import { useStore } from 'vuex';
 import { Main } from '../styled';
