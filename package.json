@@ -1,7 +1,11 @@
 {
-  "name": "hexadash-vue",
-  "version": "1.2.0",
+  "name": "points-perk",
+  "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "backend",
+    "src"
+  ],
   "posthtml": {
     "recognizeSelfClosing": true
   },
