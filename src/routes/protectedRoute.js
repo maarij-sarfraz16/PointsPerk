@@ -4,6 +4,12 @@ import authRoutes from './authRoutes';
 import store from '@/vuex/store';
 
 const routes = [
+  // {
+  //   name: 'LandingPage',
+  //   path: '/',
+  //   component: () => import(/* webpackChunkName: "landing" */ '@/view/pages/LandingPage.vue'),
+  //   meta: { auth: false },
+  // },
   {
     name: 'Admin',
     path: '/',

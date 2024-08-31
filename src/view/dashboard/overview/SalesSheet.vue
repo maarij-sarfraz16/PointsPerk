@@ -23,7 +23,7 @@ F
 
 <script>
 import { defineComponent, toRefs, computed } from 'vue';
-import DataTables from '@/view/table/DataTable.vue';
+import DataTables from '../../../components/view-table/DataTable.vue';
 
 export default defineComponent({
   name: 'SalesSheet',

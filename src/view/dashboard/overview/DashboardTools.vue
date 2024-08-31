@@ -19,7 +19,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import BasicUpload from "@/view/uiElements/upload/Basic.vue";
+import BasicUpload from "../../../components/upload/Basic.vue";
 
 export default defineComponent({
   name: "DashboardTools",
