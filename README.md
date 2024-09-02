@@ -1,24 +1,9 @@
-# HexaDash-vue
+# Points Perk
 
-## Project setup
-```
-npm install
-```
+### Loyalty Program - SaaS Development
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+In a Loyalty Program, companies can offer points or benefits to customers. In return, customers redeem points for discounts, free products, rewards, or insider perks. The goal is to motivate repeat purchases and build trust between customers and businesses.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Technology Stack
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Our Loyalty Program SaaS solution is built using the MEVN technology stack.
