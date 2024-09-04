@@ -24,7 +24,7 @@ import {
   BubbleChart,
 } from '../../components/charts/googleChart.vue';
 
-import { ChartContainer } from '../../view/dashboard/style';
+import { ChartContainer } from '../../view/userView/dashboard/style';
 import Cascader from '../../components/cascader/Cascader';
 import Heading from '../../components/heading/Heading';
 import AutoComplete from '../../components/autoComplete/autoComplete';

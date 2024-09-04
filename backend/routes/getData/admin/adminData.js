@@ -5,17 +5,17 @@ const Admin = require('../../../models/Admin');
 const fetchAdmin = require('../../../middleware/fetchAdmin');
 
 
-// ROUTE 1: Get loggedIn admin details using POST "/api/getData/admin/adminData/fetchData"
+// ROUTE 1: Get loggedIn admin details using GET "/api/getData/admin/adminData/fetchData"
 
-router.post('/fetchData', fetchAdmin, async (req, res) => {
+router.get('/fetchData', fetchAdmin, async (req, res) => {
 
   try {
     adminId = req.admin.id;
     const admin = await Admin.findById(adminId).select('-password');
-    res.send(admin);
+    res.json(admin);
   } catch(err) {
     // console.log(err);
-    res.status(400),json({error: 'Internal Server Error'});
+    res.status(400).json({error: 'Internal Server Error'});
   }
 
 });

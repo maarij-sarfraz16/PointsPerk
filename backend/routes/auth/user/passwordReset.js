@@ -65,7 +65,7 @@ router.post('/requestReset', [
 
 We received a request to reset the password for your Points Perk account. Click the link below to reset your password:
 
-http://localhost:8080/auth/resetpassword?token=${token}
+http://localhost:8080/user/resetpassword?token=${token}
 
 This link will expire in 1 hour. If you did not request a password reset, please ignore this email or contact our support team if you have any concerns.
 

@@ -61,7 +61,7 @@ router.post('/requestSignup', [
 
 Welcome to Points Perk! To complete your registration and activate your account, please click the link below:
 
-http://localhost:8080/auth/register?token=${token}
+http://localhost:8080/user/register?token=${token}
 
 This link will expire in 1 hour. If you did not request to sign up for Points Perk, please ignore this email.
 

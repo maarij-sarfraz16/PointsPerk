@@ -142,7 +142,7 @@ const DragAndDropTable = defineAsyncComponent(() => import("./DragTable"));
 const BasicTable = defineAsyncComponent(() => import("./overview/BasicTable"));
 
 const TopSellingProduct = defineAsyncComponent(() =>
-  import("@/view/dashboard/overview/TopSellingProduct.vue")
+  import("@/view/userView/dashboard/overview/TopSellingProduct.vue")
 );
 
 export default defineComponent({
