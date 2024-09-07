@@ -1,12 +1,12 @@
-const connectToMongo = require("./config/dbConfig");
-const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv");
-
 // Loading environment variables from .env file
+const dotenv = require("dotenv");
 dotenv.config();
 
+const connectToMongo = require("./config/dbConfig");
 connectToMongo();
+
+const express = require("express");
+const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 5000;
