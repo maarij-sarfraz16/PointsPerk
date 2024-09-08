@@ -7,7 +7,7 @@ const fetchUser = require('../../../middleware/fetchUser');
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'points-perk';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 
 // Update a user using POST "api/auth/user/updateUser/update"

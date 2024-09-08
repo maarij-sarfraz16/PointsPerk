@@ -10,7 +10,7 @@ const nodemailer = require('nodemailer');
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'points-perk';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 
 ///////////  RESET PASSWORD  ///////////
