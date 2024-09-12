@@ -18,8 +18,8 @@
           </Suspense>
         </a-col>
       </a-row>
+      <AgencyAgentsDataTable />
     </Main>
-    
   </div>
 </template>
 
@@ -29,7 +29,7 @@ import { useStore } from 'vuex';
 import { Main } from '../../styled';
 import { defineComponent } from 'vue';
 import { PageHeaderBanner } from '@/components/banners/Banners.vue';
-
+import AgencyAgentsDataTable from './overview/dashboard/AgencyAgentsDataTable.vue';
 const pageRoutes = [
   {
     path: '/admin/dashboard',
@@ -42,6 +42,7 @@ export default defineComponent({
   components: {
     Main,
     PageHeaderBanner,
+    AgencyAgentsDataTable,
   },
   setup() {
     const host = 'http://localhost:5000';
@@ -63,7 +64,7 @@ export default defineComponent({
 
         const json = await response.json();
         if (response.ok) {
-          adminData.value = json.admin;
+          adminData.value.name = json.name;
         } else {
           console.error('Failed to fetch admin data:', json);
         }

@@ -2,7 +2,7 @@ import Styled from 'vue3-styled-components';
 const TableWrapper = Styled.div`
     .ant-pagination-prev, .ant-pagination-next {
         line-height: 28px !important;
-        transform: rotateY(${({ theme }) => (theme.rtl ? "180deg" : "0deg")})
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
     }
     .ant-table table{
         text-align: left;
@@ -14,15 +14,14 @@ const TableWrapper = Styled.div`
 				}
     }
     span.anticon.anticon-right{
-        transform: rotateY(${({ theme }) => (theme.rtl ? "180deg" : "0deg")})
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
     }
     span.anticon.anticon-left{
-        transform: rotateY(${({ theme }) => (theme.rtl ? "180deg" : "0deg")})
+        transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
     }
     .ant-table{
         border-radius:10px 10px 0 0;
-        background-color: ${({ theme }) =>
-          theme[theme.mainContent]["white-background"]};
+        background-color: ${({ theme }) => theme[theme.mainContent]['white-background']};
     }
     &.table-order,
     &.table-seller,
@@ -30,35 +29,31 @@ const TableWrapper = Styled.div`
         .ant-table-selection{
             .ant-checkbox-indeterminate{
                 .ant-checkbox-inner{
-                    background: ${({ theme }) => theme["primary-color"]};
-                    border-color: ${({ theme }) => theme["primary-color"]};
+                    background: ${({ theme }) => theme['primary-color']};
+                    border-color: ${({ theme }) => theme['primary-color']};
                     &:after{
 
                         height: 2px;
-                        background-color: ${({ theme }) =>
-                          theme[theme.mainContent]["white-background"]};
+                        background-color: ${({ theme }) => theme[theme.mainContent]['white-background']};
                     }
                 }
             }
         }
         .ant-table-container{
             padding-bottom: 25px;
-            border-bottom: 1px solid ${({ theme }) =>
-              theme[theme.mainContent]["border-color-default"]};
+            border-bottom: 1px solid ${({ theme }) => theme[theme.mainContent]['border-color-default']};
         }
         tbody{
             tr{
                 &:hover{
                     td{
-                        background: ${({ theme }) =>
-                          theme[theme.mainContent]["main-background"]};
+                        background: ${({ theme }) => theme[theme.mainContent]['main-background']};
                     }
                 }
                 td{
                     .product-id{
                         max-width: 60px;
-                        text-align: ${({ theme }) =>
-                          theme.rtl ? "left" : "right"};
+                        text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
                     }
                 }
             }
@@ -89,51 +84,42 @@ const TableWrapper = Styled.div`
                         img{
                             max-width: 38px;
                             border-radius: 50%;
-                            ${({ theme }) =>
-                              theme.rtl ? "margin-left" : "margin-right"}: 12px;
+                            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
                         }
                     }
                     .record-location{
                         display: block;
                         font-size: 12px;
                         font-weight: 400;
-                        color: ${({ theme }) =>
-                          theme[theme.mainContent]["dark-text"]};
+                        color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
                     }
                     .status{
                         font-weight: 500;
                         text-transform: capitalize;
                         &.active{
-                            color: ${({ theme }) => theme["success-color"]};
-                            background: ${({ theme }) =>
-                              theme["success-color"]}10;
+                            color: ${({ theme }) => theme['success-color']};
+                            background: ${({ theme }) => theme['success-color']}10;
                         }
                         &.deactivated{
-                            color: ${({ theme }) => theme["warning-color"]};
-                            background: ${({ theme }) =>
-                              theme["warning-color"]}10;
+                            color: ${({ theme }) => theme['warning-color']};
+                            background: ${({ theme }) => theme['warning-color']}10;
                         }
                         &.blocked{
-                            color: ${({ theme }) => theme["danger-color"]};
-                            background: ${({ theme }) =>
-                              theme["danger-color"]}10;
+                            color: ${({ theme }) => theme['danger-color']};
+                            background: ${({ theme }) => theme['danger-color']}10;
                         }
                     }
                     .table-actions{
                         a {
                             svg, i{
                                 width: 16px;
-                                fill: ${({ theme }) =>
-                                  theme[theme.mainContent][
-                                    "extra-light-text"
-                                  ]} !important;
+                                fill: ${({ theme }) => theme[theme.mainContent]['extra-light-text']} !important;
                             }
                             &.view{
                                 &:hover{
                                   svg,
                                   i{
-                                      fill: ${({ theme }) =>
-                                        theme["primary-color"]};
+                                      fill: ${({ theme }) => theme['primary-color']};
                                   }
                                 }
                             }
@@ -141,7 +127,7 @@ const TableWrapper = Styled.div`
                               &:hover{
                                 svg,
                                 i{
-                                    fill: ${({ theme }) => theme["info-color"]};
+                                    fill: ${({ theme }) => theme['info-color']};
                                 }
                               }
                             }
@@ -149,8 +135,7 @@ const TableWrapper = Styled.div`
                               &:hover{
                                 svg,
                                 i{
-                                    fill: ${({ theme }) =>
-                                      theme["danger-color"]};
+                                    fill: ${({ theme }) => theme['danger-color']};
                                 }
                               }
                             }
@@ -166,8 +151,7 @@ const TableWrapper = Styled.div`
                 tr{
                     &:hover{
                         td{
-                            background: ${({ theme }) =>
-                              theme[theme.mainContent]["white-background"]};
+                            background: ${({ theme }) => theme[theme.mainContent]['white-background']};
                         }
                     }
                 }
@@ -182,22 +166,14 @@ const TableWrapper = Styled.div`
                 th{
                     border-bottom: 0 none;
                     &:first-child{
-                        border-radius: ${({ theme }) =>
-                          !theme.rtl
-                            ? "10px 0 0 10px"
-                            : "0 10px 10px 0"} !important;
+                        border-radius: ${({ theme }) => (!theme.rtl ? '10px 0 0 10px' : '0 10px 10px 0')} !important;
                     }
                     &:last-child{
-                        border-radius: ${({ theme }) =>
-                          theme.rtl
-                            ? "10px 0 0 10px"
-                            : "0 10px 10px 0"} !important;
+                        border-radius: ${({ theme }) => (theme.rtl ? '10px 0 0 10px' : '0 10px 10px 0')} !important;
                         text-align:left;
                     }
-                    color: ${({ theme }) =>
-                      theme[theme.mainContent]["gray-text"]};
-                    background: ${({ theme }) =>
-                      theme[theme.mainContent]["main-background-light"]};
+                    color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                    background: ${({ theme }) => theme[theme.mainContent]['main-background-light']};
                 }
             }
         }
@@ -205,38 +181,28 @@ const TableWrapper = Styled.div`
             tr{
                 &:hover{
                     td{
-                        background: ${({ theme }) =>
-                          theme[theme.mainContent]["white-background"]};
+                        background: ${({ theme }) => theme[theme.mainContent]['white-background']};
                     }
                 }
                 &.ant-table-row-selected{
                     &:hover{
                         td{
-                            background: ${({ theme }) =>
-                              theme[theme.mainContent]["white-background"]};
+                            background: ${({ theme }) => theme[theme.mainContent]['white-background']};
                         }
                     }
                     td{
-                        background: ${({ theme }) =>
-                          theme[theme.mainContent]["white-background"]};
+                        background: ${({ theme }) => theme[theme.mainContent]['white-background']};
                     }
                 }
                 td{
                     border: 0 none;
                     font-weight: 500;
-                    color: ${({ theme }) =>
-                      theme[theme.mainContent]["dark-text"]};
+                    color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
                     &:first-child{
-                        border-radius: ${({ theme }) =>
-                          !theme.rtl
-                            ? "10px 0 0 10px"
-                            : "0 10px 10px 0"} !important;
+                        border-radius: ${({ theme }) => (!theme.rtl ? '10px 0 0 10px' : '0 10px 10px 0')} !important;
                     }
                     &:last-child{
-                        border-radius: ${({ theme }) =>
-                          !theme.rtl
-                            ? "0 10px 10px 0"
-                            : "10px 0 0 10px"} !important;
+                        border-radius: ${({ theme }) => (!theme.rtl ? '0 10px 10px 0' : '10px 0 0 10px')} !important;
                     }
                     span{
                         display: block;
@@ -263,7 +229,7 @@ const TableWrapper = Styled.div`
             }
         }
         .table-actions{
-            text-align: ${({ theme }) => (theme.rtl ? "left" : "right")};
+            text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
             min-width: 150px !important;
             button{
                 height: 40px;
@@ -271,26 +237,25 @@ const TableWrapper = Styled.div`
                 background: transparent;
                 border: 0 none;
                 svg {
-                    fill: ${({ theme }) =>
-                      theme[theme.mainContent]["extra-light-text"]} !important;
+                    fill: ${({ theme }) => theme[theme.mainContent]['extra-light-text']} !important;
                 }
                 &:hover{
                     &.ant-btn-primary{
-                        background: ${({ theme }) => theme["primary-color"]}10;
+                        background: ${({ theme }) => theme['primary-color']}10;
 												svg{
-													fill: ${({ theme }) => theme["primary-color"]};
+													fill: ${({ theme }) => theme['primary-color']};
 												}
                     }
                     &.ant-btn-info{
-                        background: ${({ theme }) => theme["info-color"]}10;
+                        background: ${({ theme }) => theme['info-color']}10;
 												svg{
-													fill: ${({ theme }) => theme["info-color"]};
+													fill: ${({ theme }) => theme['info-color']};
 												}
                     }
                     &.ant-btn-danger{
-                        background: ${({ theme }) => theme["danger-color"]}10;
+                        background: ${({ theme }) => theme['danger-color']}10;
 												svg{
-													fill: ${({ theme }) => theme["danger-color"]};
+													fill: ${({ theme }) => theme['danger-color']};
 												}
                     }
                 }
@@ -298,14 +263,13 @@ const TableWrapper = Styled.div`
         }
         .seller-info{
             img{
-                ${({ theme }) =>
-                  theme.rtl ? "margin-left" : "margin-right"}: 12px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 12px;
             }
         }
         .user-info{
             display: flex;
             align-items: center;
-						color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
+						color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
             figure{
                 margin: 0 8px 0;
             }
@@ -316,8 +280,7 @@ const TableWrapper = Styled.div`
             .user-designation{
                 font-size: 12px;
                 font-weight: 400;
-                color: ${({ theme }) =>
-                  theme[theme.mainContent]["gray-light-text"]};
+                color: ${({ theme }) => theme[theme.mainContent]['gray-light-text']};
             }
         }
     }
@@ -339,16 +302,20 @@ const TableWrapper = Styled.div`
         min-height: 24px;
         border-radius: 15px;
         &.ninjadash-status-active{
-            color: ${({ theme }) => theme["success-color"]};
-            background-color: ${({ theme }) => theme["success-color"]}15;
+            color: ${({ theme }) => theme['success-color']};
+            background-color: ${({ theme }) => theme['success-color']}15;
         }
         &.ninjadash-status-deactiveted{
-            color: ${({ theme }) => theme["warning-color"]};
-            background-color: ${({ theme }) => theme["warning-color"]}15;
+            color: ${({ theme }) => theme['warning-color']};
+            background-color: ${({ theme }) => theme['warning-color']}15;
+        }
+        &.ninjadash-status-inactive{
+            color: ${({ theme }) => theme['warning-color']};
+            background-color: ${({ theme }) => theme['warning-color']}15;
         }
         &.ninjadash-status-blocked{
-            color: ${({ theme }) => theme["danger-color"]};
-            background-color: ${({ theme }) => theme["danger-color"]}15;
+            color: ${({ theme }) => theme['danger-color']};
+            background-color: ${({ theme }) => theme['danger-color']}15;
         }
     }
 `;
@@ -366,9 +333,7 @@ const DragDropStyle = Styled.div`
                 &:not(:last-child){
                     td{
                          border-bottom: 1px solid ${({ theme }) =>
-                           theme[theme.mainContent][
-                             "border-color-default"
-                           ]} !important;
+                           theme[theme.mainContent]['border-color-default']} !important;
                     }
                  }
                  &:hover{
@@ -385,8 +350,7 @@ const DragDropStyle = Styled.div`
 
                     &.ninjadash-drag-arrows {
                         svg {
-                            fill: ${({ theme }) =>
-                              theme[theme.mainContent]["light-text"]};
+                            fill: ${({ theme }) => theme[theme.mainContent]['light-text']};
                         }
                     }
                 }
@@ -400,8 +364,7 @@ const DragDropStyle = Styled.div`
                         width: 20px;
                     }
                     svg{
-                        fill: ${({ theme }) =>
-                          theme["extra-light-color"]} !important;
+                        fill: ${({ theme }) => theme['extra-light-color']} !important;
                     }
                 }
             }
@@ -409,9 +372,8 @@ const DragDropStyle = Styled.div`
         .user-info{
             .user-name{
                 font-size: 14px;
-                ${({ theme }) =>
-                  !theme.rtl ? "margin-left" : "margin-right"}: 8px;
-                color: ${({ theme }) => theme[theme.mainContent]["dark-text"]};
+                ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
+                color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
             }
         }
     }
@@ -438,9 +400,7 @@ const DataTableStyleWrap = Styled.div`
             }
             span.label{
                 margin-right: 8px;
-                color: ${({
-  theme
-}) => theme[theme.mainContent]['gray-text']};
+                color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
             }
             .ninjadash-datatable-filter__input{
                 display: flex;
@@ -463,9 +423,7 @@ const DataTableStyleWrap = Styled.div`
                     svg{
                         width: 16px;
                         height: 16px;
-                        fill: ${({
-  theme
-}) => theme[theme.mainContent]['light-text']};
+                        fill: ${({ theme }) => theme[theme.mainContent]['light-text']};
                     }
                 }
             }

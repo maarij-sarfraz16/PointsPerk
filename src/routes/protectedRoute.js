@@ -1,8 +1,8 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import userRoutes from './userRoutes/UserRoutes';
 import userAuthRoutes from './userRoutes/userAuthRoutes';
-//import adminRoutes from './adminRoutes/AdminRoutes';
-// import adminAuthRoutes from './adminRoutes/adminAuthRoutes';
+import adminRoutes from './adminRoutes/AdminRoutes';
+import adminAuthRoutes from './adminRoutes/adminAuthRoutes';
 import store from '@/vuex/store';
 
 const routes = [
@@ -26,20 +26,20 @@ const routes = [
     children: [...userAuthRoutes],
     meta: { auth: true },
   },
-  // {
-  //   name: 'Admin Dashboard',
-  //   path: '/admin/dashboard',
-  //   component: () => import(/* webpackChunkName: "admin" */ '@/layout/adminLayout/withAdminLayout.vue'),
-  //   children: [...adminRoutes],
-  //   meta: { auth: false },
-  // },
-  // {
-  //   name: 'Admin Auth',
-  //   path: '/admin',
-  //   component: () => import(/* webpackChunkName: "admin auth" */ '@/layout/withAuthLayout.vue'),
-  //   children: [...adminAuthRoutes],
-  //   meta: { auth: true },
-  // },
+  {
+    name: 'Admin Dashboard',
+    path: '/admin/dashboard',
+    component: () => import(/* webpackChunkName: "admin" */ '@/layout/adminLayout/withAdminLayout.vue'),
+    children: [...adminRoutes],
+    meta: { auth: false },
+  },
+  {
+    name: 'Admin Auth',
+    path: '/admin',
+    component: () => import(/* webpackChunkName: "admin auth" */ '@/layout/withAuthLayout.vue'),
+    children: [...adminAuthRoutes],
+    meta: { auth: true },
+  },
 ];
 
 const router = createRouter({
