@@ -414,8 +414,7 @@ export const PageHeaderBanner = defineComponent({
                 Hey {this.firstName}! Welcome to the Dashboard
               </h2>
               <p class="ninjadash-top-banner__text">
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form.
+                Track your progress and unlock exciting rewards with every sale you make.
               </p>
             </div>
             <div class="banner-feature__shape">
