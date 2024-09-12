@@ -1,4 +1,3 @@
-F
 <template>
   <div>
     <Main>
@@ -38,31 +37,28 @@ export default defineComponent({
   },
   setup(props) {
     const { data } = toRefs(props);
+
+    
     const dataTableColumn = computed(() => {
-      if (data.value.length === 0 || data.value.length === undefined) return [];
-      const header = data.value[0];
+      if (!Array.isArray(data.value) || data.value.length === 0) return [];
+      const header = Object.keys(data.value[0]);
 
       return header.map((key) => ({
         title: key,
         dataIndex: key,
+        key: key,
       }));
     });
 
+    
     const tableDataSource = computed(() => {
-      if (data.value.length <= 1 || data.value.length === undefined) return [];
-      const header = data.value[0];
-      const rows = data.value.slice(1);
-
-      return rows.map((row) => {
-        const rowData = {};
-        row.forEach((value, index) => {
-          rowData[header[index]] = value;
-        });
-        return rowData;
-      });
+      if (!Array.isArray(data.value) || data.value.length === 0) return [];
+      return data.value;
     });
 
     return { dataTableColumn, tableDataSource };
   },
 });
 </script>
+
+
