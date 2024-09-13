@@ -1,15 +1,9 @@
 <template>
   <RecordViewWrapper>
-    <sdPageHeader
-      class="ninjadash-page-header-main"
-      :routes="[]"
-      title="Data List"
-    >
+    <sdPageHeader class="ninjadash-page-header-main" :routes="[]" title="Data List">
       <template #subTitle>
         <sdButton class="btn-add_new" size="default" type="primary">
-          <router-link to="/crud/axios-add">
-            <sdFeatherIcons type="plus" size="14" /> Add New
-          </router-link>
+          <router-link to="/crud/axios-add"> <sdFeatherIcons type="plus" size="14" /> Add New </router-link>
         </sdButton>
       </template>
       <template #buttons>
@@ -51,53 +45,55 @@
   </RecordViewWrapper>
 </template>
 <script>
-import { RecordViewWrapper } from "./style";
-import { Main, TableWrapper } from "../../styled";
-import { useStore } from "vuex";
-import { computed, onMounted, ref, reactive, defineComponent } from "vue";
-import dayjs from "dayjs";
+import { RecordViewWrapper } from './style';
+import { Main } from '@/view/styled';
+import { TableWrapper } from '@/components/view-table/Style';
+
+import { useStore } from 'vuex';
+import { computed, onMounted, ref, reactive, defineComponent } from 'vue';
+import dayjs from 'dayjs';
 
 const columns = [
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name',
   },
   {
-    title: "Email",
-    dataIndex: "email",
-    key: "email",
+    title: 'Email',
+    dataIndex: 'email',
+    key: 'email',
   },
   {
-    title: "Company",
-    dataIndex: "company",
-    key: "company",
+    title: 'Company',
+    dataIndex: 'company',
+    key: 'company',
   },
   {
-    title: "Position",
-    dataIndex: "position",
-    key: "position",
+    title: 'Position',
+    dataIndex: 'position',
+    key: 'position',
   },
   {
-    title: "Status",
-    dataIndex: "status",
-    key: "status",
+    title: 'Status',
+    dataIndex: 'status',
+    key: 'status',
   },
   {
-    title: "Joining Date",
-    dataIndex: "jdate",
-    key: "jdate",
+    title: 'Joining Date',
+    dataIndex: 'jdate',
+    key: 'jdate',
   },
   {
-    title: "Actions",
-    dataIndex: "action",
-    key: "action",
-    width: "90px",
+    title: 'Actions',
+    dataIndex: 'action',
+    key: 'action',
+    width: '90px',
   },
 ];
 
 const ViewPage = defineComponent({
-  name: "ViewPage",
+  name: 'ViewPage',
   components: { RecordViewWrapper, Main, TableWrapper },
   setup() {
     const { state, dispatch } = useStore();
@@ -106,16 +102,16 @@ const ViewPage = defineComponent({
     const selectedRowKeys = ref([]);
 
     onMounted(() => {
-      dispatch("axiosCrudGetData");
+      dispatch('axiosCrudGetData');
     });
 
     const handleDelete = (id) => {
-      const confirm = window.confirm("Are you sure delete this?");
+      const confirm = window.confirm('Are you sure delete this?');
       if (confirm) {
-        dispatch("axiosDataDelete", {
+        dispatch('axiosDataDelete', {
           id,
           getData: () => {
-            dispatch("axiosCrudGetData");
+            dispatch('axiosCrudGetData');
           },
         });
       }
@@ -123,39 +119,24 @@ const ViewPage = defineComponent({
     };
 
     const formState = reactive({
-      searchItem: "",
+      searchItem: '',
     });
 
     const onHandleSearch = () => {
-      dispatch("axiosDataSearch", formState.searchItem);
+      dispatch('axiosDataSearch', formState.searchItem);
     };
 
     const dataSource = computed(() =>
       crud.value.length
         ? crud.value.map((person, key) => {
-            const {
-              id,
-              name,
-              email,
-              company,
-              position,
-              join,
-              status,
-              city,
-              country,
-              image,
-            } = person;
+            const { id, name, email, company, position, join, status, city, country, image } = person;
 
             return {
               key: key + 1,
               name: (
                 <div class="record-img align-center-v">
                   <img
-                    src={
-                      image
-                        ? "http://api.masudr.com/" + image
-                        : require("@/static/img/avatar/profileImage.png")
-                    }
+                    src={image ? 'http://api.masudr.com/' + image : require('@/static/img/avatar/profileImage.png')}
                     alt={id}
                   />
                   <span>
@@ -169,7 +150,7 @@ const ViewPage = defineComponent({
               email,
               company,
               position,
-              jdate: dayjs(join).format("YYYY-MM-DD"),
+              jdate: dayjs(join).format('YYYY-MM-DD'),
               status: <span class={`status ${status}`}>{status}</span>,
               action: (
                 <div class="table-actions">
@@ -177,18 +158,14 @@ const ViewPage = defineComponent({
                     <unicon name="edit" />
                   </router-link>
                   &nbsp;&nbsp;&nbsp;
-                  <router-link
-                    class="delete"
-                    onClick={() => handleDelete(id)}
-                    to="#"
-                  >
+                  <router-link class="delete" onClick={() => handleDelete(id)} to="#">
                     <unicon name="trash" />
                   </router-link>
                 </div>
               ),
             };
           })
-        : []
+        : [],
     );
 
     const onSelectChange = (selectedRowKey) => {

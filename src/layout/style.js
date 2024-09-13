@@ -1,6 +1,6 @@
-import Styled from "vue3-styled-components";
+import Styled from 'vue3-styled-components';
 
-const props = ["hide", "searchHide", "darkMode", "topMenu"];
+const props = ['hide', 'searchHide', 'darkMode', 'topMenu'];
 const NavTitle = Styled.p`
     font-size: 12px;
     font-weight: 500;
@@ -10,12 +10,11 @@ const NavTitle = Styled.p`
     display: flex;
 `;
 
-const Div = Styled("div", props)`
+const Div = Styled('div', props)`
     .ant-layout {
         background-color: transparent;
         .ant-layout-header{
-            padding: ${({ theme }) =>
-              theme.rtl ? "0 0 0 30px" : "0 30px 0 0"};
+            padding: ${({ theme }) => (theme.rtl ? '0 0 0 30px' : '0 30px 0 0')};
             height: 72px;
             @media only screen and (max-width: 991px){
                 padding: 0 15px;
@@ -23,8 +22,7 @@ const Div = Styled("div", props)`
         }
     }
     .ant-layout.layout {
-        background-color: ${({ theme }) =>
-          theme[theme.mainContent]["main-background"]} !important;
+        background-color: ${({ theme }) => theme[theme.mainContent]['main-background']} !important;
     }
 
     .ninjadash-nav-actions__searchbar{
@@ -34,8 +32,8 @@ const Div = Styled("div", props)`
         img{
             width: 16px;
             height: 16px;
-            color: ${({ theme }) => theme[theme.mainContent]["light-text"]};
-            fill: ${({ theme }) => theme[theme.mainContent]["light-text"]};
+            color: ${({ theme }) => theme[theme.mainContent]['light-text']};
+            fill: ${({ theme }) => theme[theme.mainContent]['light-text']};
         }
         .ninjadash-searchbar{
             opacity: 0;
@@ -47,7 +45,7 @@ const Div = Styled("div", props)`
                 right: 0;
                 min-width: 280px;
                 z-index: 98;
-                box-shadow: 0 5px 30px ${({ theme }) => theme["gray-solid"]}15;
+                box-shadow: 0 5px 30px ${({ theme }) => theme['gray-solid']}15;
             }
             input{
                 user-select: none;
@@ -90,8 +88,7 @@ const Div = Styled("div", props)`
         .ninjadash-header-content__left{
             min-width: 280px;
             padding: 0 20px 0 30px;
-            background-color: ${({ theme }) =>
-              theme[theme.mainContent]["brand-background"]};
+            background-color: ${({ theme }) => theme[theme.mainContent]['brand-background']};
             @media only screen and (max-width: 767px){
                 min-width: auto;
                 margin-right: 0;
@@ -106,49 +103,37 @@ const Div = Styled("div", props)`
                     line-height: 0;
                     margin-top: 4px;
 
-                    color: ${({ theme }) =>
-                      theme[theme.mainContent]["extra-light"]};
-                    background-color: ${({ theme }) =>
-                      theme[theme.mainContent]["brand-background"]};
+                    color: ${({ theme }) => theme[theme.mainContent]['extra-light']};
+                    background-color: ${({ theme }) => theme[theme.mainContent]['brand-background']};
                     :hover {
-                        background-color: ${({ theme }) =>
-                          theme[theme.mainContent][
-                            "brand-background"
-                          ]} !important;
+                        background-color: ${({ theme }) => theme[theme.mainContent]['brand-background']} !important;
                     }
 
                     @media only screen and (max-width: 875px){
-                        padding: ${({ theme }) =>
-                          theme.rtl ? "0 10px 0 20px" : "0 20px 0 10px"};
+                        padding: ${({ theme }) => (theme.rtl ? '0 10px 0 20px' : '0 20px 0 10px')};
                     }
                     @media only screen and (max-width: 767px){
                         order: -1;
-                        padding: ${({ theme }) =>
-                          theme.rtl ? "0 0 0 15px" : "0 15px 0 0"};
+                        padding: ${({ theme }) => (theme.rtl ? '0 0 0 15px' : '0 15px 0 0')};
                     }
                 }
             }
             .ninjadash-logo{
                 @media only screen and (max-width: 875px){
-                    ${({ theme }) =>
-                      theme.rtl ? "margin-left" : "margin-right"}: 4px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 4px;
                 }
                 @media only screen and (max-width: 767px){
-                    ${({ theme }) =>
-                      theme.rtl ? "margin-left" : "margin-right"}: 0;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0;
                 }
                 img{
-                    max-width: ${({ theme }) =>
-                      theme.topMenu ? "140px" : "120px"};
+                    max-width: ${({ theme }) => (theme.topMenu ? '140px' : '120px')};
                     width: 100%;
                     @media only screen and (max-width: 475px){
-                        max-width: ${({ theme }) =>
-                          theme.topMenu ? "100px" : "100px"};
+                        max-width: ${({ theme }) => (theme.topMenu ? '100px' : '100px')};
                     }
                 }
                 &.top-menu{
-                    ${({ theme }) =>
-                      theme.rtl ? "margin-right" : "margin-left"}: 15px;
+                    ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 15px;
                 }
             }
         }
@@ -156,12 +141,11 @@ const Div = Styled("div", props)`
             padding-left: 30px;
             flex: auto;
             svg{
-                fill: ${({ theme }) => theme[theme.mainContent]["light-text"]}};
+                fill: ${({ theme }) => theme[theme.mainContent]['light-text']}};
             }
             .ninjadash_menu-item-icon {
                 fill: transparent !important;
-                stroke: ${({ theme }) =>
-                  theme[theme.mainContent]["light-text"]}};
+                stroke: ${({ theme }) => theme[theme.mainContent]['light-text']}};
             }
             .ninjadash-nav-actions{
                 display: flex;
@@ -189,14 +173,11 @@ const Div = Styled("div", props)`
                         img {
                             width: 16px;
                             height: 16px;
-                            color: ${({ theme }) =>
-                              theme[theme.mainContent]["light-text"]}};
-                            fill: ${({ theme }) =>
-                              theme[theme.mainContent]["light-text"]}};
+                            color: ${({ theme }) => theme[theme.mainContent]['light-text']}};
+                            fill: ${({ theme }) => theme[theme.mainContent]['light-text']}};
                         }
                         svg{
-                            fill: ${({ theme }) =>
-                              theme[theme.mainContent]["light-text"]}};
+                            fill: ${({ theme }) => theme[theme.mainContent]['light-text']}};
                         }
                         .ant-avatar-image{
                             img{
@@ -211,10 +192,8 @@ const Div = Styled("div", props)`
                     font-size: 14px;
                     display: inline-block;
                     font-weight: 500;
-                    margin: ${({ theme }) =>
-                      theme.rtl ? "0 10px 0 6px" : "0 6px 0 10px"};
-                    color: ${({ theme }) =>
-                      theme[theme.mainContent]["gray-text"]};
+                    margin: ${({ theme }) => (theme.rtl ? '0 10px 0 6px' : '0 6px 0 10px')};
+                    color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
                     @media only screen and (max-width: 991px){
                         display: none;
                     }
@@ -228,30 +207,28 @@ const Div = Styled("div", props)`
             }
             .ninjadash-header-content__fluid__action{
                 position: absolute;
-                ${({ theme }) => (theme.rtl ? "left" : "right")}: 20px;
+                ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 20px;
                 top: 50%;
                 transform: translateY(-50%);
                 display: inline-flex;
                 align-items: center;
                 @media only screen and (max-width: 767px){
-                    ${({ theme }) => (theme.rtl ? "left" : "right")}: 15px;
+                    ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 15px;
                 }
                 a,
                 .btn-search{
                     display: inline-flex;
-                    color: ${({ theme }) => theme["light-color"]};
+                    color: ${({ theme }) => theme['light-color']};
                     &.btn-search{
-                        ${({ theme }) =>
-                          theme.rtl ? "margin-left" : "margin-right"}: 18px;
+                        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 18px;
                         @media only screen and (max-width: 475px){
-                            ${({ theme }) =>
-                              theme.rtl ? "margin-left" : "margin-right"}: 8px;
+                            ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
                         }
                     }
                     svg{
                         width: 18px;
                         height: 18px;
-					    fill: ${({ theme }) => theme["light-color"]};
+					    fill: ${({ theme }) => theme['light-color']};
                     }
                 }
                 .ninjadash-searchbar{
@@ -274,14 +251,12 @@ const Div = Styled("div", props)`
                 display: flex;
                 align-items: center;
                 .ant-avatar-image{
-                    ${({ theme }) =>
-                      theme.rtl ? "margin-left" : "margin-right"}: 5px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 5px;
                 }
                 svg{
                     width: 20px;
                     height: 20px;
-                    fill: ${({ theme }) =>
-                      theme[theme.mainContent]["light-text"]}};
+                    fill: ${({ theme }) => theme[theme.mainContent]['light-text']}};
                 }
             }
         }
@@ -294,17 +269,16 @@ const Div = Styled("div", props)`
         }
     }
     header{
-        box-shadow: 0 5px 20px ${({ theme }) => theme["extra-light-color"]}05;
+        box-shadow: 0 5px 20px ${({ theme }) => theme['extra-light-color']}05;
         z-index: 998;
-        background-color: ${({ theme }) =>
-          theme[theme.mainContent]["white-background"]} !important;
+        background-color: ${({ theme }) => theme[theme.mainContent]['white-background']} !important;
         @media print {
             display: none;
         }
         .ant-menu-sub.ant-menu-vertical{
             .ant-menu-item{
                 a{
-                    color: ${({ theme }) => theme["gray-color"]}};
+                    color: ${({ theme }) => theme['gray-color']}};
                 }
             }
         }
@@ -312,18 +286,15 @@ const Div = Styled("div", props)`
             display: flex;
             align-items: center;
             margin: 0 -16px;
-            background: ${({ theme }) =>
-              theme[theme.mainContent]["main-background-light"]};
-            border-bottom-color: ${({ theme }) =>
-              theme[theme.mainContent]["border-color-default"]};
+            background: ${({ theme }) => theme[theme.mainContent]['main-background-light']};
+            border-bottom-color: ${({ theme }) => theme[theme.mainContent]['border-color-default']};
             li.ant-menu-submenu{
                 margin: 0 16px;
             }
             .ant-menu-item{
-                color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
+                color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
                 &.ant-menu-item-disabled{
-                    color: ${({ theme }) =>
-                      theme[theme.mainContent]["gray-light-text"]} !important;
+                    color: ${({ theme }) => theme[theme.mainContent]['gray-light-text']} !important;
                 }
             }
             .ant-menu-submenu{
@@ -331,37 +302,29 @@ const Div = Styled("div", props)`
                 &.ant-menu-submenu-selected,
                 &.ant-menu-submenu-open{
                     .ant-menu-submenu-title{
-                        color: ${({ theme }) =>
-                          theme[theme.mainContent]["dark-text"]};
+                        color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
                         svg,
                         i{
-                            color: ${({ theme }) =>
-                              theme[theme.mainContent]["dark-text"]};
-                            fill: ${({ theme }) =>
-                              theme[theme.mainContent]["dark-text"]};
+                            color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
+                            fill: ${({ theme }) => theme[theme.mainContent]['dark-text']};
                         }
                     }
                 }
                 .ant-menu-submenu-title{
                     font-size: 14px;
                     font-weight: 500;
-                    color: ${({ theme }) =>
-                      theme[theme.mainContent]["dark-text"]};
+                    color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
                     svg,
                     i{
-                        color: ${({ theme }) =>
-                          theme[theme.mainContent]["dark-text"]};
-                        fill: ${({ theme }) =>
-                          theme[theme.mainContent]["dark-text"]};
+                        color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
+                        fill: ${({ theme }) => theme[theme.mainContent]['dark-text']};
                     }
                     .ant-menu-submenu-arrow{
                         font-family: "FontAwesome";
                         font-style: normal;
-                        ${({ theme }) =>
-                          theme.rtl ? "margin-right" : "margin-left"}: 6px;
+                        ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 6px;
                         &:after{
-                            color: ${({ theme }) =>
-                              theme[theme.mainContent]["dark-text"]};
+                            color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
                             content: '\f107';
                             background-color: transparent;
                         }
@@ -370,15 +333,12 @@ const Div = Styled("div", props)`
             }
         }
         .ant-menu.ant-menu-vertical{
-            background: ${({ theme }) =>
-              theme[theme.mainContent]["main-background-light"]};
-            border-right-color: ${({ theme }) =>
-              theme[theme.mainContent]["border-color-default"]};
+            background: ${({ theme }) => theme[theme.mainContent]['main-background-light']};
+            border-right-color: ${({ theme }) => theme[theme.mainContent]['border-color-default']};
             .ant-menu-item{
-                color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
+                color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
                 svg{
-                    fill: ${({ theme }) =>
-                      theme[theme.mainContent]["gray-text"]};
+                    fill: ${({ theme }) => theme[theme.mainContent]['gray-text']};
                 }
             }
         }
@@ -386,7 +346,7 @@ const Div = Styled("div", props)`
 
     /* Sidebar styles */
     .ant-layout-sider {
-        box-shadow: 0 0 20px ${({ theme }) => theme["extra-light-color"]}05;
+        box-shadow: 0 0 20px ${({ theme }) => theme['extra-light-color']}05;
         @media (max-width: 991px){
             box-shadow: 0 10px 10px #00000020;
         }
@@ -400,10 +360,10 @@ const Div = Styled("div", props)`
                 display: none !important;
             }
             & + .ninjadash-main-layout{
-                ${({ theme }) =>
-                  !theme.rtl ? "margin-left" : "margin-right"}: 80px;
+                ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: 80px;
 
             }
+               
             .ant-menu-item{
                 color: #333;
                 .badge{
@@ -413,8 +373,7 @@ const Div = Styled("div", props)`
         }
 
         &.ant-layout-sider-dark {
-            background: ${({ theme }) =>
-              theme[theme.mainContent]["white-background"]} !important;
+            background: ${({ theme }) => theme[theme.mainContent]['white-background']} !important;
             .ant-layout-sider-children{
                 .ant-menu{
                     .ant-menu-submenu-inline{
@@ -437,8 +396,8 @@ const Div = Styled("div", props)`
                 font-size: 12px;
                 font-weight: 500;
                 text-transform: uppercase;
-                color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
-                padding: 0 ${({ theme }) => (theme.rtl ? "20px" : "15px")};
+                color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                padding: 0 ${({ theme }) => (theme.rtl ? '20px' : '15px')};
                 margin: 40px 0 24px 0;
             }
 
@@ -453,23 +412,18 @@ const Div = Styled("div", props)`
             .ant-menu{
                 font-size: 14px;
                 overflow-x: hidden;
-                ${({ theme }) =>
-                  theme.rtl ? "border-left" : "border-right"}: 0 none;
-                background: ${({ theme }) =>
-                  theme[theme.mainContent]["white-background"]};
+                ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0 none;
+                background: ${({ theme }) => theme[theme.mainContent]['white-background']};
                 &.ant-menu-dark, &.ant-menu-dark .ant-menu-sub, &.ant-menu-dark .ant-menu-inline.ant-menu-sub {
-                    background-color: ${({ theme }) =>
-                      theme[theme.mainContent]["white-background"]} !important;
+                    background-color: ${({ theme }) => theme[theme.mainContent]['white-background']} !important;
 
                 }
                 .ant-menu-sub.ant-menu-inline{
-                    background-color: ${({ theme }) =>
-                      theme[theme.mainContent]["white-background"]} !important;
+                    background-color: ${({ theme }) => theme[theme.mainContent]['white-background']} !important;
                 }
 
                 .ant-menu-submenu-selected{
-                    color: ${({ theme }) =>
-                      theme[theme.mainContent]["light-text"]};
+                    color: ${({ theme }) => theme[theme.mainContent]['light-text']};
                 }
                 .ant-menu-submenu,
                 .ant-menu-item{
@@ -482,38 +436,30 @@ const Div = Styled("div", props)`
                     }
                     &.ant-menu-submenu-active{
                         >.ant-menu-submenu-title .ant-menu-title-content{
-                            color: ${({ theme }) =>
-                              theme[theme.mainContent]["menu-active"]};
+                            color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
                         }
                         svg{
-                            fill: ${({ theme }) =>
-                              theme[theme.mainContent]["menu-active"]};
+                            fill: ${({ theme }) => theme[theme.mainContent]['menu-active']};
                         }
 
                         >.ant-menu-submenu-title{
                             .ant-menu-submenu-arrow:before,
                             .ant-menu-submenu-arrow:after{
-                                background-color: ${({ theme }) =>
-                                  theme[theme.mainContent]["menu-active"]};
+                                background-color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
                             }
                         }
                     }
                     &.ant-menu-item-active{
                         .ant-menu-item-icon{
                             svg{
-                                fill: ${({ theme }) =>
-                                  theme[theme.mainContent]["menu-active"]};
+                                fill: ${({ theme }) => theme[theme.mainContent]['menu-active']};
                             }
                         }
                         svg{
-                            fill: ${({ theme }) =>
-                              theme[theme.mainContent]["menu-active"]};
+                            fill: ${({ theme }) => theme[theme.mainContent]['menu-active']};
                         }
                         .ant-menu-title-content a{
-                            color: ${({ theme }) =>
-                              theme[theme.mainContent][
-                                "menu-active"
-                              ]} !important;
+                            color: ${({ theme }) => theme[theme.mainContent]['menu-active']} !important;
                         }
                     }
                     .ant-menu-item-icon{
@@ -525,10 +471,8 @@ const Div = Styled("div", props)`
                     img{
                         width: 16px;
                         font-size: 16px;
-                        color: ${({ theme }) =>
-                          theme[theme.mainContent]["menu-icon-color"]};
-                        fill: ${({ theme }) =>
-                          theme[theme.mainContent]["menu-icon-color"]};
+                        color: ${({ theme }) => theme[theme.mainContent]['menu-icon-color']};
+                        fill: ${({ theme }) => theme[theme.mainContent]['menu-icon-color']};
                         transition: 0.3s ease;
                     }
                     span{
@@ -536,16 +480,14 @@ const Div = Styled("div", props)`
                         transition: 0.3s ease;
                     }
                     .ant-menu-title-content{
-                        ${({ theme }) =>
-                          !theme.rtl ? "padding-left" : "padding-right"}: 16px;
+                        ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 16px;
                     }
                     &.ant-menu-submenu-selected{
                         svg{
-                            fill: ${({ theme }) => theme["primary-color"]};
+                            fill: ${({ theme }) => theme['primary-color']};
                         }
                         .ant-menu-title-content{
-                            color: ${({ theme }) =>
-                              theme["primary-color"]} !important;
+                            color: ${({ theme }) => theme['primary-color']} !important;
                         }
                     }
                 }
@@ -558,12 +500,11 @@ const Div = Styled("div", props)`
                     }
                     &.ant-menu-item-selected{
                         svg{
-                            fill: ${({ theme }) => theme["primary-color"]};
+                            fill: ${({ theme }) => theme['primary-color']};
                         }
                         .ant-menu-title-content{
                             a{
-                                color: ${({ theme }) =>
-                                  theme["primary-color"]} !important;
+                                color: ${({ theme }) => theme['primary-color']} !important;
                             }
                         }
                     }
@@ -577,43 +518,31 @@ const Div = Styled("div", props)`
                                 padding-left: 0;
                             }
                             .badge{
-                                ${({ theme }) =>
-                                  theme.rtl ? "left" : "right"}: 45px;
+                                ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 45px;
                             }
                             span{
                                 font-weight: 500;
-                                color: ${({ theme }) =>
-                                  theme[theme.mainContent]["menu-active"]};
+                                color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
                             }
                             svg,
                             i,
                             .ant-menu-submenu-arrow{
-                                color: ${({ theme }) =>
-                                  theme[theme.mainContent]["menu-active"]};
-                                fill: ${({ theme }) =>
-                                  theme[theme.mainContent]["menu-active"]};
+                                color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
+                                fill: ${({ theme }) => theme[theme.mainContent]['menu-active']};
                                 &:after,
                                 &:before{
-                                    background-color: ${({ theme }) =>
-                                      theme[theme.mainContent]["menu-active"]};
+                                    background-color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
                                 }
                             }
                         }
                         .ant-menu-sub{
                             .ant-menu-item{
                                 &.ant-menu-item-selected{
-                                    background-color: ${({ theme }) =>
-                                      theme["primary-color"]}15 !important;
-                                    border-radius: ${({ theme }) =>
-                                      theme.rtl
-                                        ? "21px 0 0 21px"
-                                        : "0 21px 21px 0"};
+                                    background-color: ${({ theme }) => theme['primary-color']}15 !important;
+                                    border-radius: ${({ theme }) => (theme.rtl ? '21px 0 0 21px' : '0 21px 21px 0')};
                                     a{
                                         font-weight: 500;
-                                        color: ${({ theme }) =>
-                                          theme[theme.mainContent][
-                                            "menu-active"
-                                          ]} !important;
+                                        color: ${({ theme }) => theme[theme.mainContent]['menu-active']} !important;
                                     }
                                 }
                             }
@@ -622,10 +551,8 @@ const Div = Styled("div", props)`
                     .ant-menu-submenu-title{
                         .ant-menu-title-content{
                             font-weight: 500;
-                            color: ${({ theme }) =>
-                              theme[theme.mainContent]["gray-text"]};
-                            text-align: ${({ theme }) =>
-                              !theme.rtl ? "left" : "right"};
+                            color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
+                            text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
                         }
                     }
                 }
@@ -639,22 +566,19 @@ const Div = Styled("div", props)`
                     a{
                         font-size: 14px;
                         font-weight: 500;
-                        color: ${({ theme }) => theme["gray-text"]};
+                        color: ${({ theme }) => theme['gray-text']};
                         position: relative;
                     }
                     >span{
                         width: 100%;
                         margin-left: 0;
                         .pl-0{
-                            ${({ theme }) =>
-                              theme.rtl
-                                ? "padding-right"
-                                : "padding-left"}: 0px;
+                            ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0px;
                         }
                     }
                     .badge{
                         position: absolute;
-                        ${({ theme }) => (theme.rtl ? "left" : "right")}: 30px;
+                        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 30px;
                         top: 50%;
                         transform: translateY(-50%);
                         display: inline-block;
@@ -666,12 +590,10 @@ const Div = Styled("div", props)`
                         letter-spacing: 1px;
                         color: #fff;
                         &.badge-primary{
-                            background-color: ${({ theme }) =>
-                              theme["primary-color"]};
+                            background-color: ${({ theme }) => theme['primary-color']};
                         }
                         &.badge-success{
-                            background-color: ${({ theme }) =>
-                              theme["success-color"]};
+                            background-color: ${({ theme }) => theme['success-color']};
                         }
                     }
                 }
@@ -690,8 +612,7 @@ const Div = Styled("div", props)`
 
                         .ant-menu-submenu-arrow{
                             right: auto;
-                            ${({ theme }) =>
-                              theme.rtl ? "left" : "right"}: 24px;
+                            ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 24px;
                             &:after,
                             &:before{
                                 width: 6px;
@@ -700,15 +621,11 @@ const Div = Styled("div", props)`
                             }
                             &:before{
                                 transform: rotate(45deg) ${({ theme }) =>
-                                  !theme.rtl
-                                    ? "translateY(-3px)"
-                                    : "translateY(3px)"};
+                                  !theme.rtl ? 'translateY(-3px)' : 'translateY(3px)'};
                             }
                             &:after{
                                 transform: rotate(-45deg) ${({ theme }) =>
-                                  theme.rtl
-                                    ? "translateY(-3px)"
-                                    : "translateY(3px)"};
+                                  theme.rtl ? 'translateY(-3px)' : 'translateY(3px)'};
                             }
                         }
                     }
@@ -726,20 +643,11 @@ const Div = Styled("div", props)`
                         }
                     }
                     .ant-menu-item{
-                        ${({ theme }) =>
-                          theme.rtl
-                            ? "padding-right"
-                            : "padding-left"}: 0 !important;
-                        ${({ theme }) =>
-                          theme.rtl
-                            ? "padding-left"
-                            : "padding-right"}: 0 !important;
+                        ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 0 !important;
+                        ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 0 !important;
                         transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
                         a{
-                            ${({ theme }) =>
-                              theme.rtl
-                                ? "padding-right"
-                                : "padding-left"}: 36px !important;
+                            ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 36px !important;
                         }
                     }
                 }
@@ -753,23 +661,18 @@ const Div = Styled("div", props)`
                         align-items: center;
                         .feather{
                             width: 16px;
-                            color: ${({ theme }) =>
-                              theme[theme.mainContent]["menu-icon-color"]};
+                            color: ${({ theme }) => theme[theme.mainContent]['menu-icon-color']};
                         }
                         span{
-                            ${({ theme }) =>
-                              !theme.rtl
-                                ? "padding-left"
-                                : "padding-right"}: 20px;
+                            ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 20px;
                             display: inline-block;
-                            color: ${({ theme }) => theme["dark-color"]};
+                            color: ${({ theme }) => theme['dark-color']};
                         }
                     }
                     &.ant-menu-item-selected{
                         svg,
                         i{
-                            color: ${({ theme }) =>
-                              theme[theme.mainContent]["menu-active"]};
+                            color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
                         }
                     }
                 }
@@ -777,8 +680,7 @@ const Div = Styled("div", props)`
 
                 &.ant-menu-inline-collapsed{
                     .ant-menu-submenu{
-                        text-align: ${({ theme }) =>
-                          !theme.rtl ? "left" : "right"};
+                        text-align: ${({ theme }) => (!theme.rtl ? 'left' : 'right')};
                         .ant-menu-submenu-title{
                             padding: 0 20px;
                             justify-content: center;
@@ -799,21 +701,19 @@ const Div = Styled("div", props)`
     }
     @media only screen and (max-width: 1150px){
         .ant-layout-sider.ant-layout-sider-collapsed{
-            ${({ theme }) => (!theme.rtl ? "left" : "right")}: -80px !important;
+            ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: -80px !important;
         }
 
     }
 
     .ninjadash-main-layout{
-        ${({ theme }) => (!theme.rtl ? "margin-left" : "margin-right")}: ${({
-  theme,
-}) => (theme.topMenu ? 0 : "280px")};
+        ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: ${({ theme }) =>
+  theme.topMenu ? 0 : '280px'};
         margin-top: 64px;
         transition: 0.3s ease;
 
         @media only screen and (max-width: 1150px){
-            ${({ theme }) =>
-              !theme.rtl ? "margin-left" : "margin-right"}: auto !important;
+            ${({ theme }) => (!theme.rtl ? 'margin-left' : 'margin-right')}: auto !important;
         }
         @media print {
             width: 100%;
@@ -821,9 +721,9 @@ const Div = Styled("div", props)`
             margin-right: 0;
         }
     }
+        
     .admin-footer{
-        background-color: ${({ theme }) =>
-          theme[theme.mainContent]["white-background"]} !important;
+        background-color: ${({ theme }) => theme[theme.mainContent]['white-background']} !important;
         @media print {
             display: none;
         }
@@ -831,7 +731,7 @@ const Div = Styled("div", props)`
             display: inline-block;
             width: 100%;
             font-weight: 500;
-            color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
+            color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
             @media only screen and (max-width: 767px){
                 text-align: center;
                 margin-bottom: 10px;
@@ -840,25 +740,23 @@ const Div = Styled("div", props)`
                 display: inline-block;
                 margin-left: 4px;
                 font-weight: 500;
-                color: ${({ theme }) =>
-                  theme[theme.mainContent]["menu-active"]};
+                color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
             }
         }
         .admin-footer__links{
             margin: 0 -9px;
-            text-align: ${({ theme }) => (theme.rtl ? "left" : "right")};
+            text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
             @media only screen and (max-width: 767px){
                 text-align: center;
             }
             a {
                 margin: 0 9px;
-                color: ${({ theme }) => theme[theme.mainContent]["gray-text"]};
+                color: ${({ theme }) => theme[theme.mainContent]['gray-text']};
                 &:hover{
-                    color: ${({ theme }) => theme["primary-color"]};
+                    color: ${({ theme }) => theme['primary-color']};
                 }
                 &:not(:last-child) {
-                    ${({ theme }) =>
-                      theme.rtl ? "margin-left" : "margin-right"}: 15px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
                 }
             }
         }
@@ -867,19 +765,18 @@ const Div = Styled("div", props)`
     .ant-radio-button-wrapper-checked:not() {
         &:not(.ant-radio-button-wrapper-disabled){
             background: ${({ theme }) => theme[theme.mainContent].white};
-            color: ${({ theme }) => theme[theme.mainContent]["menu-active"]};
+            color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
         }
     }
 `;
 
-const SmallScreenAuthInfo = Styled("div", props)`
-        ${({ darkMode }) =>
-          darkMode ? `background: #272B41;` : "background: #fff"};
+const SmallScreenAuthInfo = Styled('div', props)`
+        ${({ darkMode }) => (darkMode ? `background: #272B41;` : 'background: #fff')};
         width: 100%;
         position: fixed;
-        margin-top: ${({ hide }) => (hide ? "0px" : "64px")};
+        margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
         top: 9px;
-        ${({ theme }) => (!theme.rtl ? "left" : "right")}: 0;
+        ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
         transition: .3s;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 1)}
@@ -899,14 +796,13 @@ const SmallScreenAuthInfo = Styled("div", props)`
 			}
 `;
 
-const SmallScreenSearch = Styled("div", props)`
-        ${({ darkMode }) =>
-          darkMode ? `background: #272B41;` : "background: #fff"};
+const SmallScreenSearch = Styled('div', props)`
+        ${({ darkMode }) => (darkMode ? `background: #272B41;` : 'background: #fff')};
         width: 100%;
         position: fixed;
-        margin-top: ${({ hide }) => (hide ? "0px" : "64px")};
+        margin-top: ${({ hide }) => (hide ? '0px' : '64px')};
         top: 0;
-        ${({ theme }) => (!theme.rtl ? "left" : "right")}: 0;
+        ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 0;
         transition: .3s;
         opacity: ${({ hide }) => (hide ? 0 : 1)}
         z-index: ${({ hide }) => (hide ? -1 : 999)}
@@ -914,11 +810,11 @@ const SmallScreenSearch = Styled("div", props)`
 
 `;
 
-const ModeSwitch = Styled("div", props)`
+const ModeSwitch = Styled('div', props)`
     background: #ddd;
     width: 200px;
     position: fixed;
-    ${({ theme }) => (theme.rtl ? "left" : "right")}: 0;
+    ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 0;
     top: 50%;
     margin-top: -100px;
     z-index: 9999;
@@ -931,17 +827,16 @@ const ModeSwitch = Styled("div", props)`
     }
 `;
 
-const TopMenuSearch = Styled("div", props)`
+const TopMenuSearch = Styled('div', props)`
     .top-right-wrap{
         position: relative;
-        float: ${({ theme }) => (theme.rtl ? "left" : "right")};
+        float: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
     }
     .search-toggle{
         display: flex;
         align-items: center;
-        ${({ theme }) => (theme.rtl ? "margin-left" : "margin-right")}: 10px;
-        ${({ theme }) =>
-          theme.darkMode ? `color: #A8AAB3;` : "color :#5A5F7D"};
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 10px;
+        ${({ theme }) => (theme.darkMode ? `color: #A8AAB3;` : 'color :#5A5F7D')};
         .feather-x{
             display: none;
         }
@@ -963,11 +858,11 @@ const TopMenuSearch = Styled("div", props)`
     }
     .topMenu-search-form{
         position: absolute;
-        ${({ theme }) => (theme.rtl ? "left" : "right")}: 100%;
-        ${({ theme }) => (theme.rtl ? "margin-left" : "margin-right")}: 15px;
+        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 100%;
+        ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 15px;
         top: 12px;
         background-color: #fff;
-        border: 1px solid ${({ theme }) => theme["border-color-normal"]};
+        border: 1px solid ${({ theme }) => theme['border-color-normal']};
         border-radius: 6px;
         height: 40px;
         width: 280px;
@@ -980,7 +875,7 @@ const TopMenuSearch = Styled("div", props)`
             line-height: 1;
             position: absolute;
             left: 15px;
-            ${({ theme }) => (theme.rtl ? "right" : "left")}: 15px;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 15px;
             top: 50%;
             transform: translateY(-50%);
             z-index: 9999;
@@ -988,12 +883,10 @@ const TopMenuSearch = Styled("div", props)`
         i,
         svg{
             width: 18px;
-            fill: ${({ theme }) =>
-              theme.darkMode ? `color: #A8AAB3;` : "color:# 9299b8"};
+            fill: ${({ theme }) => (theme.darkMode ? `color: #A8AAB3;` : 'color:# 9299b8')};
         }
         svg{
-            fill: ${({ theme }) =>
-              theme.darkMode ? `color: #A8AAB3;` : "color:# 9299b8"};
+            fill: ${({ theme }) => (theme.darkMode ? `color: #A8AAB3;` : 'color:# 9299b8')};
         }
         form{
             height: auto;
@@ -1008,8 +901,7 @@ const TopMenuSearch = Styled("div", props)`
             height: 38px;
             padding-left: 40px;
             z-index: 999;
-            ${({ theme }) =>
-              theme.rtl ? "padding-right" : "padding-left"}: 40px;
+            ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 40px;
             &:focus{
                 border: 0 none;
                 box-shadow: 0 0;
@@ -1019,57 +911,48 @@ const TopMenuSearch = Styled("div", props)`
     }
 `;
 
-const TopMenuStyle = Styled("div", props)`
+const TopMenuStyle = Styled('div', props)`
 .ninjadash-top-menu{
     ul{
         margin-bottom: 0;
         li{
             display: inline-block;
             position: relative;
-            ${({ theme }) =>
-              theme.rtl ? "padding-left" : "padding-right"}: 14px;
+            ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 14px;
             @media only screen and (max-width: 1024px){
-                ${({ theme }) =>
-                  theme.rtl ? "padding-left" : "padding-right"}: 10px;
+                ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 10px;
             }
             &:not(:last-child){
-                ${({ theme }) =>
-                  theme.rtl ? "margin-left" : "margin-right"}: 34px;
+                ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 34px;
                 @media only screen and (max-width: 1399px){
-                    ${({ theme }) =>
-                      theme.rtl ? "margin-left" : "margin-right"}: 30px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 30px;
                 }
                 @media only screen and (max-width: 1199px){
-                    ${({ theme }) =>
-                      theme.rtl ? "margin-left" : "margin-right"}: 26px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 26px;
                 }
                 @media only screen and (max-width: 1024px){
-                    ${({ theme }) =>
-                      theme.rtl ? "margin-left" : "margin-right"}: 16px;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 16px;
                 }
             }
             .parent.active{
-                color: ${({ theme }) =>
-                  theme[theme.mainContent]["menu-active"]};
+                color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
             }
             &.has-subMenu{
                 >a{
                     position: relative;
                     &:before{
                         position: absolute;
-                        ${({ theme }) => (theme.rtl ? "left" : "right")}: -14px;
+                        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: -14px;
                         top: 50%;
                         transform: translateY(-50%);
                         font-family: "FontAwesome";
                         content: '\f107';
                         line-height: 1;
-                        color: ${({ theme }) =>
-                          theme[theme.mainContent]["light-text"]};
+                        color: ${({ theme }) => theme[theme.mainContent]['light-text']};
                     }
                     &.active{
                         &:before{
-                            color: ${({ theme }) =>
-                              theme[theme.mainContent]["menu-active"]};
+                            color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
                         }
                     }
                 }
@@ -1079,14 +962,13 @@ const TopMenuStyle = Styled("div", props)`
                     position: relative;
                     &:before{
                         position: absolute;
-                        ${({ theme }) => (theme.rtl ? "left" : "right")}: 30px;
+                        ${({ theme }) => (theme.rtl ? 'left' : 'right')}: 30px;
                         top: 50%;
                         transform: translateY(-50%);
                         font-family: "FontAwesome";
                         content: '\f105';
                         line-height: 1;
-                        color: ${({ theme }) =>
-                          theme[theme.mainContent]["light-text"]};
+                        color: ${({ theme }) => theme[theme.mainContent]['light-text']};
                     }
                 }
             }
@@ -1111,10 +993,9 @@ const TopMenuStyle = Styled("div", props)`
                 display: flex;
                 align-items: center;
                 font-weight: 500;
-                color: ${({ theme }) => theme[theme.mainContent]["light-text"]};
+                color: ${({ theme }) => theme[theme.mainContent]['light-text']};
                 &.active{
-                    color: ${({ theme }) =>
-                      theme[theme.mainContent]["light-text"]};
+                    color: ${({ theme }) => theme[theme.mainContent]['light-text']};
                 }
                 svg,
                 img,
@@ -1127,10 +1008,8 @@ const TopMenuStyle = Styled("div", props)`
                 li{
                     display: block;
                     position: relative;
-                    ${({ theme }) =>
-                      theme.rtl ? "padding-left" : "padding-right"}: 0;
-                    ${({ theme }) =>
-                      theme.rtl ? "margin-left" : "margin-right"}: 0 !important;
+                    ${({ theme }) => (theme.rtl ? 'padding-left' : 'padding-right')}: 0;
+                    ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 0 !important;
                     a{
                         font-weight: 400;
                         padding: 0 30px;
@@ -1139,24 +1018,17 @@ const TopMenuStyle = Styled("div", props)`
                         transition: .3s;
                         &:hover,
                         &[aria-current="page"]{
-                            color: ${({ theme }) =>
-                              theme[theme.mainContent]["menu-active"]};
-                            background-color: ${({ theme }) =>
-                              theme[theme.mainContent]["menu-active"]}06;
-                            ${({ theme }) =>
-                              theme.rtl
-                                ? "padding-right"
-                                : "padding-left"}: 40px;
+                            color: ${({ theme }) => theme[theme.mainContent]['menu-active']};
+                            background-color: ${({ theme }) => theme[theme.mainContent]['menu-active']}06;
+                            ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 40px;
                         }
                     }
                     &:hover{
                         .subMenu{
                             top: 0;
-                            ${({ theme }) =>
-                              theme.rtl ? "right" : "left"}: 250px;
+                            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 250px;
                             @media only screen and (max-width: 1300px){
-                                ${({ theme }) =>
-                                  theme.rtl ? "right" : "left"}: 180px;
+                                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 180px;
                             }
                         }
                     }
@@ -1166,11 +1038,10 @@ const TopMenuStyle = Styled("div", props)`
     }
     .subMenu{
         width: 250px;
-        background: ${({ theme }) =>
-          theme[theme.mainContent]["white-background"]};
+        background: ${({ theme }) => theme[theme.mainContent]['white-background']};
         border-radius: 6px;
         position: absolute;
-        ${({ theme }) => (theme.rtl ? "right" : "left")}: 0;
+        ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
         top: 80px;
         padding: 12px 0;
         visibility: hidden;
@@ -1183,10 +1054,9 @@ const TopMenuStyle = Styled("div", props)`
         }
         .subMenu{
             width: 250px;
-            background:${({ theme }) =>
-              theme[theme.mainContent]["white-background"]};
+            background:${({ theme }) => theme[theme.mainContent]['white-background']};
             position: absolute;
-            ${({ theme }) => (theme.rtl ? "right" : "left")}: 250px;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 250px;
             top: 0px;
             padding: 12px 0;
             visibility: hidden;
@@ -1196,7 +1066,7 @@ const TopMenuStyle = Styled("div", props)`
             box-shadow: 0px 15px 40px 0px rgba(82, 63, 105, 0.15);
             @media only screen and (max-width: 1300px){
                 width: 200px;
-                ${({ theme }) => (theme.rtl ? "right" : "left")}: 180px;
+                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 180px;
             }
         }
     }
@@ -1227,8 +1097,8 @@ const TopMenuStyle = Styled("div", props)`
             .megaMenu-wrapper{
                 display: flex;
                 position: absolute;
-                text-align: ${({ theme }) => (theme.rtl ? "right" : "left")}
-                ${({ theme }) => (theme.rtl ? "right" : "left")}: 0;
+                text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')}
+                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
                 top: 100%;
                 overflow: hidden;
                 z-index: -1;
@@ -1238,8 +1108,7 @@ const TopMenuStyle = Styled("div", props)`
                 opacity: 0;
                 visibility: hidden;
                 transition: .4s;
-                background-color: ${({ theme }) =>
-                  theme[theme.mainContent]["white-background"]};
+                background-color: ${({ theme }) => theme[theme.mainContent]['white-background']};
                 &.megaMenu-small{
                     width: 590px;
                     >li{
@@ -1258,8 +1127,7 @@ const TopMenuStyle = Styled("div", props)`
                                     height: 5px;
                                     border-radius: 50%;
                                     position: absolute;
-                                    ${({ theme }) =>
-                                      theme.rtl ? "right" : "left"}: 20px;
+                                    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 20px;
                                     top: 50%;
                                     transform: translateY(-50%);
                                     background-color: #C6D0DC;
@@ -1268,15 +1136,10 @@ const TopMenuStyle = Styled("div", props)`
                                 }
                                 &:hover,
                                 &[aria-current="page"]{
-                                    ${({ theme }) =>
-                                      theme.rtl
-                                        ? "padding-right"
-                                        : "padding-left"}: 35px;
-                                    color: ${({ theme }) =>
-                                      theme["primary-color"]};
+                                    ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 35px;
+                                    color: ${({ theme }) => theme['primary-color']};
                                     &:after{
-                                        background-color: ${({ theme }) =>
-                                          theme["primary-color"]};;
+                                        background-color: ${({ theme }) => theme['primary-color']};;
                                     }
                                 }
                             }
@@ -1300,19 +1163,14 @@ const TopMenuStyle = Styled("div", props)`
                             font-size: 14px;
                             font-weight: 500;
                             padding-left: 35px;
-                            ${({ theme }) =>
-                              theme.rtl
-                                ? "padding-right"
-                                : "padding-left"}: 45px;
-                            color: ${({ theme }) =>
-                              theme[theme.mainContent]["dark-text"]};
+                            ${({ theme }) => (theme.rtl ? 'padding-right' : 'padding-left')}: 45px;
+                            color: ${({ theme }) => theme[theme.mainContent]['dark-text']};
                             &:after{
                                 position: absolute;
                                 height: 5px;
                                 width: 5px;
                                 border-radius: 50%;
-                                ${({ theme }) =>
-                                  theme.rtl ? "right" : "left"}: 30px;
+                                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 30px;
                                 top: 50%;
                                 transform: translateY(-50%);
                                 background-color: #C6D0DC;
@@ -1345,12 +1203,10 @@ const TopMenuStyle = Styled("div", props)`
                             height: 1px;
                             border-radius: 50%;
                             position: absolute;
-                            ${({ theme }) =>
-                              theme.rtl ? "right" : "left"}: 20px;
+                            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 20px;
                             top: 50%;
                             transform: translateY(-50%);
-                            background-color: ${({ theme }) =>
-                              theme[theme.mainContent]["gray-light-text"]};
+                            background-color: ${({ theme }) => theme[theme.mainContent]['gray-light-text']};
                             content: '';
                             transition: .3s;
                             opacity: 0;
@@ -1368,7 +1224,7 @@ const Aside = Styled.aside`
   width: 100%;
   height: 100vh;
   position: relative;
-  background-image: url("${require("@/static/img/auth/BG.png")}");
+  background-image: url("${require('@/static/img/auth/BG.png')}");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: left top;

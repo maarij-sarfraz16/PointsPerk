@@ -33,7 +33,7 @@
 
 <script>
 import { defineAsyncComponent, defineComponent } from 'vue';
-import { ChartStyle } from './overview/style';
+import ChartStyle from './overview/style';
 import { Main } from '@/view/styled';
 
 const PerformanceOverview = defineAsyncComponent(() => import('./overview/PerformanceOverview.vue'));

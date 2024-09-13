@@ -2,32 +2,43 @@ export default [
   {
     name: 'ecommerce',
     path: '',
-    component: () => import(/* webpackChunkName: "ecommerce" */ '../view/apps/ecommerce/Index.vue'),
+    component: () => import(/* webpackChunkName: "ecommerce" */ '../view/userView/pages/ecommerce/Index.vue'),
+    meta: { requiresAuth: true },
     children: [
       {
         path: '',
         name: 'ecommerce-product',
-        component: () => import(/* webpackChunkName: "product" */ '../view/apps/ecommerce/product/Coupons.vue'),
+        component: () =>
+          import(/* webpackChunkName: "product" */ '../view/userView/pages/ecommerce/product/Coupons.vue'),
+        meta: { requiresAuth: true },
         children: [
           {
             name: 'product',
             path: '',
-            component: () => import(/* webpackChunkName: "product" */ '../view/apps/ecommerce/product/Coupons.vue'),
+            meta: { requiresAuth: true },
+            component: () =>
+              import(/* webpackChunkName: "product" */ '../view/userView/pages/ecommerce/product/Coupons.vue'),
           },
           {
             name: 'pro-grid',
-            path: '/Coupons',
+            path: '/user/Coupons',
+            meta: { requiresAuth: true },
             components: {
-              default: () => import(/* webpackChunkName: "product" */ '../view/apps/ecommerce/product/Coupons.vue'),
-              grid: () => import(/* webpackChunkName: "grid" */ '../view/apps/ecommerce/product/overview/Grid.vue'),
+              default: () =>
+                import(/* webpackChunkName: "product" */ '../view/userView/pages/ecommerce/product/Coupons.vue'),
+              grid: () =>
+                import(/* webpackChunkName: "grid" */ '../view/userView/pages/ecommerce/product/overview/Grid.vue'),
             },
           },
           {
             name: 'pro-list',
-            path: 'product/list',
+            path: '/user/couponList',
+            meta: { requiresAuth: true },
             components: {
-              default: () => import(/* webpackChunkName: "product" */ '../view/apps/ecommerce/product/Coupons.vue'),
-              grid: () => import(/* webpackChunkName: "grid" */ '../view/apps/ecommerce/product/overview/List.vue'),
+              default: () =>
+                import(/* webpackChunkName: "product" */ '../view/userView/pages/ecommerce/product/Coupons.vue'),
+              grid: () =>
+                import(/* webpackChunkName: "grid" */ '../view/userView/pages/ecommerce/product/overview/List.vue'),
             },
           },
         ],
@@ -35,52 +46,66 @@ export default [
       {
         name: 'detail',
         path: 'ecommerce/productDetails/:id',
-        component: () => import(/* webpackChunkName: "detail" */ '../view/apps/ecommerce/product/ProductDetails.vue'),
+        meta: { requiresAuth: true },
+        component: () =>
+          import(/* webpackChunkName: "detail" */ '../view/userView/pages/ecommerce/product/ProductDetails.vue'),
       },
       {
         name: 'add-product',
         path: 'ecommerce/add-product',
-        component: () => import(/* webpackChunkName: "addProduct" */ '../view/apps/ecommerce/product/AddProduct.vue'),
+        meta: { requiresAuth: true },
+        component: () =>
+          import(/* webpackChunkName: "addProduct" */ '../view/userView/pages/ecommerce/product/AddProduct.vue'),
       },
       {
         name: 'edit-product',
         path: 'ecommerce/edit-product',
-        component: () => import(/* webpackChunkName: "editProduct" */ '../view/apps/ecommerce/product/EditProduct.vue'),
+        meta: { requiresAuth: true },
+        component: () =>
+          import(/* webpackChunkName: "editProduct" */ '../view/userView/pages/ecommerce/product/EditProduct.vue'),
       },
       {
         name: 'orders',
         path: 'ecommerce/orders',
-        component: () => import(/* webpackChunkName: "Orders" */ '../view/apps/ecommerce/Orders.vue'),
+        meta: { requiresAuth: true },
+        component: () => import(/* webpackChunkName: "Orders" */ '../view/userView/pages/ecommerce/Orders.vue'),
       },
       {
         name: 'sellers',
         path: 'ecommerce/sellers',
-        component: () => import(/* webpackChunkName: "sellers" */ '../view/apps/ecommerce/Sellers.vue'),
+        meta: { requiresAuth: true },
+        component: () => import(/* webpackChunkName: "sellers" */ '../view/userView/pages/ecommerce/Sellers.vue'),
       },
       {
         name: 'invoice',
         path: 'ecommerce/invoice',
-        component: () => import(/* webpackChunkName: "invoice" */ '../view/apps/ecommerce/Invoice.vue'),
+        meta: { requiresAuth: true },
+        component: () => import(/* webpackChunkName: "invoice" */ '../view/userView/pages/ecommerce/Invoice.vue'),
       },
       {
         name: 'cart',
         path: 'ecommerce/cart',
-        component: () => import(/* webpackChunkName: "cart" */ '../view/apps/ecommerce/Cart.vue'),
+        meta: { requiresAuth: true },
+        component: () => import(/* webpackChunkName: "cart" */ '../view/userView/pages/ecommerce/Cart.vue'),
         children: [
           {
             name: 'exact',
             path: '',
+            meta: { requiresAuth: true },
             components: {
-              default: () => import(/* webpackChunkName: "cart" */ '../view/apps/ecommerce/Cart.vue'),
-              child: () => import(/* webpackChunkName: "cartTable" */ '../view/apps/ecommerce/overview/CartTable.vue'),
+              default: () => import(/* webpackChunkName: "cart" */ '../view/userView/pages/ecommerce/Cart.vue'),
+              child: () =>
+                import(/* webpackChunkName: "cartTable" */ '../view/userView/pages/ecommerce/overview/CartTable.vue'),
             },
           },
           {
             name: 'checkout',
             path: 'checkout',
+            meta: { requiresAuth: true },
             components: {
-              default: () => import(/* webpackChunkName: "cart" */ '../view/apps/ecommerce/Cart.vue'),
-              child: () => import(/* webpackChunkName: "checkout" */ '../view/apps/ecommerce/overview/CheckOut.vue'),
+              default: () => import(/* webpackChunkName: "cart" */ '../view/userView/pages/ecommerce/Cart.vue'),
+              child: () =>
+                import(/* webpackChunkName: "checkout" */ '../view/userView/pages/ecommerce/overview/CheckOut.vue'),
             },
           },
         ],
@@ -90,6 +115,7 @@ export default [
   {
     name: 'to-do',
     path: '/app/to-do',
-    component: () => import(/* webpackChunkName: "to-do" */ '../view/apps/todo/Todo.vue'),
-  }
+    meta: { requiresAuth: true },
+    component: () => import(/* webpackChunkName: "to-do" */ '../view/userView/pages/todo/Todo.vue'),
+  },
 ];

@@ -84,7 +84,7 @@ import { computed, defineComponent, onMounted, ref } from 'vue';
 import PropTypes from 'vue-types';
 import { customTooltips, chartLinearGradient } from '@/components/utilities/utilities';
 import DashboardChart from '@/components/utilities/chartjs.vue';
-import { SalesRevenueWrapper, ChartContainer } from '../../style';
+import { SalesRevenueWrapper, ChartContainer } from '@/view/userView/dashboard/style';
 import { BorderLessHeading } from '@/view/styled';
 import chartContent from '@/demoData/dashboardChartContent.json';
 

@@ -1,6 +1,5 @@
 <template>
-  <sdPageHeader title="Sellers" class="ninjadash-page-header-main">
-  </sdPageHeader>
+  <sdPageHeader title="Sellers" class="ninjadash-page-header-main"> </sdPageHeader>
   <Main>
     <sdCards headless>
       <a-row :gutter="15">
@@ -9,19 +8,13 @@
             <a-row :gutter="15">
               <a-col :xxl="5" :lg="10" :xs="24">
                 <div class="table-search-box">
-                  <sdAutoComplete
-                    :dataSource="searchData"
-                    width="100%"
-                    patterns
-                  />
+                  <sdAutoComplete :dataSource="searchData" width="100%" patterns />
                 </div>
               </a-col>
               <a-col :xxl="15" :lg="5" :xs="24" />
               <a-col :xxl="4" :lg="9" :xs="24">
                 <div class="table-toolbox-actions">
-                  <sdButton size="sm" type="secondary" transparented>
-                    Export
-                  </sdButton>
+                  <sdButton size="sm" type="secondary" transparented> Export </sdButton>
                   <sdButton size="sm" type="primary"> + Add Order </sdButton>
                 </div>
               </a-col>
@@ -47,47 +40,48 @@
   </Main>
 </template>
 <script>
-import { TopToolBox } from "./Style";
-import { Main, TableWrapper } from "../../styled";
-import { useStore } from "vuex";
-import { computed, ref, defineComponent } from "vue";
-import sellers from "@/demoData/sellers.json";
+import { TopToolBox } from './Style';
+import { Main } from '@/view/styled';
+import { TableWrapper } from '@/components/view-table/Style';
+import { useStore } from 'vuex';
+import { computed, ref, defineComponent } from 'vue';
+import sellers from '@/demoData/sellers.json';
 
 const columns = [
   {
-    title: "Sellers",
-    dataIndex: "name",
-    key: "name",
+    title: 'Sellers',
+    dataIndex: 'name',
+    key: 'name',
   },
   {
-    title: "Store",
-    dataIndex: "store",
-    key: "store",
+    title: 'Store',
+    dataIndex: 'store',
+    key: 'store',
   },
   {
-    title: "Products",
-    dataIndex: "product",
-    key: "product",
+    title: 'Products',
+    dataIndex: 'product',
+    key: 'product',
   },
   {
-    title: "Wallet Balance",
-    dataIndex: "amount",
-    key: "amount",
+    title: 'Wallet Balance',
+    dataIndex: 'amount',
+    key: 'amount',
   },
   {
-    title: "Create Date",
-    dataIndex: "date",
-    key: "date",
+    title: 'Create Date',
+    dataIndex: 'date',
+    key: 'date',
   },
   {
-    title: "Action",
-    dataIndex: "action",
-    key: "action",
+    title: 'Action',
+    dataIndex: 'action',
+    key: 'action',
   },
 ];
 
 const Sellers = defineComponent({
-  name: "Sellers",
+  name: 'Sellers',
   components: { TopToolBox, Main, TableWrapper },
   setup() {
     const { state } = useStore();
@@ -125,7 +119,7 @@ const Sellers = defineComponent({
             </div>
           ),
         };
-      })
+      }),
     );
 
     const onSelectChange = (selectedRowKey) => {

@@ -2,10 +2,7 @@
   <div class="spin" v-if="isLoader"><a-spin /></div>
   <ProductCard v-else style="margin-bottom: 30px">
     <figure>
-      <img
-        :src="require(`../../../../../${renderData.img}`)"
-        :alt="`img${renderData.id}`"
-      />
+      <img :src="require(`@/${renderData.img}`)" :alt="`img${renderData.id}`" />
     </figure>
     <figcaption>
       <!-- <a @click="() => addWishList(renderData.id)" class="btn-heart" to="#">
@@ -16,10 +13,9 @@
         ></unicon>
       </a> -->
       <sdHeading class="product-single-title" as="h5">
-        <router-link
-          :to="`${matched[1].path}/ecommerce/productDetails/${renderData.id}`"
-          >{{ renderData.name }}</router-link
-        >
+        <router-link :to="`${matched[1].path}/ecommerce/productDetails/${renderData.id}`">{{
+          renderData.name
+        }}</router-link>
       </sdHeading>
 
       <!-- <div class="product-single-rating">
@@ -29,8 +25,7 @@
 
       <p class="product-single-price">
         <span class="product-single-price__new"
-          ><unicon name="star" style="padding-top: 12px"> </unicon
-          >{{ renderData.price }}
+          ><unicon name="star" style="padding-top: 12px"> </unicon>{{ renderData.price }}
         </span>
 
         <!-- <template v-if="renderData.oldPrice">
@@ -63,14 +58,14 @@
   </ProductCard>
 </template>
 <script>
-import { ProductCard } from "../../Style";
-import PropTypes from "vue-types";
-import { toRefs, computed, defineComponent } from "vue";
-import { useStore } from "vuex";
-import { useRoute } from "vue-router";
+import { ProductCard } from '../../Style';
+import PropTypes from 'vue-types';
+import { toRefs, computed, defineComponent } from 'vue';
+import { useStore } from 'vuex';
+import { useRoute } from 'vue-router';
 
 const ProductCards = defineComponent({
-  name: "ProductCards",
+  name: 'ProductCards',
   components: { ProductCard },
   props: {
     product: PropTypes.object,
@@ -84,11 +79,9 @@ const ProductCards = defineComponent({
 
     const isDisabled = computed(() => renderData.value.claimed === true);
 
-    const text = computed(() =>
-      renderData.value.claimed ? "Claimed" : "Claim"
-    );
+    const text = computed(() => (renderData.value.claimed ? 'Claimed' : 'Claim'));
     const addWishList = (value) => {
-      dispatch("updateWishList", value);
+      dispatch('updateWishList', value);
     };
 
     return {

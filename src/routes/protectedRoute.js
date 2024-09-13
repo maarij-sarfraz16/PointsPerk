@@ -1,4 +1,5 @@
 import { createWebHistory, createRouter } from 'vue-router';
+import LandingPageRoutes from './LandingPageRoutes/LandingPageRoutes';
 import userRoutes from './userRoutes/UserRoutes';
 import userAuthRoutes from './userRoutes/userAuthRoutes';
 import adminRoutes from './adminRoutes/AdminRoutes';
@@ -6,32 +7,33 @@ import adminAuthRoutes from './adminRoutes/adminAuthRoutes';
 import store from '@/vuex/store';
 
 const routes = [
-  // {
-  //   name: 'Landing Page',
-  //   path: '/',
-  //   component: () => import(/* webpackChunkName: "landing" */ '@/view/pages/LandingPage.vue'),
-  //   meta: { auth: false },
-  // },
+  {
+    name: 'Landing Page',
+    path: '/',
+    component: () => import(/* webpackChunkName: "landing" */ '@/layout/LandingPageLayout/withLandingPageLayout.vue'),
+    children: [...LandingPageRoutes],
+    meta: { requiresAuth: false },
+  },
   {
     name: 'User Dashboard',
     path: '/user/dashboard',
     component: () => import(/* webpackChunkName: "user" */ '@/layout/userLayout/withUserLayout.vue'),
     children: [...userRoutes],
-    meta: { auth: false },
+    meta: { requiresAuth: false },
   },
   {
     name: 'User Auth',
     path: '/user',
     component: () => import(/* webpackChunkName: "user auth" */ '@/layout/withAuthLayout.vue'),
     children: [...userAuthRoutes],
-    meta: { auth: true },
+    meta: { requiresAuth: true },
   },
   {
     name: 'Admin Dashboard',
     path: '/admin/dashboard',
     component: () => import(/* webpackChunkName: "admin" */ '@/layout/adminLayout/withAdminLayout.vue'),
     children: [...adminRoutes],
-    meta: { auth: false },
+    meta: { requiresAuth: false },
   },
   {
     name: 'Admin Auth',
@@ -55,16 +57,26 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  // console.log(to, store);
-  if (to.meta.auth && store.state.auth.login) {
-    next({ name: 'dashboard' });
-  } else if (!to.meta.auth && !store.state.auth.login) {
-    next({ name: 'login' });
+  const isAuthenticated = store.state.auth.login;
+
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    if (to.path.startsWith('/admin')) {
+      next({ name: 'admin/login' });
+    } else if (to.path.startsWith('/user')) {
+      next({ name: 'user/login' });
+    } else {
+      next({ name: 'login' });
+    }
+  } else if (isAuthenticated && to.path === '/login') {
+    if (store.state.auth.role === 'admin') {
+      next({ name: 'Admin Dashboard' });
+    } else {
+      next({ name: 'User Dashboard' });
+    }
   } else {
     next();
   }
-  window.scrollTo(0, 0); // reset scroll position to top of page
-  next();
+  window.scrollTo(0, 0);
 });
 
 export default router;

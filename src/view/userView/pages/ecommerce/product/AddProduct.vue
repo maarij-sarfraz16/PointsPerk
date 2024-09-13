@@ -1,9 +1,5 @@
 <template>
-  <sdPageHeader
-    title="Product Add"
-    class="ninjadash-page-header-main"
-    :routes="pageRoutes"
-  ></sdPageHeader>
+  <sdPageHeader title="Product Add" class="ninjadash-page-header-main" :routes="pageRoutes"></sdPageHeader>
   <Main>
     <a-row :gutter="15">
       <a-col :xs="24">
@@ -31,57 +27,30 @@
                               <a-form-item label="Sub Text">
                                 <a-input v-model:value="formState.subtext" />
                               </a-form-item>
-                              <a-form-item
-                                name="category"
-                                initialValue=""
-                                label="Category"
-                              >
-                                <a-select
-                                  v-model:value="formState.category"
-                                  style="width: 100%"
-                                >
-                                  <a-select-option value=""
-                                    >Please Select</a-select-option
-                                  >
-                                  <a-select-option value="wearingClothes"
-                                    >Wearing Clothes</a-select-option
-                                  >
-                                  <a-select-option value="sunglasses"
-                                    >Sunglasses</a-select-option
-                                  >
-                                  <a-select-option value="t-shirt"
-                                    >T-Shirt</a-select-option
-                                  >
+                              <a-form-item name="category" initialValue="" label="Category">
+                                <a-select v-model:value="formState.category" style="width: 100%">
+                                  <a-select-option value="">Please Select</a-select-option>
+                                  <a-select-option value="wearingClothes">Wearing Clothes</a-select-option>
+                                  <a-select-option value="sunglasses">Sunglasses</a-select-option>
+                                  <a-select-option value="t-shirt">T-Shirt</a-select-option>
                                 </a-select>
                               </a-form-item>
 
                               <a-form-item name="price" label="Price">
                                 <div class="input-prepend-wrap">
                                   <span class="input-prepend">
-                                    <unicon
-                                      name="dollar-sign"
-                                      width="14"
-                                    ></unicon>
+                                    <unicon name="dollar-sign" width="14"></unicon>
                                   </span>
-                                  <a-input-number
-                                    v-model:value="formState.price"
-                                    style="width: 100%"
-                                  />
+                                  <a-input-number v-model:value="formState.price" style="width: 100%" />
                                 </div>
                               </a-form-item>
 
                               <a-form-item name="discount" label="Discount">
                                 <div class="input-prepend-wrap">
                                   <span class="input-prepend f">
-                                    <unicon
-                                      name="percentage"
-                                      width="14"
-                                    ></unicon>
+                                    <unicon name="percentage" width="14"></unicon>
                                   </span>
-                                  <a-input-number
-                                    v-model:value="formState.discount"
-                                    style="width: 100%"
-                                  />
+                                  <a-input-number v-model:value="formState.discount" style="width: 100%" />
                                 </div>
                               </a-form-item>
 
@@ -92,14 +61,8 @@
                                 </a-radio-group>
                               </a-form-item>
 
-                              <a-form-item
-                                name="description"
-                                label="Product Description"
-                              >
-                                <a-textarea
-                                  v-model:value="formState.description"
-                                  :rows="5"
-                                />
+                              <a-form-item name="description" label="Product Description">
+                                <a-textarea v-model:value="formState.description" :rows="5" />
                               </a-form-item>
                               <a-form-item name="mTitle" label="Meta Title">
                                 <a-input v-model:value="formState.mTitle" />
@@ -121,12 +84,8 @@
                                 <p class="ant-upload-drag-icon">
                                   <unicon name="upload" width="50"></unicon>
                                 </p>
-                                <sdHeading as="h4" class="ant-upload-text">
-                                  Drag and drop an image
-                                </sdHeading>
-                                <p class="ant-upload-hint">
-                                  or <span>Browse</span> to choose a file
-                                </p>
+                                <sdHeading as="h4" class="ant-upload-text"> Drag and drop an image </sdHeading>
+                                <p class="ant-upload-hint">or <span>Browse</span> to choose a file</p>
                               </a-upload-dragger>
                             </sdCards>
                           </div>
@@ -135,17 +94,8 @@
                     </div>
                     <div class="add-form-action">
                       <a-form-item>
-                        <sdButton class="btn-cancel" size="lg">
-                          Cancel
-                        </sdButton>
-                        <sdButton
-                          size="lg"
-                          htmlType="submit"
-                          type="primary"
-                          raised
-                        >
-                          Save Product
-                        </sdButton>
+                        <sdButton class="btn-cancel" size="lg"> Cancel </sdButton>
+                        <sdButton size="lg" htmlType="submit" type="primary" raised> Save Product </sdButton>
                       </a-form-item>
                     </div>
                   </BasicFormWrapper>
@@ -159,34 +109,34 @@
   </Main>
 </template>
 <script>
-import { Main, BasicFormWrapper } from "../../../styled";
-import { AddProductForm } from "../Style";
-import { ref, reactive, defineComponent } from "vue";
-import { message } from "ant-design-vue";
+import { Main, BasicFormWrapper } from '@/view/styled';
+import { AddProductForm } from '../Style';
+import { ref, reactive, defineComponent } from 'vue';
+import { message } from 'ant-design-vue';
 
 const pageRoutes = [
   {
-    path: "/",
-    breadcrumbName: "Product",
+    path: '/',
+    breadcrumbName: 'Product',
   },
   {
-    path: "/",
-    breadcrumbName: "Add",
+    path: '/',
+    breadcrumbName: 'Add',
   },
 ];
 
 const fileList = [
   {
-    uid: "1",
-    name: "1.png",
-    status: "done",
-    url: require("@/static/img/products/1.png"),
-    thumbUrl: require("@/static/img/products/1.png"),
+    uid: '1',
+    name: '1.png',
+    status: 'done',
+    url: require('@/static/img/products/1.png'),
+    thumbUrl: require('@/static/img/products/1.png'),
   },
 ];
 
 const AddProduct = defineComponent({
-  name: "AddProduct",
+  name: 'AddProduct',
   components: { Main, BasicFormWrapper, AddProductForm },
   setup() {
     const file = ref(null);
@@ -195,45 +145,40 @@ const AddProduct = defineComponent({
     const formRef = ref();
 
     const fileUploadProps = {
-      name: "file",
+      name: 'file',
       multiple: true,
-      action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
+      action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
       onChange(info) {
         const { status } = info.file;
-        if (status !== "uploading") {
+        if (status !== 'uploading') {
           file.value = info.file;
           list.value = info.fileList;
         }
-        if (status === "done") {
+        if (status === 'done') {
           message.success(`${info.file.name} file uploaded successfully.`);
-        } else if (status === "error") {
+        } else if (status === 'error') {
           message.error(`${info.file.name} file upload failed.`);
         }
       },
-      listType: "picture",
+      listType: 'picture',
       defaultFileList: fileList,
       showUploadList: {
         showRemoveIcon: true,
-        removeIcon: (
-          <unicon
-            name="trash-alt"
-            onClick={(e) => console.log(e, "Custom remove icon event")}
-          ></unicon>
-        ),
+        removeIcon: <unicon name="trash-alt" onClick={(e) => console.log(e, 'Custom remove icon event')}></unicon>,
       },
     };
 
     const formState = reactive({
-      name: "",
-      subtext: "",
-      category: "",
+      name: '',
+      subtext: '',
+      category: '',
       price: 0,
       discount: 0,
-      status: "",
-      description: "",
-      mTitle: "",
-      mKeyword: "",
-      layout: "vertical",
+      status: '',
+      description: '',
+      mTitle: '',
+      mKeyword: '',
+      layout: 'vertical',
     });
 
     const handleFinish = () => {
@@ -252,8 +197,8 @@ const AddProduct = defineComponent({
       name: [
         {
           required: true,
-          message: "Please input Activity name",
-          trigger: "blur",
+          message: 'Please input Activity name',
+          trigger: 'blur',
         },
       ],
     };

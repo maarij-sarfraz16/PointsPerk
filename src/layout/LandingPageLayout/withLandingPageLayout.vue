@@ -12,10 +12,7 @@
         <div class="ninjadash-header-content d-flex">
           <div class="ninjadash-header-content__left">
             <div class="navbar-brand align-cener-v">
-              <router-link
-                :class="topMenu && innerWidth > 991 ? 'ninjadash-logo top-menu' : 'ninjadash-logo'"
-                to="/admin/dashboard"
-              >
+              <router-link :class="topMenu && innerWidth > 991 ? 'ninjadash-logo top-menu' : 'ninjadash-logo'" to="/">
                 <img
                   :src="
                     !darkMode ? require(`../../static/img/Logo_Dark.svg`) : require(`../../static/img/Logo_White.svg`)
@@ -23,9 +20,6 @@
                   alt="logo"
                 />
               </router-link>
-              <sdButton v-if="!topMenu || innerWidth <= 991" @click="toggleCollapsed" type="white">
-                <img :src="require(`../../static/img/icon/align-center-alt.svg`)" alt="menu" />
-              </sdButton>
             </div>
           </div>
           <div class="ninjadash-header-content__right d-flex">
@@ -68,7 +62,7 @@
               [!rtl ? 'left' : 'right']: 0,
               zIndex: 998,
             }"
-            :collapsed="collapsed"
+            :collapsed="true"
             :theme="!darkMode ? 'light' : 'dark'"
           >
             <perfect-scrollbar
@@ -109,6 +103,7 @@
                 fontSize: '14px',
                 background: 'rgba(255, 255, 255, .90)',
                 width: '100%',
+                margin: '0px',
                 boxShadow: '0 -5px 10px rgba(146,153,184, 0.05)',
               }"
             >
@@ -125,18 +120,16 @@
   </Div>
 </template>
 <script>
-import { provide } from 'vue';
 import { Layout } from 'ant-design-vue';
 import { Div, TopMenuSearch } from '../style';
-import AuthInfo from '@/components/utilities/adminUtilities/auth-info/info.vue';
-import AsideItems from './adminAside.vue';
-import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
+import AuthInfo from '@/components/utilities/LandingPageutilities/auth-info/info.vue';
+
 import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css';
 import { computed, ref, defineComponent } from 'vue';
 import { useStore } from 'vuex';
 import { useRoute } from 'vue-router';
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content, Sider } = Layout;
 
 export default defineComponent({
   name: 'WithAdminLayout',
@@ -149,35 +142,13 @@ export default defineComponent({
     Content,
     TopMenuSearch,
     AuthInfo,
-    AsideItems,
-    PerfectScrollbar,
   },
   setup() {
-    const drawerState = ref({
-      pointsEarningReport: false,
-      latestRedemptions: false,
-      salesByLocation: false,
-      topSellingProducts: false,
-      taskManager: false,
-      todoList: false,
-      upcomingEvents: false,
-      myProfile: false,
-      agencyMembers: false,
-    });
-    const collapsed = ref(false);
     const hide = ref(true);
     const customizerAction = ref(false);
     const currentYear = ref(new Date().getFullYear());
     const route = useRoute();
     const isHomeRoute = computed(() => route.path === '/user/dashboard');
-
-    // side drawer functionality
-    provide('drawerState', drawerState);
-    const updateDrawerState = (newState) => {
-      drawerState.value = newState;
-    };
-
-    provide('updateDrawerState', updateDrawerState);
 
     // const store = useStore();
     const { dispatch, state } = useStore();
@@ -185,26 +156,6 @@ export default defineComponent({
     const rtl = computed(() => state.themeLayout.rtlData);
     const darkMode = computed(() => state.themeLayout.data);
     const topMenu = computed(() => state.themeLayout.topMenu);
-
-    collapsed.value = window.innerWidth <= 1200 && true;
-
-    const toggleCollapsed = (e) => {
-      e.preventDefault();
-      collapsed.value = !collapsed.value;
-    };
-
-    const toggleCollapsedMobile = () => {
-      if (innerWidth <= 990) {
-        collapsed.value = !collapsed.value;
-      }
-    };
-    if (innerWidth <= 990) {
-      document.body.addEventListener('click', (e) => {
-        if (!e.target.closest('.ant-layout-sider') && !e.target.closest('.navbar-brand .ant-btn')) {
-          collapsed.value = true;
-        }
-      });
-    }
 
     const onRtlChange = () => {
       const html = document.querySelector('html');
@@ -244,9 +195,6 @@ export default defineComponent({
     };
 
     return {
-      toggleCollapsed,
-      toggleCollapsedMobile,
-      collapsed,
       hide,
       customizerAction,
       innerWidth: window.innerWidth,
@@ -255,8 +203,7 @@ export default defineComponent({
       topMenu,
       onEventChange,
       currentYear,
-      drawerState,
-      updateDrawerState,
+
       isHomeRoute,
     };
   },

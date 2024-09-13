@@ -1,28 +1,34 @@
 const routes = [
   {
     path: 'login',
-    name: 'login',
+    name: 'user/login',
     component: () => import(/* webpackChunkName: "login" */ '@/view/userView/authentication/SignIn.vue'),
+    meta: { requiresAuth: false },
   },
   {
     path: 'requestsignup',
-    name: 'requestsignup',
+    name: 'user/requestsignup',
     component: () => import(/* webpackChunkName: "requestsignup" */ '@/view/userView/authentication/RequestSignup.vue'),
+    meta: { requiresAuth: false },
   },
   {
     path: 'register',
-    name: 'register',
+    name: 'user/register',
     component: () => import(/* webpackChunkName: "register" */ '@/view/userView/authentication/Signup.vue'),
+    meta: { requiresAuth: false },
   },
   {
     path: 'forgotpassword',
-    name: 'forgotpassword',
-    component: () => import(/* webpackChunkName: "forgotpassword" */ '@/view/userView/authentication/ForgotPassword.vue'),
+    name: 'user/forgotpassword',
+    component: () =>
+      import(/* webpackChunkName: "forgotpassword" */ '@/view/userView/authentication/ForgotPassword.vue'),
+    meta: { requiresAuth: false },
   },
   {
     path: 'resetpassword',
-    name: 'resetpassword',
+    name: 'user/resetpassword',
     component: () => import(/* webpackChunkName: "resetpassword" */ '@/view/userView/authentication/ResetPassword.vue'),
+    meta: { requiresAuth: false },
   },
 ];
 

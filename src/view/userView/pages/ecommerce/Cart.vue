@@ -1,6 +1,5 @@
 <template>
-  <sdPageHeader title="Shopping Cart" class="ninjadash-page-header-main">
-  </sdPageHeader>
+  <sdPageHeader title="Shopping Cart" class="ninjadash-page-header-main"> </sdPageHeader>
   <Main>
     <div :class="isExact ? 'cartWraper' : 'checkoutWraper'">
       <a-row :gutter="15">
@@ -11,11 +10,7 @@
                 <router-view name="child"></router-view>
               </a-col>
               <a-col :xxl="7" :xs="24">
-                <Ordersummary
-                  :isExact="isExact"
-                  :subtotal="subtotal"
-                  :path="path"
-                />
+                <Ordersummary :isExact="isExact" :subtotal="subtotal" :path="path" />
               </a-col>
             </a-row>
           </sdCards>
@@ -25,17 +20,17 @@
   </Main>
 </template>
 <script>
-import { computed, onMounted, ref, watchEffect } from "vue";
-import { onBeforeRouteUpdate, useRoute } from "vue-router";
-import { useStore } from "vuex";
-import { Main } from "../../styled";
-import Ordersummary from "./overview/Ordersummary";
-import CartTable from "./overview/CartTable";
+import { computed, onMounted, ref, watchEffect } from 'vue';
+import { onBeforeRouteUpdate, useRoute } from 'vue-router';
+import { useStore } from 'vuex';
+import { Main } from '@/view/styled';
+import Ordersummary from './overview/Ordersummary';
+import CartTable from './overview/CartTable';
 
 // const Checkout = lazy(() => import('./overview/CheckOut'));
 
 const ShoppingCart = {
-  name: "ShoppingCart",
+  name: 'ShoppingCart',
   components: { Main, Ordersummary, CartTable },
   setup() {
     const { state, dispatch } = useStore();
@@ -48,7 +43,7 @@ const ShoppingCart = {
 
     let subtotal = ref(0);
 
-    onMounted(() => dispatch("cartGetData"));
+    onMounted(() => dispatch('cartGetData'));
 
     watchEffect(() => {
       let totalValue = ref(0);
@@ -66,10 +61,10 @@ const ShoppingCart = {
       current.value = current;
     };
     const isExact = ref(true);
-    isExact.value = matched[3].name === "exact" ? true : false;
+    isExact.value = matched[3].name === 'exact' ? true : false;
 
     onBeforeRouteUpdate(async (to) => {
-      isExact.value = to.name === "exact" ? true : false;
+      isExact.value = to.name === 'exact' ? true : false;
     });
     return {
       cartData,

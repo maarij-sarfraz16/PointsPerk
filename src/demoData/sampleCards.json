@@ -406,8 +406,8 @@
   "cardSeven": [
     {
       "id": 1,
-      "title": "Adobe CC",
-      "installed": true,
+      "title": "Agent Login",
+      "installed": false,
       "content": "Lorem Ipsum is simply dummy text of the and the",
       "img": "static/img/icon/adobe.svg"
     },
@@ -417,20 +417,6 @@
       "installed": false,
       "content": "Lorem Ipsum is simply dummy text of the and the",
       "img": "static/img/icon/Slack.svg"
-    },
-    {
-      "id": 3,
-      "title": "Trello",
-      "installed": true,
-      "content": "Lorem Ipsum is simply dummy text of the and the",
-      "img": "static/img/icon/iconfinder_trello_2317760.svg"
-    },
-    {
-      "id": 4,
-      "title": "Whatspp",
-      "installed": false,
-      "content": "Lorem Ipsum is simply dummy text of the and the",
-      "img": "static/img/icon/flat.svg"
     }
   ]
 }

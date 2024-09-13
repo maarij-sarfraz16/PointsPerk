@@ -59,7 +59,7 @@
 import { defineComponent, computed, ref, unref } from 'vue';
 import VueTypes from 'vue-types';
 import { DataTableStyleWrap } from './Style';
-import { TableWrapper } from '../../view/styled';
+import { TableWrapper } from '@/components/view-table/Style';
 import { useStore } from 'vuex';
 
 export default defineComponent({

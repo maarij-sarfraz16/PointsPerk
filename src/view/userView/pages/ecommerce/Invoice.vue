@@ -1,6 +1,5 @@
 <template>
-  <sdPageHeader title="Invoice" class="ninjadash-page-header-main">
-  </sdPageHeader>
+  <sdPageHeader title="Invoice" class="ninjadash-page-header-main"> </sdPageHeader>
   <Main>
     <a-row :gutter="15">
       <a-col :md="24">
@@ -11,11 +10,7 @@
                 <figure>
                   <img
                     class="top-img"
-                    :src="
-                      !darkMode
-                        ? require('@/static/img/Logo_Dark.svg')
-                        : require('@/static/img/Logo_White.svg')
-                    "
+                    :src="!darkMode ? require('@/static/img/Logo_Dark.svg') : require('@/static/img/Logo_White.svg')"
                     alt="logo"
                   />
                 </figure>
@@ -37,9 +32,7 @@
               <a-row align="middle">
                 <a-col :lg="8" :xs="24">
                   <article class="invoice-author">
-                    <sdHeading class="invoice-author__title" as="h3">
-                      Invoice
-                    </sdHeading>
+                    <sdHeading class="invoice-author__title" as="h3"> Invoice </sdHeading>
                     <p>No : #642678</p>
                     <p>Date : Jan 17, 2021</p>
                   </article>
@@ -47,20 +40,14 @@
                 <a-col :lg="8" :xs="24">
                   <div class="invoice-barcode">
                     <sdCards class="invoice-card" headless>
-                      <img
-                        style="width: 100%"
-                        :src="require('@/static/img/barcode.png')"
-                        alt="barcode"
-                      />
+                      <img style="width: 100%" :src="require('@/static/img/barcode.png')" alt="barcode" />
                       <p>8364297359912267</p>
                     </sdCards>
                   </div>
                 </a-col>
                 <a-col :lg="8" :xs="24">
                   <address class="invoice-customer">
-                    <sdHeading class="invoice-customer__title" as="h5">
-                      Invoice To:
-                    </sdHeading>
+                    <sdHeading class="invoice-customer__title" as="h5"> Invoice To: </sdHeading>
                     <p>
                       Stanley Jones <br />
                       795 Folsom Ave, Suite 600 <br />
@@ -76,11 +63,7 @@
           <br />
           <ProductTable>
             <div class="table-invoice table-responsive">
-              <a-table
-                :dataSource="invoiceTableData"
-                :columns="invoiceTableColumns"
-                :pagination="false"
-              />
+              <a-table :dataSource="invoiceTableData" :columns="invoiceTableColumns" :pagination="false" />
             </div>
           </ProductTable>
 
@@ -134,19 +117,13 @@
   </Main>
 </template>
 <script>
-import {
-  InvoiceHeader,
-  InvoiceLetterBox,
-  InvoiceAction,
-  ProductTable,
-  OrderSummary,
-} from "./Style";
-import { Main } from "../../styled";
-import { useStore } from "vuex";
-import { computed, defineComponent } from "vue";
+import { InvoiceHeader, InvoiceLetterBox, InvoiceAction, ProductTable, OrderSummary } from './Style';
+import { Main } from '@/view/styled';
+import { useStore } from 'vuex';
+import { computed, defineComponent } from 'vue';
 
 const Invoice = defineComponent({
-  name: "Invoice",
+  name: 'Invoice',
   components: {
     InvoiceHeader,
     InvoiceLetterBox,
@@ -164,8 +141,8 @@ const Invoice = defineComponent({
       darkMode,
       invoiceTableData: [
         {
-          key: "1",
-          row: "1",
+          key: '1',
+          row: '1',
           details: (
             <div>
               <div class="product-info">
@@ -190,8 +167,8 @@ const Invoice = defineComponent({
           total: <span class="product-total-price">$943.30</span>,
         },
         {
-          key: "2",
-          row: "2",
+          key: '2',
+          row: '2',
           details: (
             <div>
               <div class="product-info">
@@ -218,29 +195,29 @@ const Invoice = defineComponent({
       ],
       invoiceTableColumns: [
         {
-          title: "#",
-          dataIndex: "row",
-          key: "row",
+          title: '#',
+          dataIndex: 'row',
+          key: 'row',
         },
         {
-          title: "Product Details",
-          dataIndex: "details",
-          key: "details",
+          title: 'Product Details',
+          dataIndex: 'details',
+          key: 'details',
         },
         {
-          title: "Price Per Unit",
-          dataIndex: "unit",
-          key: "unit",
+          title: 'Price Per Unit',
+          dataIndex: 'unit',
+          key: 'unit',
         },
         {
-          title: "Quantity",
-          dataIndex: "quantity",
-          key: "quantity",
+          title: 'Quantity',
+          dataIndex: 'quantity',
+          key: 'quantity',
         },
         {
-          title: "Order Total",
-          dataIndex: "total",
-          key: "total",
+          title: 'Order Total',
+          dataIndex: 'total',
+          key: 'total',
         },
       ],
     };

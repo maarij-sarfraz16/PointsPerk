@@ -9,14 +9,7 @@
       </template>
       <SidebarSingle>
         <sdHeading as="h5">Price Range</sdHeading>
-        <Slider
-          @onChange="onChange"
-          range
-          :step="10"
-          :min="0"
-          :max="max"
-          :defaultValues="[min, max]"
-        />
+        <Slider @onChange="onChange" range :step="10" :min="0" :max="max" :defaultValues="[min, max]" />
         <p class="price-range-text">${{ min }} - ${{ max }}</p>
       </SidebarSingle>
       <SidebarSingle>
@@ -32,7 +25,7 @@
           </ul>
           <div class="sidebar-single__action">
             <sdButton @click="toggleShowMore">
-              <a class="btn-seeMore" to="#"> 
+              <a class="btn-seeMore" to="#">
                 {{ showMore ? 'Show Less' : 'Show More' }}
               </a>
             </sdButton>
@@ -54,10 +47,10 @@
 </template>
 
 <script>
-import Slider from "../../../../../components/slider/Slider";
-import { Sidebar, SidebarSingle } from "../../Style";
-import { ref, defineComponent, computed } from "vue"; 
-import { useStore } from "vuex";
+import Slider from '@/components/slider/Slider';
+import { Sidebar, SidebarSingle } from '../../Style';
+import { ref, defineComponent, computed } from 'vue';
+import { useStore } from 'vuex';
 
 const optionsBrand = [
   {
@@ -66,7 +59,7 @@ const optionsBrand = [
         Nike <span class="brand-count">20</span>
       </>
     ),
-    value: "nike",
+    value: 'nike',
   },
   {
     label: (
@@ -74,7 +67,7 @@ const optionsBrand = [
         Addidas <span class="brand-count">25</span>
       </>
     ),
-    value: "addidas",
+    value: 'addidas',
   },
   {
     label: (
@@ -82,7 +75,7 @@ const optionsBrand = [
         Walmart <span class="brand-count">15</span>
       </>
     ),
-    value: "walmart",
+    value: 'walmart',
   },
   {
     label: (
@@ -90,7 +83,7 @@ const optionsBrand = [
         Seven Eleven<span class="brand-count">25</span>
       </>
     ),
-    value: "seveneleven",
+    value: 'seveneleven',
   },
   {
     label: (
@@ -98,26 +91,28 @@ const optionsBrand = [
         Key Ring <span class="brand-count">20</span>
       </>
     ),
-    value: "keyring",
-  },{
+    value: 'keyring',
+  },
+  {
     label: (
       <>
         Webtalk <span class="brand-count">10</span>
       </>
     ),
-    value: "webtalk",
-  },{
+    value: 'webtalk',
+  },
+  {
     label: (
       <>
         Target <span class="brand-count">19</span>
       </>
     ),
-    value: "target",
+    value: 'target',
   },
 ];
 
 const Filters = defineComponent({
-  name: "Filters",
+  name: 'Filters',
   components: { Slider, Sidebar, SidebarSingle },
   setup() {
     const { dispatch } = useStore();
@@ -127,22 +122,22 @@ const Filters = defineComponent({
     const showMore = ref(false);
 
     const categories = ref([
-      { name: "All", count: 200 },
-      { name: "Electronics", count: 30 },
-      { name: "Mobile", count: 20 },
-      { name: "Bags", count: 10 },
-      { name: "Grocery", count: 25 },
-      { name: "Shoes", count: 20 },
-      { name: "Food", count: 15 },
-      { name: "Cutlery", count: 18 },
-      { name: "Automobile Accessories", count: 10 },
-      { name: "Games", count: 15 },
-      { name: "Furniture", count: 18 },
-      { name: "E-books", count: 9 },
-      { name: "Toys", count: 15 },
-      { name: "Jewellery", count: 18 },
-      { name: "Health", count: 20 },
-      { name: "Comics", count: 10 }
+      { name: 'All', count: 200 },
+      { name: 'Electronics', count: 30 },
+      { name: 'Mobile', count: 20 },
+      { name: 'Bags', count: 10 },
+      { name: 'Grocery', count: 25 },
+      { name: 'Shoes', count: 20 },
+      { name: 'Food', count: 15 },
+      { name: 'Cutlery', count: 18 },
+      { name: 'Automobile Accessories', count: 10 },
+      { name: 'Games', count: 15 },
+      { name: 'Furniture', count: 18 },
+      { name: 'E-books', count: 9 },
+      { name: 'Toys', count: 15 },
+      { name: 'Jewellery', count: 18 },
+      { name: 'Health', count: 20 },
+      { name: 'Comics', count: 10 },
     ]);
 
     const visibleCategories = computed(() => {
@@ -156,18 +151,18 @@ const Filters = defineComponent({
     const onChange = (value) => {
       min.value = value[0];
       max.value = value[1];
-      dispatch("filterByPriceRange", value);
+      dispatch('filterByPriceRange', value);
     };
 
     const onChangeRating = (checkValue) => {
-      dispatch("filterByRating", [checkValue]);
+      dispatch('filterByRating', [checkValue]);
     };
     const onChangeBrand = (checkValue) => {
-      dispatch("filterByBrand", [checkValue]);
+      dispatch('filterByBrand', [checkValue]);
     };
 
     const onChangeCategory = (value) => {
-      dispatch("filterByCategory", value);
+      dispatch('filterByCategory', value);
     };
 
     return {
@@ -181,7 +176,7 @@ const Filters = defineComponent({
       optionsBrand,
       visibleCategories,
       toggleShowMore,
-      showMore
+      showMore,
     };
   },
 });

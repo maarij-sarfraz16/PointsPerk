@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <sdPageHeader title="Dashboard" class="ninjadash-page-header-main" :routes="pageRoutes"></sdPageHeader>
 
     <Main>
@@ -56,7 +55,7 @@
               </sdCards>
             </template>
             <template #default>
-              <SalesSheet :data="salesData"/>
+              <SalesSheet :data="salesData" />
             </template>
           </Suspense>
         </a-col>
@@ -202,7 +201,7 @@ import LatestRedemptions from './overview/LatestRedemptions.vue';
 import PointsEarning from './overview/PointsEarning.vue';
 import Index from './overview/kanban/Index.vue';
 import UpcomingEvents from './overview/UpcomingEvents.vue';
-import ToDo from '@/view/apps/todo/Todo.vue';
+import ToDo from '@/view/userView/pages/todo/Todo.vue';
 import ProfileCard from '@/components/cards/ProfileCard.vue';
 import TeamList from './overview/TeamList.vue';
 import SalesSheet from './overview/SalesSheet.vue';

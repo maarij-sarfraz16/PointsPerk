@@ -6,19 +6,11 @@
           <TableWrapper class="table-responsive">
             <div class="ant-table-content">
               <table class="ant-table">
-                <draggable
-                  v-model="myList"
-                  tag="tbody"
-                  group="people"
-                  handle=".handle"
-                  item-key="name"
-                >
+                <draggable v-model="myList" tag="tbody" group="people" handle=".handle" item-key="name">
                   <template #item="{ element }">
                     <tr>
                       <td>
-                        <a-checkbox
-                          @click="() => onSelectChange(element.key)"
-                        />
+                        <a-checkbox @click="() => onSelectChange(element.key)" />
                       </td>
                       <td scope="row">
                         <div class="user-info">
@@ -65,13 +57,7 @@
             </div>
           </TableWrapper>
           <div class="new-todo-wrap">
-            <sdButton
-              @click="showModal"
-              class="btn-toDoAdd"
-              transparented
-              type="primary"
-              size="lg"
-            >
+            <sdButton @click="showModal" class="btn-toDoAdd" transparented type="primary" size="lg">
               + Add New Task
             </sdButton>
           </div>
@@ -79,35 +65,15 @@
       </TodoStyleWrapper>
     </a-col>
   </a-row>
-  <sdModal
-    type="primary"
-    title="Add New Todo"
-    :visible="visible"
-    :footer="null"
-    :onCancel="handleCancel"
-  >
+  <sdModal type="primary" title="Add New Todo" :visible="visible" :footer="null" :onCancel="handleCancel">
     <div class="todo-modal">
       <BasicFormWrapper>
-        <a-form
-          class="adTodo-form"
-          name="todoAdd"
-          :model="formState"
-          @finish="onSubmitHandler"
-        >
-          <a-input
-            v-model:value="formState.todoAdd"
-            placeholder="Input Item Name......."
-          />
+        <a-form class="adTodo-form" name="todoAdd" :model="formState" @finish="onSubmitHandler">
+          <a-input v-model:value="formState.todoAdd" placeholder="Input Item Name......." />
           <br />
           <br />
 
-          <sdButton
-            @click="showModal"
-            htmlType="submit"
-            class="btn-adTodo"
-            type="primary"
-            size="lg"
-          >
+          <sdButton @click="showModal" htmlType="submit" class="btn-adTodo" type="primary" size="lg">
             Add New
           </sdButton>
         </a-form>
@@ -116,37 +82,38 @@
   </sdModal>
 </template>
 <script>
-import { TodoStyleWrapper } from "./style";
-import { TableWrapper, BasicFormWrapper } from "../../styled";
-import { useStore } from "vuex";
-import { computed, reactive, ref, defineComponent } from "vue";
-import draggable from "vuedraggable";
+import { TodoStyleWrapper } from './style';
+import { BasicFormWrapper } from '@/view/styled';
+import { TableWrapper } from '@/components/view-table/Style';
+import { useStore } from 'vuex';
+import { computed, reactive, ref, defineComponent } from 'vue';
+import draggable from 'vuedraggable';
 
 const columns = [
   {
-    title: "",
-    dataIndex: "item",
+    title: '',
+    dataIndex: 'item',
   },
   {
-    title: "",
-    dataIndex: "action",
+    title: '',
+    dataIndex: 'action',
     width: 120,
   },
 ];
 
 const pageRoutes = [
   {
-    path: "app",
-    breadcrumbName: "App",
+    path: 'app',
+    breadcrumbName: 'App',
   },
   {
-    path: "todo",
-    breadcrumbName: "Todo",
+    path: 'todo',
+    breadcrumbName: 'Todo',
   },
 ];
 
 const ToDo = defineComponent({
-  name: "ToDo",
+  name: 'ToDo',
   components: {
     TodoStyleWrapper,
     TableWrapper,
@@ -160,17 +127,15 @@ const ToDo = defineComponent({
     const selectedRowKeys = ref([]);
     const onHandleDelete = (key) => {
       const data = todoData.value.filter((item) => item.key !== key);
-      dispatch("ToDoDeleteData", data);
+      dispatch('ToDoDeleteData', data);
     };
     const formState = reactive({
-      todoAdd: "",
+      todoAdd: '',
     });
 
     const onSelectChange = (selectedRowKey) => {
       if (selectedRowKeys.value.includes(selectedRowKey)) {
-        const row = selectedRowKeys.value.filter(
-          (value) => value !== selectedRowKey
-        );
+        const row = selectedRowKeys.value.filter((value) => value !== selectedRowKey);
         selectedRowKeys.value = row;
       } else {
         selectedRowKeys.value.push(selectedRowKey);
@@ -183,8 +148,8 @@ const ToDo = defineComponent({
         return arrayData.push(data.key);
       });
       const max = Math.max(...arrayData);
-      if (formState.todoAdd !== "") {
-        dispatch("ToDoAddData", [
+      if (formState.todoAdd !== '') {
+        dispatch('ToDoAddData', [
           ...todoData.value,
           {
             key: max + 1,
@@ -194,10 +159,10 @@ const ToDo = defineComponent({
           },
         ]);
 
-        formState.todoAdd = "";
+        formState.todoAdd = '';
         visible.value = false;
       } else {
-        alert("Please Give a Task Title...");
+        alert('Please Give a Task Title...');
       }
     };
 
@@ -235,7 +200,7 @@ const ToDo = defineComponent({
         return this.$store.state.todo.data;
       },
       set(value) {
-        this.$store.dispatch("ToDoAddData", value);
+        this.$store.dispatch('ToDoAddData', value);
       },
     },
   },
