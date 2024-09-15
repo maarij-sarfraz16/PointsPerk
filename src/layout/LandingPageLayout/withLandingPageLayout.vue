@@ -1,6 +1,7 @@
 <template>
   <Div :darkMode="darkMode">
     <Layout class="layout">
+      
       <Header
         :style="{
           position: 'fixed',
@@ -38,6 +39,7 @@
           </div>
         </div>
       </Header>
+      
       <div class="header-more">
         <a-row>
           <a-col :md="0" :sm="24" :xs="24">
@@ -49,87 +51,35 @@
           </a-col>
         </a-row>
       </div>
-      <Layout>
-        <template v-if="!topMenu || innerWidth <= 991">
-          <Sider
-            :width="280"
-            :style="{
-              margin: '72px 0 0 0',
-              padding: `${!rtl ? '20px 20px 55px 0px' : '20px 0px 55px 20px'}`,
-              overflowY: 'auto',
-              height: '100vh',
-              position: 'fixed',
-              [!rtl ? 'left' : 'right']: 0,
-              zIndex: 998,
-            }"
-            :collapsed="true"
-            :theme="!darkMode ? 'light' : 'dark'"
-          >
-            <perfect-scrollbar
-              :options="{
-                wheelSpeed: 1,
-                swipeEasing: true,
-                suppressScrollX: true,
-              }"
-            >
-              <AsideItems
-                :toggleCollapsed="toggleCollapsedMobile"
-                :topMenu="topMenu"
-                :rtl="rtl"
-                :darkMode="darkMode"
-                :events="onEventChange"
-              />
-            </perfect-scrollbar>
-          </Sider>
-        </template>
-        <Layout class="ninjadash-main-layout">
-          <Content>
-            <Suspense>
-              <template #default>
-                <router-view></router-view>
-              </template>
-              <template #fallback>
-                <div class="spin">
-                  <a-spin />
-                </div>
-              </template>
-            </Suspense>
 
-            <Footer
-              class="admin-footer"
-              :style="{
-                padding: '20px 30px 18px',
-                color: 'rgba(0, 0, 0, 0.65)',
-                fontSize: '14px',
-                background: 'rgba(255, 255, 255, .90)',
-                width: '100%',
-                margin: '0px',
-                boxShadow: '0 -5px 10px rgba(146,153,184, 0.05)',
-              }"
-            >
-              <a-row>
-                <a-col :md="12" :xs="24">
-                  <span class="admin-footer__copyright">{{ currentYear }} © <a href="#" style="">Points Perk</a></span>
-                </a-col>
-              </a-row>
-            </Footer>
-          </Content>
-        </Layout>
+      <Layout class="ninjadash-main-layout landing-page-layout">
+        <Content>
+          <Suspense>
+            <template #default>
+              <router-view></router-view>
+            </template>
+            <template #fallback>
+              <div class="spin">
+                <a-spin />
+              </div>
+            </template>
+          </Suspense>
+        </Content>
       </Layout>
+
     </Layout>
   </Div>
 </template>
+
 <script>
 import { Layout } from 'ant-design-vue';
 import { Div, TopMenuSearch } from '../style';
 import AuthInfo from '@/components/utilities/LandingPageutilities/auth-info/info.vue';
-
 import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css';
 import { computed, ref, defineComponent } from 'vue';
 import { useStore } from 'vuex';
-import { useRoute } from 'vue-router';
 
-const { Header, Footer, Content, Sider } = Layout;
+const { Header, Content } = Layout;
 
 export default defineComponent({
   name: 'WithAdminLayout',
@@ -137,8 +87,6 @@ export default defineComponent({
     Div,
     Header,
     Layout,
-    Footer,
-    Sider,
     Content,
     TopMenuSearch,
     AuthInfo,
@@ -146,9 +94,6 @@ export default defineComponent({
   setup() {
     const hide = ref(true);
     const customizerAction = ref(false);
-    const currentYear = ref(new Date().getFullYear());
-    const route = useRoute();
-    const isHomeRoute = computed(() => route.path === '/user/dashboard');
 
     // const store = useStore();
     const { dispatch, state } = useStore();
@@ -202,19 +147,14 @@ export default defineComponent({
       darkMode,
       topMenu,
       onEventChange,
-      currentYear,
-
-      isHomeRoute,
     };
   },
 });
 </script>
 
 <style>
-.ps {
-  height: calc(100vh - 100px);
-}
-.ant-layout-sider-collapsed .ps {
-  height: calc(100vh - 70px);
+.landing-page-layout {
+  margin: 0 !important;
+  overflow: hidden !important;
 }
 </style>

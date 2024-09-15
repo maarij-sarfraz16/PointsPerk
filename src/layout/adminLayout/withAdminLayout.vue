@@ -134,7 +134,6 @@ import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
 import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css';
 import { computed, ref, defineComponent } from 'vue';
 import { useStore } from 'vuex';
-import { useRoute } from 'vue-router';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -168,8 +167,6 @@ export default defineComponent({
     const hide = ref(true);
     const customizerAction = ref(false);
     const currentYear = ref(new Date().getFullYear());
-    const route = useRoute();
-    const isHomeRoute = computed(() => route.path === '/user/dashboard');
 
     // side drawer functionality
     provide('drawerState', drawerState);
@@ -257,7 +254,6 @@ export default defineComponent({
       currentYear,
       drawerState,
       updateDrawerState,
-      isHomeRoute,
     };
   },
 });
