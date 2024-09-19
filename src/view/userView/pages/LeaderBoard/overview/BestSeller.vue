@@ -7,10 +7,10 @@
             <span class="ninjadash-card-title-text"> <h1>Best Seller</h1> </span>
           </div>
         </template>
-        <template #button>
+        <!-- <template #button>
           <div class="ninjadash-card-nav">
-            <ul>
-              <li
+            <ul> -->
+              <!-- <li
                 :class="
                   sellerTab === 'today' ? 'ninjadash-active' : 'ninjadash-today'
                 "
@@ -33,8 +33,8 @@
                 >
                   Week
                 </router-link>
-              </li>
-              <li
+              </li> -->
+              <!-- <li
                 :class="
                   sellerTab === 'month' ? 'ninjadash-active' : 'ninjadash-month'
                 "
@@ -48,7 +48,7 @@
               </li>
             </ul>
           </div>
-        </template>
+        </template> -->
         <TableDefaultStyle
           class="ninjadash-having-header-bg ninjadash-large-table"
         >
@@ -89,25 +89,10 @@ const BestSeller = defineComponent({
         key: "sellerName",
       },
       {
-        title: "Company",
-        dataIndex: "company",
-        key: "company",
-      },
-      {
-        title: "Product",
-        dataIndex: "product",
-        key: "product",
-      },
-      {
         title: "Revenue",
         dataIndex: "revenue",
         key: "revenue",
-      },
-      {
-        title: "Status",
-        dataIndex: "status",
-        key: "status",
-      },
+      },      
     ];
     const sellerTab = ref("today");
     const bestSellerData = computed(() => {
