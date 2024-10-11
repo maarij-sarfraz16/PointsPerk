@@ -1,6 +1,6 @@
 <template>
   <BorderLessHeading>
-    <sdCards title="Agency Agents Data Table">
+    <sdCards title="Agency Agents ">
       <DataTableStyleWrap>
         <div class="ninjadash-datatable-filter">
           <div class="ninjadash-datatable-filter__left status-select">

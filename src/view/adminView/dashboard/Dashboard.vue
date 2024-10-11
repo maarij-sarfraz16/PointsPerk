@@ -17,19 +17,31 @@
             </template>
           </Suspense>
         </a-col>
-      </a-row>
 
-      <a-col :lg="16" :md="24" :sm="24">
-        <Suspense>
-          <template #fallback>
-            <sdCards headless>
-              <a-skeleton active />
-            </sdCards>
-          </template>
-          <template #default> <BestSeller /> </template>
-        </Suspense>
-      </a-col>
-      <AgencyAgentsDataTable />
+        <a-col :lg="16" :md="24" :sm="24">
+          <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
+            <template #default> <BestSeller /> </template>
+          </Suspense>
+        </a-col>
+
+        <a-col :xs="24" :md="24">
+          <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
+            <template #default>
+              <AgencyAgentsDataTable />
+            </template>
+          </Suspense>
+        </a-col>
+      </a-row>
     </Main>
   </div>
 </template>
