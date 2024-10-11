@@ -114,7 +114,7 @@ export default [
   },
   {
     name: 'to-do',
-    path: '/app/to-do',
+    path: '/user/to-do',
     meta: { requiresAuth: true },
     component: () => import(/* webpackChunkName: "to-do" */ '../view/userView/pages/todo/Todo.vue'),
   },

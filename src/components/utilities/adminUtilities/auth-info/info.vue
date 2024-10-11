@@ -43,7 +43,7 @@
               <figure class="user-dropdown__info" style="background: #f4f5f7">
                 <img :src="profilePicture" style="width: 35%" />
                 <figcaption>
-                  <sdHeading as="h5">{{ userData.firstName }}</sdHeading>
+                  <!-- <sdHeading as="h5">{{ userData.firstName }}</sdHeading> -->
                   <p>Admin</p>
                 </figcaption>
               </figure>

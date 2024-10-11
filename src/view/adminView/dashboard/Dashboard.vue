@@ -17,8 +17,19 @@
             </template>
           </Suspense>
         </a-col>
+        <a-col :xs="24" :md="24">
+          <Suspense>
+            <template #fallback>
+              <sdCards headless>
+                <a-skeleton active />
+              </sdCards>
+            </template>
+            <template #default>
+              <AgencyAgentsDataTable />
+            </template>
+          </Suspense>
+        </a-col>
       </a-row>
-      <AgencyAgentsDataTable />
     </Main>
   </div>
 </template>

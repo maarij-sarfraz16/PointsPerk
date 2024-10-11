@@ -17,7 +17,15 @@
         {{ t('Dashboard') }}
       </router-link>
     </a-menu-item>
-    
+    <!-- Manage Agents -->
+    <a-menu-item @click="toggleCollapsed" key="manageagents">
+      <template #icon>
+        <unicon name="users-alt"></unicon>
+      </template>
+      <router-link to="/admin/agents">
+        {{ t('Manage Agents') }}
+      </router-link>
+    </a-menu-item>
   </a-menu>
 </template>
 

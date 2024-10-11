@@ -6,7 +6,11 @@
     "last_name": "Farnworth",
     "email": "lfarnworth0@aol.com",
     "phone_number": "2471818166",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 2,
@@ -15,7 +19,12 @@
     "last_name": "Hensmans",
     "email": "ehensmans1@toplist.cz",
     "phone_number": "9115406402",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 3,
@@ -24,7 +33,11 @@
     "last_name": "McJarrow",
     "email": "tmcjarrow2@devhub.com",
     "phone_number": "5076872860",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 4,
@@ -33,7 +46,11 @@
     "last_name": "Hutable",
     "email": "khutable3@e-recht24.de",
     "phone_number": "8718606055",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 5,
@@ -42,7 +59,11 @@
     "last_name": "Rentoll",
     "email": "qrentoll4@boston.com",
     "phone_number": "8963840767",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 6,
@@ -51,7 +72,11 @@
     "last_name": "Curbishley",
     "email": "gcurbishley5@cnet.com",
     "phone_number": "6383766641",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 7,
@@ -60,7 +85,11 @@
     "last_name": "Kittoe",
     "email": "dkittoe6@rambler.ru",
     "phone_number": "1009763106",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 8,
@@ -69,7 +98,12 @@
     "last_name": "Kalderon",
     "email": "akalderon7@java.com",
     "phone_number": "9861577763",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 9,
@@ -78,7 +112,11 @@
     "last_name": "Corgenvin",
     "email": "ccorgenvin8@gnu.org",
     "phone_number": "7104030006",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 10,
@@ -87,7 +125,11 @@
     "last_name": "Welbelove",
     "email": "mwelbelove9@sciencedaily.com",
     "phone_number": "7136289090",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 11,
@@ -96,7 +138,11 @@
     "last_name": "Whitefoot",
     "email": "rwhitefoota@hao123.com",
     "phone_number": "5528484388",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 12,
@@ -105,7 +151,11 @@
     "last_name": "Sidebotton",
     "email": "esidebottonb@google.com.au",
     "phone_number": "2769999467",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 13,
@@ -114,7 +164,12 @@
     "last_name": "Noar",
     "email": "snoarc@plala.or.jp",
     "phone_number": "5013125819",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 14,
@@ -123,7 +178,11 @@
     "last_name": "Wrefford",
     "email": "rwreffordd@wikipedia.org",
     "phone_number": "6137759483",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 15,
@@ -132,7 +191,11 @@
     "last_name": "Hazeman",
     "email": "shazemane@paypal.com",
     "phone_number": "3718944437",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 16,
@@ -141,7 +204,12 @@
     "last_name": "Corradi",
     "email": "pcorradif@biglobe.ne.jp",
     "phone_number": "5472790184",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 17,
@@ -150,7 +218,12 @@
     "last_name": "Tallman",
     "email": "atallmang@microsoft.com",
     "phone_number": "2575720023",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 18,
@@ -159,7 +232,11 @@
     "last_name": "McCarl",
     "email": "rmccarlh@nationalgeographic.com",
     "phone_number": "2041744261",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 19,
@@ -168,7 +245,12 @@
     "last_name": "Davis",
     "email": "kdavisi@elegantthemes.com",
     "phone_number": "1058706796",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 20,
@@ -177,7 +259,11 @@
     "last_name": "Braker",
     "email": "sbrakerj@apache.org",
     "phone_number": "7667317198",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 21,
@@ -186,7 +272,11 @@
     "last_name": "Gossan",
     "email": "vgossank@marriott.com",
     "phone_number": "3828680606",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 22,
@@ -195,7 +285,11 @@
     "last_name": "Cullen",
     "email": "hcullenl@home.pl",
     "phone_number": "7484869021",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 23,
@@ -204,7 +298,12 @@
     "last_name": "O'Codihie",
     "email": "focodihiem@goo.gl",
     "phone_number": "5416367557",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 24,
@@ -213,7 +312,11 @@
     "last_name": "Binion",
     "email": "bbinionn@about.me",
     "phone_number": "7361374644",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 25,
@@ -222,7 +325,12 @@
     "last_name": "Pashan",
     "email": "apashano@cnbc.com",
     "phone_number": "5495676330",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 26,
@@ -231,7 +339,12 @@
     "last_name": "Kloser",
     "email": "gkloserp@xrea.com",
     "phone_number": "9171513016",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 27,
@@ -240,7 +353,11 @@
     "last_name": "Badsey",
     "email": "cbadseyq@latimes.com",
     "phone_number": "1774386485",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 28,
@@ -249,7 +366,12 @@
     "last_name": "Mozzini",
     "email": "nmozzinir@jiathis.com",
     "phone_number": "6088282923",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 29,
@@ -258,7 +380,12 @@
     "last_name": "Attoc",
     "email": "mattocs@wisc.edu",
     "phone_number": "8393457698",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 30,
@@ -267,7 +394,12 @@
     "last_name": "Kaaskooper",
     "email": "tkaaskoopert@cloudflare.com",
     "phone_number": "5542793823",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 31,
@@ -276,7 +408,11 @@
     "last_name": "Raggitt",
     "email": "fraggittu@shinystat.com",
     "phone_number": "9672432792",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 32,
@@ -285,7 +421,12 @@
     "last_name": "Marchello",
     "email": "lmarchellov@furl.net",
     "phone_number": "8126905176",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 33,
@@ -294,7 +435,11 @@
     "last_name": "Blant",
     "email": "jblantw@deliciousdays.com",
     "phone_number": "1238734210",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 34,
@@ -303,7 +448,12 @@
     "last_name": "Coping",
     "email": "ncopingx@china.com.cn",
     "phone_number": "3254925663",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 35,
@@ -312,7 +462,11 @@
     "last_name": "Doggrell",
     "email": "vdoggrelly@si.edu",
     "phone_number": "7142690694",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 36,
@@ -321,7 +475,11 @@
     "last_name": "Ryde",
     "email": "crydez@desdev.cn",
     "phone_number": "5707333142",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 37,
@@ -330,7 +488,12 @@
     "last_name": "Simyson",
     "email": "jsimyson10@ycombinator.com",
     "phone_number": "6682299784",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 38,
@@ -339,7 +502,12 @@
     "last_name": "Powers",
     "email": "epowers11@reverbnation.com",
     "phone_number": "6652924203",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 39,
@@ -348,7 +516,12 @@
     "last_name": "Benkin",
     "email": "mbenkin12@vk.com",
     "phone_number": "5741227953",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 40,
@@ -357,7 +530,12 @@
     "last_name": "Jeannesson",
     "email": "ljeannesson13@vkontakte.ru",
     "phone_number": "3607245109",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 41,
@@ -366,7 +544,11 @@
     "last_name": "Dagon",
     "email": "ddagon14@nationalgeographic.com",
     "phone_number": "3315585043",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 42,
@@ -375,7 +557,11 @@
     "last_name": "Filpi",
     "email": "cfilpi15@twitpic.com",
     "phone_number": "6934071768",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 43,
@@ -384,7 +570,11 @@
     "last_name": "Troup",
     "email": "rtroup16@guardian.co.uk",
     "phone_number": "8942258257",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 44,
@@ -393,7 +583,11 @@
     "last_name": "Kolin",
     "email": "gkolin17@columbia.edu",
     "phone_number": "1333785923",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 45,
@@ -402,7 +596,11 @@
     "last_name": "Singleton",
     "email": "esingleton18@chronoengine.com",
     "phone_number": "1915035472",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 46,
@@ -411,7 +609,12 @@
     "last_name": "Lamdin",
     "email": "glamdin19@kickstarter.com",
     "phone_number": "7347953718",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 47,
@@ -420,7 +623,12 @@
     "last_name": "Noddings",
     "email": "enoddings1a@seattletimes.com",
     "phone_number": "2831476234",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 48,
@@ -429,7 +637,11 @@
     "last_name": "Clewes",
     "email": "tclewes1b@odnoklassniki.ru",
     "phone_number": "5552580274",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 49,
@@ -438,7 +650,12 @@
     "last_name": "MacNeachtain",
     "email": "fmacneachtain1c@alexa.com",
     "phone_number": "1897111168",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 50,
@@ -447,7 +664,12 @@
     "last_name": "Duiguid",
     "email": "cduiguid1d@youku.com",
     "phone_number": "3819727825",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 51,
@@ -456,7 +678,12 @@
     "last_name": "Harrema",
     "email": "bharrema1e@indiegogo.com",
     "phone_number": "3045169145",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 52,
@@ -465,7 +692,12 @@
     "last_name": "Brabban",
     "email": "rbrabban1f@4shared.com",
     "phone_number": "9839481543",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 53,
@@ -474,7 +706,11 @@
     "last_name": "Soar",
     "email": "dsoar1g@cloudflare.com",
     "phone_number": "9679854397",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 54,
@@ -483,7 +719,11 @@
     "last_name": "Ellesworthe",
     "email": "cellesworthe1h@economist.com",
     "phone_number": "8395747957",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 55,
@@ -492,7 +732,11 @@
     "last_name": "Dahl",
     "email": "ydahl1i@uol.com.br",
     "phone_number": "9057750224",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 56,
@@ -501,7 +745,12 @@
     "last_name": "Moscone",
     "email": "hmoscone1j@newsvine.com",
     "phone_number": "6496951771",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 57,
@@ -510,7 +759,11 @@
     "last_name": "Staries",
     "email": "istaries1k@flickr.com",
     "phone_number": "7684773148",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 58,
@@ -519,7 +772,12 @@
     "last_name": "Tipens",
     "email": "ltipens1l@ifeng.com",
     "phone_number": "6742775299",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 59,
@@ -528,7 +786,12 @@
     "last_name": "Siddons",
     "email": "msiddons1m@github.io",
     "phone_number": "7527394561",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 60,
@@ -537,7 +800,11 @@
     "last_name": "Pettyfar",
     "email": "mpettyfar1n@deviantart.com",
     "phone_number": "3478362288",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 61,
@@ -546,7 +813,12 @@
     "last_name": "Treversh",
     "email": "atreversh1o@woothemes.com",
     "phone_number": "8641969665",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 62,
@@ -555,7 +827,11 @@
     "last_name": "Orrah",
     "email": "horrah1p@reuters.com",
     "phone_number": "7195905447",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 63,
@@ -564,7 +840,11 @@
     "last_name": "Hayter",
     "email": "fhayter1q@paypal.com",
     "phone_number": "2063942198",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 64,
@@ -573,7 +853,12 @@
     "last_name": "Flieg",
     "email": "lflieg1r@dell.com",
     "phone_number": "4133838652",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 65,
@@ -582,7 +867,11 @@
     "last_name": "Leander",
     "email": "jleander1s@1und1.de",
     "phone_number": "8678118193",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 66,
@@ -591,7 +880,11 @@
     "last_name": "Knewstub",
     "email": "pknewstub1t@csmonitor.com",
     "phone_number": "4363473198",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 67,
@@ -600,7 +893,11 @@
     "last_name": "Pucker",
     "email": "gpucker1u@princeton.edu",
     "phone_number": "3246577118",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 68,
@@ -609,7 +906,12 @@
     "last_name": "McKleod",
     "email": "jmckleod1v@noaa.gov",
     "phone_number": "4168249932",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 69,
@@ -618,7 +920,12 @@
     "last_name": "Izachik",
     "email": "jizachik1w@accuweather.com",
     "phone_number": "5076951542",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 70,
@@ -627,7 +934,12 @@
     "last_name": "Donan",
     "email": "bdonan1x@chronoengine.com",
     "phone_number": "9474921662",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 71,
@@ -636,7 +948,11 @@
     "last_name": "Innot",
     "email": "hinnot1y@naver.com",
     "phone_number": "5093086611",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 72,
@@ -645,7 +961,11 @@
     "last_name": "Paddock",
     "email": "apaddock1z@accuweather.com",
     "phone_number": "9468935378",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 73,
@@ -654,7 +974,12 @@
     "last_name": "Bertomeu",
     "email": "gbertomeu20@skype.com",
     "phone_number": "9651053257",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 74,
@@ -663,7 +988,11 @@
     "last_name": "Lafay",
     "email": "klafay21@google.com",
     "phone_number": "5462917795",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 75,
@@ -672,7 +1001,12 @@
     "last_name": "Shilstone",
     "email": "nshilstone22@ebay.co.uk",
     "phone_number": "3698147581",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 76,
@@ -681,7 +1015,11 @@
     "last_name": "Lavallin",
     "email": "plavallin23@msu.edu",
     "phone_number": "6406680766",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 77,
@@ -690,7 +1028,12 @@
     "last_name": "Kimmel",
     "email": "jkimmel24@ucoz.ru",
     "phone_number": "1156402438",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 78,
@@ -699,7 +1042,12 @@
     "last_name": "Gaw",
     "email": "egaw25@histats.com",
     "phone_number": "6719699033",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 79,
@@ -708,7 +1056,11 @@
     "last_name": "McGrayle",
     "email": "dmcgrayle26@hubpages.com",
     "phone_number": "8527245142",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 80,
@@ -717,7 +1069,12 @@
     "last_name": "De la Barre",
     "email": "ldelabarre27@theguardian.com",
     "phone_number": "8856817196",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 81,
@@ -726,7 +1083,12 @@
     "last_name": "Robjents",
     "email": "krobjents28@theglobeandmail.com",
     "phone_number": "3379631882",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 82,
@@ -735,7 +1097,12 @@
     "last_name": "Jozaitis",
     "email": "cjozaitis29@soup.io",
     "phone_number": "6404375734",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 83,
@@ -744,7 +1111,12 @@
     "last_name": "Panting",
     "email": "zpanting2a@wiley.com",
     "phone_number": "5489403613",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 84,
@@ -753,7 +1125,12 @@
     "last_name": "Kerans",
     "email": "akerans2b@aboutads.info",
     "phone_number": "4977082383",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 85,
@@ -762,7 +1139,11 @@
     "last_name": "Camin",
     "email": "bcamin2c@slate.com",
     "phone_number": "8312967358",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 86,
@@ -771,7 +1152,11 @@
     "last_name": "Bovingdon",
     "email": "sbovingdon2d@sciencedirect.com",
     "phone_number": "9254836595",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 87,
@@ -780,7 +1165,11 @@
     "last_name": "Wathan",
     "email": "gwathan2e@bizjournals.com",
     "phone_number": "1517637448",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 88,
@@ -789,7 +1178,12 @@
     "last_name": "Yurivtsev",
     "email": "gyurivtsev2f@hibu.com",
     "phone_number": "3711720018",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 89,
@@ -798,7 +1192,12 @@
     "last_name": "Hardwin",
     "email": "vhardwin2g@timesonline.co.uk",
     "phone_number": "3869394645",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 90,
@@ -807,7 +1206,11 @@
     "last_name": "Cannavan",
     "email": "hcannavan2h@jalbum.net",
     "phone_number": "3944060393",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 91,
@@ -816,7 +1219,12 @@
     "last_name": "McCay",
     "email": "rmccay2i@pagesperso-orange.fr",
     "phone_number": "4264927581",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 92,
@@ -825,7 +1233,11 @@
     "last_name": "Showte",
     "email": "rshowte2j@ustream.tv",
     "phone_number": "8015591172",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 93,
@@ -834,7 +1246,12 @@
     "last_name": "Pashba",
     "email": "spashba2k@g.co",
     "phone_number": "7823471767",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 94,
@@ -843,7 +1260,11 @@
     "last_name": "Groundwator",
     "email": "jgroundwator2l@addtoany.com",
     "phone_number": "2537160818",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 95,
@@ -852,7 +1273,12 @@
     "last_name": "Henkmann",
     "email": "chenkmann2m@ow.ly",
     "phone_number": "4043391506",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 96,
@@ -861,7 +1287,11 @@
     "last_name": "Mulberry",
     "email": "kmulberry2n@sciencedaily.com",
     "phone_number": "7882898919",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 97,
@@ -870,7 +1300,11 @@
     "last_name": "Camillo",
     "email": "gcamillo2o@typepad.com",
     "phone_number": "4484573658",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 98,
@@ -879,7 +1313,12 @@
     "last_name": "Dunn",
     "email": "kdunn2p@amazon.co.jp",
     "phone_number": "3269746207",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 99,
@@ -888,7 +1327,12 @@
     "last_name": "Dytham",
     "email": "adytham2q@bloglovin.com",
     "phone_number": "1187016564",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 100,
@@ -897,7 +1341,11 @@
     "last_name": "Wain",
     "email": "cwain2r@theatlantic.com",
     "phone_number": "1146676186",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 101,
@@ -906,7 +1354,12 @@
     "last_name": "Cromar",
     "email": "jcromar2s@bravesites.com",
     "phone_number": "2334869243",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 102,
@@ -915,7 +1368,12 @@
     "last_name": "Davsley",
     "email": "cdavsley2t@miitbeian.gov.cn",
     "phone_number": "9673173710",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 103,
@@ -924,7 +1382,11 @@
     "last_name": "Mollindinia",
     "email": "gmollindinia2u@imdb.com",
     "phone_number": "4698933067",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 104,
@@ -933,7 +1395,12 @@
     "last_name": "Betts",
     "email": "lbetts2v@ocn.ne.jp",
     "phone_number": "1252294274",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 105,
@@ -942,7 +1409,11 @@
     "last_name": "Bisgrove",
     "email": "hbisgrove2w@hc360.com",
     "phone_number": "8899525872",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 106,
@@ -951,7 +1422,12 @@
     "last_name": "Stearn",
     "email": "kstearn2x@home.pl",
     "phone_number": "1637593467",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 107,
@@ -960,7 +1436,11 @@
     "last_name": "Cathrall",
     "email": "lcathrall2y@scribd.com",
     "phone_number": "7136546949",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 108,
@@ -969,7 +1449,12 @@
     "last_name": "Carn",
     "email": "scarn2z@geocities.jp",
     "phone_number": "8154411747",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 109,
@@ -978,7 +1463,11 @@
     "last_name": "Stogill",
     "email": "ostogill30@hud.gov",
     "phone_number": "6602466958",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 110,
@@ -987,7 +1476,11 @@
     "last_name": "Jewitt",
     "email": "ljewitt31@google.es",
     "phone_number": "5182756713",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 111,
@@ -996,7 +1489,11 @@
     "last_name": "Greetland",
     "email": "hgreetland32@yellowpages.com",
     "phone_number": "7073979861",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 112,
@@ -1005,7 +1502,12 @@
     "last_name": "Jarman",
     "email": "ajarman33@chicagotribune.com",
     "phone_number": "9292749227",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 113,
@@ -1014,7 +1516,12 @@
     "last_name": "MacCallester",
     "email": "vmaccallester34@youtube.com",
     "phone_number": "5178858743",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 114,
@@ -1023,7 +1530,12 @@
     "last_name": "Dewdney",
     "email": "jdewdney35@huffingtonpost.com",
     "phone_number": "1552705020",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 115,
@@ -1032,7 +1544,11 @@
     "last_name": "Basso",
     "email": "gbasso36@washington.edu",
     "phone_number": "1973000989",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 116,
@@ -1041,7 +1557,11 @@
     "last_name": "Bleas",
     "email": "sbleas37@edublogs.org",
     "phone_number": "2004683429",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 117,
@@ -1050,7 +1570,11 @@
     "last_name": "Aloshechkin",
     "email": "saloshechkin38@apache.org",
     "phone_number": "3713111612",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 118,
@@ -1059,7 +1583,11 @@
     "last_name": "Malinowski",
     "email": "mmalinowski39@rakuten.co.jp",
     "phone_number": "8032064538",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 119,
@@ -1068,7 +1596,11 @@
     "last_name": "Veschambes",
     "email": "kveschambes3a@prlog.org",
     "phone_number": "4005954229",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 120,
@@ -1077,7 +1609,11 @@
     "last_name": "Readhead",
     "email": "creadhead3b@oaic.gov.au",
     "phone_number": "8358822587",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 121,
@@ -1086,7 +1622,12 @@
     "last_name": "Scarman",
     "email": "escarman3c@wordpress.com",
     "phone_number": "3736147950",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 122,
@@ -1095,7 +1636,11 @@
     "last_name": "Moscone",
     "email": "hmoscone3d@hibu.com",
     "phone_number": "3572742761",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 123,
@@ -1104,7 +1649,12 @@
     "last_name": "Horning",
     "email": "jhorning3e@netlog.com",
     "phone_number": "1808187740",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 124,
@@ -1113,7 +1663,12 @@
     "last_name": "Clem",
     "email": "mclem3f@nydailynews.com",
     "phone_number": "7412855727",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 125,
@@ -1122,7 +1677,11 @@
     "last_name": "La Batie",
     "email": "jlabatie3g@auda.org.au",
     "phone_number": "4516396811",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 126,
@@ -1131,7 +1690,11 @@
     "last_name": "McAree",
     "email": "omcaree3h@elpais.com",
     "phone_number": "4462058108",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 127,
@@ -1140,7 +1703,12 @@
     "last_name": "Mabon",
     "email": "umabon3i@homestead.com",
     "phone_number": "3036882115",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 128,
@@ -1149,7 +1717,12 @@
     "last_name": "Tolefree",
     "email": "gtolefree3j@amazonaws.com",
     "phone_number": "6525360967",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 129,
@@ -1158,7 +1731,12 @@
     "last_name": "Guinnane",
     "email": "dguinnane3k@state.tx.us",
     "phone_number": "3129354383",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 130,
@@ -1167,7 +1745,12 @@
     "last_name": "Rumble",
     "email": "prumble3l@mysql.com",
     "phone_number": "8989137888",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 131,
@@ -1176,7 +1759,12 @@
     "last_name": "Dallicott",
     "email": "edallicott3m@geocities.com",
     "phone_number": "1141146614",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 132,
@@ -1185,7 +1773,12 @@
     "last_name": "MacAless",
     "email": "gmacaless3n@canalblog.com",
     "phone_number": "7425135160",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 133,
@@ -1194,7 +1787,12 @@
     "last_name": "Sherwood",
     "email": "hsherwood3o@irs.gov",
     "phone_number": "5317491109",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 134,
@@ -1203,7 +1801,11 @@
     "last_name": "Duffrie",
     "email": "cduffrie3p@umich.edu",
     "phone_number": "7578574201",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 135,
@@ -1212,7 +1814,12 @@
     "last_name": "Vasyutochkin",
     "email": "lvasyutochkin3q@ebay.com",
     "phone_number": "6273503012",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 136,
@@ -1221,7 +1828,11 @@
     "last_name": "Keavy",
     "email": "gkeavy3r@pbs.org",
     "phone_number": "5111305522",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 137,
@@ -1230,7 +1841,12 @@
     "last_name": "Gosnold",
     "email": "xgosnold3s@instagram.com",
     "phone_number": "6973753554",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 138,
@@ -1239,7 +1855,12 @@
     "last_name": "Ingley",
     "email": "ringley3t@scientificamerican.com",
     "phone_number": "7531507048",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 139,
@@ -1248,7 +1869,12 @@
     "last_name": "Ramberg",
     "email": "jramberg3u@google.cn",
     "phone_number": "5605015285",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 140,
@@ -1257,7 +1883,11 @@
     "last_name": "Rubinek",
     "email": "rrubinek3v@virginia.edu",
     "phone_number": "7079480159",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 141,
@@ -1266,7 +1896,12 @@
     "last_name": "Franey",
     "email": "jfraney3w@apple.com",
     "phone_number": "9558502038",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 142,
@@ -1275,7 +1910,11 @@
     "last_name": "Chucks",
     "email": "tchucks3x@tumblr.com",
     "phone_number": "2787654682",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 143,
@@ -1284,7 +1923,12 @@
     "last_name": "Bettlestone",
     "email": "nbettlestone3y@un.org",
     "phone_number": "9585947526",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 144,
@@ -1293,7 +1937,12 @@
     "last_name": "Kleinhaut",
     "email": "dkleinhaut3z@eventbrite.com",
     "phone_number": "4076724007",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 145,
@@ -1302,7 +1951,11 @@
     "last_name": "Gault",
     "email": "ngault40@earthlink.net",
     "phone_number": "8557213247",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 146,
@@ -1311,7 +1964,11 @@
     "last_name": "Morratt",
     "email": "pmorratt41@sourceforge.net",
     "phone_number": "4438099434",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 147,
@@ -1320,7 +1977,11 @@
     "last_name": "Scotter",
     "email": "sscotter42@nbcnews.com",
     "phone_number": "8776041878",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 148,
@@ -1329,7 +1990,12 @@
     "last_name": "Penke",
     "email": "hpenke43@ezinearticles.com",
     "phone_number": "5639887306",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 149,
@@ -1338,7 +2004,11 @@
     "last_name": "Greenroyd",
     "email": "bgreenroyd44@vkontakte.ru",
     "phone_number": "5358461249",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 150,
@@ -1347,7 +2017,11 @@
     "last_name": "Blumson",
     "email": "gblumson45@oakley.com",
     "phone_number": "3679974394",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 151,
@@ -1356,7 +2030,12 @@
     "last_name": "Rosenbush",
     "email": "rrosenbush46@salon.com",
     "phone_number": "8062165251",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 152,
@@ -1365,7 +2044,11 @@
     "last_name": "Ballance",
     "email": "sballance47@webeden.co.uk",
     "phone_number": "2696174119",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 153,
@@ -1374,7 +2057,11 @@
     "last_name": "Luscombe",
     "email": "lluscombe48@multiply.com",
     "phone_number": "2761014964",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 154,
@@ -1383,7 +2070,12 @@
     "last_name": "Lumsdaine",
     "email": "clumsdaine49@patch.com",
     "phone_number": "4544369764",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 155,
@@ -1392,7 +2084,11 @@
     "last_name": "Miskimmon",
     "email": "dmiskimmon4a@uiuc.edu",
     "phone_number": "8575421795",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 156,
@@ -1401,7 +2097,12 @@
     "last_name": "Jankin",
     "email": "rjankin4b@hexun.com",
     "phone_number": "9488237982",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 157,
@@ -1410,7 +2111,12 @@
     "last_name": "Gullivent",
     "email": "egullivent4c@people.com.cn",
     "phone_number": "4699310881",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 158,
@@ -1419,7 +2125,12 @@
     "last_name": "Johnes",
     "email": "sjohnes4d@sitemeter.com",
     "phone_number": "9062686400",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 159,
@@ -1428,7 +2139,12 @@
     "last_name": "Dudmarsh",
     "email": "adudmarsh4e@dedecms.com",
     "phone_number": "9036318831",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 160,
@@ -1437,7 +2153,12 @@
     "last_name": "Malter",
     "email": "omalter4f@elegantthemes.com",
     "phone_number": "9128483096",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 161,
@@ -1446,7 +2167,11 @@
     "last_name": "Riepel",
     "email": "driepel4g@vinaora.com",
     "phone_number": "1276675242",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 162,
@@ -1455,7 +2180,12 @@
     "last_name": "Emmison",
     "email": "temmison4h@trellian.com",
     "phone_number": "3329818894",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 163,
@@ -1464,7 +2194,12 @@
     "last_name": "Chatenet",
     "email": "lchatenet4i@nationalgeographic.com",
     "phone_number": "9312272371",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 164,
@@ -1473,7 +2208,11 @@
     "last_name": "Bourne",
     "email": "mbourne4j@amazon.com",
     "phone_number": "8691873011",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 165,
@@ -1482,7 +2221,12 @@
     "last_name": "Redgewell",
     "email": "wredgewell4k@aol.com",
     "phone_number": "5201350725",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 166,
@@ -1491,7 +2235,11 @@
     "last_name": "Scarlon",
     "email": "pscarlon4l@ask.com",
     "phone_number": "9824789293",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 167,
@@ -1500,7 +2248,11 @@
     "last_name": "Drewery",
     "email": "ddrewery4m@aol.com",
     "phone_number": "5038452276",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 168,
@@ -1509,7 +2261,11 @@
     "last_name": "Joul",
     "email": "ajoul4n@msu.edu",
     "phone_number": "2826136695",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 169,
@@ -1518,7 +2274,11 @@
     "last_name": "Aiken",
     "email": "vaiken4o@bloglovin.com",
     "phone_number": "8275092733",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 170,
@@ -1527,7 +2287,12 @@
     "last_name": "Joiris",
     "email": "kjoiris4p@noaa.gov",
     "phone_number": "3251733596",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 171,
@@ -1536,7 +2301,11 @@
     "last_name": "Oherlihy",
     "email": "noherlihy4q@mapy.cz",
     "phone_number": "9082623979",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 172,
@@ -1545,7 +2314,11 @@
     "last_name": "Vevers",
     "email": "evevers4r@flavors.me",
     "phone_number": "2157948193",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 173,
@@ -1554,7 +2327,11 @@
     "last_name": "McGooch",
     "email": "amcgooch4s@theatlantic.com",
     "phone_number": "6812699574",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 174,
@@ -1563,7 +2340,12 @@
     "last_name": "Drummond",
     "email": "edrummond4t@epa.gov",
     "phone_number": "5155850667",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 175,
@@ -1572,7 +2354,11 @@
     "last_name": "Merrisson",
     "email": "gmerrisson4u@amazon.de",
     "phone_number": "4922718370",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 176,
@@ -1581,7 +2367,12 @@
     "last_name": "O'Flannery",
     "email": "foflannery4v@deliciousdays.com",
     "phone_number": "9128096267",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 177,
@@ -1590,7 +2381,11 @@
     "last_name": "Godilington",
     "email": "lgodilington4w@linkedin.com",
     "phone_number": "4443512282",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 178,
@@ -1599,7 +2394,12 @@
     "last_name": "Stone",
     "email": "rstone4x@techcrunch.com",
     "phone_number": "7759118047",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 179,
@@ -1608,7 +2408,12 @@
     "last_name": "Cargo",
     "email": "gcargo4y@flavors.me",
     "phone_number": "4131787918",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 180,
@@ -1617,7 +2422,12 @@
     "last_name": "Ratter",
     "email": "mratter4z@psu.edu",
     "phone_number": "4502236112",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 181,
@@ -1626,7 +2436,11 @@
     "last_name": "Lightwing",
     "email": "slightwing50@vistaprint.com",
     "phone_number": "8432874202",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 182,
@@ -1635,7 +2449,11 @@
     "last_name": "Silcocks",
     "email": "tsilcocks51@bravesites.com",
     "phone_number": "9263898444",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 183,
@@ -1644,7 +2462,12 @@
     "last_name": "Dalling",
     "email": "mdalling52@tripadvisor.com",
     "phone_number": "2347766761",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 184,
@@ -1653,7 +2476,12 @@
     "last_name": "Frawley",
     "email": "sfrawley53@wikipedia.org",
     "phone_number": "2727293106",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 185,
@@ -1662,7 +2490,11 @@
     "last_name": "Joutapavicius",
     "email": "sjoutapavicius54@yahoo.com",
     "phone_number": "4037800573",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 186,
@@ -1671,7 +2503,11 @@
     "last_name": "Fere",
     "email": "gfere55@eventbrite.com",
     "phone_number": "2137096310",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 187,
@@ -1680,7 +2516,11 @@
     "last_name": "Alexsandrovich",
     "email": "dalexsandrovich56@shareasale.com",
     "phone_number": "1135266027",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 188,
@@ -1689,7 +2529,11 @@
     "last_name": "Vallow",
     "email": "jvallow57@baidu.com",
     "phone_number": "9558166158",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 189,
@@ -1698,7 +2542,11 @@
     "last_name": "Pennycock",
     "email": "rpennycock58@foxnews.com",
     "phone_number": "2609353700",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 190,
@@ -1707,7 +2555,12 @@
     "last_name": "Swindlehurst",
     "email": "bswindlehurst59@desdev.cn",
     "phone_number": "8933631403",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 191,
@@ -1716,7 +2569,11 @@
     "last_name": "Gabriel",
     "email": "lgabriel5a@barnesandnoble.com",
     "phone_number": "7735262459",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 192,
@@ -1725,7 +2582,11 @@
     "last_name": "Chisholm",
     "email": "dchisholm5b@buzzfeed.com",
     "phone_number": "6564850364",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 193,
@@ -1734,7 +2595,12 @@
     "last_name": "Annes",
     "email": "mannes5c@europa.eu",
     "phone_number": "3454696542",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 194,
@@ -1743,7 +2609,11 @@
     "last_name": "Caney",
     "email": "acaney5d@gnu.org",
     "phone_number": "8756912821",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 195,
@@ -1752,7 +2622,11 @@
     "last_name": "Borrel",
     "email": "aborrel5e@goo.ne.jp",
     "phone_number": "3283453228",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 196,
@@ -1761,7 +2635,11 @@
     "last_name": "Canland",
     "email": "bcanland5f@time.com",
     "phone_number": "7954761156",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 197,
@@ -1770,7 +2648,11 @@
     "last_name": "Blazejewski",
     "email": "gblazejewski5g@issuu.com",
     "phone_number": "5704026936",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 198,
@@ -1779,7 +2661,12 @@
     "last_name": "Lorimer",
     "email": "clorimer5h@uiuc.edu",
     "phone_number": "8733593846",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 199,
@@ -1788,7 +2675,12 @@
     "last_name": "Abramcik",
     "email": "fabramcik5i@dailymotion.com",
     "phone_number": "8771784278",
-    "status": "active"
+    "status": "active",
+
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   },
   {
     "id": 200,
@@ -1797,6 +2689,10 @@
     "last_name": "Matas",
     "email": "gmatas5j@zimbio.com",
     "phone_number": "4732418834",
-    "status": "inactive"
+    "status": "inactive",
+    "total_revenue": "$45700",
+    "redemption_points": "120",
+    "coupons_redeemed": "10",
+    "img": "static/img/users/1.png"
   }
 ]

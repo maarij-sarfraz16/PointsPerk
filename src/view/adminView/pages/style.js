@@ -151,6 +151,7 @@ const GalleryCard = Styled.nav`
 
 const UserCard = Styled.div`
   text-align: center;
+  
   .user-card{
     &.theme-list{
       .ant-card-body{
@@ -205,8 +206,10 @@ const UserCard = Styled.div`
           margin-bottom: 12px;
         }
         .card-info{
+        
           margin-bottom: 0;
           .user-meta{
+          margin:10px;
             font-size: 14px;
             strong{
               font-weight: 600;
@@ -216,10 +219,14 @@ const UserCard = Styled.div`
           .user-meta + .user-meta{
             ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 20px;
           }
+            span{
+            margin-right:10px}
         }
       }
+        
       .card__actions{
         text-align: ${({ theme }) => (theme.rtl ? 'left' : 'right')};
+       
         flex-flow: column;
         @media only screen and (max-width: 379px){
           margin-top: 15px;
@@ -227,10 +234,12 @@ const UserCard = Styled.div`
         }
         button{
           padding: 0px 19.05px;
-          min-width: 114px;
         }
       }
+
+       
     }
+     
     &.theme-grid-2{
       .ant-card-body{
         padding: 0 !important;
@@ -268,8 +277,9 @@ const UserCard = Styled.div`
       }
       .card__actions{
         @media only screen and (max-width: 1499px){
-          flex-direction: row;
+          flex-direction: column;
         }
+          
       }
     }
     &.theme-grid-3{
@@ -475,7 +485,7 @@ const UserCard = Styled.div`
       margin: -5px;
       display: flex;
       justify-content: center;
-      @media only screen and (max-width: 1499px){
+      @media only screen and (max-width: 1799px){
         flex-direction: column;
       }
       .ant-btn-white{
@@ -2282,5 +2292,5 @@ export {
   TestimonialStyleWrapper,
   SupportTopWrap,
   SupportContentWrap,
-  TermsConditionsStyle
+  TermsConditionsStyle,
 };

@@ -47,13 +47,13 @@
 </template>
 
 <script>
-import { AutoCompleteStyled } from "./style";
-import VueTypes from "vue-types";
-import { toRefs, ref, computed, defineComponent } from "vue";
-import { useStore } from "vuex";
+import { AutoCompleteStyled } from './style';
+import VueTypes from 'vue-types';
+import { toRefs, ref, computed, defineComponent } from 'vue';
+import { useStore } from 'vuex';
 
 export default defineComponent({
-  name: "AutoComplete",
+  name: 'AutoComplete',
   components: {
     AutoCompleteStyled,
   },
@@ -61,21 +61,29 @@ export default defineComponent({
     customComponent: VueTypes.bool.def(false),
     patterns: VueTypes.bool.def(false),
     patternButtons: VueTypes.bool.def(false),
-    width: VueTypes.string.def("350px"),
+    width: VueTypes.string.def('350px'),
     dataSource: VueTypes.array,
-    placeholder: VueTypes.string.def("Input here"),
+    placeholder: VueTypes.string.def('Input here'),
+    filterKey: VueTypes.oneOfType([VueTypes.string, VueTypes.array]).def('value'),
   },
   setup(props) {
-    const { dataSource } = toRefs(props);
+    const { dataSource, filterKey } = toRefs(props);
     const { state } = useStore();
-    const value = ref("");
+    const value = ref('');
     const myData = ref(dataSource.value);
     const rtl = computed(() => state.themeLayout.rtlData);
 
     const filterOption = (input, option) => {
-      return option.value.toUpperCase().startsWith(input.toUpperCase());
+      if (Array.isArray(filterKey.value)) {
+        const combinedString = filterKey.value
+          .map((key) => option[key] || '')
+          .join(' ')
+          .toUpperCase();
+        return combinedString.startsWith(input.toUpperCase());
+      } else {
+        return option[filterKey.value]?.toUpperCase().startsWith(input.toUpperCase());
+      }
     };
-
     const onSelect = () => {};
 
     return {
