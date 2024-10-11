@@ -18,7 +18,7 @@
           </Suspense>
         </a-col>
 
-        <a-col :lg="16" :md="24" :sm="24">
+        <a-col :lg="24" :md="24" :sm="24">
           <Suspense>
             <template #fallback>
               <sdCards headless>
