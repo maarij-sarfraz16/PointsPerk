@@ -17,19 +17,19 @@
             </template>
           </Suspense>
         </a-col>
-        <a-col :xs="24" :md="24">
-          <Suspense>
-            <template #fallback>
-              <sdCards headless>
-                <a-skeleton active />
-              </sdCards>
-            </template>
-            <template #default>
-              <AgencyAgentsDataTable />
-            </template>
-          </Suspense>
-        </a-col>
       </a-row>
+
+      <a-col :lg="16" :md="24" :sm="24">
+        <Suspense>
+          <template #fallback>
+            <sdCards headless>
+              <a-skeleton active />
+            </sdCards>
+          </template>
+          <template #default> <BestSeller /> </template>
+        </Suspense>
+      </a-col>
+      <AgencyAgentsDataTable />
     </Main>
   </div>
 </template>
@@ -40,7 +40,9 @@ import { useStore } from 'vuex';
 import { Main } from '../../styled';
 import { defineComponent } from 'vue';
 import { PageHeaderBanner } from '@/components/banners/Banners.vue';
+import BestSeller from './overview/BestSeller.vue';
 import AgencyAgentsDataTable from './overview/dashboard/AgencyAgentsDataTable.vue';
+
 const pageRoutes = [
   {
     path: '/admin/dashboard',
@@ -53,6 +55,7 @@ export default defineComponent({
   components: {
     Main,
     PageHeaderBanner,
+    BestSeller,
     AgencyAgentsDataTable,
   },
   setup() {
