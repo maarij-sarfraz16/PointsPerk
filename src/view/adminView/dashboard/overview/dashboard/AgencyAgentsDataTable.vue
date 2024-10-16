@@ -13,19 +13,20 @@
                     </template>
                   </a-input>
                 </div>
-                <a-select
-                  v-model:value="statusSelect"
-                  placeholder=""
-                  :style="{ width: 200 }"
-                  class="ninjadash-data-status"
-                  @change="handleStatusSelect"
-                >
+                <a-select v-model:value="statusSelect" class="ninjadash-data-status" @change="handleStatusSelect">
                   <a-select-option value="active">Active</a-select-option>
                   <a-select-option value="inactive">Inactive</a-select-option>
                 </a-select>
               </div>
               <div class="data-table-options-container">
-                <sdButton type="danger" size="sm" @click="handleClearFilters" transparented>Clear Filters</sdButton>
+                <sdButton
+                  v-if="statusSelect !== 'Status' || search"
+                  type="danger"
+                  size="sm"
+                  @click="handleClearFilters"
+                  transparented
+                  >Clear Filters</sdButton
+                >
                 <AgencyAgentsModals ref="modals" />
               </div>
             </div>
@@ -154,7 +155,59 @@ export default defineComponent({
     handleEditUser(user) {
       this.$refs.modals.showEditUserModal(user);
     },
+    convertDataToCSV(obj) {
+      const headers = [
+        'Id',
+        'Agency Name',
+        'Agency Region',
+        'Agency City',
+        'First Name',
+        'Last Name',
+        'Email',
+        'Phone Number',
+        'Status',
+        'Total Revenue',
+        'Redemption Points',
+        'Coupons Redeemed',
+      ];
 
+      const values = [
+        obj.id,
+        obj.agency.name,
+        obj.agency.region,
+        obj.agency.city,
+        obj.first_name,
+        obj.last_name,
+        obj.email,
+        obj.phone_number,
+        obj.status,
+        obj.total_revenue,
+        obj.redemption_points,
+        obj.coupons_redeemed,
+      ];
+
+      const csvContent = [headers.join(','), values.join(',')].join('\n');
+      return csvContent;
+    },
+
+    handleDownloadCSV(user) {
+      const csv = this.convertDataToCSV(user);
+      console.log('handleDownloadCSV', csv);
+      const blob = new Blob([csv], { type: 'text/csv' });
+
+      const link = document.createElement('a');
+
+      const url = URL.createObjectURL(blob);
+      link.href = url;
+      link.download = user.first_name + '_' + user.last_name + '_data';
+
+      document.body.appendChild(link);
+
+      link.click();
+
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    },
     formatTable(table) {
       return table.map((item) => {
         return {
@@ -202,9 +255,16 @@ export default defineComponent({
               <div class={'text-truncate'}>{item.phone_number}</div>
             </a-tooltip>
           ),
+
           status: <span class={`ninjadash-status ninjadash-status-${item.status}`}>{item.status}</span>,
           action: (
             <div class={'table-actions-col'}>
+              <a-tooltip placement="bottom" title="Export User Data">
+                <sdButton size="sm" transparented type="success" onClick={() => this.handleDownloadCSV(item)}>
+                  <unicon name="file-download-alt"></unicon>
+                </sdButton>
+              </a-tooltip>
+
               <a-tooltip placement="bottom" title="Delete User">
                 <sdButton size="sm" transparented type="danger" onClick={() => this.handleDeleteUser(item)}>
                   <unicon name="trash-alt"></unicon>
