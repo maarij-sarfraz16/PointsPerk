@@ -10,7 +10,7 @@
       @ok="handleAddUser"
       @cancel="closeAddUserModal"
     >
-      <a-form ref="formRef" :model="newAgent" :rules="rules" layout="vertical">
+      <a-form ref="formRef" style="max-height: 50vh; overflow-y:auto ;"  :model="newAgent" :rules="rules" layout="vertical">
         <a-form-item label="First Name" name="first_name">
           <a-input v-model:value="newAgent.first_name" placeholder="Enter First Name" />
         </a-form-item>
@@ -56,7 +56,7 @@
       @ok="handleEditUser"
       @cancel="closeEditUserModal"
     >
-      <a-form ref="formRef" :model="selectedAgent" :rules="rules" layout="vertical">
+      <a-form ref="formRef" style="max-height: 50vh; overflow-y:auto;"  :model="selectedAgent" :rules="rules" layout="vertical">
         <a-form-item label="First Name" name="first_name">
           <a-input v-model:value="selectedAgent.first_name" placeholder="Enter First Name" />
         </a-form-item>
