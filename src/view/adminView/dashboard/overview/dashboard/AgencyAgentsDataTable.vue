@@ -25,8 +25,9 @@
                   size="sm"
                   @click="handleClearFilters"
                   transparented
-                  >Clear Filters</sdButton
                 >
+                  Clear Filters
+                </sdButton>
                 <AgencyAgentsModals ref="modals" />
               </div>
             </div>
@@ -76,7 +77,6 @@ export default defineComponent({
           align: 'center',
           ellipsis: true,
         },
-
         {
           title: 'Last Name',
           dataIndex: 'last_name',
@@ -85,33 +85,6 @@ export default defineComponent({
           align: 'center',
           ellipsis: true,
         },
-        {
-          title: 'Agency Name',
-          key: 'agency.name',
-          customRender: ({ record }) => (record.agency ? record.agency.name : 'N/A'),
-          width: '150px',
-          align: 'center',
-
-          ellipsis: true,
-        },
-        {
-          title: 'Agency Region',
-          key: 'agency.region',
-          customRender: ({ record }) => (record.agency ? record.agency.region : 'N/A'),
-          width: '150px',
-          align: 'center',
-
-          ellipsis: true,
-        },
-        {
-          title: 'Agency City',
-          key: 'agency.city',
-          customRender: ({ record }) => (record.agency ? record.agency.city : 'N/A'),
-          width: '150px',
-          align: 'center',
-          ellipsis: true,
-        },
-
         { title: 'Email', dataIndex: 'email', key: 'email', width: '150px', align: 'center', ellipsis: true },
         {
           title: 'Contact',
@@ -140,7 +113,7 @@ export default defineComponent({
   },
 
   methods: {
-    ...mapActions('agencyAgents', ['fetchAgencyAgentsData', 'filterAgencyAgentsData', 'deleteUser']),
+    ...mapActions('agencyAgents', ['fetchAgencyAgentsData', 'filterAgencyAgentsData', 'deleteUser', 'updateUserStatus']),
 
     handleDeleteUser(user) {
       this.deleteUser(user.id)
@@ -148,19 +121,30 @@ export default defineComponent({
           this.$message.success('User Deleted successfully!');
         })
         .catch(() => {
-          this.$message.error('Error Occured While Deleting User');
+          this.$message.error('Error Occurred While Deleting User');
         });
     },
 
     handleEditUser(user) {
       this.$refs.modals.showEditUserModal(user);
     },
+
+    handleChangeUserStatus(user) {
+      const newStatus = user.status === 'inactive' ? 'active' : 'inactive';
+
+      this.updateUserStatus({ userId: user.id, newStatus })
+        .then(() => {
+          this.$message.success(`User status changed to ${newStatus}`);
+          this.fetchAgencyAgentsData(); 
+        })
+        .catch(() => {
+          this.$message.error('Error occurred while updating user status');
+        });
+    },
+
     convertDataToCSV(obj) {
       const headers = [
         'Id',
-        'Agency Name',
-        'Agency Region',
-        'Agency City',
         'First Name',
         'Last Name',
         'Email',
@@ -173,9 +157,6 @@ export default defineComponent({
 
       const values = [
         obj.id,
-        obj.agency.name,
-        obj.agency.region,
-        obj.agency.city,
         obj.first_name,
         obj.last_name,
         obj.email,
@@ -208,33 +189,11 @@ export default defineComponent({
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
     },
+
     formatTable(table) {
       return table.map((item) => {
         return {
           id: item.id,
-          agency: {
-            name: item.agency ? (
-              <a-tooltip placement="bottom" title={`${item.agency.name}`}>
-                <div class={'text-truncate'}>{item.agency.name}</div>
-              </a-tooltip>
-            ) : (
-              'N/A'
-            ),
-            region: item.agency ? (
-              <a-tooltip placement="bottom" title={`${item.agency.region}`}>
-                <div class={'text-truncate'}>{item.agency.region}</div>
-              </a-tooltip>
-            ) : (
-              'N/A'
-            ),
-            city: item.agency ? (
-              <a-tooltip placement="bottom" title={`${item.agency.city}`}>
-                <div class={'text-truncate'}>{item.agency.city}</div>
-              </a-tooltip>
-            ) : (
-              'N/A'
-            ),
-          },
           first_name: (
             <a-tooltip placement="bottom" title={`${item.first_name}`}>
               <div class={'text-truncate'}>{item.first_name}</div>
@@ -255,7 +214,6 @@ export default defineComponent({
               <div class={'text-truncate'}>{item.phone_number}</div>
             </a-tooltip>
           ),
-
           status: <span class={`ninjadash-status ninjadash-status-${item.status}`}>{item.status}</span>,
           action: (
             <div class={'table-actions-col'}>
@@ -265,9 +223,17 @@ export default defineComponent({
                 </sdButton>
               </a-tooltip>
 
-              <a-tooltip placement="bottom" title="Delete User">
-                <sdButton size="sm" transparented type="danger" onClick={() => this.handleDeleteUser(item)}>
-                  <unicon name="trash-alt"></unicon>
+              <a-tooltip
+                placement="bottom"
+                title={item.status === 'inactive' ? 'Activate User' : 'Deactivate User'}
+              >
+                <sdButton
+                  size="sm"
+                  transparented
+                  type={item.status === 'inactive' ? 'success' : 'danger'}
+                  onClick={() => this.handleChangeUserStatus(item)}
+                >
+                  {item.status === 'inactive' ? 'Activate User' : 'Deactivate User'}
                 </sdButton>
               </a-tooltip>
 
@@ -281,6 +247,7 @@ export default defineComponent({
         };
       });
     },
+
     handleSearch() {
       console.log('handleSearch Function', this.search);
       if (this.search) {
@@ -291,15 +258,18 @@ export default defineComponent({
         this.filterAgencyAgentsData({ searchTerm: null, status: this.statusSelect });
       }
     },
+
     handleStatusSelect(status) {
       this.statusSelect = status;
       this.checkFlag = true;
       this.filterAgencyAgentsData({ searchTerm: this.search, status });
     },
+
     handleClearFilters() {
       this.checkFlag = false;
       this.statusSelect = 'Status';
-      this.searchTerm = '';
+      this.search = '';
+      this.filterAgencyAgentsData({ searchTerm: null, status: 'Status' }); 
     },
   },
 
@@ -309,7 +279,10 @@ export default defineComponent({
 });
 </script>
 
+
+
 <style scoped>
+
 .status-select {
   display: flex;
 }
